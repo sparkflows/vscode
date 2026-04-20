@@ -9,7 +9,7 @@ A VS Code Copilot skill that creates and updates Sparkflows workflows from plain
 
 - **Python 3.8+** —[ ](https://www.python.org/downloads/)[download here](https://www.python.org/downloads/)
 
-`requests`** library**: \
+`requests` **library** : \
  pip install requests
 
 - **GitHub Copilot** extension installed and signed in to VS Code
