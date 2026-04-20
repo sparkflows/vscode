@@ -1,0 +1,27 @@
+{
+  "id": "11",
+  "name": "Rest API Client",
+  "description": "Rest API Client node create the dataframe from the json response.",
+  "type": "shellcommand",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.util.NodeRestClient",
+  "fields" : [
+    {"name":"url", "value":"", "widget": "textfield", "title": "URL", "description": "Rest API URL",  "required": true},
+
+    {"name": "httpMethod", "value":"", "widget": "array", "title": "HTTP Method", "optionsArray": ["POST","GET", "PUT"], "description": "", "required": true},
+
+    {"name": "httpHeadersKeys", "value":"[]", "widget": "key_array", "title": "Headers Name", "description": "Header Names"},
+    {"name": "httpHeadersValues", "value":"[]", "widget": "value_array", "title": "Headers Value", "description": "Header Values"},
+
+    {"name":"httpBody", "value":"", "widget": "textarea_small", "title": "HTTP Body", "description": "HTTP Body"},
+
+    {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names", "description": "New Output Columns of the SQL"},
+
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types", "description": "Data Type of the Output Columns"},
+
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats", "description": "Format of the Output Columns"}
+  ]
+}
+

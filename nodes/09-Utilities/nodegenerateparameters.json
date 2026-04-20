@@ -1,0 +1,11 @@
+{
+  "id": "11",
+  "name": "Generate Dynamic Parameters",
+  "description": "This node create dynamic parameters for each column and value. ParameterName is ColumnName and Parameter Value in value from first row.",
+  "type": "shellcommand",
+  "nodeClass": "fire.nodes.util.NodeGenerateDynamicParameter",
+  "fields" : [
+    {"name":"inputCols", "value":"[]", "widget": "variables", "title": "Input Columns",
+      "description": "Column Name to generate dynamic parameters"}
+  ]
+}

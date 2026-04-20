@@ -1,0 +1,15 @@
+{
+  "id": "5",
+  "name": "Markov Chain",
+  "description": "",
+  "engine": "pyspark",
+  "type": "transform",
+
+  "nodeClass": "fire.nodes.markov_chain.NodeMarkovChain",
+  "fields" : [
+    {"name":"transition_path_column", "value":"", "widget": "variable", "title": "Select Transition Path Column", "description": "Select Transition Path Column"}
+  ]
+}
+
+
+

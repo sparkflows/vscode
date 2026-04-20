@@ -1,0 +1,61 @@
+{
+  "id": "3",
+  "name": "Bubble Chart",
+  "description": "A bubble chart is used to visualize a data set with two to four dimensions",
+  "type": "transform",
+  "iconImage": "assets/images/icons/node-icon/bubble_chart.svg",
+  "nodeClass": "fire.nodes.graph.NodeBubbleChart",
+  "fields": [
+    {"name":"title","value":"Bubble Chart","widget":"textfield","title":"Title","size":"50%"},
+    {"name":"titleColor","value":"#2563EB","widget":"textcolors","title":"Title Color","size":"50%"},
+
+    {"name":"description","value":"","widget":"textareafield","title":"Description"},
+    {"name":"descriptionColor","value":"#6D6E70","widget":"textcolors","title":"Description Color","size":"50%"},
+
+    {"name":"maxValuesToDisplay","value":"20","widget":"textfield","title":"Max Values To Display",
+      "description":"Maximum number of values to display in result",
+      "required":true,
+      "size":"50%"},
+
+    {"name":"isStreaming","value":"false","widget":"array","title":"Is Streaming?",
+      "optionsArray":["true","false"],
+      "description":"Whether the Graph is a Streaming Graph or not",
+      "datatypes":["boolean"],
+      "size":"50%"},
+
+    {"name":"chartColors","value":"","widget":"colors","title":"Chart Colors","size":"50%"},
+
+    {"name":"bubbles","value":"","widget":"variable","datatypes":["string"],
+      "title":"Bubbles label",
+      "description":"Name of the bubble",
+      "size":"50%"},
+
+    {"name":"xCoordinate","value":"","widget":"variable",
+      "datatypes":["integer","double"],
+      "title":"X coordinate",
+      "required":true,
+      "description":"X coordinate",
+      "size":"50%"},
+
+    {"name":"yCoordinate","value":"","widget":"variable",
+      "datatypes":["integer","double"],
+      "title":"Y coordinate",
+      "required":true,
+      "description":"Y coordinate",
+      "size":"50%"},
+
+    {"name":"color","value":"","widget":"variable",
+      "title":"Bubbles color",
+      "description":"Representing a color of bubble",
+      "size":"50%"},
+
+    {"name":"size","value":"","widget":"variable",
+      "datatypes":["integer","double"],
+      "title":"Bubbles size",
+      "description":"Representing size of bubble",
+      "size":"50%"},
+
+    {"name":"xlabel","value":"","widget":"textfield","title":"X Label","size":"50%"},
+    {"name":"ylabel","value":"","widget":"textfield","title":"Y Label","size":"50%"}
+  ]
+}

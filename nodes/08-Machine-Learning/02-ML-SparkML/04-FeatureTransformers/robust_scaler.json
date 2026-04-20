@@ -1,0 +1,13 @@
+{
+  "id": "4",
+  "name": "Robust Scaler",
+  "description": "RobustScaler removes the median and scales the data according to the quantile range",
+  "type": "ml-estimator",
+  "nodeClass": "fire.nodes.ml.NodeRobustScaler",
+  "fields" : [
+    {"name":"inputCol", "value":"", "widget": "variable", "title": "Input Column", "required":"true","datatypes":["vectorudt"], "description": "Column containing input"},
+    {"name": "outputCol", "value":"", "widget": "textfield", "title": "Output Column", "required":"true", "description": "Output column names"},
+    {"name": "withCentering", "value":"", "widget": "array","optionsArray": ["true","false"],"datatypes":["boolean"], "title": "withCentering", "required":"true", "description": "Output column names"},
+    {"name": "withScaling", "value":"", "widget": "array","optionsArray": ["true","false"], "datatypes":["boolean"],"title": "withScaling", "required":"true", "description": "Output column names"}
+  ]
+}

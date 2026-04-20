@@ -1,0 +1,24 @@
+{
+  "id": "1",
+  "name": "Join On Common Columns",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/join_node_2more_input_1output.svg",
+  "description": "This node joins the incoming dataframes on 1 or more columns",
+  "input": "It takes in 2 or more DataFrames as input and produces one DataFrame as output by joining on the specified columns",
+  "output": "The output DataFrame produced as a result of joining the incoming DataFrames on the specified columns",
+  "type": "join",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.etl.NodeJoinUsingColumns",
+  "inputAnchors": [{"name": "multiInput","title": "MI"}],
+  "fields" : [
+    {"name":"joinCols", "value":"", "widget": "variables_common", "title": "Common Join Columns", "description": "Space separated list of columns on which to join",  "required": true},
+    {"name":"joinType", "value":"inner", "widget": "array", "optionsArray": ["inner", "outer", "left_outer", "right_outer", "leftsemi"], "title": "Join Type", "description": "Type of Join"},
+
+    {"name":"whereClause", "value":"", "widget": "textarea_small", "title": "Where Clause", "description": "where condition after join function"},
+    {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Output Column Names", "description": "Name of the Output Columns"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Output Column Types", "description": "Data Type of the Output Columns"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Output Column Formats", "description": "Format of the Output Columns"}
+
+  ]
+}

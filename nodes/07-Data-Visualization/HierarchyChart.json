@@ -1,0 +1,32 @@
+{
+  "id": "3",
+  "name": "Hierarchy Chart",
+  "type": "transform",
+  "engine": "scala",
+  "iconImage": "assets/images/icons/node-icon/heirarchy_chart.svg",
+  "nodeClass": "fire.nodes.graph.NodeHierarchyChart",
+  "fields": [
+    {"name":"title","value":"Hierarchy Chart","widget":"textfield","title":"Title","size":"50%"},
+    {"name":"titleColor","value":"#2563EB","widget":"textcolors","title":"Title Color","size":"50%"},
+
+    {"name":"description","value":"","widget":"textareafield","title":"Description"},
+    {"name":"descriptionColor","value":"#6D6E70","widget":"textcolors","title":"Description Color","size":"50%"},
+
+    {"name":"xlabel","value":"","widget":"textfield","title":"X Label","size":"50%"},
+    {"name":"maxValuesToDisplay","value":"20","widget":"textfield","title":"Max Values To Display",
+      "description":"Maximum number of values to display in result.",
+      "required":true,
+      "size":"50%"},
+
+    {"name":"chartColors","value":"","widget":"colors","title":"Chart Colors","size":"50%"},
+
+    {"name":"xCol","value":"","widget":"variable",
+      "title":"X Column",
+      "datatypes":["integer","long","double","float"],
+      "required":true,
+      "size":"50%"},
+
+    {"name":"yCols","value":"[]","widget":"variables",
+      "title":"Hierarchy Columns"}
+  ]
+}

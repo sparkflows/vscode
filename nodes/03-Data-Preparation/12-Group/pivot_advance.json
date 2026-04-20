@@ -1,0 +1,27 @@
+{
+  "id": "6",
+  "name": "Pivot By Advanced",
+  "description": "Pivot Node with advanced options",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/pivot_by.svg",
+  "type": "transform",
+  "engine": "scala",
+  "nodeClass": "fire.nodes.etl.NodePivotAdvance",
+  "fields": [
+    {"name": "groupingCols", "value": "[]", "widget": "variables", "title": "Grouping Columns", "description": "Select one or more columns to group the data by. These columns will form the rows in the pivot table, categorizing the data (e.g., by Department or Region)."},
+    {"name": "pivotCol", "value": "", "widget": "variable", "title": "Pivot Column", "description": "Choose the column whose unique values will be turned into new columns in the pivot table (e.g., Location, creating columns like 'New York' and 'New Jersey'). This is required for pivoting.", "required": "true"},
+    {"name": "uniqueValues", "value": "", "widget": "textareafield", "title": "Unique Values", "description": "Enter a comma-separated list of unique values expected in the Pivot Column (e.g., 'New York,New Jersey'). This is optional but recommended for better performance, as it avoids the need for Spark to calculate distinct values automatically."},
+    {"name": "aggregateCol", "value": "", "widget": "variable", "title": "Aggregate Column", "description": "Select the column to perform aggregations on (e.g., Salary for summing totals, or Names for concatenating lists). This column provides the values that will be summarized in the pivot table cells."},
+    {"name": "aggregateOperations", "value": "[]", "widget": "array_multiple",
+      "optionsArray": [ "sum", "avg", "min", "max", "count", "count_distinct", "concat", "first", "last", "count_with_nulls", "count_distinct_with_nulls", "percent_row", "percent_col", "total_row", "total_col" ],
+      "title": "Aggregate Operation to use", "description": "Choose one or more aggregation functions to apply to the Aggregate Column. Options include sum (total), avg (average), min, max, count (non-null), count_distinct (unique non-null), concat (join strings), first, last, count_with_nulls (all rows), count_distinct_with_nulls (unique including nulls), percent_row (% of row), percent_col (% of column), total_row (add total row), total_col (add total column)."},
+    {"name": "options", "value": "", "widget": "tab", "title": "Options"},
+    {"name": "caseInsensitive", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Case Insensitive Grouping", "description": "Enable this to make grouping case-insensitive (e.g., 'New York' and 'new york' treated as the same). Default is false, meaning case-sensitive grouping."},
+    {"name": "retainSpecialChars", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Retain Special Characters", "description": "If set to true, keep special characters (like #, *, spaces) in the new column names created from pivot values. If false (default), replace them with underscores for cleaner, compatible column names."},
+    {"name": "concatSeparator", "value": ",", "widget": "textfield", "title": "Concatenation Separator", "description": "Specify the separator to use when concatenating strings with the 'concat' operation (e.g., ',' or '; '). Only applies if 'concat' is selected in Aggregate Operations. Default is ','."},
+    {"name": "maxConcatLength", "value": "2048", "widget": "textfield", "title": "Field Size (Max Characters)", "description": "Set the maximum number of characters for concatenated strings. If the result exceeds this length, it will be truncated, and a warning will be logged. Default is 2048."},
+    {"name": "schema", "value": "", "widget": "tab", "title": "InferSchema"},
+    {"name": "outputColNames", "value": "[]", "widget": "schema_col_names", "title": "Column Names of the Table", "description": "Specify the names for the output columns. If left empty, names will be inferred automatically from the pivot operation."},
+    {"name": "outputColTypes", "value": "[]", "widget": "schema_col_types", "title": "Column Types of the Table", "description": "Define the data types for the output columns (e.g., String, Integer). If not provided, types will be inferred."},
+    {"name": "outputColFormats", "value": "[]", "widget": "schema_col_formats", "title": "Column Formats", "description": "Set custom formats for the output columns (e.g., date formats like 'yyyy-MM-dd'). Optional; used for formatting display or output."}
+  ]
+}

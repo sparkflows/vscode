@@ -1,0 +1,12 @@
+{
+  "id": "7",
+  "name": "Run Python Code",
+  "description": "This node executes the given python code.",
+  "type": "dataset",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.etl.NodeRunPythonCode",
+  "fields" : [
+    {"name":"code",  "display": true, "value":"",
+      "description":"Python Code.","required":"true", "widget": "textarea_large", "type": "python", "title": "Python"}
+  ]
+}

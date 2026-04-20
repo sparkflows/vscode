@@ -1,0 +1,13 @@
+{
+  "id": "11",
+  "name": "Null Values In Column",
+  "iconImage": "assets/images/icons/node-icon/column.svg",
+  "description": "Number of Null Values in Selected Columns.",
+  "type": "transform",
+  "outputAnchors": [{"name": "input","title": "I"},{"name": "output","title": "O"}],
+  "nodeClass": "fire.nodes.etl.NodeNullValuesInColumn",
+  "fields" : [
+    {"name":"inputCols", "value": "[]", "widget": "variables", "title": "Column Names",
+      "description": "Name of columns for Number of Null Values Check", "required": true}
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "11",
+  "name": "Zip With Index",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/row_numbering.svg",
+  "description": "This node Generates a new column with unique Index/Value for each row in the Dataset",
+  "input": "",
+  "engine": "scala,pyspark",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeZipWithIndex",
+  "fields" : [
+
+    {"name":"indexColName", "value": "", "widget": "textfield", "title": "Index Column Name",
+      "description": "Index column name", "required": false}
+
+
+  ]
+}

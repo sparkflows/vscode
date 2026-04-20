@@ -1,0 +1,17 @@
+{
+  "id": "7",
+  "name": "Compare Specific Columns",
+  "iconImage": "assets/images/icons/node-icon/column.svg",
+  "description": "Compares 2 incoming DataFrames on specific columns. Outputs 3 DataFrames (A-B), (B-A), (A intersection B)",
+  "type": "join",
+  "nodeClass": "fire.nodes.etl.NodeCompareSpecificColumns",
+  "inputAnchors": [{"name": "First","title": "F"},{"name": "Second","title": "S"}],
+  "outputAnchors": [{"name": "First","title": "F"},{"name": "Second","title": "S"},{"name": "Common","title": "C"}],
+
+  "fields" : [
+
+    {"name":"columnsToCompare", "value":"[]", "widget": "variables","required":true,
+      "title": "Columns to Compare", "description": "Columns to be used in the comparison"}
+
+  ]
+}

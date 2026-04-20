@@ -1,0 +1,16 @@
+{
+    "id": "6",
+    "name": "Web Scraper",
+    "description": "Scrapes Webpages",
+    "input": "It takes in a DataFrame as input",
+    "output": "",
+    "type": "transform",
+    "engine": "pyspark",
+    "nodeClass": "fire.nodes.gai.NodeWebScraper",
+    "fields" : [
+        {"name":"site",  "display": true, "value":"", "widget": "textfield", "title": "Webpage to Crawl", "description": "URL of the webpage to scrape. Used when the target website is provided as a static value."},
+        {"name":"siteCol",  "display": true, "value":"", "widget": "variable", "title": "Webpage to Crawl", "description": "Column containing webpage URLs to be scraped dynamically for each input row."},
+        {"name": "scrape_recursively", "value":"false", "widget": "array", "title": "Scrape Recursively", "optionsArray": ["true","false"], "description": "When enabled, recursively follows and scrapes linked child pages starting from the root URL. When disabled, only the specified page is scraped.", "datatypes":["boolean"]},
+        {"name": "limit", "value":"5", "widget": "textfield", "title": "Depth", "description": "Maximum number of pages or links to process when recursive scraping is enabled. Acts as a safeguard against unbounded crawling.", "datatypes":["integer"]}
+    ]
+}

@@ -1,0 +1,73 @@
+{
+  "id": "8",
+  "name": "Azure AI Search Retrieve",
+  "description": "Retrieve the most relevant knowledge from Azure AI Search using vector, keyword, or hybrid retrieval.",
+  "input": "It takes in a DataFrame as input",
+  "output": "",
+  "type": "pyspark",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeAzureAISearchRetrieve",
+
+  "fields": [
+    {
+      "name": "azureSearchConnection",
+      "value": "",
+      "widget": "object_array",
+      "title": "Select Azure AI Search Connection",
+      "description": "Select the configured Azure AI Search connection containing endpoint and API key."
+    },
+
+    {
+      "name": "topK",
+      "value": "5",
+      "widget": "textfield",
+      "title": "Top K",
+      "description": "Number of nearest neighbor documents to retrieve per query.",
+      "size":"50.0%"
+
+    },
+
+
+
+    {
+      "name": "indexName",
+      "value": "docs-index",
+      "widget": "textfield",
+      "title": "Index Name",
+      "description": "Name of the Azure AI Search index to query.",
+      "size":"50.0%"
+
+    },
+
+    {
+      "name": "userQueryCol",
+      "value": "userQuery",
+      "widget": "variable",
+      "title": "User Query Column",
+      "description": "Column containing the raw user query text.",
+      "size":"50.0%"
+
+    },
+
+    {
+      "name": "queryEmbeddingCol",
+      "value": "embeddings",
+      "widget": "variable",
+      "title": "Query Embedding Column",
+      "description": "Column containing precomputed query embeddings used for vector search.",
+      "size":"50.0%"
+
+    },
+
+    {
+      "name": "retrievalMode",
+      "value": "hybrid",
+      "widget": "array",
+      "optionsArray": ["vector", "keyword", "hybrid"],
+      "title": "Retrieval Mode",
+      "description": "Defines the retrieval strategy: pure vector, keyword search, or hybrid (default).",
+      "size":"50.0%"
+
+    }
+  ]
+}

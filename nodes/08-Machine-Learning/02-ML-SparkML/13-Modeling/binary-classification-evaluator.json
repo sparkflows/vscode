@@ -1,0 +1,46 @@
+{
+  "id": "5",
+  "name": "Binary Classification Evaluator",
+  "description": "Evaluator for binary classification, which expects two input columns: rawPrediction and label.",
+
+  "output": "It outputs the Probability for each class",
+
+  "type": "ml-evaluator",
+  "engine": "scala",
+  "nodeClass": "fire.nodes.ml.NodeBinaryClassificationEvaluator",
+  "fields" : [
+    {
+      "name": "useChampion",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": ["true", "false"],
+      "title": "Use Champion Model",
+      "description": "Uses Champion Model UUID to Update Metrics Over Time Graph under Models Page."
+    },
+    {"name":"modelUUID", "display": true, "value":"", "widget": "textfield", "title": "Model UUID", "description": "Enter the model uuid","wdgtCommon": "useChampion", "toggle": "false"},
+
+    {"name":"labelCol", "value":"", "required":true, "widget": "variable", "title": "Label Column", "description":"The label column for model fitting.","datatypes":["double"]},
+
+    {"name":"predictionCol", "value":"", "widget": "variable", "title": "Prediction Column", "description": "The prediction column.", "datatypes":["double"]},
+
+    
+    {"name": "confusionMatrix", "value":"", "widget": "tab", "title": "Confusion Matrix"},
+    {"name": "output_confusion_matrix_chart", "value":"false", "widget": "array", "title": "Output Confusion Matrix Chart", "optionsArray": ["false","true"], "description": "Whether to display Confusion Matrix Chart." ,"datatypes":["boolean"]},
+    {"name": "cmChartTitle", "value":"Confusion Matrix Chart", "widget": "textfield", "title": "Confusion Matrix Chart Title", "description": "Title name to display in Confusion Matrix Chart"},
+    {"name": "cmChartDescription", "value":"Visual Representation of Predicted vs. Actual Classes", "widget": "textfield", "title": "Confusion Matrix Chart Description", "description": "Description to display in Confusion Matrix Chart"},
+    {"name": "confusionMatrixTargetLegend", "value":"Target", "widget": "textfield", "title": "Confusion Matrix Target Legend", "description": "Legend name to display for Target in Confusion Matrix"},
+    {"name": "confusionMatrixPredictedLabelLegend", "value":"PredictedLabel", "widget": "textfield", "title": "Confusion Matrix PredictedLabel Legend", "description": "Legend name to display for Predicted Label in Confusion Matrix"},
+    {"name": "Description", "value":"", "widget": "tab", "title": "Confusion Matrix Description"},
+    {"name": "path", "value":"", "widget": "textfield", "title": "Save Confusion Matrix Path", "description": "Save Confusion Matrix","wdgtCommon": "output_confusion_matrix_chart", "toggle": "true"},
+
+
+    {"name": "confusionMatrixRowDescription", "value":"", "widget": "textarea_rich", "title": "Confusion Matrix Outcome description", "description": "Add the business details of the outcome of the confusion matrix rows"},
+    {"name": "ROC Curve", "value":"", "widget": "tab", "title": "ROC Curve"},
+    {"name": "output_roc_chart", "value":"false", "widget": "array", "title": "Output ROC Curve", "optionsArray": ["false","true"], "description": "Whether to display confusion matrix chart." ,"datatypes":["boolean"]},
+    {"name": "roc_title", "value":"Receiver operating characteristic (ROC) curve", "widget": "textfield", "title": "ROC Curve Chart Title", "description": "Title name to display in ROC Curve Chart"},
+    {"name": "roc_description", "value":"Receiver operating characteristic (ROC) curve", "widget": "textfield", "title": "ROC Curve Chart Description", "description": "Add Description for ROC Curve Chart"},
+    {"name": "xlabel", "value":"False Positive Rate (specificity)", "widget": "textfield", "title": "X Label", "description": "X label"},
+    {"name": "ylabel", "value":"True Positive Rate (sensitivity)", "widget": "textfield", "title": "Y Label", "description": "Y Label"}
+
+  ]
+}

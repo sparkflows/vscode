@@ -1,0 +1,19 @@
+{
+  "id": "5",
+  "name": "VAR",
+  "description": "",
+  "input" : "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "ml-estimator",
+
+  "nodeClass": "fire.nodes.ts.NodeStatsModelVAR",
+  "fields" : [
+
+    {"name": "maxlags", "value":"", "widget": "textfield", "title": "MaxLags", "description": "Maximum number of lags to check for order selection, defaults to 12 * (nobs/100.)**(1./4), see select_order function"},
+    {"name": "method", "value":"ols", "widget": "textfield", "title": "Method", "description": "Estimation method to use."},
+    {"name": "ic", "value":"", "widget": "array", "title": "Information Criterion", "optionsArray": ["aic", "fpe", "hqic", "bic"], "description": "Information criterion to use for VAR order selection. They can be aic:Akaike, fpe:Final prediction error, hqic:Hannan-Quinn, bic:Bayesian"},
+    {"name": "trend", "value":"c", "widget": "array", "title": "Trend", "optionsArray": ["c", "ct", "ctt", "nc", "n"], "description": "One of these trends can be used c:add constant, ct:constant and trend, ctt:constant,linear and quadratic trend, n:no constant and no trend"}
+
+  ]
+}

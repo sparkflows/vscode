@@ -1,0 +1,23 @@
+{
+  "id": "11",
+  "name": "Window Aggregation",
+  "description": "This node calculates the moving values of selected functions for the field(input column).",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/window_function.svg",
+  "input": "It accepts a DataFrame as input from the previous Node",
+  "output": "A new columns is added which contains the results of applying the selected function on the given column of the input DataFrame",
+  "engine": "scala,pyspark",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeMovingWindowFunctions",
+  "fields" : [
+    {"name":"partitionCol", "value": "", "widget": "variable", "title": "Partition Column Name", "description": "partition column to split the incoming dataframe for the sliding/window operation"},
+
+    {"name":"orderCol", "value": "", "widget": "variable", "title": "Order Column Name", "description": "the order of the selected column for the sliding/window operation", "required": false},
+	 {"name":"inputCols", "value": "[]", "widget": "variables_list_select", "title": "Input Columns",
+      "description": "input column name for calc", "required": true,  "datatypes":["integer", "long", "double", "float"]},
+    {"name": "functions", "value":"[]", "widget": "variables_list_array",
+      "optionsArray": ["avg", "min", "max", "stddev", "variance", "skewness", "kurtosis", "coefficient_of_variation", "range", "rms", "sum"], "title": "Functions", "description": ""},
+    {"name": "advanced", "value":"", "widget": "tab", "title": "Advanced"},
+    {"name":"windowStart", "value": -1, "widget": "textfield", "title": "Window Start", "description": "value to be used to calculate the window from"},
+    {"name":"windowEnd", "value": 1, "widget": "textfield", "title": "Window End", "description": "value to be used to calculate the window to"}
+  ]
+}

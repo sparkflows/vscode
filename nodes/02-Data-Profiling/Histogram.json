@@ -1,0 +1,19 @@
+{
+  "id": "11",
+  "name": "Histogram",
+  "description": "Computes a histogram of the data using number of bins evenly spaced between the minimum and maximum of the specific columns.",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/histogram.svg",
+  "type": "transform",
+  "nodeClass": "fire.nodes.ml.NodeHistoGramCal",
+  "engine": "scala,pyspark",
+  "fields" : [
+    {"name": "title", "value":"", "widget": "textfield", "title": "Title", "description": "Title"},
+    {"name":"titleColor", "value":"#2563EB", "widget": "textcolors", "title": "Title Color"},
+    {"name":"description", "value":"", "widget": "textareafield", "title": "Description"},
+    {"name":"descriptionColor", "value":"#6D6E70", "widget": "textcolors", "title": "Description Color"},
+    {"name":"chartColors", "value":"", "widget": "colors", "title": "Chart Colors"},
+    {"name":"inputCols", "value":"", "widget": "variable", "title": "Column Name", "description": "Name of column", "datatypes":["double", "integer", "long"]},
+
+    {"name":"bins", "value":"10", "widget": "textfield", "title": "Number of Bins", "description": "Number of Bins", "datatypes":["integer"]}
+  ]
+}

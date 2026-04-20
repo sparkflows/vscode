@@ -1,0 +1,38 @@
+{
+  "id": "3",
+  "name": "Graph Values",
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "iconImage": "assets/images/icons/node-icon/graph_values.svg",
+  "nodeClass": "fire.nodes.graph.NodeGraphValues",
+  "fields" : [
+    {"name":"title", "value":"Graph Values", "widget": "textfield", "title": "Title"},
+    {"name":"titleColor", "value":"#2563EB", "widget": "textcolors", "title": "Title Color"},
+    {"name":"description", "value":"", "widget": "textareafield", "title": "Description"},
+    {"name":"descriptionColor", "value":"#6D6E70", "widget": "textcolors", "title": "Description Color"},
+    {"name":"xlabel", "value":"", "widget": "textfield", "title": "X Label"},
+    {"name":"ylabel", "value":"", "widget": "textfield", "title": "Y Label"},
+    {"name":"maxValuesToDisplay", "value": "20", "widget": "textfield", "title": "Max Values To Display",
+      "description": "Maximum number of values to display in result.", "required": true},
+
+    {"name":"graphType", "value":"COLUMNCHART", "widget": "enum", "title": "Chart Type",
+          "optionsMap":{"LINECHART":"Line Chart","COLUMNCHART":"Column Chart",
+                       "BARCHART":"Bar Chart", "PIE":"Pie Chart", "DONUT":"Donut Chart", "SCATTERCHART": "Scatter Chart",
+                      "DUALLINECHART":"Dual Line Chart","AREACHART":"Area Chart"}},
+
+    {"name":"chartColors", "value":"", "widget": "colors", "title": "Chart Colors"},
+
+    {"name": "isStreaming", "value":"false", "widget": "array", "title": "Is Streaming?",
+          "optionsArray": ["true","false"], "description": "Whether the Graph is a Streaming Graph or not", "datatypes":["boolean"],  "size":"33.3%"},
+    {"name": "isAnnotation", "value":"false", "widget": "array", "title": "Is Annotation?",
+          "optionsArray": ["true","false"], "description": "If annotation is enabled, the value will be displayed above the point or bar.", "datatypes":["boolean"],  "size":"33.3%"},
+    {"name":"markerSize", "value":"6", "widget": "textfield", "title": "Marker size",  "size":"33.3%"},
+    {"name":"xCol", "value":"", "widget": "variable", "title": "X Column", "required":true},
+    {"name": "xSortCol", "value":"true", "widget": "array", "title": "Sort on X Column?",
+      "optionsArray": ["true","false"], "description": "Whether to Sort on X column or not", "datatypes":["boolean"]},
+
+    {"name":"yCols", "value":"[]", "widget": "variables", "datatypes":["integer", "long", "double", "float"], "title": "Y Columns", "required":true},
+    {"name":"ySortCol", "value":"", "widget": "variable", "datatypes":["integer", "long", "double", "float"], "title": "Y Sort Column"},
+    {"name":"reNameYColumns", "value":"[]", "widget": "variables_selected", "title": "Rename Y Columns"}
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "id": "4",
+  "name": "LDA",
+  "description": "Latent Dirichlet Allocation (LDA) is a topic modeling algorithm that discovers latent topics in a corpus of documents represented as term-frequency vectors.",
+
+  "input": "It takes in a DataFrame as input and performs LDA",
+  "output": "LDA Model is passed to the next Node for Prediction or Storing",
+
+  "type": "ml-estimator",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.ml.NodeLDA",
+  "fields" : [
+
+    {"name": "featuresCol", "value":"", "widget": "variable", "title": "Features Column",
+      "description": "Vector column representing documents, where each entry corresponds to the term count for a word in the vocabulary.", "datatypes":["vectorudt"], "size":"50%"},
+
+    {"name": "k", "value":10, "widget": "textfield","title": "K", "description": "Number of latent topics to be inferred from the corpus.", "datatypes":["integer"], "size":"50%"},
+
+    {"name": "maxIter", "value":20, "widget": "textfield", "title": "Max Iterations", "description": "Maximum number of iterations for topic model training.", "datatypes":["integer"], "size":"50%"},
+
+    {"name": "optimizer", "value":"online", "widget": "array","title": "Optimizer","optionsArray": ["online","em"],
+      "description": "Inference algorithm used to estimate the LDA model. Online optimizer is scalable for large corpora, while EM provides exact inference for smaller datasets.", "size":"50%"},
+
+    {"name": "topicDistributionCol", "value":"topicDistribution", "widget": "textfield", "title": "TopicDistributionColumn",
+      "description": "Output column containing the topic probability distribution for each document.", "size":"50%"},
+
+    {"name": "docConcentration", "value":0.01, "widget": "textfield","title": "Doc Concentration",
+      "description": "Dirichlet prior for document-topic distributions. Smaller values encourage sparse topic assignments per document.", "size":"50%"},
+
+    {"name": "checkpointInterval", "value":10, "widget": "textfield", "title": "checkpointInterval",
+      "description": "Number of iterations between checkpoints. Use -1 to disable checkpointing.", "size":"50%"},
+
+    {"name": "subsamplingRate", "value":0.05, "widget": "textfield","title": "subsamplingRate",
+      "description": "Fraction of the corpus sampled in each iteration for online optimization. Value must be in the range (0, 1].", "size":"50%"},
+
+    {"name": "seed", "value":"", "widget": "textfield", "title": "Seed",
+      "description": "Random seed for reproducible topic modeling results.", "datatypes":["long"], "size":"50%"},
+
+    {"name": "maxTermsPerTopic", "value":"", "widget": "textfield", "title": "MaxTermsPerTopic",
+      "description": "Number of top-ranked terms to display or retain per topic.", "datatypes":["int"], "size":"50%"},
+
+    {"name": "keepLastCheckpoint", "value":"true", "widget": "array", "title": "Keep Last Checkpoint",
+      "optionsArray": ["true","false"], "description": "Indicates whether the final checkpoint should be retained after training.", "datatypes":["boolean"], "size":"50%"},
+
+    {"name": "optimizeDocConcentration", "value":"false", "widget": "array", "title": "Optimize Doc Concentration",
+      "optionsArray": ["true","false"], "description": "Specifies whether the document concentration parameter should be automatically optimized during training.", "datatypes":["boolean"], "size":"50%"}
+  ]
+}

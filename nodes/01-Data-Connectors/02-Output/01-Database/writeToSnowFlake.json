@@ -1,0 +1,28 @@
+{
+  "id": "11",
+  "name": "Write To Snowflake",
+  "iconImage": "assets/images/icons/node-icon/Snowflake.svg",
+  "description": "",
+  "input": "The Dataframe from the previous node",
+  "output": "The incoming Dataframe is passed to the next node as it is",
+  "engine": "scala,pyspark",
+  "type": "transform",
+  "nodeClass": "fire.nodes.snowflake.NodeWriteToSnowFlake",
+  "fields" : [
+   {"name":"authType", "value":"UserCredential", "widget": "array", "title": "Auth Type", "description": "Authentication Type. Possible value is OAUTH or USER_CREDENTIAL or KEYPAIR" ,"required":"true","optionsArray": ["UserCredential","OAuth","KeyPair"]},
+    {"name":"connection", "value":"", "widget": "object_array", "title": "Connection", "description": "The Snowflake connection to connect" ,"required":"true"},
+    {"name":"sfWarehouse", "value":"", "widget": "textfield", "title": "Snowflake Warehouse", "description": "Warehouse for connecting to the Snowflake" ,"required":"true"},
+
+    {"name":"sfDatabase", "value":"", "widget": "textfield", "title": "Snowflake Database", "description": "Database for connecting to the Snowflake" ,"required":"true"},
+    {"name":"sfSchema", "value":"", "widget": "textfield", "title": "Snowflake Schema", "description": "Schema for connecting to the Snowflake" ,"required":"true"},
+    {"name":"dbtable", "value":"", "widget": "textfield", "title": "Snowflake Table", "required":"true", "description": "Snowflake Table from which to write the data"},
+    {"name":"columnMapping", "value":"Order", "widget": "array","optionsArray": ["Order","Name"], "title": "Column Mapping", "description": "The connector must map columns from the Spark data frame to the Snowflake table"},
+    {"name":"saveMode", "value":"Append", "widget": "array","optionsArray": ["Append","Overwrite", "ErrorIfExists", "Ignore"],
+      "title": "Save Mode", "description":"Whether to Append, Overwrite or Error if the table Exists"},
+
+    {"name": "properties", "value": "", "widget": "tab", "title": "Properties"},
+    {"name": "extraOptionsKeys", "value":"[]", "widget": "key_array", "title": "Properties Name", "description": "Extra options/properites available while executing in WriteToSnowFlake."},
+    {"name": "extraOptionsValues", "value":"[]", "widget": "value_array", "title": "Properties Value", "description": "Config Values for the Corresponding properites name" }
+
+  ]
+}

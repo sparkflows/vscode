@@ -1,0 +1,52 @@
+{
+  "id": "3",
+  "name": "Scatter Chart",
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "iconImage": "assets/images/icons/node-icon/scatter_chart.svg",
+  "nodeClass": "fire.nodes.graph.NodeScatterChart",
+  "fields": [
+    {"name":"title","value":"Scatter Chart","widget":"textfield","title":"Title","size":"50%"},
+    {"name":"titleColor","value":"#2563EB","widget":"textcolors","title":"Title Color","size":"50%"},
+
+    {"name":"description","value":"","widget":"textareafield","title":"Description"},
+    {"name":"descriptionColor","value":"#6D6E70","widget":"textcolors","title":"Description Color","size":"50%"},
+
+    {"name":"xlabel","value":"","widget":"textfield","title":"X Label","size":"50%"},
+    {"name":"ylabel","value":"","widget":"textfield","title":"Y Label","size":"50%"},
+
+    {"name":"maxValuesToDisplay","value":"20","widget":"textfield","title":"Max Values To Display",
+      "description":"Maximum number of values to display in result.",
+      "required":true,
+      "size":"50%"},
+
+    {"name":"chartColors","value":"","widget":"colors","title":"Chart Colors","size":"50%"},
+
+    {"name":"material","value":"false","widget":"array","title":"Material Chart",
+      "optionsArray":["true","false"],
+      "description":"Select true will use material design",
+      "datatypes":["boolean"],
+      "size":"50%"},
+
+    {"name":"dualAxis","value":"false","widget":"array","title":"Dual axis",
+      "optionsArray":["true","false"],
+      "description":"Display axis on both side",
+      "datatypes":["boolean"],
+      "size":"50%"},
+
+    {"name":"xCol","value":"","widget":"variable","title":"X Column","required":true,"size":"50%"},
+
+    {"name":"yCols","value":"[]","widget":"variables",
+      "datatypes":["integer","long","double","float"],
+      "title":"Y Columns",
+      "required":true},
+
+    {"name":"ySortCol","value":"","widget":"variable",
+      "datatypes":["integer","long","double","float"],
+      "title":"Y Sort Column",
+      "size":"50%"},
+
+    {"name":"reNameYColumns","value":"[]","widget":"variables_selected",
+      "title":"Rename Y Columns"}
+  ]
+}

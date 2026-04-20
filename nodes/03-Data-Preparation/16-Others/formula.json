@@ -1,0 +1,16 @@
+{
+  "id": "11",
+  "name": "Formula",
+  "description": "test",
+  "input" : "It accepts a DataFrame as input from the previous Node",
+  "output": "The incoming DataFrame is sent to the output",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeFormula",
+  "fields" : [
+    {"name": "outputCol", "value":"", "required":"true", "widget": "textfield", "title": "Output Column", "description": ""},
+
+    {"name": "functionsArray", "value": "Conditional", "widget": "array", "optionsArray": ["Conditional", "Conversion", "DateTime", "Math", "Min/Max", "Operators", "String"], "title": "Functions", "description": ""},
+
+    {"name":"formula", "value":"", "widget": "textarea_small", "title": "Formula", "description": "", "required": true}
+  ]
+}

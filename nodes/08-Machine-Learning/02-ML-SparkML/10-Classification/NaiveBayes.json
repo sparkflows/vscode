@@ -1,0 +1,26 @@
+{
+  "id": "5",
+  "name": "Naive Bayes",
+  "description": "Naive Bayes is a probabilistic classification algorithm based on Bayes’ theorem. It is commonly used for text classification, document categorization, and other scenarios involving discrete or binary features.",
+
+  "type": "ml-estimator",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.ml.NodeNaiveBayes",
+  "fields" : [
+    {"name": "featuresCol", "value":"", "widget": "variable", "title": "Features Column", "description": "Vector column containing non-negative feature values used to estimate class probabilities.", "datatypes":["vectorudt"], "size":"50%"},
+
+    {"name": "labelCol", "value":"", "widget": "variable", "title": "Label Column", "description": "Target column representing the actual class or category the model is trained to predict.", "datatypes":["double"], "size":"50%"},
+
+    {"name": "predictionCol", "value":"", "widget": "textfield", "title": "Prediction Column", "description": "Name of the column where predicted class labels are written after model scoring.", "size":"50%"},
+
+    {"name": "splitRatio", "value":1.0, "widget": "textfield", "title": "Split Ratio", "description": "Controls how the dataset is divided between training and validation for performance evaluation.", "datatypes":["float"], "size":"50%"},
+
+    {"name":"path", "value":"", "widget": "textfield", "title": "Path", "description": "File system location where the confusion matrix output is stored for reporting or auditing.", "size":"50%"},
+
+    {"name": "modelType", "value":"multinomial", "widget": "array", "title": "modelType", "optionsArray": ["multinomial","bernoulli"], "description": "Defines the Naive Bayes variant used for training. Multinomial is suited for count-based data, while Bernoulli is suited for binary features.", "size":"50%"},
+
+    {"name": "smoothing", "value":"1.0", "widget": "textfield", "title": "Smoothing", "description": "Smoothing parameter used to handle zero-frequency problems and improve probability estimation stability.", "size":"50%"},
+
+    {"name": "weightCol", "value":"", "widget": "variable", "title": "Weight Column", "description": "Optional column specifying the relative importance of records during model training.", "datatypes":["double"], "size":"50%"}
+  ]
+}

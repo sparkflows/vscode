@@ -1,0 +1,11 @@
+{
+  "id": "4",
+  "name": "MaxAbs Scaler",
+  "description": "Rescale each feature individually to range [-1, 1] by dividing through the largest maximum absolute value in each feature.",
+  "type": "ml-estimator",
+  "nodeClass": "fire.nodes.ml.NodeMaxAbsScaler",
+  "fields" : [
+    {"name":"inputCol", "value":"", "widget": "variable", "title": "Input Column","datatypes":["vectorudt"], "required":"true", "description": "Column containing input"},
+    {"name": "outputCol", "value":"", "widget": "textfield", "title": "Output Column", "required":"true", "description": "Output column names"}
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "1236",
+  "name": "Select",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/select.svg",
+  "description": "The ultimate column selector - pick, rename, cast, drop, and propagate columns with pixel-perfect control. Perfect for cleaning messy inputs, preparing clean datasets for BI tools, models, or downstream pipelines, and enforcing consistent schemas.",
+  "input": "It takes a DataFrame as input.",
+  "output": "DataFrame with selected, renamed, and optionally type-cast columns.",
+  "type": "transform",
+  "engine": "scala,pyspark,polars",
+  "nodeClass": "fire.nodes.etl.NodeSelect",
+  "fields": [
+    {"name": "General", "value":"", "widget": "tab", "title": "General"},
+    {"name": "inputCols", "value":"[]", "widget": "variables_list_select", "title": "Columns",
+      "description": "Columns you explicitly want to keep in the output. Drag to reorder - the order here becomes the final column order (super useful for reports!)."},
+    {"name": "renameCols", "value":"[]", "widget": "variables_list_textfield", "title": "Rename",
+      "description": "New names for the selected columns. Leave blank to keep original name. Example: old_name To CustomerID, AmountUSD To Revenue."},
+    {"name": "colType", "value":"[]", "widget": "variables_list_array",
+      "optionsArray": ["BOOLEAN", "BYTE", "DATE", "DECIMAL", "DOUBLE", "FLOAT", "INTEGER", "LONG", "SHORT", "STRING", "TIMESTAMP"],
+      "title": "Change Data Type",
+      "description": "Force cast each selected column to the correct type. Critical for fixing string To date, string To integer issues from CSV/Excel sources."},
+    {"name": "drop", "value":"", "widget": "tab", "title": "Drop and Options"},
+    {
+      "name": "dropInputCols",
+      "value": "[]",
+      "widget": "variables",
+      "title": "Drop Columns",
+      "description": "Columns you want to completely remove from the output. Great for PII, internal IDs, or junk fields."
+    },
+    {
+      "name": "inputColumnPropagation",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": ["true", "false"],
+      "title": "Enable Input Column Propagation",
+      "description": "When true To all columns NOT listed in 'Columns' and NOT in 'Drop Columns' are automatically passed through. Perfect when you only want to rename/cast a few columns and keep everything else untouched."
+    }
+  ]
+}

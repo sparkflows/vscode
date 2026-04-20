@@ -1,0 +1,28 @@
+{
+  "id": "11",
+  "name": "Cast To Different Types-2",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/cast_nodes.svg",
+  "description": "This node creates a new DataFrame by casting the specified columns into new types",
+  "input": "This type of node takes in a DataFrame and transforms it to another DataFrame",
+  "output": "This node casts the data type of columns as specified",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeMultiCastColumnType2",
+  "fields" : [
+
+    {"name": "inputColNames", "value":"[]", "widget": "variables_list_select", "title": "Columns", "description": "Columns"},
+
+    {"name":"outputColTypes", "value":"[]",
+      "widget": "variables_list_array",
+      "optionsArray": ["BOOLEAN", "BYTE", "DATE", "DECIMAL", "DOUBLE", "FLOAT", "INTEGER", "LONG", "SHORT", "STRING", "TIMESTAMP"],
+      "title": "New Data Type", "description": "New data type(INTEGER, DOUBLE, STRING, LONG, SHORT)"},
+
+    {"name":"replaceExistingCols", "value":"[]",
+      "widget": "variables_list_array",
+      "optionsArray": ["true", "false"],
+      "title": "Replace Existing Cols", "description": "Whether to replace existing Columns or create New Ones"},
+      
+    {"name": "formats", "value":"[]", "widget": "variables_list_textfield",
+          "title": "Formats", "description": "Formats like yyy-MM-dd used in input & output. Use precision,scale for Decimal Type (Eg. 12,3)."}
+
+  ]
+}

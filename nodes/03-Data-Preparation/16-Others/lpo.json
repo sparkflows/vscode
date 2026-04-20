@@ -1,0 +1,11 @@
+{
+  "id": "7",
+  "name": "Linear Programming Optimisation",
+  "description": "",
+  "type": "pyspark2inputs",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.lpo.NodeLinearProgrammingOptimisation",
+  "fields" : [
+    {"name": "objective", "value":"Maximize", "widget": "array", "title": "Objective", "optionsArray": ["Maximize", "Minimize"], "description": "Minimise or Maximise the objective function?"}
+  ]
+}

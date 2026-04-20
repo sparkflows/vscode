@@ -1,0 +1,22 @@
+{
+  "id": "6",
+  "name": "String Functions",
+  "description": "String Functions Multiple",
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.etl.NodeStringFunctionsMultiple",
+  "fields" : [
+
+    {"name": "inputCols", "value":"[]", "widget": "variables_list_select", "title": "Columns", "description": "Columns",
+      "datatypes":["string"], "required": true},
+
+    {"name": "functions", "value":"[]", "widget": "variables_list_array",
+      "optionsArray": ["trim", "upper", "lower", "lefttrim","righttrim","removewhitespace"],
+      "title": "Function", "description": "String Function to apply", "required": true},
+
+    {"name": "replaceExistingCols", "value":"[]", "widget": "variables_list_array",
+      "optionsArray": ["true", "false"],
+      "title": "Replace Existing Cols", "description": "Whether to replace the existing columns or create new ones", "required": true}
+
+  ]
+}

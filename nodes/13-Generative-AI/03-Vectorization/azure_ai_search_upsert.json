@@ -1,0 +1,111 @@
+{
+  "id": "7",
+  "name": "Azure AI Search Upsert",
+  "description": "This process involves indexing document embeddings into Azure AI Search for efficient vector-based similarity search and retrieval.",
+  "input": "It may take in Dataframe as an input",
+  "output": "Save data to Azure AI Search Index",
+  "type": "pyspark",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeAzureAISearchUpsert",
+
+  "fields": [
+    {
+      "name": "azureSearchConnection",
+      "value": "",
+      "widget": "object_array",
+      "title": "Select Azure AI Search Connection",
+      "description": "Select the configured Azure AI Search connection that provides endpoint and API key."
+    },
+
+    {
+      "name": "idCol",
+      "value": "",
+      "widget": "variable",
+      "title": "ID Column",
+      "description": "Column containing a unique identifier for each document or chunk. Used as the primary key in Azure AI Search.",
+      "size":"33.33%"
+    },
+
+    {
+      "name": "contentCol",
+      "value": "",
+      "widget": "variable",
+      "title": "Select Content Column",
+      "description": "Column containing the original text or document content to be indexed in Azure AI Search.",
+      "size":"33.33%"
+
+    },
+
+    {
+      "name": "embeddingCol",
+      "value": "",
+      "widget": "variable",
+      "title": "Select Embeddings Column",
+      "description": "Column containing vector embeddings to be stored in Azure AI Search. Must match the configured vector dimensions.",
+      "size":"33.33%"
+
+    },
+
+
+
+    {
+      "name": "indexName",
+      "value": "docs-index",
+      "widget": "textfield",
+      "title": "Index Name",
+      "description": "Name of the Azure AI Search index where embeddings will be stored. If the index does not exist, it will be created automatically.",
+      "size":"50.0%"
+
+    },
+
+    {
+      "name": "namespace",
+      "value": "docs-v1",
+      "widget": "textfield",
+      "title": "Namespace",
+      "description": "Optional logical namespace used to segment or version indexed documents.",
+      "size":"50.0%"
+
+    },
+
+    {
+      "name": "dimension",
+      "value": "1536",
+      "widget": "textfield",
+      "title": "Dimensions",
+      "description": "Dimensionality of the embedding vectors. Must exactly match the embedding model used.",
+      "size":"33.33%"
+
+    },
+
+    {
+      "name": "algorithm",
+      "value": "hnsw",
+      "widget": "array",
+      "optionsArray": ["hnsw", "exhaustive"],
+      "title": "Vector Algorithm",
+      "description": "Vector indexing algorithm used by Azure AI Search.",
+      "size":"33.33%"
+
+    },
+    {
+      "name": "upsertMode",
+      "value": "mergeOrUpload",
+      "widget": "array",
+      "optionsArray": ["mergeOrUpload", "overwrite"],
+      "title": "Upsert Mode",
+      "description": "Defines how documents are written. Merge updates existing records, overwrite replaces them.",
+      "size":"33.33%"
+
+    },
+    {
+      "name": "metadataCols",
+      "value": "[]",
+      "widget": "variables",
+      "title": "Metadata Columns",
+      "description": "Optional columns to store as metadata alongside each vector (e.g. title, source, page, category)."
+    }
+
+
+  ]
+}

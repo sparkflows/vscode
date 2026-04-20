@@ -1,0 +1,19 @@
+{
+  "id": "5",
+  "name": "VarForecast",
+  "description": "",
+  "input" : "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "ml-predict",
+
+  "nodeClass": "fire.nodes.ts.NodeVarForecast",
+  "fields" : [
+
+    {"name": "isValidation", "value":"false", "widget": "array", "title": "Is Validation", "optionsArray": ["false","true"], "description": "When isValidation is true, pass the validation dataframe."},
+
+    {"name": "steps", "value":1, "widget": "textfield", "title": "Steps", "description": "forecast number."}
+
+
+  ]
+}

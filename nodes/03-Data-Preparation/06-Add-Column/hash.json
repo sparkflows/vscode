@@ -1,0 +1,19 @@
+{
+  "id": "11",
+  "name": "Data Masking",
+  "description": "This node adds a new column which contains the Hash of the specified columns",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/hash.svg",
+  "input" : "It accepts a DataFrame as input from the previous Node",
+  "output": "A new column is added to the incoming DataFrame by creating a Hash of the specified input columns.",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeHash",
+  "fields" : [
+    {"name":"inputCols", "value": "[]", "widget": "variables", "title": "Columns", "required": true, "description": "Columns to be concatenated"},
+    {"name":"hashingAlgorithm", "value":"SHA1", "widget": "array", "title": "Hashing Algorithm",
+      "optionsArray": ["MD5", "SHA2"],
+      "description" :"Hashing Algorithm"},
+    {"name":"outputCol", "value": "", "widget": "textfield", "title": "Output Column Name", "required": true, "description": "Column name for Hash"},
+    {"name":"bitLength", "value": "", "widget": "textfield", "title": "Bit Length", "description": "Bit Length"},
+    {"name":"sep", "value": ",", "widget": "textfield", "title": "Separator", "description": "Separator to be used when concatenating the columns"}
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "7",
+  "name": "Min Max Scaler",
+  "type": "ml-estimator",
+  "description": "MinMaxScaler transforms a dataset of Vector rows, rescaling each feature to a specific range (often [0, 1])",
+
+  "input": "It takes in a DataFrame as input and transforms it to another DataFrame",
+  "output": "A new column containing the scaled features is added to the incoming DataFrame",
+
+  "nodeClass": "fire.nodes.ml.NodeMinMaxScaler",
+  "fields" : [
+    {"name":"inputCol", "value":"", "widget": "variable", "title": "Input Column ","required": true, "datatypes":["vectorudt"], "description": "The input column name"},
+
+    {"name":"outputCol", "value":"", "widget": "textfield", "title": "Output Column", "required": true, "datatypes":["vectorudt"], "description": "The output column name"},
+
+    {"name":"max", "value":"1.0", "widget": "textfield", "title": "Max", "required": true, "datatypes":["double"], "description": "The upper bound after transformation, shared by all features"},
+
+    {"name":"min", "value":"0.0", "widget": "textfield", "title": "Min", "required": true, "datatypes":["double"], "description": "The lower bound after transformation, shared by all features"}
+
+  ]
+}

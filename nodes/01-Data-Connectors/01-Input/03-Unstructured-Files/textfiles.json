@@ -1,0 +1,16 @@
+{
+  "id": "2",
+  "name": "Text Files",
+  "description": "Reads Text Files from a given path and loads each line as a separate row",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/text.svg",
+  "type": "dataset",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.dataset.NodeDatasetTextFiles",
+  "fields" : [
+    {"name":"path",  "display": true, "value":"", "widget": "textfield", "title": "Path", "description": "Path of the Text file/directory"},
+    {"name":"outputCol", "value":"lines", "widget": "textfield", "title": "Output Column Name",
+     "description": "Text Lines Column in the Output DataFrame"
+    },
+    {"name": "addInputFileName", "value":"false", "widget": "array", "title": "Add Input File Name", "optionsArray": ["false","true"],"description": "Add the new field:input_file_name"}
+  ]
+}

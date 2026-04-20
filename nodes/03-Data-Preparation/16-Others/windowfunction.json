@@ -1,0 +1,107 @@
+{
+  "id": "3",
+  "name": "Window Function",
+  "description": "This node applies window functions to the input DataFrame, allowing operations like ranking, analytical, and aggregate functions over specified windows.",
+   "iconImage": "assets/images/icons/node-icon/latest-nodes/window_function.svg",
+  "input": "It takes one DataFrame as input from the previous node.",
+  "output": "This node outputs a DataFrame with additional columns computed from the window functions.",
+  "type": "transform",
+  "engine": "scala,polars",
+  "nodeClass": "fire.nodes.etl.NodeWindowFunctionsAdvanced",
+  "fields": [
+    {"name": "PartitionBy", "value":"", "widget": "tab", "title": "PartitionBy"},
+
+    {"name":"partitionCols", "value": "[]", "widget": "variables", "title": "Partition Column Names", "description": "List of columns to partition by", "size": "60%"},
+
+    {"name": "order", "value":"", "widget": "tab", "title": "OrderBy"},
+    {
+      "name": "orderCols",
+      "value": "[]",
+      "widget": "variables_list_select",
+      "title": "Order Columns",
+      "description": "List of columns to order by", "placeholder": "select the column name"
+    },
+    {
+      "name": "orderDirections",
+      "value": "[]",
+      "widget": "variables_list_array",
+      "optionsArray": ["ASC", "DESC"],
+      "title": "Order Directions",
+      "description": "Directions (ASC: ascending  or DESC: descending) corresponding to each order column",
+      "placeholder": "select the order"
+    },
+
+    {"name": "frame", "value":"", "widget": "tab", "title": "Frame"},
+    {
+      "name": "useFrame",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": ["false", "true"],
+      "title": "Specify Frame",
+      "description": "Unselecting this uses default frame specifications"
+    },
+
+    {
+      "name": "frameType",
+      "value": "ROW",
+      "widget": "array",
+      "optionsArray": ["ROW", "RANGE"],
+      "title": "Frame Type",
+      "description": "Type of frame: ROW for row-based, RANGE for value-based", "wdgtCommon":"useFrame", "toggle":"true"
+    },
+
+    {"name": "Frame Boundaries", "value": "", "widget": "header", "title": "Frame Boundaries", "wdgtCommon":"useFrame", "toggle":"true"},
+    {
+      "name": "frameStart",
+      "value": "UNBOUNDED_PRECEDING",
+      "widget": "array",
+      "optionsArray": ["UNBOUNDED_PRECEDING", "PRECEDING", "FOLLOWING", "CURRENT_ROW"],
+      "title": "Frame Start",
+      "description": "Select Start boundary type",
+      "wdgtCommon":"useFrame", "toggle":"true", "size": "50%"
+    },
+
+    {
+      "name": "frameEnd",
+      "value": "CURRENT_ROW",
+      "widget": "array",
+      "optionsArray": ["CURRENT_ROW", "UNBOUNDED_FOLLOWING","PRECEDING", "FOLLOWING"],
+      "title": "Frame End",
+      "description": "Select End boundary type",
+      "wdgtCommon":"useFrame", "toggle":"true", "size": "50%"
+    },
+
+    {"name":"frameStartValue",  "value":"", "widget": "textfield", "title": "Start Value",
+      "description":"Number of rows (e.g., 3 means \"3 PRECEDING\")", "wdgtCommon":"frameStart", "toggle":"PRECEDING,FOLLOWING",
+      "size": "50%"},
+
+    {"name":"frameEndValue",  "value":"", "widget": "textfield", "title": "End Value",
+      "description":"Number of rows (e.g., 2 means \"2 FOLLOWING\")", "wdgtCommon":"frameEnd", "toggle":"PRECEDING,FOLLOWING",
+      "size": "50%"},
+
+    {"name": "windowUses", "value":"", "widget": "tab", "title": "Window Use"},
+
+    {"name": "windowTargetColumns", "value":"[]", "widget": "key_array",
+      "title": "Target Column", "description": "Name of the column that will contain the values returned from the expression(s).",
+      "placeholder": "add the column name", "type": "sparksql"},
+
+    {"name": "windowExpressionsArr", "value":"[]", "widget": "value_array",
+      "title": "Expression", "description": "Window function expression to apply over the window frame",
+      "placeholder": "add expression concat(column1, column2)"},
+
+    {"name": "postWindow", "value":"", "widget": "tab", "title": "Post Window"},
+
+    {"name": "postTargetColumn", "value":"[]", "widget": "key_array",
+      "title": "Target Column", "description": "Output Column Name", "type": "sparksql", "placeholder": "add the column name" },
+
+    {"name": "postTargetExpression", "value":"[]", "widget": "value_array",
+      "title": "Expression", "description": "Expression to create new columns",
+       "placeholder": "add expression concat(column1, column2)"},
+
+    {"name": "end", "value": "", "widget": "line", "title": "end"},
+
+    {"name":"dropColumns", "value":"[]", "widget": "textArray","title": "Drop Columns", "description": "Enter the column names needs to be dropped",
+     "placeholder": "add the column name & press enter."}
+
+  ]
+}

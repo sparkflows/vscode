@@ -1,0 +1,16 @@
+{
+  "id": "4",
+  "name": "Sklearn Model Save To S3",
+
+  "description": "Saves the Sklearn model generated at the specified path in S3 in pickle format.",
+
+  "input": "It takes in a Model and DataFrame as input.",
+  "output": "The incoming dataframe is passed to the output.",
+
+  "engine": "pyspark",
+  "type": "ml-modelsave",
+  "nodeClass": "fire.nodes.sklearn.NodeSklearnModelSaveToS3",
+  "fields" : [
+    {"name":"path", "value":"", "widget": "textfield", "title": "Path", "required": true}
+  ]
+}

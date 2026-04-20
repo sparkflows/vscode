@@ -1,0 +1,32 @@
+{
+  "id": "5",
+  "name": " Scheduling Optimization",
+  "description": "Node to optimize production scheduling in manufacturing environments by incorporating preventive maintenance and handling operational uncertainties. This ensures efficient utilization of resources, cost savings, and improved decision-making.",
+  "input" : "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "transform",
+
+  "nodeClass": "fire.nodes.lpo.NodeSchedulingOptimisation",
+  "fields" : [
+      {"name": "objective", "value":"Minimum Number of Machines Used", "widget": "array", "title": "Objective", "description": "Objective" ,"required":"true","optionsArray": ["Minimize Makespan","Minimize Total Production Time","Minimize Total Start Times","Minimum Number of Machines Used"]},
+      {"name": "solver_time", "value": "300", "widget": "textfield", "title": "Solver Time", "description": "Solver Time","required":"true"},
+      {"name": "task_col_name", "value": "", "widget": "variable", "title": "Task Column Name", "description": "Task Column Name ","required":"true"},
+      {"name": "task_desc_col_name", "value": "", "widget": "variable", "title": "Task Description Column Name", "description": "Task Column Name ","required":"true"},
+      {"name": "mc_col_name", "value": "", "widget": "variable", "title": "Machine Column Name", "description": "Machine Column Name ","required":"true"},
+      {"name": "mc_desc_col_name", "value": "", "widget": "variable", "title": "Machine Description Column Name", "description": "Machine Description Column Name ","required":"true"},
+      {"name": "duration_col_name", "value": "", "widget": "variable", "title": "Duration Column Name", "description": "Duration Column Name ","required":"true"},
+      {"name": "gap_col_name", "value": "", "widget": "variable", "title": "Gap Column Name", "description": "Gap Column Name ","required":"true"},
+      {"name": "task_earliest_col_name", "value": "", "widget": "variable", "title": "Earliest Start Column Name", "description": "Earliest Start Column Name ","required":"true"},
+      {"name": "task_latest_col_name", "value": "", "widget": "variable", "title": "Latest End Column Name", "description": "Latest End Column Name ","required":"true"},
+      {"name": "prev_task_col_name", "value": "", "widget": "variable", "title": "Previous Task Column Name", "description": "Previous Task Column Name ","required":"true"},
+      {"name": "current_task_col_name", "value": "", "widget": "variable", "title": "Current Task Column Name", "description": "Current Task Column Name ","required":"true"},
+      {"name": "task_weight_col_name", "value": "", "widget": "variable", "title": "Weight Column Name", "description": "Weight Column Name ","required":"true"},
+      {"name": "mc_first_available_col_name", "value": "", "widget": "variable", "title": "First Available Time Column Name", "description": "First Available Time Column Name ","required":"true"},
+      {"name": "mc_last_available_col_name", "value": "", "widget": "variable", "title": "Last Available Time Column Name", "description": "Last Available Time Column Name ","required":"true"},
+      {"name": "mc_setup_time_col_name", "value": "", "widget": "variable", "title": "Setup Time Column Name", "description": "Setup Time Column Name ","required":"true"}
+  ]
+}
+
+
+

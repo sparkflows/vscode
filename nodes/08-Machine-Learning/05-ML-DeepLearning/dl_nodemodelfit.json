@@ -1,0 +1,51 @@
+{
+  "id": "5",
+  "name": "Keras Model Fit",
+  "description": "",
+  "input" : "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "ml-estimator",
+
+  "nodeClass": "fire.nodes.dl.NodeModelFit",
+  "fields" : [
+
+    {"name": "targetCol", "value":"", "widget": "variable", "title": "Target Column", "description": "The label column for model fitting"},
+
+    {"name": "batch_size", "value": -1, "widget": "textfield", "title": "Batch Size", "description": "Default value is None i.e -1"},
+
+    {"name": "epochs", "value": 1, "widget": "textfield", "title": "Epochs", "description": ""},
+
+    {"name": "verbose", "value": 1, "widget": "textfield", "title": "Verbose", "description": ""},
+
+    {"name": "callbacks", "value": -1, "widget": "textfield", "title": "Callbacks", "description": "Default value is None i.e -1"},
+
+    {"name": "validation_split", "value": 0, "widget": "textfield", "title": "Validation Split", "description": ""},
+
+    {"name": "validation_data", "value": -1, "widget": "textfield", "title": "Validation Data", "description": "Default value is None i.e -1"},
+
+    {"name": "shuffle", "value":"true", "widget": "array", "title": "Shuffle", "optionsArray": ["false","true"], "description": "" ,"datatypes":["boolean"]},
+
+    {"name": "class_weight", "value": -1, "widget": "textfield", "title": "Class Weight", "description": "Default value is None i.e -1"},
+
+    {"name": "sample_weight", "value": -1, "widget": "textfield", "title": "Sample Weight", "description": "Default value is None i.e -1"},
+
+    {"name": "initial_epoch", "value": 0, "widget": "textfield", "title": "Initial Epoch", "description": ""},
+
+    {"name": "steps_per_epoch", "value": -1, "widget": "textfield", "title": "Steps Per Epoch", "description": "Default value is None i.e -1"},
+
+    {"name": "validation_steps", "value": -1, "widget": "textfield", "title": "Validation Steps", "description": "Default value is None i.e -1"},
+
+    {"name": "validation_freq", "value": 1, "widget": "textfield", "title": "Validation Frequency", "description": ""},
+
+    {"name": "max_queue_size", "value": 10, "widget": "textfield", "title": "Max Queue Size", "description": ""},
+
+    {"name": "workers", "value": 1, "widget": "textfield", "title": "Workers", "description": ""},
+
+    {"name": "use_multiprocessing", "value":"false", "widget": "array", "title": "Use Multiprocessing", "optionsArray": ["false","true"], "description": "" ,"datatypes":["boolean"]},
+
+    {"name": "unsupervised", "value":"false" , "widget": "array", "title": "Unsupervised", "optionsArray": ["false","true"], "description": ""}
+
+
+  ]
+}

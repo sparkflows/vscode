@@ -1,0 +1,26 @@
+{
+  "id": "7",
+  "name": "ChiSq Selector",
+  "type": "ml-transformer",
+  "description": "Chi-Squared feature selection, which selects categorical features to use for predicting a categorical label.",
+  "nodeClass": "fire.nodes.ml.NodeChiSqSelector",
+  "fields" : [
+    {"name":"featuresCol", "value":"", "widget": "variable", "title": "Features Column ","required": true, "datatypes":["vectorudt"], "description": "The features column name"},
+
+    {"name":"outputCol", "value":"", "widget": "textfield", "title": "Output Column", "required": true, "datatypes":["vectorudt"], "description": "The output column name"},
+
+    {"name":"labelCol", "value":"", "widget": "variable", "title": "Label Column", "required": true, "datatypes":["double"], "description": "The label column name"},
+
+    {"name":"numTopFeatures", "value":"50", "widget": "textfield", "title": "NumTopFeatures", "required": true, "datatypes":["int"], "description": "Number of features that selector will select (ordered by statistic value descending)."},
+
+    {"name": "percentile", "value":0.1, "widget": "textfield", "title": "Percentile", "description": "Percentile of features that selector will select, ordered by statistics value descending. Only applicable when selectorType is percentile", "datatypes":["double"]},
+
+    {"name": "fpr", "value":0.05, "widget": "textfield", "title": "FPR", "description": "The highest p-value for features to be kept. Only applicable when selectorType is fpr", "datatypes":["double"]},
+
+    {"name": "fdr", "value":0.05, "widget": "textfield", "title": "FDR", "description": "The upper bound of the expected false discovery rate. Only applicable when selectorType is fdr", "datatypes":["double"]},
+
+    {"name": "fwe", "value":0.05, "widget": "textfield", "title": "FWE", "description": "The upper bound of the expected family-wise error rate. Only applicable when selectorType is fwe", "datatypes":["double"]},
+
+    {"name": "selectorType", "value":"numTopFeatures", "widget": "array", "title": "Selector Type", "optionsArray": ["numTopFeatures","percentile","fpr","fdr","fwe"], "description": "The selector type of the ChisqSelector."}
+  ]
+}

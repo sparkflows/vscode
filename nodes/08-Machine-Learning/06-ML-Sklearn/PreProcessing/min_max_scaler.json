@@ -1,0 +1,19 @@
+{
+  "id": "5",
+  "name": "Sklearn MinMaxScaler",
+  "description": "Transforms features by scaling each feature to a given range.",
+
+  "input": "",
+  "output": "",
+
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.sklearn.preprocessing.NodeMinMaxScalarFitTransform",
+  "fields" : [
+
+    {"name": "feature_range", "value": "0,1", "widget": "textfield", "title": "FeatureRange", "description": "tuple (min, max), default=(0, 1) Desired range of transformed data"}
+
+  ]
+}
+
+

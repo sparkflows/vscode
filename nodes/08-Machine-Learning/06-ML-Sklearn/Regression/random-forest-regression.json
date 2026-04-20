@@ -1,0 +1,32 @@
+{
+  "id": "5",
+  "name": "Sklearn Random Forest Regression",
+  "description": "Random Forest Regression builds an ensemble of decision trees using bootstrap sampling and feature randomness, and averages their predictions to improve predictive accuracy, robustness, and control overfitting for continuous target variables.",
+  "input" : "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "ml-estimator",
+
+  "nodeClass": "fire.nodes.sklearn.NodeSklearnRandomForestRegression",
+  "fields" : [
+
+    {"name": "targetCol", "value": "", "widget": "variable", "title": "Target Column", "description": "Target column containing the continuous numeric value that the regression model learns to predict.", "datatypes": ["integer", "long", "double", "float", "int"], "required": true, "size":"100%"},
+    {"name": "featureCols", "value": "[]", "widget": "variables", "title": "Feature Columns", "description": "List of input feature columns used to train the regression model. All features must be numeric, boolean, or vector-compatible.", "datatypes": ["integer", "long", "double", "float", "int"], "required": true, "size":"100%"},
+    {"name": "splitRatio", "value":1.0, "widget": "textfield", "title": "Split Ratio", "description": "Ratio used to split the dataset into training and testing sets. A value of 1.0 uses the entire dataset for training.", "datatypes":["float"], "size":"50%"},
+
+    {"name": "n_estimators", "value": 10, "widget": "textfield", "title": "Number of Estimators", "description": "Number of decision trees built in the random forest ensemble. Increasing this value generally improves stability but increases computation time.", "size":"50%"},
+    {"name": "criterion", "value": "friedman_mse", "widget": "array", "title": "Criterion", "optionsArray": ["friedman_mse", "squared_error","poisson","absolute_error"], "description": "Metric used to evaluate the quality of a split when growing trees. Different criteria affect how prediction errors are minimized.", "size":"50%"},
+    {"name": "max_depth", "value": "", "widget": "textfield", "title": "Max Depth", "description": "Maximum depth of each decision tree. Limiting depth reduces overfitting by restricting tree complexity.", "size":"50%"},
+    {"name": "min_samples_split", "value": 2, "widget": "textfield", "title": "Min Samples Split", "description": "Minimum number of samples required to split an internal node. Higher values make trees more conservative and reduce overfitting.", "size":"50%"},
+    {"name": "min_samples_leaf", "value": 1, "widget": "textfield", "title": "Min Samples Leaf", "description": "Minimum number of samples required at a leaf node, ensuring predictions are based on sufficient data.", "size":"50%"},
+    {"name": "min_weight_fraction_leaf", "value": 0.0, "widget": "textfield", "title": "Min Weight Fraction Leaf", "description": "Minimum weighted fraction of the total sample weight required at a leaf node. Useful when sample weights are provided.", "size":"50%"},
+    {"name": "max_features", "value": "sqrt", "widget": "array", "title": "Max Features", "optionsArray": ["sqrt", "log2"], "description": "Number of features considered when searching for the best split at each node, promoting diversity among trees.", "size":"50%"},
+    {"name": "max_leaf_nodes", "value": "", "widget": "textfield", "title": "Max Leaf Nodes", "description": "Maximum number of leaf nodes per tree. Restricting this value limits model complexity.", "size":"50%"},
+    {"name": "min_impurity_decrease", "value": 0.0, "widget": "textfield", "title": "Min Impurity Decrease", "description": "Minimum impurity reduction required for a node to be split. Higher values lead to simpler trees.", "size":"50%"},
+    {"name": "bootstrap", "value": "True", "widget": "array", "title": "Bootstrap", "optionsArray": ["True", "False"], "description": "Determines whether bootstrap sampling is used when building each tree. Disabling uses the full dataset for every tree.", "size":"50%"},
+    {"name": "oob_score", "value": "False", "widget": "array", "title": "Oob Score", "optionsArray": ["True", "False"], "description": "Whether to compute out-of-bag R² score using samples not included in bootstrap training.", "size":"50%"},
+    {"name": "random_state", "value": "", "widget": "textfield", "title": "Random State", "description": "Seed controlling randomness in bootstrap sampling and feature selection, enabling reproducible results.", "size":"50%"},
+    {"name": "warm_start", "value":"False", "widget": "array", "title": "Warm Start", "optionsArray": ["True", "False"], "description": "When enabled, reuses previously trained trees and adds additional trees, allowing incremental model training.", "size":"50%"}
+
+  ]
+}

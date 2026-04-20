@@ -1,0 +1,10 @@
+{
+  "id": "10",
+  "name": "Print Spark Configuration",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/pyspark.svg",
+  "description": "Print the all spark configuration used in workflow.",
+    "type": "transform",
+  "nodeClass": "fire.nodes.util.NodeSparkConfiguration",
+  "fields" : [
+  ]
+}

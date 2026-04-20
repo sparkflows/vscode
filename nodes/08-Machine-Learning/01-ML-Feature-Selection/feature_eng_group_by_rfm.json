@@ -1,0 +1,30 @@
+{
+  "id": "7",
+  "name": "Group By RFM Features",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/group_by.svg",
+  "description": "This node computes feature engineering tasks such as group by, frequency, recency, average days between purchases, total value of purchases, and customer age. These are computed per user using the selected operations.",
+  "input": "It takes DataFrame(s) as input for processing.",
+  "output": "Returns engineered features as a DataFrame.",
+  "type": "pyspark",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.fe.NodeRFMFeatures",
+
+  "fields": [
+    {"name": "groupByCols", "value": "[]", "widget": "variables", "title": "Group By Columns", "description": "Columns to group by", "wdgtCommon": "groupBy", "toggle": "true"},
+
+    {"name": "frequency", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Frequency", "description": "Enable frequency count per user ID"},
+
+    {"name": "recency", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Recency", "description": "Enable recency computation (last purchase date) per user ID", "size" : "50%"},
+    {"name": "recencyDateCol", "value": "", "widget": "variable", "title": "Recency Date Column", "description": "Date column to compute recency from", "wdgtCommon": "recency", "toggle": "true", "size" : "50%"},
+
+    {"name": "avgDaysBetween", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Avg Days Between", "description": "Enable computation of average days between purchases", "size" : "50%"},
+    {"name": "avgDaysDateCol", "value": "", "widget": "variable", "title": "Avg Days Date Column", "description": "Date column to compute average days between", "wdgtCommon": "avgDaysBetween", "toggle": "true", "size" : "50%"},
+
+    {"name": "valueOfPurchase", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Value of Purchase", "description": "Enable total value of purchase per user", "size" : "50%"},
+    {"name": "sumCols", "value": "[]", "widget": "variables", "title": "Columns to Sum", "description": "Numeric columns to sum per user", "wdgtCommon": "valueOfPurchase", "toggle": "true", "size" : "50%"},
+
+    {"name": "customerAge", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Customer Age", "description": "Compute age of customer from DOB", "size" : "50%"},
+    {"name": "dobCol", "value": "", "widget": "variable", "title": "Date of Birth Column", "description": "Column containing date of birth", "wdgtCommon": "customerAge", "toggle": "true", "size" : "50%"}
+
+  ]
+}

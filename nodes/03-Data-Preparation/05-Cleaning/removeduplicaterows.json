@@ -1,0 +1,19 @@
+{
+  "id": "15",
+  "name": "Remove Duplicate Rows",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/duplicate.svg",
+  "description": "This node take an array of fields and compare the rows on those fields. From the matches it would randomly take one row and drop the rest.",
+  "input": "It accepts a DataFrame as input from the previous Node",
+  "output": "The output Dataframe is the same as the input Dataframe with the duplicate rows removed",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeRemoveDuplicateRows",
+  "fields" : [
+
+    {"name":"order", "value":"first", "widget": "array",
+      "optionsArray": ["first", "last"], "title": "Order",
+      "description": "Whether to take the first or last matching record when removing duplicates"},
+    
+    {"name":"inputCols", "value": "[]", "widget": "variables", "title": "Columns", "description": "The columns to be selected for match"}
+
+  ]
+}

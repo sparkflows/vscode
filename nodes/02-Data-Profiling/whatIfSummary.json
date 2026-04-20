@@ -1,0 +1,13 @@
+{
+  "id": "7",
+  "name": "WhatIf Summary Statistics",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/what_if_summary.svg",
+  "type": "transform",
+  "description": "WhatIf Summary statistics provide useful information about sample data. eg: measures of spread.",
+  "nodeClass": "fire.nodes.ml.NodeWhatIfSummary",
+  "engine": "scala,pyspark",
+  "fields" : [
+    {"name":"categoricalColNames", "value":"[]", "widget": "variables", "title": "Categorical Column Names", "description": "Column Names for Summary", "datatypes":["string"]},
+    {"name":"numericColNames", "value":"[]", "widget": "variables", "title": "Numeric Column Names", "description": "Column Names for Summary", "datatypes":["integer", "long", "double", "float","decimal"]}
+  ]
+}

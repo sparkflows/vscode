@@ -1,0 +1,33 @@
+{
+  "id": "11",
+  "name": "Save Databricks Table",
+  "iconImage": "assets/images/icons/node-icon/databricks.svg",
+  "description": "This node saves the input data as table in Databricks",
+  "input": "It take dataframe as input data.",
+  "output": "It creates a Table in Databricks from the dataframe(input data).",
+
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.databricks.NodeSaveDatabricksTable",
+  "fields" : [
+   
+   {"name":"database", "value":"default", "widget": "textfield", "title": "Databricks Database",
+          "description":"Name of the Database" ,"required":"true"},
+          
+    {"name":"table", "display": true, "value":"", "widget": "textfield", "title": "Databricks Table",
+      "description":"Name of the table" ,"required":"true"},
+
+    {"name":"format", "value":"", "widget": "array","optionsArray": ["csv", "json", "orc", "parquet", "delta"],
+      "title": "Format", "description":"File format when saving to Table"},
+
+    {"name":"saveMode", "value":"Append", "widget": "array","optionsArray": ["Append","Overwrite", "ErrorIfExists", "Ignore"],
+      "title": "Save Mode", "description":"Whether to Append, Overwrite or Error if the path Exists"},
+
+    {"name": "advanced", "value":"", "widget": "tab", "title": "Advanced"},
+
+    {"name":"partitionBy", "value":"", "widget": "textfield", "title": "Partition By",
+      "description":"List of columns to partition by - separated by ,"}
+
+
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "6",
+  "name": "Read Faiss DB",
+  "description": "Read Vector Embeddings, from faiss db",
+  "input": "It takes in a DataFrame as input",
+  "output": "",
+  "type": "pyspark",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeReadFromFaissDB",
+  "fields" : [
+    {"name":"faissIndexDir",  "display": true, "value":"", "widget": "textfield", "title": "Path Of FAISS Index Directory", "description":"Filesystem path to the directory containing the FAISS index files used for similarity search."},
+    {"name": "topK", "value":"3", "widget": "textfield", "title": "Top K", "description": "Number of nearest neighbor vectors to retrieve from the FAISS index for each query.", "datatypes":["integer"]},
+    {"name":"faissIndexName",  "display": true, "value":"", "widget": "textfield", "title": "Name Of FAISS Index", "description":"Name of the FAISS index to load and query from the specified index directory."}
+  ]
+}

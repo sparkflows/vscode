@@ -1,0 +1,21 @@
+{
+  "id": "6",
+  "name": "Structured Streaming Console Sink",
+  "description": "It outputs the DataFrame to the console",
+
+  "input": "It takes in DataFrame as input",
+  "output": "It writes the incoming DataFrame to the console.",
+
+  "type": "transform",
+  "nodeClass": "fire.nodes.structuredstreaming.NodeStructuredStreamingConsoleSink",
+  "fields" : [
+
+    {"name": "outputMode", "value":"complete", "widget": "array", "title": "Output Mode", "optionsArray": ["append","complete", "update"],
+      "description": "Output Mode for saving to Files"},
+
+    {"name": "awaitTermination", "value":"false", "widget": "array", "title": "Await Termination", "optionsArray": ["true","false"],
+      "description": ""},
+
+    {"name": "triggerIntervalInSeconds", "value":"60", "widget": "textfield", "title": "Trigger Interval In Seconds", "description": ""}
+  ]
+}

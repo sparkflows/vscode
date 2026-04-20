@@ -1,0 +1,27 @@
+{
+  "id": "11",
+  "name": "H2O PCA",
+  "description": "Principal Component Analysis (PCA) is used for dimensionality reduction and identifying the primary patterns in high-dimensional data by transforming features into a set of uncorrelated components.",
+  "input": "It takes in a DataFrame as input",
+  "output": "",
+  "type": "ml-estimator",
+  "engine": "scala",
+  "nodeClass": "fire.nodes.h2o.NodeH2OPCA",
+  "fields" : [
+    {"name": "transform", "value":"NONE", "widget": "array", "title": "Transform", "optionsArray": ["NONE","STANDARDIZE", "NORMALIZE", "DEMEAN", "DESCALE"], "description": "Transformation to apply to the data before PCA. 'STANDARDIZE' is highly recommended to ensure all features are on the same scale." ,"datatypes":["string"],"size": "50%"},
+    {"name": "pcaMethod", "value":"GramSVD", "widget": "array", "title": "PCA Method", "optionsArray": ["GramSVD","Power", "Randomized", "GLRM"], "description": "Algorithm used to compute principal components. 'GramSVD' is standard; 'GLRM' is better for categorical data." ,"datatypes":["string"],"size": "50%"},
+    {"name": "pcaImpl", "value":"MTJ_EVD_SYMMMATRIX", "widget": "array", "title": "PCA Implementation", "optionsArray": ["MTJ_EVD_DENSEMATRIX","MTJ_EVD_SYMMMATRIX", "MTJ_SVD_DENSEMATRIX", "JAMA"], "description": "Mathematical implementation for Eigenvalue or Singular Value Decomposition." ,"datatypes":["string"],"size": "50%"},
+    {"name": "splitRatio", "value":1.0, "widget": "textfield", "title": "Split Ratio", "description": "Fraction of data used for the PCA calculation (e.g., 1.0 for the whole dataset).", "datatypes":["float"],"size": "50%"},
+    {"name": "k", "value":"1", "required":true, "widget": "textfield","title": "K", "description": "Number of principal components to compute (must be less than or equal to the number of features).", "datatypes":["integer"],"size": "50%"},
+    {"name": "maxIterations", "value":"1000", "widget": "textfield", "title": "Max Iterations", "description": "Maximum number of training iterations for algorithms that use iterative methods.", "datatypes":["integer"],"size": "50%"},
+    {"name": "seed", "value":"-1", "widget": "textfield", "title": "Seed", "description": "Seed for reproducibility. Use -1 for a random seed.", "datatypes":["Long"],"size": "50%"},
+    {"name": "useAllFactorLevels", "value":"false", "widget": "array", "title": "Use All Factor Levels", "optionsArray": ["false","true"], "description": "If true, includes the first factor level in categorical expansion. Recommended for GLRM method." ,"datatypes":["boolean"],"size": "50%"},
+    {"name": "computeMetrics", "value":"true", "widget": "array", "title": "Compute Metrics", "optionsArray": ["false","true"], "description": "Whether to compute metrics (like variance explained) on the training data." ,"datatypes":["boolean"],"size": "50%"},
+    {"name": "imputeMissing", "value":"false", "widget": "array", "title": "Impute Missing", "optionsArray": ["false","true"], "description": "Whether to automatically fill missing values with the column mean before running PCA." ,"datatypes":["boolean"],"size": "50%"},
+    {"name": "ignoreConstCols", "value":"true", "widget": "array", "title": "Ignore Const Columns", "optionsArray": ["false","true"], "description": "Whether to discard columns with only one unique value." ,"datatypes":["boolean"],"size": "50%"},
+    {"name": "scoreEachIteration", "value":"false", "widget": "array", "title": "Score Each Iteration", "optionsArray": ["false","true"], "description": "Enable to track convergence progress during each iteration." ,"datatypes":["boolean"],"size": "50%"},
+    {"name": "maxRuntimeSecs","value":"0.0", "widget": "textfield", "title": "Max Runtime Secs", "description": "Maximum time allowed for model training in seconds. 0 means no limit.", "datatypes":["double"],"size": "50%"},
+    {"name": "ignoredCols", "value":"[]", "widget": "variables", "title": "Ignored Columns", "description": "Columns to exclude from the transformation process."},
+    {"name": "columnsToCategorical", "value":"[]", "widget": "variables", "title": "Columns to Categorical", "description": "Numeric columns that should be treated as categorical factors/enums."}
+  ]
+}

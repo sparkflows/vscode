@@ -1,0 +1,14 @@
+{
+  "id": "11",
+  "name": "Validate Address",
+  "description": "This node validate the USA address",
+  "input": "It accepts a DataFrame as input from the previous Node",
+  "output": "A new column isValidAddress is added which contains valid or inValid values",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeValidateAddress",
+  "fields" : [
+
+    {"name":"inputColName", "value": "", "widget": "variable", "title": "Input Column Name", "description": "input column name", "required": true}
+
+  ]
+}

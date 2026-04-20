@@ -1,0 +1,12 @@
+{
+  "id": "4",
+  "name": "Imputer",
+  "description": "Imputation estimator for completing missing values",
+  "type": "ml-estimator",
+  "nodeClass": "fire.nodes.ml.NodeImputer",
+  "fields" : [
+    {"name":"inputCol", "value":"", "widget": "variable", "title": "Input Column", "required":"true", "description": "Column containing inputs"},
+    {"name": "outputCol", "value":"", "widget": "textfield", "title": "Output Column", "required":"true", "description": "Output column names"},
+    {"name": "strategy", "value":"", "widget": "array", "optionsArray": ["mean","median","mode"],"title": "Strategy", "required":"true", "description": "Imputer strategy"}
+  ]
+}

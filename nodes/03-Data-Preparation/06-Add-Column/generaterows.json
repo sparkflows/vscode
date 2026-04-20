@@ -1,0 +1,28 @@
+{
+  "id": "12",
+  "name": "Generate Rows",
+  "description": "Creates new rows of data at the record level using iterative expressions",
+  "input": "If no input is provided, generates a single sequence. If an input dataset is provided, generates a separate sequence of rows for each input row.",
+  "output": "Returns a DataFrame with a new column that will contain the generated values.",
+  "type": "shellcommand",
+  "nodeClass": "fire.nodes.etl.NodeGenerateRows",
+  "fields" : [
+    { "name": "createFieldName", "value": "", "widget": "textfield", "title": "Output Column Name", "description": "Name of the column that will contain the generated values. Each generated value in this column corresponds to one row created by the gem’s iterative process.", "required": true },
+    { "name": "createFieldType", "value": "", "widget": "array", "title": "Output Column Type", "optionsArray": ["INTEGER", "LONG","STRING", "DOUBLE", "DATE"], "description": "Select the data type of the Record ID column.", "required": true },
+
+    {"name":"expressionInit", "value":"", "widget": "code_editor", "type": "sparksql", "title": "Initialization Expression",
+      "description": "Sets the starting value for the generation process. This is the value of the first generated row."
+    , "required": true},
+
+    {"name":"expressionCond", "value":"", "widget": "code_editor", "type": "sparksql", "title": "Conditional Expression",
+      "description": "Determines how long to continue generating rows. Rows are added while this expression evaluates to true. Can reference input columns or the output column value."
+    , "required": true},
+
+    {"name":"expressionLoop", "value":"", "widget": "code_editor", "type": "sparksql", "title": "Loop Expression ",
+      "description": "Specifies how the generated value changes each iteration. Typically an increment, but can be any expression that modifies the output column value."
+    , "required": true},
+
+    { "name": "maxIterations", "value": "4", "widget": "textfield", "title": "Max rows per iteration", "description": "Maximum number of rows generated per sequence. " }
+
+  ]
+}

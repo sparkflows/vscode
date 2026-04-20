@@ -1,0 +1,15 @@
+{
+  "id": "11",
+  "name": "Arima Forecast",
+  "description": "Forecast by calling the forecast() or the predict() functions on the Arima object returned from calling fit.",
+  "input": "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "ml-predict",
+  "nodeClass": "fire.nodes.ts.NodeArimaForecast",
+  "fields" : [
+
+    {"name":"steps", "value":1, "widget": "textfield", "title": "Steps", "description": ""},
+    {"name":"exogenous", "value":"[]", "widget": "variables", "title": "Exogenous Columns", "description": "An optional 2-d array of exogenous variables. If provided, these variables are used as additional features in the regression operation. This should not include a constant or trend."}
+  ]
+}

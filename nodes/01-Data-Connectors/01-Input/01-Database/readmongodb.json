@@ -1,0 +1,22 @@
+{
+  "id": "7",
+  "name": "Read MongoDB",
+  "description": "Reads data from MongoDB",
+  "type": "dataset",
+  "nodeClass": "fire.nodes.mongodb.NodeReadMongoDB",
+  "fields" : [
+    {"name":"mongoURI", "value":"", "widget": "textfield",
+      "title": "MongoDB URI", "description": "URI of MongoDB to read from"},
+
+    {"name":"mongoDBName", "value":"", "widget": "textfield",
+      "title": "MongoDB Database","description": "Name of the MongoDB database to read from"},
+
+    {"name": "mongoTableName", "value":"", "widget": "textfield",
+      "title": "MongoDB Table", "description": "Name of the MongoDB table to read from"},
+
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names of the Table", "description": "Output Columns Names of the Table"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types of the Table", "description": "Output Column Types of the Table"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats", "description": "Output Column Formats"}
+
+  ]
+}

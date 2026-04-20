@@ -1,0 +1,44 @@
+{
+  "id": "11",
+  "name": "Date Time Field Extract",
+  "description": "It creates a new DataFrame by extracting Date and Time fields.",
+  "input": "It takes in a DataFrame as Input",
+  "output": "The output DataFrame has year/month/dayofmonth/hour/minute/second values extracted from the specified TimeStamp column into new columns",
+  "engine": "scala,pyspark",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeDateTimeFieldExtract",
+  "fields" : [
+    {"name":"inputCol", "value":"", "widget": "variable", "title": "Column",
+      "description": "The input column name", "datatypes":["date", "timestamp"], "required": true},
+
+    {"name": "extractYear", "value":"false", "widget": "array", "title": "Extract Year", "optionsArray": ["true","false"],
+      "description": "Extract Year", "datatypes":["boolean"], "required": true},
+
+    {"name": "extractMonth", "value":"false", "widget": "array", "title": "Extract Month", "optionsArray": ["true","false"],
+      "description": "Extract Month", "datatypes":["boolean"], "required": true},
+
+    {"name": "extractDayOfMonth", "value":"false", "widget": "array", "title": "Extract Day of Month", "optionsArray": ["true","false"],
+      "description": "Extract Day of Month", "datatypes":["boolean"], "required": true},
+
+    {"name": "extractHour", "value":"false", "widget": "array", "title": "Extract Hour", "optionsArray": ["true","false"],
+      "description": "Extract Hour", "datatypes":["boolean"], "required": true},
+
+    {"name": "extractMinute", "value":"false", "widget": "array", "title": "Extract Minute", "optionsArray": ["true","false"],
+      "description": "Extract Minute", "datatypes":["boolean"], "required": true},
+
+    {"name": "extractSecond", "value":"false", "widget": "array", "title": "Extract Second", "optionsArray": ["true","false"],
+      "description": "Extract Second", "datatypes":["boolean"], "required": true},
+    
+    {"name": "extractWeekOfYear", "value":"false", "widget": "array", "title": "Extract Week Of Year", "optionsArray": ["true","false"],
+      "description": "Extract WeekOfYear", "datatypes":["boolean"], "required": true},
+
+    {"name": "extractDayOfWeek", "value":"false", "widget": "array", "title": "Extract Day Of Week", "optionsArray": ["true","false"],
+      "description": "Extract Day Of Week", "datatypes":["boolean"], "required": true},
+
+    {"name": "extractDayOfYear", "value":"false", "widget": "array", "title": "Extract Day Of Year", "optionsArray": ["true","false"],
+      "description": "Extract Day Of Year", "datatypes":["boolean"], "required": true},
+
+    {"name": "extractMonthName", "value":"false", "widget": "array", "title": "Extract Month Name", "optionsArray": ["true","false"],
+      "description": "Extract Month Name", "datatypes":["boolean"], "required": true}
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "11",
+  "name": "Execute Query In Snowflake",
+  "iconImage": "assets/images/icons/node-icon/Snowflake.svg",
+  "description": "This node executes query in Snowflake",
+  "input": "",
+  "output": "Dataframe created from the data read in from Snowflake",
+
+  "type": "dataset",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.snowflake.NodeExecuteQueryInSnowFlake",
+  "fields" : [
+   {"name":"authType", "value":"UserCredential", "widget": "array", "title": "Auth Type", "description": "Authentication Type. Possible value is OAUTH or USER_CREDENTIAL or KEYPAIR" ,"required":"true","optionsArray": ["UserCredential","OAuth","KeyPair"]},
+  	{"name":"connection", "value":"", "widget": "object_array", "title": "Connection", "description": "The Snowflake connection to connect" ,"required":"true"},
+  	 {"name":"sfWarehouse", "value":"", "widget": "textfield", "title": "Snowflake Warehouse", "description": "Warehouse for connecting to the Snowflake" ,"required":"true"},
+    {"name":"sfDatabase", "value":"", "widget": "textfield", "title": "Snowflake Database", "description": "Database for connecting to the Snowflake" ,"required":"true"},
+    {"name":"sfSchema", "value":"", "widget": "textfield", "title": "Snowflake Schema", "description": "Schema for connecting to the Snowflake" ,"required":"true"},
+
+    {"name":"query", "value":"", "widget": "textarea_small", "title": "Snowflake Query", "required":"true",
+      "description": ""},
+
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Output Column Names", "description": "Name of the Output Columns"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Output Column Types", "description": "Data Type of the Output Columns"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Output Column Formats", "description": "Format of the Output Columns"},
+
+    {"name": "properties", "value": "", "widget": "tab", "title": "Properties"},
+    {"name": "extraOptionsKeys", "value":"[]", "widget": "key_array", "title": "Properties Name", "description": "Extra options/properties available while executing in Big Query."},
+    {"name": "extraOptionsValues", "value":"[]", "widget": "value_array", "title": "Properties Value", "description": "Config Values for the Corresponding properites name"}
+
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "7",
+  "name": "Standard Scaler Transform",
+  "type": "ml-predict",
+  "description": "StandardScaler transforms a dataset of Vector rows, normalizing each feature to have unit standard deviation and/or zero mean.",
+
+  "input": "It takes in a DataFrame as input and transforms it to another DataFrame",
+  "output": "It adds a new column containing the transform of the input Vector column to unit standard deviation and/or zero mean features to the incoming DataFrame.",
+
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.ml.NodeStandardScalerTransform",
+  "fields" : []
+}

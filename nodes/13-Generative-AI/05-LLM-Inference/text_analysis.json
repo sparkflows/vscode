@@ -1,0 +1,17 @@
+{
+  "id": "6",
+  "name": "Text Analysis",
+  "description": "",
+  "input": "It takes directory or path as an input",
+  "output": "Outputs a Dataframe with 2 columns speaker and dialouge",
+  "type": "pyspark",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeTextAnalysis",
+  "fields" : [
+    {"name": "isWordCloud", "value": "true", "widget": "array", "optionsArray": ["true", "false"], "title": "Word Cloud", "description": "Enable generation of a word cloud visualization to highlight frequently occurring terms in the analyzed text."},
+    {"name": "selectedAnalysis", "value": "TONE ANALYSIS", "widget": "array", "optionsArray": ["TONE ANALYSIS","EMOTION ANALYSIS", "SENTIMENT ANALYSIS","SLANG ANALYSIS"], "title": "Analysis Type", "description": "Select the type of linguistic or emotional analysis to perform on the input text.", "required": "true"},
+    {"name": "openai", "value": "", "widget": "tab", "title": "OpenAI"},
+    {"name": "llmConnection", "value": "", "widget": "object_array", "title": "Select Connection", "description": "Select the configured OpenAI connection containing API credentials and model access settings."},
+    {"name": "openaiModel", "value": "gpt-4o", "widget": "textfield", "title": "OpenAI Model", "description": "OpenAI language model used to perform the selected text analysis task.","required": "true"}
+  ]
+}

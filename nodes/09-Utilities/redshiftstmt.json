@@ -1,0 +1,20 @@
+{
+  "id": "11",
+  "name": "ExecuteRedshiftStatement",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/execute_redshift.svg",
+  "description": "This node executes the Redshift statement.",
+  "type": "shellcommand",
+  "nodeClass": "fire.nodes.redshift.NodeExecuteRedShiftStmt",
+  "engine": "scala,pyspark",
+  "fields" : [
+
+    {"name":"clusterIdentifier", "display": true, "value":"", "widget": "textfield", "title": "Cluster Identifier", "description": "Cluster identifier" ,"required":"true"},
+
+    {"name":"dataBase", "display": true, "value":"", "widget": "textfield", "title": "Database", "description": "Database name" ,"required":"true"},
+
+    {"name":"user", "display": true, "value":"", "widget": "textfield", "title": "User", "description": "User" ,"required":"true"},
+
+    {"name":"sqlStatement", "value":"", "widget": "textarea_large", "title": "SQL", "required": true, "description": "SQL statement to be run"}
+
+  ]
+}

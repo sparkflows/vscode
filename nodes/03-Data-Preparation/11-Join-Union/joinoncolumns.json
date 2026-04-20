@@ -1,0 +1,21 @@
+{
+  "id": "7",
+  "name": "Join On Columns",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/join_node_2input_1output.svg",
+  "description": "Joins the incoming Dataframes on the given columns",
+  "type": "join2inputs",
+  "nodeClass": "fire.nodes.etl.JoinOnColumns",
+  "engine": "polars,pyspark,scala",
+  "inputAnchors": [{"name": "Left","title": "L"},{"name": "Right","title": "R"}],
+  "fields" : [
+
+    {"name":"joinType", "value":"inner", "widget": "array", "optionsArray": ["inner", "outer", "left_outer", "right_outer", "leftsemi"], "title": "Join Type", "description": "Type of Join"},
+
+    {"name": "leftTableJoinColumn", "value":"[]", "widget": "key_array_join",
+      "title": "LeftTableJoinColumn", "description": ""},
+
+    {"name": "rightTableJoinColumn", "value":"[]", "widget": "value_array_join",
+      "title": "RightTableJoinColumn", "description": ""}
+
+  ]
+}

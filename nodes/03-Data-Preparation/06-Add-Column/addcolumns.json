@@ -1,0 +1,71 @@
+{
+  "id": "11",
+  "name": "Add  Columns",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/Add_Columns_and_AddColumnsAdvance.svg",
+  "description": "This node allows adding new columns with certain values",
+  "input": "This type of node takes in a DataFrame and transforms it to another DataFrame",
+  "output": "This node adds the user specified columns to the DataFrame",
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.etl.NodeAddColumns",
+  "fields" : [
+
+    {"name":"addCurrentDateCol", "value":"false",
+      "widget": "array",
+      "optionsArray": ["true", "false"],
+      "title": "Add Current Date Column", "description": "Whether to add the current date as a new column"},
+
+    {"name":"currentDateColName", "value": "", "widget": "textfield",
+      "title": "Current Date Column Name",
+      "description": "Name of the new Current Date Column Created"},
+
+    {"name":"addCurrentTimeCol", "value":"false",
+      "widget": "array",
+      "optionsArray": ["true", "false"],
+      "title": "Add Current Time Column", "description": "Whether to add the current time as a new column"},
+
+    {"name":"currentTimeColName", "value": "", "widget": "textfield",
+      "title": "Current Time Column Name",
+      "description": "Name of the new Current Time Column Created"},
+
+    {"name":"addConstantStringCol1", "value":"false",
+      "widget": "array",
+      "optionsArray": ["true", "false"],
+      "title": "Add Constant String Column", "description": "Whether to add a new columns with constant string value"},
+
+    {"name":"constantStringColName1", "value": "", "widget": "textfield",
+      "title": "Constant String Column Name",
+      "description": "Constant String Name"},
+
+    {"name":"constantStringColValue1", "value": "", "widget": "textfield",
+      "title": "Constant String Column Value",
+      "description": "Constant String Value"},
+
+
+    {"name":"addConstantIntCol1", "value":"false",
+      "widget": "array",
+      "optionsArray": ["true", "false"],
+      "title": "Add Constant Integer Column", "description": "Whether to add a new columns with constant integer value"},
+
+    {"name":"constantIntColName1", "value": "", "widget": "textfield",
+      "title": "Constant Integer Column Name",
+      "description": "Constant Integer Column Name"},
+
+    {"name":"constantIntColValue1", "value": "", "widget": "textfield",
+      "title": "Constant Integer Column Value", "datatypes":["integer"],
+      "description": "Constant Integer Value"},
+
+    {"name":"addConstantDoubleCol1", "value":"false",
+      "widget": "array",
+      "optionsArray": ["true", "false"],
+      "title": "Add Constant Double Column", "description": "Whether to add a new columns with constant double value"},
+
+    {"name":"constantDoubleColName1", "value": "", "widget": "textfield",
+      "title": "Constant Double Column Name",
+      "description": "Constant Double Column Name"},
+
+    {"name":"constantDoubleColValue1", "value": "", "widget": "textfield",
+      "title": "Constant Double Column Value", "datatypes":["double"],
+      "description": "Constant Double Value"}
+  ]
+}

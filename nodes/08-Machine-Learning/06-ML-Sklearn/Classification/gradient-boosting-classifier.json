@@ -1,0 +1,120 @@
+{
+  "id": "5",
+  "name": "Sklearn Gradient Boosting Classifier",
+  "description": "Gradient Boosting Classifier builds an ensemble of decision trees in a stage-wise manner, optimizing a differentiable loss function for classification tasks including binary and multiclass problems.",
+  "input" : "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "ml-estimator",
+
+  "nodeClass": "fire.nodes.sklearn.NodeSklearnGradientBoostingClassifier",
+  "fields" : [
+
+    {"name": "targetCol", "value": "", "widget": "variable", "title": "Target Column", "description": "Target label column used for training the classifier.", "datatypes": ["integer", "long", "double", "float", "int"], "required": true, "size":"100%"},
+
+    {"name": "featureCols", "value": "[]", "widget": "variables", "title": "Feature Columns", "description": "List of input feature columns containing numeric, boolean, or vector values.", "datatypes": ["integer", "long", "double", "float", "int"], "required": true, "size":"100%"},
+
+    {"name": "splitRatio", "value":1.0, "widget": "textfield", "title": "Split Ratio", "description": "Ratio used to split data into training and testing sets.", "datatypes":["float"], "size":"50%"},
+
+    {"name": "loss", "value": "log_loss", "widget": "array", "title": "Loss",
+      "optionsArray": ["log_loss", "exponential"],
+      "description": "Loss function to be optimized. log_loss corresponds to logistic regression deviance, while exponential is used for AdaBoost-style boosting.", "size":"50%"},
+
+    {"name": "learning_rate", "value": 1.0, "widget": "textfield", "title": "LearningRate",
+      "description": "Controls the contribution of each tree to the ensemble. Smaller values require more trees but can improve generalization.", "size":"50%"},
+
+    {"name": "n_estimators", "value": 100, "widget": "textfield", "title": "NEstimators",
+      "description": "Number of boosting stages (trees) to be built.", "size":"50%"},
+
+    {"name": "subsample", "value": 1.0, "widget": "textfield", "title": "Subsample",
+      "description": "Fraction of samples used to train each base learner. Values less than 1.0 introduce stochastic gradient boosting.", "size":"50%"},
+
+    {"name": "criterion", "value": "friedman_mse", "widget": "array", "title": "Criterion",
+      "optionsArray": ["friedman_mse", "mse", "mae"],
+      "description": "Metric used to evaluate the quality of a split when building trees.", "size":"50%"},
+
+    {"name": "min_samples_split", "value": 2, "widget": "textfield", "title": "MinSamplesSplit",
+      "description": "Minimum number of samples required to split an internal node.", "size":"50%"},
+
+    {"name": "min_samples_leaf", "value": 1, "widget": "textfield", "title": "MinSamplesLeaf",
+      "description": "Minimum number of samples required to be present at a leaf node.", "size":"50%"},
+
+    {"name": "min_weight_fraction_leaf", "value": 0.0, "widget": "textfield", "title": "MinWeightFractionLeaf",
+      "description": "Minimum weighted fraction of samples required at a leaf node.", "size":"50%"},
+
+    {"name": "max_depth", "value": 3, "widget": "textfield", "title": "MaxDepth",
+      "description": "Maximum depth of individual regression trees.", "size":"50%"},
+
+    {"name": "min_impurity_decrease", "value": 0.0, "widget": "textfield", "title": "MinImpurityDecrease",
+      "description": "Minimum impurity reduction required for a node to be split.", "size":"50%"},
+
+    {"name": "random_state", "value": "", "widget": "textfield", "title": "RandomState",
+      "description": "Seed controlling randomness in data sampling and tree construction.", "size":"50%"},
+
+    {"name": "verbose", "value": 0, "widget": "textfield", "title": "Verbose",
+      "description": "Controls verbosity of training output. Higher values print more training details.", "size":"50%"},
+
+    {"name": "max_leaf_nodes", "value": "", "widget": "textfield", "title": "MaxLeafNodes",
+      "description": "Maximum number of leaf nodes per tree. If empty, nodes are expanded until other stopping criteria are met.", "size":"50%"},
+
+    {"name": "warm_start", "value":"false", "widget": "array", "title": "WarmStart",
+      "optionsArray": ["True", "False"],
+      "description": "Allows the model to reuse previously fitted trees and add more estimators.", "size":"50%" },
+
+    {"name": "presort", "value":"auto", "widget": "textfield", "title": "Presort",
+      "description": "Whether to presort data to speed up split finding. Deprecated in newer sklearn versions.", "size":"50%"},
+
+    {"name": "validation_fraction", "value": 0.1, "widget": "textfield", "title": "ValidationFraction",
+      "description": "Proportion of training data reserved for early stopping when n_iter_no_change is set.", "size":"50%"},
+
+    {"name": "n_iter_no_change", "value": "", "widget": "textfield", "title": "NIterNoChange",
+      "description": "Stops training if validation score does not improve after this many iterations.", "size":"50%"},
+
+    {"name": "tol", "value": 0.0001, "widget": "textfield", "title": "Tol",
+      "description": "Tolerance for early stopping based on improvement threshold.", "size":"50%"},
+
+
+    {"name": "confusionMatrix", "value":"", "widget": "tab", "title": "Confusion Matrix"},
+    {"name": "output_confusion_matrix_chart", "value":"false", "widget": "array", "title": "Output Confusion Matrix Chart",
+      "optionsArray": ["false","true"], "description": "Whether to display the confusion matrix visualization.", "datatypes":["boolean"], "size":"50%"},
+
+    {"name": "cm_chart_title", "value":"Confusion Matrix Chart", "widget": "textfield", "title": "Confusion Matrix Chart Title",
+      "description": "Title displayed above the confusion matrix chart.", "size":"50%"},
+
+    {"name": "cm_chart_description", "value":"Visual Representation of Predicted vs. Actual Classes", "widget": "textfield",
+      "title": "Confusion Matrix Chart Description", "description": "Description displayed along with the confusion matrix chart.", "size":"50%"},
+
+    {"name": "confusionMatrixTargetLegend", "value":"Target", "widget": "textfield",
+      "title": "Confusion Matrix Target Legend", "description": "Legend label representing actual class values.", "size":"50%"},
+
+    {"name": "confusionMatrixPredictedLabelLegend", "value":"PredictedLabel", "widget": "textfield",
+      "title": "Confusion Matrix PredictedLabel Legend", "description": "Legend label representing predicted class values.", "size":"50%"},
+
+    {"name": "confusionMatrixCountLegend", "value":"Count", "widget": "textfield",
+      "title": "Confusion Matrix Count Legend", "description": "Legend label representing instance counts.", "size":"50%"},
+
+    {"name": "path", "value":"", "widget": "textfield", "title": "Save Confusion Matrix Path",
+      "description": "Filesystem path used to store the confusion matrix output.", "wdgtCommon": "output_confusion_matrix_chart", "toggle": "true", "size":"50%"},
+
+    {"name": "Description", "value":"", "widget": "tab", "title": "Confusion Matrix Description"},
+    {"name": "confusionMatrixRowDescription", "value":"", "widget": "textarea_rich",
+      "title": "Confusion Matrix Outcome description",
+      "description": "Business-level interpretation of confusion matrix outcomes.", "size":"50%"},
+
+    {"name": "ROC Curve", "value":"", "widget": "tab", "title": "ROC Curve"},
+    {"name": "output_roc_curve", "value":"false", "widget": "array", "title": "Output ROC Curve",
+      "optionsArray": ["false","true"], "description": "Whether to display ROC curve visualization.", "datatypes":["boolean"], "size":"50%"},
+
+    {"name": "roc_title", "value":"ROC Curve", "widget": "textfield", "title": "ROC Curve Chart Title",
+      "description": "Title displayed above the ROC curve chart.", "size":"50%"},
+
+    {"name": "roc_description", "value":"Receiver operating characteristic (ROC) curve", "widget": "textfield",
+      "title": "ROC Curve Chart Description", "description": "Description shown along with the ROC curve chart.", "size":"50%"},
+
+    {"name": "xlabel", "value":"False Positive Rate (specificity)", "widget": "textfield",
+      "title": "X Label", "description": "Label for the X-axis of the ROC curve.", "size":"50%"},
+
+    {"name": "ylabel", "value":"True Positive Rate (sensitivity)", "widget": "textfield",
+      "title": "Y Label", "description": "Label for the Y-axis of the ROC curve.", "size":"50%"}
+  ]
+}

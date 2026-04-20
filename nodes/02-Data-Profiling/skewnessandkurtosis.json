@@ -1,0 +1,12 @@
+{
+  "id": "11",
+  "name": "Skewness And Kurtosis",
+  "description": "",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeSkewnessAndKurtosis",
+  "fields" : [
+    {"name":"inputCols", "value": "[]", "widget": "variables", "title": "Column Names",
+      "description": "Name of columns to get the skewness and kurtosis.", "required": true,
+      "datatypes":["double", "integer", "long", "float"]}
+  ]
+}

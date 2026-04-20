@@ -1,0 +1,12 @@
+{
+  "id": "4",
+  "name": "One Hot Encoder Advanced Transform",
+  "description": "Maps a column of label indices to a column of binary vectors, with at most a single one-value",
+
+  "input": "It takes in a DataFrame and transforms it to another DataFrame",
+  "output": "The output DataFrame contains a new column which contains the mapping of a column of label indices to a column of binary vectors, with at most a single one-value.",
+
+  "type": "ml-predict",
+  "nodeClass": "fire.nodes.ml.NodeOneHotEncoderAdvancedTransform",
+  "fields" : []
+}

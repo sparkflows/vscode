@@ -1,0 +1,21 @@
+{
+  "id": "5",
+  "name": "TS Decompose",
+  "description": "",
+  "input" : "A Dataframe consists of times series. The dataframe must have two columns containing values and periods.",
+  "output": "A dataframe consists of original data along with trend, seasonal, and residuals",
+  "engine": "pyspark",
+  "type": "transform",
+
+  "nodeClass": "fire.nodes.ts.NodeTSDecompose",
+  "fields" : [
+    {"name": "period_name", "value":"", "widget": "variable", "title": "Period Column", "description": "Select Date Column", "required": true},
+    {"name": "value_name", "value":"", "widget": "variable", "title": "Value Column", "description": "Select Value Column", "required": true},
+    {"name": "model", "value":"additive", "widget": "array", "title": "Model", "optionsArray": ["additive", "multiplicative"], "description": "Type of seasonal component."},
+    {"name": "period", "value":"", "widget": "textfield", "title": "Period", "description": "Period of the series.", "datatypes":["integer"]},
+    {"name": "seasonal_name", "value":"", "widget": "textfield", "title": "Seasonal Name", "description": "Seasonal Name", "datatypes":["string"]},
+    {"name": "trend_name", "value":"", "widget": "textfield", "title": "Trend Name", "description": "Trend Name", "datatypes":["string"]},
+    {"name": "resid_name", "value":"", "widget": "textfield", "title": "Residual Name", "description": "Residual Name", "datatypes":["string"]}
+
+  ]
+}

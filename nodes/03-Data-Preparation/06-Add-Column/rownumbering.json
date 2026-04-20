@@ -1,0 +1,13 @@
+{
+  "id": "7",
+  "name": "Row Numbering",
+  "description": "",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/row_numbering.svg",
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.etl.NodeRowNumbering",
+  "fields" : [
+
+    {"name": "outputCol", "value":"rowid", "widget": "textfield", "title": "Output Column", "description": "Name for output column", "datatypes":["string"]}
+  ]
+}

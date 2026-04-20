@@ -1,0 +1,21 @@
+{
+  "id": "4",
+  "name": "Cross Validator",
+  "description": "This node represents Cross Validator from Spark ML",
+
+  "input": "It takes in a DataFrame, Estimator and Evaluator as input.",
+  "output": "The incoming dataframe is passed to the output.",
+
+  "type": "ml-crossvalidator",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.ml.NodeCrossValidator",
+  "fields" : [
+    {"name": "numFolds", "value":3, "widget": "textfield", "title": "Num Folds", "description": "The number of folds", "datatypes":["integer"]},
+
+    {"name": "parallelism", "value":1, "widget": "textfield", "title": "Parallelism", "description": "The number of threads to use when running parallel algorithms.", "datatypes":["integer"]},
+
+    {"name": "collectSubModels", "value":"false", "widget": "array", "title": "Collect SubModels", "optionsArray": ["true","false"], "description": "Param for whether to collect a list of sub-models trained during tuning.", "datatypes":["boolean"]},
+
+    {"name": "seed", "value":"", "widget": "textfield", "title": "Seed", "description": "Random Seed.", "datatypes":["long"]}
+  ]
+}

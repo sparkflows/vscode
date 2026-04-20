@@ -1,0 +1,20 @@
+{
+  "id": "11",
+  "name": "H2O ML Model Load",
+  "description": "Loads an H2O MOJO ML model",
+  "input": "",
+  "output": "",
+  "type": "ml-modelload",
+  "nodeClass": "fire.nodes.h2o.NodeH2OMojoLoad",
+  "fields" : [
+    {
+      "name": "selectChampionModel",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": ["true", "false"],
+      "title": "Use Champion Model",
+      "description": "Uses Champion Model For Prediction."
+    },
+    {"name": "path", "value":"", "widget": "textfield","title": "Path To Load H2O model", "description": "Path for loading the H2O MOJO model","wdgtCommon": "selectChampionModel", "toggle": "false"}
+  ]
+}

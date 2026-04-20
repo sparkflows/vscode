@@ -1,0 +1,65 @@
+{
+        "id": "5",
+        "name": "Sklearn Bayesian Ridge Regression",
+        "description": "Bayesian Ridge Regression implements a probabilistic linear regression model where model coefficients are treated as random variables with prior distributions. This approach provides robust predictions in scenarios with limited data or multicollinearity and produces uncertainty estimates along with predictions.",
+        "input" : "",
+        "output": "",
+        "engine": "pyspark",
+        "type": "ml-estimator",
+
+        "nodeClass": "fire.nodes.sklearn.NodeSklearnBayesianRidgeRegression",
+        "fields" : [
+
+                {"name": "targetCol", "value":"", "widget": "variable", "title": "Target Column",
+                        "description": "Target column containing the continuous response variable that the Bayesian Ridge Regression model learns to predict.",
+                        "datatypes":["integer", "long", "double", "float", "int"], "required": true, "size":"100%"},
+
+                {"name":"featureCols", "value":"[]", "widget": "variables", "title": "Feature Columns",
+                        "description": "List of input feature columns used to train the regression model. All features must be numeric, boolean, or vector-compatible.",
+                        "datatypes":["integer", "long", "double", "float", "int"], "required": true, "size":"100%"},
+
+                {"name": "splitRatio", "value":1.0, "widget": "textfield", "title": "Split Ratio",
+                        "description": "Ratio used to split the dataset into training and testing subsets. A value of 1.0 uses the full dataset for training.",
+                        "datatypes":["float"], "size":"50%"},
+
+                {"name": "niter", "value":300, "widget": "textfield", "title": "Number of Iterations",
+                        "description": "Maximum number of optimization iterations used to estimate the posterior distribution of model coefficients.",
+                        "size":"50%"},
+
+                {"name": "alpha1", "value": "1.e-6", "widget": "textfield", "title": "Alpha1",
+                        "description": "Shape parameter of the Gamma prior distribution placed over the precision of the noise (alpha). Controls prior belief about noise variance.",
+                        "size":"50%"},
+
+                {"name": "alpha2", "value": "1.e-6", "widget": "textfield", "title": "Alpha2",
+                        "description": "Rate parameter of the Gamma prior distribution over the noise precision (alpha). Works with alpha1 to regularize noise estimation.",
+                        "size":"50%"},
+
+                {"name": "lambda1", "value": "1.e-6", "widget": "textfield", "title": "Lambda1",
+                        "description": "Shape parameter of the Gamma prior distribution over the model weights precision (lambda), influencing coefficient shrinkage.",
+                        "size":"50%"},
+
+                {"name": "lambda2", "value": "1.e-6", "widget": "textfield", "title": "Lambda2",
+                        "description": "Rate parameter of the Gamma prior distribution over the model weights precision (lambda), balancing model complexity.",
+                        "size":"50%"},
+
+                {"name": "tol", "value": "1.e-3", "widget": "textfield", "title": "Tolerance",
+                        "description": "Convergence threshold. Training stops when the change in model weights falls below this value.",
+                        "size":"50%"},
+
+                {"name": "fitintercept", "value":"true", "widget": "array", "title": "Fit Intercept",
+                        "optionsArray": ["false","true"],
+                        "description": "Determines whether an intercept term is included in the regression model. The intercept is not treated as a probabilistic parameter.",
+                        "size":"50%"},
+
+                {"name": "normalize", "value":"false" , "widget": "array", "title": "Normalize",
+                        "optionsArray": ["false","true"],
+                        "description": "If enabled and fit_intercept is true, input features are normalized before regression to improve numerical stability.",
+                        "size":"50%"},
+
+                {"name": "compute_score", "value":"true" , "widget": "array", "title": "Compute Score",
+                        "optionsArray": ["false","true"],
+                        "description": "If enabled, computes the log marginal likelihood at each iteration, useful for convergence diagnostics.",
+                        "size":"50%"}
+
+        ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "6",
+  "name": "Save to Pinecone",
+  "description": "This process involves storing document embeddings in a Pinecone vector database for efficient similarity search and retrieval.",
+  "input": "It may take in Dataframe as an input",
+  "output": "Save data to Vector DB",
+  "type": "pyspark",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeSaveToPineconeDB",
+
+  "fields": [
+
+    {"name": "contentCol", "value": "", "widget": "variable", "title": "Select Content Column", "description": "Column containing the original text or document content associated with each embedding. Used for traceability, debugging, and downstream retrieval workflows."},
+    {"name": "embeddingsCol", "value": "", "widget": "variable", "title": "Select Embeddings Column", "description": "Column containing vector embeddings to be stored in Pinecone. Each row must contain a numeric vector matching the configured index dimension."},
+    {"name": "pineconeConnection", "value": "", "widget": "object_array", "title": "Select Pinecone Connection", "description": "Select the configured Pinecone connection that provides authentication, environment, and access details for writing vectors to the database."},
+    {"name": "pineconeIndexName", "value": "document-index", "widget": "textfield", "title": "Index Name", "description": "Name of the Pinecone index where embeddings will be stored. If the index does not exist, it may be created based on the provided configuration."},
+    {"name": "indexNameSpace", "value": "document-namespace", "widget": "textfield", "title": "Index Namespace", "description": "Logical namespace within the Pinecone index used to segment and organize vectors. Useful for separating datasets, versions, or tenants."},
+    {"name": "dimension", "value": "1024", "widget": "textfield", "title": "Dimension", "description": "Dimensionality of the embedding vectors. Must exactly match the embedding model used and the target Pinecone index configuration."},
+    {"name": "metric", "value": "euclidean", "widget": "array", "optionsArray": ["cosine", "dotproduct", "euclidean"], "title": "Metric", "description": "Similarity metric used by the Pinecone index to compare vectors during search and retrieval operations."},
+    {"name":"metadataCols", "value": "[]", "widget": "variables", "title": "Metadata Columns", "description": "Optional columns to store as metadata alongside each vector. Enables filtered search, attribution, and richer retrieval results."},
+
+    {"name":"uniqueIdCols", "value": "[]", "widget": "variables", "title": "Unique ID Columns", "description": "Columns used to construct a stable and unique identifier for each vector. Helps prevent duplicates and enables deterministic upserts."}
+  ]
+
+}

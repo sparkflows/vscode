@@ -1,0 +1,12 @@
+{
+  "id": "6",
+  "name": "Execute In Loop",
+  "description": "",
+  "type": "shellcommand",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.etl.NodeDistinctValuesLoop",
+  "fields" : [
+
+    {"name": "loopCols", "value":"[]", "widget": "variables", "title": "Loop Columns", "description": ""}
+  ]
+}

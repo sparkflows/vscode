@@ -1,0 +1,13 @@
+{
+  "id": "5",
+  "name": "Sklearn Quantile Transform",
+  "description": "Transform features using quantiles information.",
+
+  "input": "",
+  "output": "",
+
+  "type": "ml-predict",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.sklearn.preprocessing.NodeQuantileTransformerTransform",
+  "fields" : []
+}

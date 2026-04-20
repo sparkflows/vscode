@@ -1,0 +1,21 @@
+{
+  "id": "11",
+  "name": "MultiInputPySpark",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/pyspark.svg",
+  "description": "This node runs any given PySpark code. The input dataframe is passed in the variable inDFs. The output dataframe is passed back by registering it as a temporary table.",
+  "input": "The input dataframe is passed in the variable inDFs.",
+  "output": "The output dataframe is passed back by registering it as a temporary table",
+  "type": "pyspark2inputs",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.code.NodeMultiInputPySpark",
+  "fields" : [
+    {"name":"code", "value":"'''\nInput:\n  spark: spark session \n  workflowContext:  workflowcontext object \n  id: node number \n  inDFs: array of input pyspark dataframes \n  cust_dict: Dictionary of the workflow variables passed from previous node \nOutput:\n  outDF: return pyspark dataframe i.e outDF \n ''' \n \nfrom pyspark.sql.types import * \nfrom pyspark.sql.functions import * \nfrom pyspark.sql import * \nfrom fire.workflowcontext import WorkflowContext \n\ndef myfn(spark: SparkSession, workflowContext: WorkflowContext, id: int, inDFs: [DataFrame], cust_dict:dict):\n  outDF = inDFs[0]  #get the first dataframe\n  return outDF", "widget": "textarea_large", "type": "python", "title": "PySpark", "description": "PySpark code to be run. Input dataframe : \"inDF\", SparkContext : \"sc\", SQLContext : \"sqlContext\",  Output/Result dataframe should be registered as a temporary table - df.registerTempTable(\"outDF\")"},
+
+    {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names for the CSV", "description": "New Output Columns of the SQL"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types for the CSV", "description": "Data Type of the Output Columns"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats for the CSV", "description": "Format of the Output Columns"}
+
+  ]
+}

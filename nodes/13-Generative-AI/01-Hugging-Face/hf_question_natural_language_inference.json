@@ -1,0 +1,16 @@
+{
+  "id": "6",
+  "name": "Hugging Face Question Natural Language Inference",
+  "description": "Question Natural Language Inference using models hosted in Hugging Face repository.",
+  "input": "It takes in a DataFrame as input with multiple sentences with first sentence being a question ending with a question mark.",
+  "output": "",
+  "type": "ml-estimator",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeHFQuestionNaturalLanguageInference",
+  "fields" : [
+    {"name": "column_name", "value":"", "required":"true", "widget": "variable", "title": "Column to analyse sentiment", "description": "Column to analyse sentiment."},
+    {"name": "preloaded_model", "value":"", "widget": "array","optionsArray": ["roberta-large-mnli","microsoft-deberta-xlarge-mnli"], "title": "Model to be used for Natural Language Inference", "description": "Infers if the sentences are entailment(hypothesis is true), contraction(hypothesis is false) or neutral(no relationship between hypothesis and the premise)."},
+    {"name": "preloaded_model_path", "value":"", "widget": "textfield", "title": "Path", "description": "Pre-loaded models parent directory.", "datatypes":["String"]},
+    {"name": "custom_model", "value":"", "widget": "textfield", "title": "Custom model name", "description": "Model name to pull model from Hugging Face repo.", "datatypes":["String"]}
+      ]
+}

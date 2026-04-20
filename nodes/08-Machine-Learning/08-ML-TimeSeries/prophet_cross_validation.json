@@ -1,0 +1,16 @@
+{
+  "id": "11",
+  "name": "Prophet Cross Validator",
+  "description": "",
+  "input": "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "ml-predict",
+  "nodeClass": "fire.nodes.ts.NodeProphetCrossValidation",
+  "fields" : [
+    {"name": "horizon", "value":"", "widget": "textfield", "title": "Horizon", "description": "String with pd.Timedelta compatible style, e.g., '5 days','3 hours', '10 seconds'.","required": true},
+    {"name": "period", "value":"", "widget": "textfield", "title": "Period", "description": "String with pd.Timedelta compatible style. Simulated forecast will be done at every this period. If not provided, 0.5 * horizon is used."},
+    {"name": "initial", "value":"", "widget": "textfield", "title": "Initial", "description": "String with pd.Timedelta compatible style. The first training period will include at least this much data. If not provided,3 * horizon is used."},
+    {"name": "cutoffs", "value":"", "widget": "textfield", "title": "Cutoffs", "description": "list of pd.Timestamp specifying cutoffs to be used during cross validation. If not provided, they are generated as described above."}
+      ]
+}

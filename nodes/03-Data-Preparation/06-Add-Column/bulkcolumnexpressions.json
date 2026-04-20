@@ -1,0 +1,62 @@
+{
+  "id": "3",
+  "name": "BulkColumnExpression",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/expression.svg",
+  "description": "Bulk Column Expression Node - Create or update multiple columns at once using a single Spark SQL expression. Ideal for applying consistent transformations, calculations, or formatting logic across many columns efficiently.",
+  "input": "Accepts a single DataFrame as input from the previous node.",
+  "output": "Outputs a DataFrame with multiple columns created or updated based on the provided expression.",
+  "type": "transform",
+  "engine": "scala,polars",
+  "nodeClass": "fire.nodes.etl.NodeBulkColumnExpression",
+  "fields": [
+
+    {"name":"columnType", "value":"", "widget": "variablesTypeFilter", "title": "Select Column Type", "description": "filter the columns name in Select Columns based on type filter", "wdgtCommon":"selectedColumns"},
+    {
+      "name": "selectAllColumns",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": ["true", "false"],
+      "title": "Enable Select All Column of selected Column Type",
+      "description": "When true all the columns from the input dataframe should be selected of specified column type"
+    },
+    {"name":"selectedColumns", "value": "[]", "widget": "variables", "title": "Select Columns", "description": "Select one or more columns to which the expression should be applied. Each selected column will be processed using the same transformation logic.","wdgtCommon": "selectAllColumns", "toggle": "false"},
+
+    {
+      "name": "copyOriginalColumns",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": ["false", "true"],
+      "title": "Copy Original Columns",
+      "description": "When enabled, preserves the original columns and creates new columns with transformed values using a prefix or suffix. When disabled, the original columns are updated in place."
+    },
+
+    {"name":"outputColumnPrefix",  "value":"", "widget": "textfield", "title": "Prefix",
+      "description":"Optional prefix to add to the names of newly created columns. Helps clearly distinguish transformed columns from the originals.", "wdgtCommon":"copyOriginalColumns", "toggle":"true",
+      "size": "50%"},
+
+    {"name":"outputColumnSuffix",  "value":"", "widget": "textfield", "title": "Suffix",
+      "description":"Optional suffix to append to the names of newly created columns. Useful for versioning or indicating derived values.", "wdgtCommon":"copyOriginalColumns", "toggle":"true",
+      "size": "50%"},
+
+    {
+      "name": "changeOutputDataType",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": ["false", "true"],
+      "title": "Change Output DataType",
+      "description": "Enable this option to explicitly cast the output columns to a specific data type after applying the expression.", "size": "50%"
+    },
+
+    {
+      "name": "outputDataType",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": ["string", "integer", "double", "float", "long", "date"],
+      "title": "Select Output Data Type", "wdgtCommon":"changeOutputDataType", "toggle":"true",
+      "description": "Choose the target data type for the transformed columns (e.g., string, integer, double). Applied only when Change Output DataType is enabled.", "size": "50%"
+    },
+
+    {"name":"expression", "value":"", "widget": "code_editor", "type": "sparksql", "title": "Expression",
+      "description": "Spark SQL expression applied to each selected column. Use the placeholder column_value within the expression to reference the current column being transformed (e.g., column_value * 100 or upper(column_value))."}
+  ]
+}

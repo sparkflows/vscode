@@ -1,0 +1,14 @@
+{
+  "id": "1",
+  "name": "Dataset Structured",
+  "iconImage": "assets/images/icons/node-icon/dataset.svg",
+  "description": "This Node creates a DataFrame by reading data from HDFS, HIVE etc. The dataset was defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.",
+  "input": "It reads in data from HIVE or files in HDFS",
+  "output": "It creates a DataFrame from the input data and sends it to its output.",
+  "type": "dataset",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+  "fields" : [
+    {"name":"dataset", "display":true, "value":"", "widget": "dataset", "title": "Dataset", "description": "Selected Dataset","required":"true"}
+  ]
+}

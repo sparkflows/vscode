@@ -1,0 +1,16 @@
+{
+  "id": "1",
+  "name": "Explode",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/explode_node.svg",
+  "description": "Explode the array of values into multiple rows with columnname_explode.",
+  "input": "",
+  "output": "",
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.etl.NodeExplode",
+  "fields" : [
+
+    {"name": "inputCols", "value":"[]", "widget": "variables", "title": "Input Colums", "description": "Select the columns to be exploded.", "datatypes":["array"]}
+
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "3",
+  "name": "Process Capability Index",
+  "type": "SPC-Chart",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.graph.NodeProcessCapabilityIndex",
+  "description": "Process Capability Index",
+  "fields" : [
+    {"name":"vars", "value": "[]", "widget": "variables", "title": "Vars", "description": "Select Variables", "required": true},
+    {"name":"lcl", "value": "", "widget": "textfield", "title": "LCL", "description": "Lower Control Limit (lcl)","datatypes":["double"],"required": true},
+    {"name":"ucl", "value": "", "widget": "textfield", "title": "UCL", "description": " Upper Control Limit (ucl)","datatypes":["double"],"required": true}
+  ]
+}

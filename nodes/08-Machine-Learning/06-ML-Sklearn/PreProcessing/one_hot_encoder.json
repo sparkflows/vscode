@@ -1,0 +1,18 @@
+{
+  "id": "5",
+  "name": "Sklearn OneHotEncoder",
+  "description": "Encode categorical integer features as a one-hot numeric array.",
+
+  "input": "",
+  "output": "",
+
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.sklearn.preprocessing.NodeOneHotEncoderFitTransform",
+  "fields" : [
+    {"name":"columnToTransform", "value":"", "widget": "variable", "title": "ColumnToTransform", "description": "select the column for OneHotEncoder.",  "required": true},
+
+    {"name": "handleUnknown", "value":"ignore", "widget": "array", "title": "HandleUnknown", "optionsArray": ["ignore","error"], "description": "" ,"datatypes":["string"]}
+
+  ]
+}

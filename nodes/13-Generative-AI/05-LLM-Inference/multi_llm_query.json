@@ -1,0 +1,32 @@
+{
+  "id": "6",
+  "name": " Multi LLM Query",
+  "iconImage": "assets/images/icons/node-icon/Graph_group_by_column.svg",
+  "description": "The Multi LLM Query node is designed to query multiple large language models (LLMs) from providers such as OpenAI, Bedrock, and Gemini, using a DataFrame as input. It processes user queries, text content, and/or base64-encoded images to generate responses based on the selected model and task, producing a structured DataFrame output.",
+  "input": "It may take in Dataframe as an input",
+  "output": "Returns response as Dataframe",
+  "type": "pyspark",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeMultiLLMQuery",
+
+  "fields": [
+    {"name": "llmConnection", "value": "", "widget": "object_array", "title": "Select Connection", "description": "Select the configured LLM connection (OpenAI, Bedrock, Gemini, etc.) that provides authentication, model access, and provider-specific settings."},
+    {"name": "temperature", "value": "0", "widget": "textfield", "title": "Temperature", "description": "Controls response randomness and creativity. Lower values produce more deterministic outputs, while higher values encourage more diverse and creative responses."},
+    {"name": "contentCol", "value": "", "widget": "variable", "title": "Content Column", "description": "Column containing the primary text content to be processed by the selected LLM."},
+    {"name": "imageCol", "value": "", "widget": "variable", "title": "Image Column", "description": "Column containing base64-encoded image data used for multimodal (vision-enabled) LLM queries."},
+    {"name": "inputMode", "value": "text", "widget": "array", "optionsArray": ["text", "image", "text+image"], "title": "Mode Selection", "description": "Specify the input modality for the query: text-only, image-only, or combined text and image inputs."},
+
+    {"name": "Prompt", "value": "", "widget": "tab", "title": "Prompt"},
+    {"name": "task", "value":"other", "widget": "key_value_array", "title": "Select Prompt", "optionsMap": {"summary":"Generate a concise, multi-level bullet-point summary capturing key facts, insights, and implications from the content. Preserve structure and section hierarchy.","translation":"Translate the content into fluent, formal English while preserving tone, context, cultural nuances, and domain-specific terminology (e.g., legal, medical, technical).","topic_extraction": "Identify and extract key topics, subtopics, and entities. Categorize them with tags (e.g., Person, Location, Concept) and provide brief descriptions or summaries of each.", "other": ""}, "description": "Select a predefined task template that determines how the LLM processes the input content." , "keyFields":"conditionExpr"},
+    {"name": "customPrompt", "value": "", "widget": "textareafield", "min":"250px", "title": "Prompt", "description": "Custom prompt text to override or extend the predefined task instructions."},
+    {"name": "userQueryCol", "value": "", "widget": "variable", "title": "User Query Column", "description": "Column containing user-specific queries or questions to be passed dynamically to the LLM."},
+
+    {"name": "Advanced", "value": "", "widget": "tab", "title": "Advanced"},
+    {"name":"aggregateMode", "value":"ALL", "widget": "enum", "title": "Aggregate Response", "optionsMap":{"NONE":"Do not aggregate rows","ALL":"Aggregate all rows", "PERFILE":"Aggregate per file"}},
+    {"name": "numPartitions", "value": "0", "widget": "textfield", "title": "Number of Partitions", "description": "Number of Spark partitions to use for LLM execution. Tune for parallelism and throughput in large-scale workloads."},
+    {"name": "fileNameCol", "value": "", "widget": "variable", "title": "File Name Column", "description": "Column containing source file names, used when aggregating or grouping LLM responses by file."},
+    {"name": "pageNumberCol", "value": "", "widget": "variable", "title": "Page Number Column", "description": "Column containing page numbers, useful for preserving document structure during aggregation."},
+    {"name": "timeout", "value": "180", "widget": "textfield", "title": "Timeout (seconds)", "description": "Maximum time to wait for responses from OpenAI or Gemini APIs before terminating the request."},
+    {"name": "thinkingBudget", "value": "-1", "widget": "textfield", "title": "Thinking Budget", "description": "Token budget allocated for model reasoning. Use -1 for dynamic allocation or specify an explicit token limit based on the selected Gemini model."}
+  ]
+}

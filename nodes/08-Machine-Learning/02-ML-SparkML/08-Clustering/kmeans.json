@@ -1,0 +1,35 @@
+{
+  "id": "4",
+  "name": "K-Means",
+  "description": "K-Means is an unsupervised clustering algorithm that groups data points into a predefined number of clusters by minimizing intra-cluster distance.",
+
+  "input": "It takes in a DataFrame as input and performs K-Means clustering",
+  "output": "The input DataFrame is passed along to the next Processors",
+
+  "type": "ml-estimator",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.ml.NodeKMeans",
+  "fields" : [
+    {"name": "modelIdentifier", "value":"", "required":false, "widget": "textfield", "title": "Model Identifier", "description": "Optional identifier used when running the model inside loops. Format: $loop_columnName1_columnName2.", "size":"50%"},
+
+    {"name": "featuresCol", "value":"", "required":true, "widget": "variable", "title": "Features Column", "description": "Vector column containing numerical features used for clustering.", "datatypes":["vectorudt"], "size":"50%"},
+
+    {"name": "k", "value":2, "required":true, "widget": "textfield","title": "K", "description": "Number of clusters to divide the dataset into.", "datatypes":["integer"], "size":"50%"},
+
+    {"name": "maxIter", "value":20, "widget": "textfield", "title": "Max Iterations", "description": "Maximum number of iterations the algorithm will run before stopping.", "datatypes":["integer"], "size":"50%"},
+
+    {"name": "predictionCol", "value":"", "widget": "textfield", "title": "Prediction Column", "description": "Column containing the assigned cluster index for each record.", "size":"50%"},
+
+    {"name": "seed", "value":"", "widget": "textfield", "title": "Seed", "description": "Random seed used to initialize cluster centers for reproducible results.", "datatypes":["long"], "size":"50%"},
+
+    {"name": "tol", "value":1e-4, "widget": "textfield", "title": "Tolerence", "description": "Convergence threshold used to determine when the algorithm should stop iterating.","datatypes":["double"], "size":"50%" },
+
+    {"name": "initMode", "value":"k-means", "widget": "array","title": "initMode", "optionsArray": ["k-means||", "random"], "description": "Initialization method used to select initial cluster centers. k-means|| provides faster and more stable convergence." , "size":"50%"},
+
+    {"name": "initSteps", "value":5, "widget": "textfield","title": "initSteps", "description": "Number of steps used in the k-means|| initialization process. Ignored for other initialization modes.", "datatypes":["integer"], "size":"50%"},
+
+    {"name": "distanceMeasure", "value":"euclidean", "widget": "array","title": "distanceMeasure", "optionsArray": ["euclidean", "cosine"], "description": "Distance metric used to measure similarity between data points and cluster centers.", "size":"50%" },
+
+    {"name": "weightCol", "value":"", "widget": "variable", "title": "Weight Column", "description": "Optional column specifying the relative importance of each record during clustering.", "datatypes":["double"], "size":"50%"}
+  ]
+}

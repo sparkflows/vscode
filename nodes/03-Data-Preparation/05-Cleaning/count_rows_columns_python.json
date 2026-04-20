@@ -1,0 +1,11 @@
+{
+  "id": "7",
+  "name": "Count rows columns",
+  "iconImage": "assets/images/icons/node-icon/column.svg",
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.etl.NodeCountRowsColumns",
+  "fields" : [
+    {"name":"variable", "value": "count", "widget": "textfield", "title": "Variable Name", "description": "Name of the Variable in which the count is stored"}
+  ]
+}

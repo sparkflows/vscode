@@ -1,0 +1,19 @@
+{
+  "id": "6",
+  "name": "PGPDecrypt",
+  "description": "Decrypt the PGP files and upload to target location.",
+  "input": "",
+  "output": "",
+  "type": "shellcommand",
+  "nodeClass": "fire.nodes.pgp.NodePGPDecrypt",
+  "fields" : [
+
+    {"name":"sourceLocation", "display":true,"value":"", "widget": "textfield", "title": "Source Path", "description": "Path of the source location"},
+
+    {"name":"targetLocation", "display":true,"value":"", "widget": "textfield", "title": "Target Path", "description": "Path of the target location"},
+
+    {"name":"secretPrivateKeyName", "display":true,"value":"", "widget": "textfield", "title": "Secret PrivateKey Name", "description": "Secret name in AWS secret manager."},
+
+    {"name":"secretPassphraseName", "display":true,"value":"", "widget": "textfield", "title": "Secret Passphrase Name", "description": "Secret name in AWS secret manager."}
+  ]
+}

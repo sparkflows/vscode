@@ -1,0 +1,20 @@
+{
+  "id": "7",
+  "name": "Polynominal Expansion",
+  "type": "ml-transformer",
+  "description": "Perform feature expansion in a polynomial space",
+
+  "input": "It takes in a DataFrame and transforms it to another DataFrame",
+  "output": "The output DataFrame contains a new column of type vector, Expanding your features into a polynomial space, which is formulated by an n-degree combination of original dimensions.",
+
+  "nodeClass": "fire.nodes.ml.NodePolynominalExpansion",
+  "engine": "scala,pyspark",
+  "fields" : [
+    {"name":"inputCol", "value":"", "widget": "variable", "title": "Input Column", "description": "The input column name", "datatypes":["vectorudt"]},
+
+    {"name":"outputCol", "value":"", "widget": "textfield", "title": "Output Column", "description": "The output column name", "datatypes":["vectorudt"]},
+
+    {"name":"degree", "value":"2", "widget": "textfield", "title": "Degree", "description": "The polynomial degree to expand, which should be >= 1. A value of 1 means no expansion.", "datatypes":["integer"]}
+
+  ]
+}

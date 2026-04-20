@@ -1,0 +1,24 @@
+{
+  "id": "7",
+  "name": "SerperAI Search",
+  "iconImage": "assets/images/icons/node-icon/Graph_group_by_column.svg",
+  "description": "The SerperAI Search node fetches real-time search results from Google services (Web, News, Images, Shopping, Places) using the SerperAI API. It processes user queries and returns results as a structured DataFrame or raw JSON, ideal for retrieval-augmented generation (RAG) workflows.",
+  "input": "No input DataFrame required",
+  "output": "Returns search results as a DataFrame",
+  "type": "pyspark",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeSerperAISearch",
+  "fields": [
+    {"name":"serperConnection", "value":"", "widget": "object_array", "title": "Select Connection", "description": "The serper api connection to connect" ,"required":"true"},
+    {"name": "query", "value": "", "widget": "textareafield", "title": "Query", "description": "Search query to send to the SerperAI API (e.g., 'latest AI tools')."},
+    {"name": "userQueryCol", "value": "", "widget": "variable", "title": "User Query Column", "description": "Column name for user query, (if the query is in a column)"},
+    {"name": "Advanced", "value": "", "widget": "tab", "title": "Advanced"},
+    {"name": "search_type", "value": "search", "widget": "array", "optionsArray": ["search","news","images","shopping","places","autocomplete","webpage"], "title": "Search Type", "description": "Type of search to perform: web, news, images, shopping, places, youtube, scholar, patents, autocomplete, etc."},
+    {"name": "num_results", "value": "10", "widget": "textfield", "title": "Number of Results", "description": "Number of search results to fetch (default: 10)."},
+    {"name": "country", "value": "", "widget": "textfield", "title": "Country Code (gl)", "description": "Two-letter country code (e.g., 'us' for United States, 'in' for India). Used to localize results."},
+    {"name": "language", "value": "", "widget": "textfield", "title": "Language Code (hl)", "description": "Two-letter language code (e.g., 'en' for English, 'fr' for French). Used to return results in a specific language."},
+    {"name": "date_range", "value":"Any Time", "widget": "enum", "title": "Date Range Filter", "optionsMap":{"": "Any Time", "h1": "Past Hour", "d1": "Past 24 Hours", "w1": "Past Week", "m1": "Past Month", "y1": "Past Year"}, "description": "Restrict search results to a specific time range."},
+    {"name": "additional_params", "value": "", "widget": "textareafield", "title": "Additional Parameters", "description": "Optional JSON object for advanced search parameters (e.g., {\"gl\": \"us\", \"hl\": \"en\"})."},
+    {"name": "output_format", "value": "Parsed DataFrame", "widget": "array", "optionsArray": ["Parsed DataFrame", "Raw JSON"], "title": "Output Format", "description": "Output format: Parsed DataFrame (structured columns) or Raw JSON (full response)."}
+  ]
+}

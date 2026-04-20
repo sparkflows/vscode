@@ -1,0 +1,18 @@
+{
+  "id": "11",
+  "name": "CodeLibrary",
+  "description": "This node have code library",
+  "type": "transform",
+  "nodeClass": "fire.nodes.code.NodeCodeLibrary",
+  "fields" : [
+    {"name": "codeEngine", "value":"sql", "widget": "array", "title": "Engine", "optionsArray": ["sql","scala"], "description": "Engine", "required":"true"},
+    {"name":"library", "display": true, "value":"", "widget": "codeLibrary", "title": "Code Library", "description": "Code Library" ,"required":"true"},
+    {"name":"codeLibrary", "value":"", "widget": "textarea_large","title": "Code Editor", "description": "Code Editor code to be run","type": "sql_mysql"},
+
+    {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names", "description": "New Output Columns of the SQL"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types", "description": "Data Type of the Output Columns"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats", "description": "Format of the Output Columns"}
+
+  ]
+}

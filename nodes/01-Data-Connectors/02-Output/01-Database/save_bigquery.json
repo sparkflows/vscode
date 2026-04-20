@@ -1,0 +1,23 @@
+{
+  "id": "11",
+  "name": "Write To BigQuery",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/Big_query.svg",
+  "description": "",
+  "input": "The Dataframe from the previous node",
+  "output": "The incoming Dataframe is passed to the next node as it is",
+  "type": "transform",
+  "nodeClass": "fire.nodes.gcp.NodeSaveBigQuery",
+  "fields" : [
+    {"name":"connection", "value":"", "widget": "object_array", "title": "Connection", "description": "The JDBC connection to connect" ,"required":"true"},
+    {"name":"bigQueryDataset", "display":true, "value":"", "widget": "textfield", "title": "BigQuery Dataset", "description": "bigQueryDataset name",  "required": true},
+
+    {"name":"bigQueryTable", "display":true,"value":"", "widget": "textfield", "required":true, "title": "BigQuery Table", "description": "BigQueryTable name."},
+    {"name":"temporaryBucket", "display":true,"value":"", "widget": "textfield", "required":true, "title": "Temporary Bucket", "description": "Temporary bucket to store while transferring data."},
+
+    {"name":"saveMode", "value":"Append", "widget": "array","optionsArray": ["Append","Overwrite", "ErrorIfExists", "Ignore"], "title": "Save Mode", "description":"Whether to Append, Overwrite or Error if the table Exists"},
+    {"name": "properties", "value": "", "widget": "tab", "title": "Properties"},
+    {"name": "extraOptionsKeys", "value":"[]", "widget": "key_array", "title": "Properties Name", "description": "Extra options/properites available while executing in Save Big Query."},
+    {"name": "extraOptionsValues", "value":"[]", "widget": "value_array", "title": "Properties Value", "description": "Config Values for the Corresponding properites name"}
+
+  ]
+}

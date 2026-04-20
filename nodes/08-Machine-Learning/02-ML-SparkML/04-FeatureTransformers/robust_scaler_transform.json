@@ -1,0 +1,8 @@
+{
+  "id": "4",
+  "name": "Robust Scaler Transform",
+  "description": "RobustScaler removes the median and scales the data according to the quantile range",
+  "type": "ml-predict",
+  "nodeClass": "fire.nodes.ml.NodeRobustScalerTransform",
+  "fields" : []
+}

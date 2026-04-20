@@ -1,0 +1,28 @@
+{
+  "id": "5",
+  "name": "Optimization",
+  "description": "",
+  "input" : "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "transform",
+
+  "nodeClass": "fire.nodes.lpo.NodeOptimization",
+  "fields" : [
+
+    {"name": "dependentVar", "value": "", "widget": "variable", "title": "Dependent Variable", "description": "select dependent variable column name"},
+    {"name": "mainVar", "value": "", "widget": "variable", "title": "Main Variable", "description": "select main variable column name"},
+    {"name": "independentVars", "value": "[]", "widget": "variables", "title": "Independent Variables", "description": "select independent variable column names"},
+    {"name": "transformVars", "value": "[]", "widget": "variables", "title": "Transform Variables", "description": "select transform variable column names"},
+    {"name": "adstockVars", "value": "[]", "widget": "variables", "title": "Adstock Variables", "description": "select Adstock variable column names"},
+    {"name": "priceCol", "value": "", "widget": "variable", "title": "Set Price Mapping", "description": "For selecting the field related to price mapping for revenue parabola calculation."},
+    {"name":"modelList", "value":"[]", "widget": "array_multiple", "optionsArray": ["LM","SVR_KERNEL_RBF","SVR_KERNEL_POLY","GLM","RF","GBR","XGB","ADA","SGD","DT"], "title": "Select Models", "description": "Select Models"},
+    {"name": "lossFunction", "value":"mean_absolute_percentage_error", "widget": "array", "title": "Loss Function", "optionsArray": ["RMSE", "MAPE", "MAE", "MAD"], "description": "Loss function" ,"datatypes":["string"]},
+    {"name": "last_n_for_test", "value":0, "widget": "textfield", "title": "Last N Rows For Test", "description": "Enter Test Data Size", "datatypes":["long"]},
+    {"name":"modelSavePath", "value":"", "widget": "textfield", "title": "Path", "description": "Save Best Models to Path"}
+
+  ]
+}
+
+
+

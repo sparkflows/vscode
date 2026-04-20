@@ -1,0 +1,28 @@
+{
+  "id": "11",
+  "name": "Read HIVE Table",
+  "iconImage": "assets/images/icons/node-icon/hive.svg",
+  "description": "This node reads data from Apache HIVE table and creates a DataFrame from it",
+  "input": "It reads in CSV text files",
+  "output": "It creates a DataFrame from the data read and sends it to its output",
+  "hint": "Whenever the table is changed, go to the InferSchema tab and Infer the Schema",
+  "type": "dataset",
+  "nodeClass": "fire.nodes.hive.NodeHIVE",
+  "engine": "scala,pyspark",
+  "fields" : [
+
+    {"name":"db", "value":"default", "widget": "textfield", "title": "HIVE Database",
+      "description": "HIVE Database"},
+
+    {"name":"table", "display":true, "value":"", "widget": "textfield", "title": "HIVE Table",
+      "description": "HIVE Table from which to read the data"},
+
+    {"name":"query", "value":"", "widget": "textarea_medium", "title": "HIVE Query (Optional)",
+      "description": "If a separate HIVE query needs to be used for reading from HIVE. This field is optional."},
+
+    {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names of the Database table", "description": "Column Names of the Database table"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types of the Database table", "description": "Column Types of the Database table"}
+  ]
+}

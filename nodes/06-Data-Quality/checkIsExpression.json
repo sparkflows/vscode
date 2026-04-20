@@ -1,0 +1,16 @@
+{
+"id": "6",
+"name": "IsExpression",
+  "description": "Evaluate one or more boolean expressions on the DataFrame rows.",
+  "type": "transform",
+  "nodeClass": "fire.nodes.quality.NodeCheckIsExpression",
+  "engine": "scala",
+  "fields": [
+  {"name": "Expressions", "value": "", "widget": "tab", "title": "Expressions"},
+  {"name": "expressionNames", "value": "[]", "widget": "key_array",
+  "title": "Rule Name", "description": "A short identifier for each expression (e.g., AdultCheck, ValidEmail, PositiveBalance).", "header": "Expressions", "type": "sparksql"},
+  { "name": "expressions", "value": "[]", "widget": "value_array",
+  "title": "Expression", "description": "Boolean Spark SQL expressions to evaluate (must return true/false). Example: age >= 18, email RLIKE '^[^@]+@[^@]+\\\\.[^@]+', coalesce(balance,0) >= 0", "type": "sparksql"},
+  { "name": "weightage", "value": "1", "widget": "textfield", "title": "Weightage", "description": "Weightage applied to the Data Quality score."}
+  ]
+}

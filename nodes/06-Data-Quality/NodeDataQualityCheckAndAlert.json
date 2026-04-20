@@ -1,0 +1,13 @@
+{
+  "id": "2",
+  "name": "NodeDataQualityCheckAndAlert",
+  "description": "This node is used to perform data quality checks on a DataFrame and send alerts based on the results.",
+  "type": "transform",
+  "nodeClass": "fire.nodes.quality.NodeDataQualityCheckAndAlert",
+  "fields" : [
+    {"name": "emailAddress", "value":"", "widget": "textfield", "title": "Email Address", "description": "Email Address. Add multiple email in comma separated", "expandable":true},
+    {"name":"subject", "display": true, "value":"", "widget": "textfield", "title": "Subject", "description": "The subject of the alert email." ,"required":"false", "expandable":true},
+    {"name": "threshold", "value":"", "widget": "textfield","title": "Threshold", "description": "The minimum acceptable overall data quality score (0-100). An alert is sent if the score is less than or equal to this threshold."},
+    {"name":"dataQualityResultPath", "display":true,"value":"", "widget": "textfield", "required":true, "title": "Result Path", "description": "The path to save the good and bad records"}
+  ]
+}

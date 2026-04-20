@@ -1,0 +1,13 @@
+{
+  "id": "10",
+  "name": "Print Rich Text",
+  "description": "Displaying rich text",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/text.svg",
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.graph.NodePrintRichText",
+  "fields" : [
+    {"name":"text", "value":"", "widget": "textarea_rich", "title": "Text", "description": "Displaying rich text"},
+    {"name": "column", "value":"column", "required":"false", "widget": "variable", "title": "Column to pick data", "description": "First row from the column will be picked and displayed."}
+  ]
+}

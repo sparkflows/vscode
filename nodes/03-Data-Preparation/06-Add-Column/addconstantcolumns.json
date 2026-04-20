@@ -1,0 +1,17 @@
+{
+  "id": "6",
+  "name": "Add Column Advanced",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/Add_Columns_and_AddColumnsAdvance.svg",
+  "description": "This node allows adding new columns with certain values",
+  "input": "This type of node takes in a DataFrame and transforms it to another DataFrame",
+  "output": "This node adds the user specified columns to the DataFrame",
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.etl.NodeAddConstantColumn",
+  "fields" : [
+    {"name": "constantTypes", "value":"[]", "widget": "list_array", "optionsArray": ["CurrentDate", "CurrentTimeStamp", "ConstantString", "ConstantInt"], "title": "Constant Type", "description": "Constant Types"},
+    {"name": "outputCols", "value":"[]", "widget": "list_textfield", "title": "Output Column", "required": true, "description": "New Output column name."},
+    {"name": "constantValues", "value":"[]", "widget": "list_textfield", "title": "Constant Value", "description": "ConstantValues when type is ConstantString and ConstantInt."}
+
+  ]
+}

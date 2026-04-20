@@ -1,0 +1,20 @@
+{
+  "id": "10",
+  "name": "Save DOCX",
+  "description": "Saves DataFrame responses as DOCX files",
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.save.NodeSaveDocx",
+  "fields":
+  [
+    {"name": "outputPath", "display": true, "value": "", "widget": "textfield", "title": "Output Path", "description": "Path where to save the DOCX files (local or S3)", "required": "true"},
+    {"name": "content", "display": true, "value": "", "widget": "variable", "title": "Content Column", "description": "DataFrame column containing content for output files", "required": "false"},
+    {"name": "saveMode", "display": true, "value": "Overwrite", "widget": "array", "optionsArray": ["Overwrite", "ErrorIfExists", "Ignore"], "title": "Save Mode", "description": "Whether to Append, Overwrite, Error if the path Exists, or Ignore", "required": "false"},
+    {"name": "System Prompt", "value": "", "widget": "tab", "title": "Advanced"},
+    {"name": "generic_file_name", "display": true, "value": "docx_output", "widget": "textfield", "title": "Default File Name", "description": "Default docx file name where the DOCX will be saved", "required": "false"},
+    {"name": "saveOption", "value": "ALL", "widget": "enum", "title": "Save Option", "optionsMap": {"ALL": "Combine into single file", "PERFILE": "Save as individual files", "NONE": "Group by page number"}},
+    {"name": "fileNameCol", "display": true, "value": "", "widget": "variable", "title": "File Name Column", "description": "DataFrame column containing filenames for output files (used in separate files or page number modes)"},
+    {"name": "pageNumberCol", "display": true, "value": "", "widget": "variable", "title": "Page Number Column", "description": "DataFrame column containing page numbers for multi-page documents (used in page number mode)", "required": "false"},
+    {"name": "translateFileName", "value": "false", "widget": "array", "optionsArray": ["true", "false"], "title": "Translate File Name", "description": "Translates file names to be saved from any language to English"}
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "7",
+  "name": "Imputing With Mean Value",
+  "type": "transform",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/impute_advanced.svg",
+  "description": "Imputing the continuous variables by mean.",
+  "nodeClass": "fire.nodes.ml.NodeReplaceMissingValueWithMean",
+  "engine":"scala,pyspark",
+  "fields" : [
+    {"name":"inputCols", "value":"[]", "widget": "variables", "title": "Column Names", "description": "Columns type should be continuous", "datatypes":["integer", "long", "double", "float"]}
+  ]
+}

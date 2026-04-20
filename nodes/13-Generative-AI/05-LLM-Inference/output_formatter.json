@@ -1,0 +1,14 @@
+{
+  "id": "11",
+  "name": "Output Formatter",
+  "description": "This node formats output from Columns.",
+  "input": "It reads data input DataFrame column",
+  "output": "",
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.graph.NodeOutputFormatter",
+  "fields" : [
+    {"name":"column", "value":"", "widget": "variable", "title": " Select Column", "required":"true", "description": "Select the input DataFrame column whose values will be formatted or transformed in the output."},
+    {"name":"key", "value":"", "widget": "textfield", "title": "Key", "required":"true", "description": "Logical key or label to associate with the formatted output, typically used for structuring or downstream interpretation."}
+  ]
+}

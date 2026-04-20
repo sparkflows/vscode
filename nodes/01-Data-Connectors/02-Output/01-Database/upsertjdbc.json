@@ -1,0 +1,17 @@
+{
+  "id": "11",
+  "name": "Upsert JDBC",
+  "iconImage": "assets/images/icons/node-icon/JDBC.svg",
+  "description": "This node insert or update the data to databases using JDBC.",
+  "type": "transform",
+  "nodeClass": "fire.nodes.save.NodeUpsertJDBC",
+  "engine": "scala",
+  "fields" : [
+    {"name":"primaryKeyColumn", "value":"[]", "widget": "variables", "title": "PrimaryKeyColumn", "description": "Key column name in table", "required":"true"},
+
+    {"name":"table", "display": true, "value":"", "widget": "textfield", "title": "DB Table", "description": "The JDBC table to write to","required":"true"},
+
+    {"name":"connection", "value":"", "widget": "object_array", "title": "Connection", "description": "The JDBC connection to connect" ,"required":"true"}
+
+  ]
+}

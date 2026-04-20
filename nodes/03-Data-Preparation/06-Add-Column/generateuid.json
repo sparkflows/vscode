@@ -1,0 +1,14 @@
+{
+  "id": "11",
+  "name": "Generate UID",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/Generate_UUID.svg",
+  "description": "This node Generates a new column with unique Index/Value for each row in the Dataset for each partition. Each Partition starts a new range.",
+  "input": "",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeGenerateUID",
+  "fields" : [
+
+    {"name":"outputCol", "value": "", "widget": "textfield", "title": "UID Column Name", "description": "UID column name"}
+
+  ]
+}

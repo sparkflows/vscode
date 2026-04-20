@@ -1,0 +1,24 @@
+{
+  "id": "7",
+  "name": "Save Excel Advanced",
+  "iconImage": "assets/images/icons/node-icon/excel.svg",
+  "description": "Powerful Excel Writer Node – Export DataFrames to .xlsx files with full control over sheets, ranges, dynamic naming, record splitting, formatting preservation, password protection, and advanced save modes. Ideal for business reporting, finance dashboards, compliance exports, and audit-ready files.",
+  "type": "transform",
+  "engine": "scala, polars",
+  "nodeClass": "fire.nodes.save.NodeSaveExcelAdvanced",
+  "fields": [
+    {"name":"path","display":true,"value":"","widget":"textfield","title":"Path / File","description":"Full destination path including file name. Supports local, HDFS, S3, GCS, ADLS, etc. Example: /output/reports/sales_2024.xlsx or s3a://reports/final_output.xlsx","required":"true"},
+    {"name":"saveMode","value":"OverwriteSheet","widget":"array","optionsArray":["OverwriteFile","OverwriteSheet","AppendSheet","ErrorIfExists","Ignore"],"title":"Save Mode","description":"How to handle existing files/sheets:\n• OverwriteFile - replaces entire workbook\n• OverwriteSheet - replaces only the target sheet (keeps other sheets)\n• AppendSheet - adds rows below existing data\n• ErrorIfExists - fails if file already exists\n• Ignore - silently skips writing if file exists"},
+    {"name":"sheetName","display":true,"value":"Sheet1","widget":"textfield","title":"Sheet Name","description":"Name of the sheet to create or write to. Can be static (e.g., Summary) or dynamically generated via 'Sheet Name / File From Field'.","required":"true"},
+    {"name":"range","display":true,"value":"","widget":"textfield","title":"Range","description":"Optional A1-style range or starting cell:\n• C10 - starts writing at cell C10 (great for templates)\n• B5:G50 - writes only inside this rectangle (truncates excess rows/cols)\nRequired when Preserve Formatting = true."},
+    {"name":"takeNameFromField","display":true,"value":"","widget":"textfield","title":"Sheet Name / File From Field","description":"Column name to use for dynamic output:\n• If value exists in a row - creates one sheet per unique value (e.g., Region - sheets North, South, etc.)\n• If column has only one distinct value - can also be used to name the entire file dynamically"},
+    {"name":"includeHeader","display":true,"value":"true","widget":"array","optionsArray":["true","false"],"title":"Include Header Row","description":"Write column names as the first row in Excel. Usually set to true for reporting.","datatypes":["boolean"]},
+    {"name":"preserveFormatting","display":true,"value":"false","widget":"array","optionsArray":["true","false"],"title":"Preserve Formatting","description":"Keep existing cell styles (fonts, colors, borders, number formats) when overwriting a range or sheet. Requires a defined Range and OverwriteSheet mode. Perfect for pre-formatted report templates.","datatypes":["boolean"]},
+    {"name":"suppressIfNoRecords","value":"false","widget":"array","optionsArray":["true","false"],"title":"Suppress Output if No Records","description":"Do not create any file/sheet if the DataFrame is empty. Prevents empty placeholder files in production.","datatypes":["boolean"]},
+    {"name":"maxRecordsPerSheet","value":"0","widget":"textfield","title":"Max Records Per Sheet","description":"Maximum rows (excluding header) per sheet. If exceeded, automatically creates Sheet1_1, Sheet1_2, etc. Set to 0 for unlimited (default Excel limit ~1M rows).","datatypes":["long"]},
+    {"name":"maxRecordsPerFile","value":"0","widget":"textfield","title":"Max Records Per File","description":"Maximum total rows per output file. If exceeded, creates part files: report.xlsx, report_0001.xlsx, report_0002.xlsx, etc. Set to 0 for no splitting.","datatypes":["long"]},
+    {"name":"password","value":"","widget":"textfield","title":"Password","description":"Optional password to protect the entire workbook or specific sheet. Users will need the password to open or modify the file."},
+    { "name": "boxConnection", "display": false, "value": "", "widget": "boxDropdown", "title": "Box Connection" },
+    { "name": "accessToken", "display": false, "value": "", "widget": "textfield", "title": "Access Token" }
+  ]
+}

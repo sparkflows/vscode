@@ -1,0 +1,15 @@
+{
+  "id": "7",
+  "name": "Structured Streaming Hive Sink2",
+  "iconImage": "assets/images/icons/node-icon/hive.svg",
+  "description": "Saves the streaming data into an Apache HIVE Table",
+  "type": "transform",
+  "nodeClass": "fire.nodes.structuredstreaming.NodeStructuredStreamingHiveSink2",
+  "fields" : [
+
+    {"name":"databaseName", "value":"", "widget": "textfield", "title": "HIVE Database",
+      "description":"Name of the HIVE Database"},
+    {"name":"tableName", "display": true, "value":"", "widget": "textfield", "title": "HIVE Table",
+      "description":"Name of the HIVE table"}  
+  ]
+}

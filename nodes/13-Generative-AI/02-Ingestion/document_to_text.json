@@ -1,0 +1,24 @@
+{
+  "id": "6",
+  "name": "Document To Text",
+  "iconImage": "assets/images/icons/node-icon/doc_to_text.svg",
+  "description": "The DocumentToText node extracts text content from documents, including PDF, TXT, DOCX, and image files, located in a specified file path or directory. It processes either a single file or an entire directory, producing a structured DataFrame with columns for the extracted text, file name, page numbers, and optionally, base64-encoded data for PDFs and images.",
+  "input": "It takes directory or path as an input",
+  "output": "Outputs a Dataframe with page content and file name columns",
+  "type": "pyspark",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeDocumentToText",
+  "fields" : [
+    {"name":"filePath",  "display": true, "value":"", "widget": "textfield", "title": "Directory/File Path", "description":"Path to a single document file or a directory containing multiple documents to be processed. Supports batch extraction when a directory is provided."},
+    {"name": "fileType", "value": "", "widget": "array", "optionsArray": ["pdf","docx", "image"], "title": "Document Type", "description": "Restrict processing to a specific document type. When left empty, all supported file types are automatically detected and processed."},
+    {"name": "recursive", "value": "false", "widget": "array", "optionsArray": ["true", "false"], "title": "Recursive", "description": "When enabled, scans subdirectories recursively and processes all supported documents found within the directory tree."},
+    {"name": "isImage", "value": "false", "widget": "array", "optionsArray": ["true", "false"], "title": "Image Encoding", "description": "When enabled, adds a column containing base64-encoded representations of image or PDF pages for downstream processing or storage."},
+
+
+    {"name": "columns", "value":"", "widget": "tab", "title": "Rename Output Cols"},
+    {"name":"fileNameCol", "value":"fileName", "widget": "textfield", "title": "File Name Column", "description": "Name of the output column that stores the source file name. Defaults to fileName." },
+    {"name":"contentCol", "value":"content", "widget": "textfield", "title": "Content Column", "description": "Name of the output column containing the extracted textual content. Defaults to content." },
+    {"name":"pageNumberCol", "value":"pageNumber", "widget": "textfield", "title": "Page Number Column", "description": "Name of the output column representing the page number from which the content was extracted. Defaults to pageNumber." },
+    {"name":"base64ImageCol", "value":"base64ImageCol", "widget": "textfield", "title": "Base64 Image Column", "description": "Name of the output column containing base64-encoded image or page data when image encoding is enabled."}
+  ]
+}

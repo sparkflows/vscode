@@ -1,0 +1,45 @@
+{
+  "id": "21",
+  "name": "Sklearn TF-IDF Vectorizer",
+  "description": "Applies scikit-learn's TfidfVectorizer to a text column. Converts text documents into TF-IDF feature vectors and stores them as an ARRAY column in the Spark DataFrame.",
+  "input": "Takes a DataFrame with at least one text column.",
+  "output": "Adds a new column containing TF-IDF vectors as ARRAY and passes the DataFrame to downstream nodes.",
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.sklearn.preprocessing.NodeTFIDFVectorizerFitTransform",
+  "fields": [
+    {
+      "name": "columnToVectorize",
+      "value": "",
+      "required": true,
+      "widget": "variable",
+      "title": "Text Column to Vectorize",
+      "description": "Name of the text column on which TF-IDF should be computed.",
+      "datatypes": ["string"]
+    },
+    {
+      "name": "outputCol",
+      "value": "",
+      "widget": "textfield",
+      "title": "Output Column Name",
+      "description": "Name of the output column that will store TF-IDF vectors as ARRAY. If left empty, defaults to 'tfidf_<columnToVectorize>'.",
+      "datatypes": ["string"]
+    },
+    {
+      "name": "max_df",
+      "value": "1.0",
+      "widget": "textfield",
+      "title": "Max Document Frequency (max_df)",
+      "description": "Ignore terms that appear in more than this proportion of documents. For example, 0.9 drops terms appearing in more than 90% of documents.",
+      "datatypes": ["float"]
+    },
+    {
+      "name": "min_df",
+      "value": "1",
+      "widget": "textfield",
+      "title": "Min Document Frequency (min_df)",
+      "description": "Ignore terms that appear in fewer than this number of documents. For example, 2 keeps only terms that appear in at least 2 documents.",
+      "datatypes": ["integer"]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "6",
+  "name": "Hugging Face Grammatical Correctness",
+  "description": "Grammatical Correctness using models hosted in Hugging Face repository.",
+  "input": "It takes in a DataFrame as input",
+  "output": "",
+  "type": "ml-estimator",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeHFSentimentAnalysis",
+  "fields" : [
+    {"name": "column_name", "value":"", "required":"true", "widget": "variable", "title": "Column to check for Grammatical Correctness", "description": "Column to check for Grammatical Correctness."},
+    {"name": "preloaded_model", "value":"", "widget": "array","optionsArray": ["textattack-distilbert-base-uncased-CoLA"], "title": "Model to be used for checking Grammatical Correctness", "description": "Checks for grammatical correctness."},
+    {"name": "preloaded_model_path", "value":"", "widget": "textfield", "title": "Path", "description": "Pre-loaded models parent directory.", "datatypes":["String"]},
+    {"name": "custom_model", "value":"", "widget": "textfield", "title": "Custom model name", "description": "Model name to pull model from Hugging Face repo.", "datatypes":["String"]}
+      ]
+}

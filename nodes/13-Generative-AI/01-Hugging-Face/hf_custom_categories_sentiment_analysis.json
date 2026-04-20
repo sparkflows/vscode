@@ -1,0 +1,17 @@
+{
+  "id": "6",
+  "name": "Hugging Face Custom Category Sentiment Analysis",
+  "description": "Sentiment Analysis with custom categories using models hosted in Hugging Face repository.",
+  "input": "It takes in a DataFrame as input",
+  "output": "",
+  "type": "ml-estimator",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeHFCustomCategoriesSentimentAnalysis",
+  "fields" : [
+    {"name": "column_name", "value":"", "required":"true", "widget": "variable", "title": "Column to analyse sentiment", "description": "Column to analyse sentiment."},
+    {"name": "category_list", "value":"", "widget": "textfield", "title": "Category lists", "description": "Comma seperated categories to classify. Can be space & cosmos, scientific discovery, microbiology, robots, archeology, travel, cooking, dancing etc", "datatypes":["String"]},
+    {"name": "preloaded_model", "value":"", "widget": "array","optionsArray": ["facebook-bart-large-mnli"], "title": "Model to be used for Sentiment analysis", "description": "Computes the sentiment using the model chosen."},
+    {"name": "preloaded_model_path", "value":"", "widget": "textfield", "title": "Path", "description": "Pre-loaded models parent directory.", "datatypes":["String"]},
+    {"name": "custom_model", "value":"", "widget": "textfield", "title": "Custom model name", "description": "Model name to pull model from Hugging Face repo.", "datatypes":["String"]}
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "11",
+  "name": "Columns Cardinality",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/column_cardinality.svg",
+  "description": "Distribution of categorical data. Calculates the count of records for each unique value for the column specified.",
+  "type": "transform",
+  "nodeClass": "fire.nodes.ml.NodeColumnsCardinality",
+  "fields" : [
+
+    {"name":"maxValuesToDisplay", "value": "20", "widget": "textfield", "title": "Max Values To Display",
+    "description": "Maximum number of values to display in result.", "required": true},
+
+    {"name":"inputCols", "value": "[]", "widget": "variables", "title": "Column Names",
+      "description": "Name of columns for the cardinality data", "required": true}
+  ]
+}

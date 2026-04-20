@@ -1,0 +1,38 @@
+{
+  "id": "5",
+  "name": "Sklearn Gradient Boosting Regression",
+  "description": "Gradient Boosting Regression builds a strong predictive model by combining multiple weak regression trees in a forward stage-wise manner. Each successive tree is trained to correct the errors made by the previous ensemble by minimizing a specified differentiable loss function.",
+  "input" : "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "ml-estimator",
+
+  "nodeClass": "fire.nodes.sklearn.NodeSklearnGradientBoostingRegressor",
+  "fields" : [
+
+    {"name": "targetCol", "value": "", "widget": "variable", "title": "Target Column", "description": "Target column containing the continuous outcome variable that the regression model learns to predict.", "datatypes": ["integer", "long", "double", "float", "int"], "required": true, "size":"100%"},
+    {"name": "featureCols", "value": "[]", "widget": "variables", "title": "Feature Columns", "description": "List of input feature columns used for training. All features must be numeric, boolean, or vector-compatible.", "datatypes": ["integer", "long", "double", "float", "int"], "required": true, "size":"100%"},
+    {"name": "splitRatio", "value":1.0, "widget": "textfield", "title": "Split Ratio", "description": "Ratio used to split the dataset into training and testing sets. A value of 1.0 uses the full dataset for training.", "datatypes":["float"], "size":"50%"},
+
+    {"name": "loss", "value": "absolute_error", "widget": "array", "title": "Loss", "optionsArray": ["absolute_error", "squared_error", "huber", "quantile"], "description": "Loss function optimized during training. Absolute error minimizes median error, squared error minimizes mean squared error, huber balances robustness and sensitivity, and quantile estimates conditional quantiles.", "size":"50%"},
+    {"name": "learning_rate", "value": 1.0, "widget": "textfield", "title": "Learning Rate", "description": "Controls how much each tree contributes to the overall model. Smaller values improve generalization but require more trees.", "size":"50%"},
+    {"name": "n_estimators", "value": 100, "widget": "textfield", "title": "Number of Estimators", "description": "Total number of regression trees added sequentially to build the gradient boosting ensemble.", "size":"50%"},
+    {"name": "subsample", "value": 1.0, "widget": "textfield", "title": "Subsample", "description": "Fraction of training samples used to fit each tree. Values below 1.0 introduce randomness and help reduce overfitting.", "size":"50%"},
+    {"name": "criterion", "value": "friedman_mse", "widget": "array", "title": "Criterion", "optionsArray": ["friedman_mse", "mse", "mae"], "description": "Metric used to evaluate split quality in trees. Friedman MSE is optimized specifically for gradient boosting performance.", "size":"50%"},
+    {"name": "min_samples_split", "value": 2, "widget": "textfield", "title": "Min Samples Split", "description": "Minimum number of samples required to split an internal node. Higher values result in simpler and more robust trees.", "size":"50%"},
+    {"name": "min_samples_leaf", "value": 1, "widget": "textfield", "title": "Min Samples Leaf", "description": "Minimum number of samples required at a leaf node to ensure stable predictions and reduce noise sensitivity.", "size":"50%"},
+    {"name": "min_weight_fraction_leaf", "value": 0.0, "widget": "textfield", "title": "Min Weight Fraction Leaf", "description": "Minimum weighted fraction of total sample weight required at a leaf node, useful when sample weights are applied.", "size":"50%"},
+    {"name": "max_depth", "value": 3, "widget": "textfield", "title": "Max Depth", "description": "Maximum depth of individual regression trees. Limits model complexity and controls overfitting.", "size":"50%"},
+    {"name": "min_impurity_decrease", "value": 0.0, "widget": "textfield", "title": "Min Impurity Decrease", "description": "Minimum reduction in impurity required to allow a node split. Larger values make the model more conservative.", "size":"50%"},
+    {"name": "random_state", "value": "", "widget": "textfield", "title": "Random State", "description": "Seed value controlling randomness in subsampling and tree construction to ensure reproducible results.", "size":"50%"},
+    {"name": "alpha", "value": 0.9, "widget": "textfield", "title": "Alpha", "description": "Quantile value used for quantile regression and as the transition point between squared and absolute loss in Huber loss.", "size":"50%"},
+    {"name": "verbose", "value": 0, "widget": "textfield", "title": "Verbose", "description": "Controls the amount of logging output during training. Higher values provide more detailed progress information.", "size":"50%"},
+    {"name": "max_leaf_nodes", "value": "", "widget": "textfield", "title": "Max Leaf Nodes", "description": "Maximum number of leaf nodes per tree. Restricts tree growth to manage model size and complexity.", "size":"50%"},
+    {"name": "warm_start", "value": "false", "widget": "array", "title": "Warm Start", "optionsArray": ["True", "False"], "description": "Allows incremental training by reusing previously trained trees and adding new ones to the ensemble.", "size":"50%"},
+    {"name": "presort", "value": "auto", "widget": "textfield", "title": "Presort", "description": "Indicates whether input data should be presorted to speed up split finding. Deprecated in newer sklearn versions.", "size":"50%"},
+    {"name": "validation_fraction", "value": 0.1, "widget": "textfield", "title": "Validation Fraction", "description": "Fraction of training data held out as a validation set for monitoring performance during early stopping.", "size":"50%"},
+    {"name": "n_iter_no_change", "value": "", "widget": "textfield", "title": "N Iter No Change", "description": "Triggers early stopping if validation performance does not improve for the specified number of iterations.", "size":"50%"},
+    {"name": "tol", "value": 0.0001, "widget": "textfield", "title": "Tolerance", "description": "Minimum improvement threshold required to continue training when early stopping is enabled.", "size":"50%"}
+
+  ]
+}

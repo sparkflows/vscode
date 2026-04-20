@@ -1,0 +1,13 @@
+{
+  "id": "11",
+  "name": "Save Shopify Resource",
+  "description": "This node saves data to Shopify.",
+  "type": "transform",
+  "nodeClass": "fire.nodes.shopify.SaveToShopify",
+  "fields" : [
+    {"name":"connection", "value":"", "widget": "object_array", "title": "Connection", "description": "The Shopify connection to connect" ,"required":"true"},
+    {"name":"api_version", "value":"2024-04", "widget": "textfield", "title": "API Version", "description": "API Version of Shopify."},
+    {"name": "resource", "value":"", "widget": "textfield", "title": "Resource Name", "description": "orders, products, customers"}
+
+     ]
+}

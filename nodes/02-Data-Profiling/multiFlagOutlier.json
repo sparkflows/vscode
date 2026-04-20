@@ -1,0 +1,16 @@
+{
+  "id": "7",
+  "name": "MultiFlagOutliers",
+  "type": "transform",
+  "description": "This checks if values fall between Inter Quartile Range.",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/flag_outlier.svg",
+  "nodeClass": "fire.nodes.ml.NodeMultiFlagOutliers",
+  "fields" : [
+    {"name": "inputCols", "value":"[]", "widget": "variables_list_select", "title": "Input Column to flag the outlier", "description": "The Input Column to flag the outlier",
+      "datatypes":["double", "integer", "float"]},
+
+    {"name": "lowerQuantiles", "value": "[]", "widget": "variables_list_textfield", "title": "LowerQuantile", "description": ""},
+
+    {"name": "upperQuantiles", "value": "[]", "widget": "variables_list_textfield", "title": "UpperQuantile", "description": ""}
+  ]
+}

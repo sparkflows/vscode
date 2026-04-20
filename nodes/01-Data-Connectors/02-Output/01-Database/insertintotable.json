@@ -1,0 +1,29 @@
+{
+  "id": "7",
+  "name": "Insert Into HIVE Table",
+  "iconImage": "assets/images/icons/node-icon/hive.svg",
+  "description": "Saves the DataFrame into an Apache HIVE Table",
+  "type": "transform",
+  "nodeClass": "fire.nodes.save.NodeInsertIntoTable",
+  "fields" : [
+
+    {"name":"database", "value":"", "widget": "textfield", "title": "HIVE Database",
+      "description":"Name of the HIVE Database" ,"required":"true"},
+    {"name":"table", "display": true, "value":"", "widget": "textfield", "title": "HIVE Table",
+      "description":"Name of the HIVE table" ,"required":"true"},
+
+    {"name":"saveMode", "value":"Append", "widget": "array","optionsArray": ["Append","Overwrite", "ErrorIfExists", "Ignore"],
+      "title": "Save Mode", "description":"Whether to Append, Overwrite or Error if the path Exists"},
+
+    {"name":"partitionBy", "value":"", "widget": "textfield", "title": "Partition By",
+      "description":"List of columns to partition by - separated by space"},
+
+
+    {"name":"partitionBy", "value":"", "widget": "textfield",
+      "title": "Partition By", "description":"Partition By Column (can be empty)"},
+
+    {"name":"bucketBy", "value":"", "widget": "textfield",
+      "title": "Bucket By", "description":"Bucket By Column (can be empty)"}
+    
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "11",
+  "name": "Drop Null Rows for Selected Columns",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/drop_rows.svg",
+  "description": "This node creates a new DataFrame by dropping rows containing null values for selected Columns",
+  "input": "It accepts DataFrame as input from the previous Node",
+  "output": "This node drops rows containing null values for selected Columns",
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.etl.NodeDropRowsWithNullMultipleColumns",
+  "fields" : [
+    {"name": "columns_to_check", "value":"[]", "widget": "variables", "title": "Columns to Check", "description": "Columns to be processed for missing values"}
+  ]
+}

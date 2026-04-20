@@ -1,0 +1,12 @@
+{
+  "id": "4",
+  "name": "Interaction",
+  "description": "This transformer takes in Double and Vector type columns and outputs a flattened vector of their feature interactions.",
+  "type": "ml-estimator",
+  "nodeClass": "fire.nodes.etl.NodeInteraction",
+  "engine": "pyspark",
+  "fields" : [
+    {"name":"inputCols", "value":"", "widget": "variables", "title": "Input Columns", "required":"true", "datatypes":["integer","double","float"], "description": "Column containing label indices"},
+    {"name": "outputCol", "value":"", "widget": "textfield", "title": "Output Column", "required":"true", "description": "Output column name"}
+  ]
+}

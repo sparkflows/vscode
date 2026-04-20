@@ -1,0 +1,13 @@
+{
+  "id": "7",
+  "name": "Value count",
+  "description": "Counts value in columns using the specified input",
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.etl.NodeValueCount",
+  "fields" : [
+
+    {"name": "inputCols", "value":"", "widget": "textfield",
+      "title": "Input Columns", "description": "Input Columns for which unique values needs to be counted"}
+  ]
+}

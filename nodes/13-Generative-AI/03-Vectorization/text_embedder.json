@@ -1,0 +1,25 @@
+{
+  "id": "6",
+  "name": "Create Text Embedding",
+  "description": "This node enables the creation of a embedding text data and output as dataframe",
+  "input": "It takes in Dataframe as an input",
+  "output": "Output as dataframe which have extra embedding columns",
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeTextEmbedder",
+
+  "fields": [
+    {"name": "createEmbedding", "value": "", "widget": "tab", "title": "Create Embedding"},
+    {"name": "embeddingMethod", "value": "", "widget": "array", "optionsArray": ["HuggingFace", "OpenAI","AzureOpenAI", "Bedrock"], "title": "Embedding Method", "description": "Select the embedding provider or framework used to generate vector representations from text."},
+    {"name": "llmConnection", "value": "", "widget": "object_array", "title": "Select Connection", "description": "Select the configured connection required to access the chosen embedding service or model."},
+    {"name": "chunkSize", "value": "1024", "widget": "textfield", "title": "Chunk Size", "description": "Maximum number of characters or tokens per text chunk used during embedding generation."},
+    {"name": "chunkOverlap", "value": "100", "widget": "textfield", "title": "Chunk Overlap", "description": "Number of overlapping characters or tokens between consecutive chunks to preserve contextual continuity."},
+    {"name": "contentCol", "value": "", "widget": "variable", "title": "Vector Indexer", "description": "Column containing the text content to be split and converted into embeddings."},
+
+    {"name": "queryEmbedding", "value": "", "widget": "tab", "title": "Query Embedding"},
+    {"name": "userQuery", "value": "", "widget": "textarea_small", "title": "User Query", "description": "User-provided query text for which an embedding will be generated."},
+
+    {"name": "huggingface", "value": "", "widget": "tab", "title": "Hugging Face"},
+    {"name": "hfModelName", "value": "", "widget": "textfield", "title": "Hugging Face Model", "description": "Name of the Hugging Face embedding model to use for vector generation."}
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "5",
+  "name": "Sklearn Binarizer",
+  "description": "Binarize data (set feature values to 0 or 1) according to a threshold.",
+
+  "input": "",
+  "output": "",
+
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.sklearn.preprocessing.NodeBinarizerFitTransform",
+  "fields" : [
+    {"name":"threshold", "value":0.0, "widget": "textfield", "title": "Threshold", "description": ""}
+
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "id": "5",
+  "name": "GBT Classifier",
+  "description": "Gradient-Boosted Trees (GBTs) is an ensemble-based classification algorithm that builds models sequentially to improve prediction accuracy. It supports binary classification with both continuous and categorical features.",
+
+  "input": "It takes in a DataFrame as input and performs GBT Classification",
+  "output": "The trained GBT classification model is passed to downstream nodes, along with the original input DataFrame",
+
+  "type": "ml-estimator",
+  "engine": "scala",
+  "nodeClass": "fire.nodes.ml.NodeGBTClassifier",
+  "fields" : [
+
+    {"name": "featuresCol", "value":"", "widget": "variable", "title": "Features Column", "description": "Vector column containing all input features used by the model to learn boosted decision rules.", "datatypes":["vectorudt"], "size": "50%"},
+
+    {"name": "labelCol", "value":"", "widget": "variable", "title": "Label Column", "description": "Target column representing the binary business outcome that the model is trained to predict.", "datatypes":["double"], "size": "50%"},
+
+    {"name": "predictionCol", "value":"", "widget": "textfield", "title": "Prediction Column", "description": "Name of the column where predicted class labels are written after scoring.", "size": "50%"},
+
+    {"name": "splitRatio", "value":1.0, "widget": "textfield", "title": "Split Ratio", "description": "Defines the proportion of data used for training versus validation to assess model generalization.", "datatypes":["float"], "size": "50%"},
+
+    {"name":"path", "value":"", "widget": "textfield", "title": "Path", "description": "File system location where the confusion matrix output will be saved for reporting or auditing.", "size": "50%"},
+
+    {"name": "impurity", "value":"gini", "widget": "array", "title": "Impurity", "optionsArray": ["gini","entropy"], "description": "Metric used to evaluate split quality within each decision tree in the boosting process.", "size": "50%"},
+
+    {"name": "lossType", "value":"logistic", "widget": "array", "title": "Loss Function", "optionsArray": ["logistic"], "description": "Loss function optimized during training. Logistic loss is used for binary classification.", "size": "50%"},
+
+    {"name": "maxBins", "value":32, "widget": "textfield", "title": "Max Bins", "description": "Maximum number of bins used to discretize feature values for split evaluation.", "datatypes":["integer"], "size": "50%"},
+
+    {"name": "maxDepth", "value":5, "widget": "textfield", "title": "Max Depth", "description": "Maximum depth of each individual tree, controlling model complexity and overfitting.", "datatypes":["integer"], "size": "50%"},
+
+    {"name": "maxIter", "value":20, "widget": "textfield", "title": "Max Iterations", "description": "Total number of boosting iterations. Each iteration adds a new tree to improve predictions.", "datatypes":["integer"], "size": "50%"},
+
+    {"name": "minInfoGain", "value":0.0, "widget": "textfield", "title": "Min Information Gain", "description": "Minimum improvement required before a split is accepted, preventing weak or noisy splits.", "datatypes":["double"], "size": "50%"},
+
+    {"name": "minInstancesPerNode", "value":1, "widget": "textfield", "title": "Min Instances Per Node", "description": "Minimum number of records required in each leaf node to ensure reliable decisions.", "datatypes":["integer"], "size": "50%"},
+
+    {"name": "subsamplingRate", "value":1.0, "widget": "textfield", "title": "Subsampling Rate", "description": "Fraction of training data sampled for each tree, introducing randomness to reduce overfitting.", "datatypes":["double"], "size": "50%"},
+
+    {"name": "seed", "value":"", "widget": "textfield", "title": "Seed", "description": "Seed value used to control randomness and ensure reproducible training results.", "datatypes":["long"], "size": "50%"},
+
+    {"name": "stepSize", "value":0.1, "widget": "textfield", "title": "Step Size", "description": "Learning rate controlling how strongly each tree contributes to the final model.", "datatypes":["double"], "size": "50%"},
+
+    {"name": "cacheNodeIds", "value":"false", "widget": "array", "title": "Cache Node Ids", "optionsArray": ["false","true"], "description": "Caches intermediate tree nodes to improve performance for deeper boosting models.", "datatypes":["boolean"], "size": "50%"},
+
+    {"name": "checkpointInterval", "value":10, "widget": "textfield", "title": "Checkpoint Interval", "description": "Frequency at which training checkpoints are created to manage memory usage.", "datatypes":["integer"], "size": "50%"},
+
+    {"name": "maxMemoryInMB", "value":256, "widget": "textfield", "title": "Max memory", "description": "Maximum memory allocated for internal histogram and split computations.", "datatypes":["integer"], "size": "50%"},
+
+    {"name": "validationIndicatorCol", "value":"", "widget": "textfield", "title": "Validation Indicator Column", "description": "Column indicating whether a row belongs to training or validation data.", "size": "50%"},
+
+    {"name": "featureSubsetStrategy", "value":"auto", "widget": "array", "title": "Feature Subset Strategy", "optionsArray": ["auto","all","onethird","sqrt","log2","n"], "description": "Defines how many features are considered at each split to control randomness and performance.", "size": "50%"},
+
+    {"name": "minWeightFractionPerNode", "value":0.0, "widget": "textfield", "title": "Min Weight Fraction per Node", "description": "Ensures each split retains a minimum proportion of weighted data.", "datatypes":["double"], "size": "50%"},
+
+    {"name": "weightCol", "value":"", "widget": "variable", "title": "Weight Column", "description": "Optional column defining the relative importance of records during training.", "datatypes":["double"], "size": "50%"},
+
+    {"name": "gridSearch", "value":"", "widget": "tab", "title": "Grid Search"},
+
+    {"name": "minInfoGainGrid", "value":"", "widget": "textfield", "title": "Min Information Gain Param Grid Search", "description": "Candidate minimum information gain values evaluated during hyperparameter tuning.", "size": "50%"},
+
+    {"name": "maxBinsGrid", "value":"", "widget": "textfield", "title": "Max Bins Param Grid Search", "description": "Range of Max Bins values tested to optimize split precision.", "size": "50%"},
+
+    {"name": "maxDepthGrid", "value":"", "widget": "textfield", "title": "Max Depth Param Grid Search", "description": "Different tree depth values evaluated to balance accuracy and interpretability.", "size": "50%"},
+
+    {"name": "maxIterGrid", "value":"", "widget": "textfield", "title": "Max Iteration Param Grid Search", "description": "Different boosting iteration counts tested to control model learning strength.", "size": "50%"},
+
+    {"name": "confusionMatrix", "value":"", "widget": "tab", "title": "Confusion Matrix"},
+    {"name": "output_confusion_matrix_chart", "value":"false", "widget": "array", "title": "Output Confusion Matrix Chart", "optionsArray": ["false","true"], "description": "Enables visualization of classification results across predicted and actual classes.", "datatypes":["boolean"], "size": "50%"},
+
+    {"name": "cmChartTitle", "value":"Title", "widget": "textfield", "title": "Confusion Matrix Chart Title", "description": "Title displayed on the confusion matrix chart.", "size": "50%"},
+
+    {"name": "cmChartDescription", "value":"Visual Representation of Predicted vs. Actual Classes", "widget": "textfield", "title": "Confusion Matrix Chart Description", "description": "Business explanation describing prediction accuracy and error patterns.", "size": "50%"},
+
+    {"name": "confusionMatrixTargetLegend", "value":"Target", "widget": "textfield", "title": "Confusion Matrix Target Legend", "description": "Legend label representing actual class values.", "size": "50%"},
+
+    {"name": "confusionMatrixPredictedLabelLegend", "value":"PredictedLabel", "widget": "textfield", "title": "Confusion Matrix PredictedLabel Legend", "description": "Legend label representing predicted class values.", "size": "50%"},
+
+    {"name": "Description", "value":"", "widget": "tab", "title": "Confusion Matrix Description"},
+
+    {"name": "confusionMatrixRowDescription", "value":"", "widget": "textarea_rich", "title": "Confusion Matrix Outcome description", "description": "Business interpretation of correct predictions and misclassifications.", "size": "50%"},
+
+    {"name": "ROC Curve", "value":"", "widget": "tab", "title": "ROC Curve"},
+    {"name": "output_roc_chart", "value":"false", "widget": "array", "title": "Output ROC Curve", "optionsArray": ["false","true"], "description": "Enables ROC curve visualization to assess classification performance.", "datatypes":["boolean"], "size": "50%"},
+
+    {"name": "roc_title", "value":"Title", "widget": "textfield", "title": "ROC Curve Chart Title", "description": "Title displayed on the ROC curve chart.", "size": "50%"},
+
+    {"name": "roc_description", "value":"Receiver operating characteristic (ROC) curve", "widget": "textfield", "title": "ROC Curve Chart Description", "description": "Explanation of how well the model separates positive and negative classes.", "size": "50%"},
+
+    {"name": "xlabel", "value":"False Positive Rate (specificity)", "widget": "textfield", "title": "X Label", "description": "X-axis representing the false positive rate.", "size": "50%"},
+
+    {"name": "ylabel", "value":"True Positive Rate (sensitivity)", "widget": "textfield", "title": "Y Label", "description": "Y-axis representing the true positive rate.", "size": "50%"}
+  ]
+}

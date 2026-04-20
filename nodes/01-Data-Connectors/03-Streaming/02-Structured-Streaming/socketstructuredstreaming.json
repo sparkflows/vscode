@@ -1,0 +1,17 @@
+{
+  "id": "6",
+  "name": "Structured Streaming Socket",
+  "description": "Reads in streaming text from a socket",
+
+  "input": "It does not take any DataFrame as input",
+  "output": "It reads events a socket and creates DataFrame from the resulting rows. This DataFrame is passed to the output Nodes.",
+
+  "type": "sparkstreaming",
+  "nodeClass": "fire.nodes.structuredstreaming.NodeStructuredStreamingSocket",
+  "fields" : [
+
+    {"name":"host", "value":"localhost", "widget": "textfield", "title": "Hostname", "description": "Host to connect to for listening"},
+    {"name": "port", "value":"9999", "widget": "textfield", "title": "Port", "description": "Port to connect to "}
+
+  ]
+}

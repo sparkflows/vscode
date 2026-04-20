@@ -1,0 +1,53 @@
+{
+"id": "11",
+"name": "H2O Score",
+"description": "",
+"input": "",
+"output": "",
+"type": "ml-predict",
+"nodeClass": "fire.nodes.h2o.NodeH2OScore",
+"inputAnchors": [{"name": "Data","title": "D"},{"name": "Model","title": "M"}],
+"fields" : [
+  {"name": "isTestData", "value":"false", "widget": "array_single", "title": "is Test Data", "optionsArray": ["false","true"], "description": "To enable the test metrics." ,"datatypes":["boolean"]},
+  {"name":"label", "value":"","widget": "variable", "title": "Label Column", "description":"The label column for model Transformation.",
+    "wdgtCommon":"isTestData", "toggle":"true"},
+
+  {"name": "withContribution", "value":"false", "widget": "array_single", "title": "Compute Shapley Values", "optionsArray": ["false","true"], "description": "Compute Shapley Values and it supported for Regression and Binomial Classification problem." ,"datatypes":["boolean"]},
+  {"name": "path", "value":"", "widget": "textfield",  "title": "Path To Save Shapley Contributions",
+    "description": "Path to save the Shapley contributions for test dataset.", "wdgtCommon":"withContribution", "toggle":"true"},
+  {"name": "modelType", "value":"Other", "widget": "array", "title": "Model Type", "optionsArray": ["Classification","Regression", "Other"], "description": "Select the type of the model." ,"datatypes":["String"]},
+
+  {"name": "confusionMatrix", "value":"", "widget": "tab", "title": "Confusion Matrix"},
+  {"name": "output_confusion_matrix_chart", "value":"false", "widget": "array_single", "title": "Output Confusion Matrix Chart", "optionsArray": ["false","true"], "description": "Whether to display Confusion Matrix Chart." ,"datatypes":["boolean"]},
+  {"name": "cmChartTitle", "value":"Title", "widget": "textfield", "title": "Confusion Matrix Chart Title", "description": "Title name to display in Confusion Matrix Chart"},
+  {"name": "cmChartDescription", "value":"Visual Representation of Predicted vs. Actual Classes", "widget": "textfield", "title": "Confusion Matrix Chart Description", "description": "Description to display in Confusion Matrix Chart"},
+  {"name": "confusionMatrixTargetLegend", "value":"Target", "widget": "textfield", "title": "Confusion Matrix Target Legend", "description": "Legend name to display for Target in Confusion Matrix"},
+  {"name": "confusionMatrixPredictedLabelLegend", "value":"PredictedLabel", "widget": "textfield", "title": "Confusion Matrix PredictedLabel Legend", "description": "Legend name to display for Predicted Label in Confusion Matrix"},
+  {"name": "Description", "value":"", "widget": "tab", "title": "Confusion Matrix Description"},
+
+  {"name": "confusionMatrixRowDescription", "value":"", "widget": "textarea_rich", "title": "Confusion Matrix Outcome description", "description": "Add the business details of the outcome of the confusion matrix rows"},
+  {"name": "ROC Curve", "value":"", "widget": "tab", "title": "ROC Curve"},
+  {"name": "output_roc_chart", "value":"false", "widget": "array_single", "title": "Output ROC Curve", "optionsArray": ["false","true"], "description": "Whether to display confusion matrix chart." ,"datatypes":["boolean"]},
+  {"name": "roc_title", "value":"ROC Chart", "widget": "textfield", "title": "ROC Curve Chart Title", "description": "Title name to display in ROC Curve Chart"},
+  {"name": "roc_description", "value":"Receiver operating characteristic (ROC) curve", "widget": "textfield", "title": "ROC Curve Chart Description", "description": "Add Description for ROC Curve Chart"},
+  {"name": "xlabel", "value":"False Positive Rate (specificity)", "widget": "textfield", "title": "X Label", "description": "X label"},
+  {"name": "ylabel", "value":"True Positive Rate (sensitivity)", "widget": "textfield", "title": "Y Label", "description": "Y Label"},
+
+  {"name": "predictionOverTime", "value":"", "widget": "tab", "title": "Prediction Over Time"},
+  {
+    "name": "useChampion",
+    "value": "false",
+    "widget": "array_single",
+    "optionsArray": ["true", "false"],
+    "title": "Use Champion Model",
+    "description": "Uses Champion Model UUID For updating Monitoring Graphs."
+  },
+  {"name":"model_uuid", "display": true, "value":"", "widget": "textfield", "title": "Model UUID", "description": "Enter the model uuid","wdgtCommon": "useChampion", "toggle": "false"},
+
+  {"name": "enablePredictionOverTimeMetrics", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"],
+    "title": "Enable Prediction Over Time Metrics", "description": "enable "},
+
+  {"name":"modelCategory",  "value":"", "widget": "array","optionsArray": ["Regression", "Classification", "Clustering"], "title": "Model Category",
+    "description":"Select the category", "wdgtCommon":"enablePredictionOverTimeMetrics", "toggle":"true"}
+]
+}

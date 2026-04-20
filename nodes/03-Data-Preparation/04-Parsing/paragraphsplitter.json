@@ -1,0 +1,15 @@
+{
+  "id": "7",
+  "name": "Paragraph Splitter",
+  "description": "",
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.etl.NodeParagraphSplitter",
+  "fields" : [
+
+    {"name":"filePath", "display":true,"value":"", "widget": "textfield", "required":true, "title": "Path", "description": "Path for text file to be parsed"},
+    {"name": "outputCol", "value":"paragraphs", "widget": "textfield", "title": "Output Column", "description": "Name for output column", "datatypes":["string"]},
+    {"name": "dropTopRows", "value":0, "widget": "textfield", "title": "Drop First N rows", "description": "Drop Top N Rows", "datatypes":["long"]},
+    {"name": "dropBottomRows", "value":0, "widget": "textfield", "title": "Drop Last N rows", "description": "Drop Bottom N Rows", "datatypes":["long"]}
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "8",
+  "name": "Save PDF",
+  "description": "Saves DataFrame responses as PDF files",
+  "iconImage": "assets/images/icons/node-icon/PDF.svg",
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.save.NodeSavePdf",
+  "fields": [
+    {"name": "outputPath", "display": true, "value": "", "widget": "textfield", "title": "Output Path", "description": "Path where to save the PDF files (local or S3)", "required": "true"},
+    {"name": "content", "display": true, "value": "", "widget": "variable", "title": "Content Column", "description": "DataFrame column containing filenames for output files", "required": "false"},
+    {"name": "saveMode", "display": true, "value": "Overwrite", "widget": "array", "optionsArray": ["Overwrite", "ErrorIfExists", "Ignore"], "title": "Save Mode", "description": "Whether to Append, Overwrite, Error if the path Exists, or Ignore", "required": "false"},
+    {"name": "System Prompt", "value": "", "widget": "tab", "title": "Advanced"},
+    {"name": "generic_file_name", "display": true, "value": "pdf_output", "widget": "textfield", "title": "Default File Name", "description": "Default pdf file name where the PDF will be saved", "required": "false"},
+    {"name":"saveOption", "value":"ALL", "widget": "enum", "title": "Save Option", "optionsMap":{"ALL":"Combine into single file","PERFILE":"Save as individual files","NONE":"Group by page number"}},
+    {"name": "fileNameCol", "display": true,  "value": "", "widget": "variable", "title": "File Name Column", "description": "DataFrame column containing filenames for output files (used in separate files or page number modes)"},
+    {"name": "pageNumberCol", "display": true, "value": "", "widget": "variable", "title": "Page Number Column", "description": "DataFrame column containing page numbers for multi-page documents (used in page number mode)", "required": "false"},
+    {"name": "translateFileName", "value": "false", "widget": "array", "optionsArray": ["true", "false"], "title": "Translate File Name", "description": "Translates file names to be saved from any language to English"},
+    {"name": "enableDownloadLink", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Download Link", "description": "Generate download links for the saved PDF files"}
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "7",
+  "name": "Save As HIVE Table",
+  "iconImage": "assets/images/icons/node-icon/hive.svg",
+  "description": "Saves the DataFrame into an Apache HIVE Table",
+  "type": "transform",
+  "nodeClass": "fire.nodes.save.NodeSaveAsTable",
+  "fields" : [
+
+    {"name":"database", "value":"default", "widget": "textfield", "title": "HIVE Database",
+          "description":"Name of the HIVE Database" ,"required":"true"},
+    {"name":"table", "display": true, "value":"", "widget": "textfield", "title": "HIVE Table",
+      "description":"Name of the HIVE table" ,"required":"true"},
+
+    {"name":"format", "value":"", "widget": "array","optionsArray": ["", "csv", "json", "orc", "parquet", "delta"],
+      "title": "Format", "description":"File format when saving to HIVE Table"},
+
+    {"name":"saveMode", "value":"Append", "widget": "array","optionsArray": ["Append","Overwrite", "ErrorIfExists", "Ignore"],
+      "title": "Save Mode", "description":"Whether to Append, Overwrite or Error if the path Exists"},
+
+    {"name": "advanced", "value":"", "widget": "tab", "title": "Advanced"},
+
+    {"name":"partitionBy", "value":"[]", "widget": "variables", "title": "Partition By",
+      "description":"List of columns to partition by - separated by space"},
+
+    {"name": "numBuckets", "value":0, "widget": "textfield", "title": "NumBuckets", "description": "Number of buckets",  "datatypes":["integer"]},
+
+    {"name": "bucketBy", "value": "[]", "widget": "variables", "title": "Bucket By", "description": "List of columns to bucket by - separated by space"}
+
+  ]
+}

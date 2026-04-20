@@ -1,0 +1,9 @@
+{
+  "id": "4",
+  "name": "Interaction Transform",
+  "description": "This transformer takes in Double and Vector type columns and outputs a flattened vector of their feature interactions.",
+  "type": "ml-predict",
+  "nodeClass": "fire.nodes.etl.NodeInteractionTransform",
+  "engine": "pyspark",
+  "fields" : []
+}

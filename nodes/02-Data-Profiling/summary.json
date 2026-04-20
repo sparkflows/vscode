@@ -1,0 +1,15 @@
+{
+  "id": "7",
+  "name": "Summary Statistics",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/summary_status.svg",
+  "type": "transform",
+  "description": "Summary statistics provide useful information about sample data. eg: measures of spread.",
+  "nodeClass": "fire.nodes.ml.NodeSummary",
+  "engine": "scala,pyspark",
+  "outputAnchors": [{"name": "summary","title": "S"},{"name": "input","title": "I"}],
+  "fields" : [
+  	{"name":"title", "value":"Summary", "widget": "textfield", "title": "Title"},
+    {"name":"colNames", "value":"[]", "widget": "variables", "title": "Column Names","required":true, "description": "Column Names for Summary", "datatypes":["integer", "long", "double", "float","decimal"]},
+    {"name":"path", "value":"", "widget": "textfield", "title": "Path", "description": "Save Summary Statistics to Path"}
+  ]
+}

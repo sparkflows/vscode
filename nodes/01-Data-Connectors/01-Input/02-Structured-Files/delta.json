@@ -1,0 +1,35 @@
+{
+  "id": "11",
+  "name": "Read Delta",
+
+  "description": "Dataset Node for reading Apache Delta files",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/delt.svg",
+  "input": "It reads in Delta files",
+  "output": "It creates a DataFrame from the data read and sends it to its output",
+  "type": "dataset",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.dataset.NodeDatasetDelta",
+  "fields" : [
+    {"name":"path", "display": true, "value":"", "widget": "textfield", "title": "Path", "description": "Path of the Delta file/directory" ,"required":"true"},
+
+    {"name": "properties", "value": "", "widget": "tab", "title": "Properties"},
+    {"name": "extraOptionsKeys", "value":"[]", "widget": "key_array", "title": "Properties Name", "description": "Extra options/properites available while executing in Read Delta."},
+    {"name": "extraOptionsValues", "value":"[]", "widget": "value_array", "title": "Properties Value", "description": "Config Values for the Corresponding properites name"},
+
+    {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names for the Delta", "description": "Output Columns of the Delta"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types for the Delta", "description": "Data Type of the Output Columns"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats for the Delta", "description": "Format of the Output Columns"},
+
+
+    { "name": "interactiveRunConfiguration", "value": "", "widget": "tab", "title": "Interactive Run Configuration"},
+    {"name":"limitInputRecords", "value":"20", "widget": "numberfield", "title": "Limit Input Records","description":"Maximum rows to preview in interactive/design mode (default 20). Does not affect batch execution.", "min":"1", "step":"1", "max":"1000",
+      "size": "10.0%"},
+      {"name": "dataSampling", "value": "Random", "widget": "array_single", "optionsArray": ["Random", "Selective"], "title": "Data Sampling", "description": "How to sample data in interactive mode:\n• Random - picks random rows\n• Selective - use a filter expression to choose exactly which rows to preview"},
+    {"name":"selectiveSamplingExpression", "value":"", "widget": "textfield", "title": "Selective Filter Expression",
+      "description":"filter condition to pull specific rows in interactive mode (e.g., \"Region = 'North' AND Year = 2024\"). Only active when Data Sampling = Selective.", "wdgtCommon":"dataSampling", "toggle":"Selective",
+      "placeholder": "add the filter condition."
+    }
+
+  ]
+}

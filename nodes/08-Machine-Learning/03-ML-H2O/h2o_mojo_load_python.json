@@ -1,0 +1,19 @@
+{
+  "id": "4",
+  "name": "H2O ML Model Load",
+  "type": "ml-modelload",
+  "description": "Loads an H2O MOJO ML model",
+  "nodeClass": "fire.nodes.h2o.NodeH2OModelLoad",
+  "engine": "pyspark",
+  "fields" : [
+    {
+      "name": "selectChampionModel",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": ["true", "false"],
+      "title": "Use Champion Model",
+      "description": "Uses Champion Model For Prediction."
+    },
+    {"name":"path", "value":"modelsavepath", "widget": "textfield", "title": "Path To Load H2O model","wdgtCommon": "selectChampionModel", "toggle": "false"}
+  ]
+}

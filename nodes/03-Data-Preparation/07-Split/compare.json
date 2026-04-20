@@ -1,0 +1,14 @@
+{
+  "id": "7",
+  "name": "Compare All Columns",
+  "iconImage": "assets/images/icons/node-icon/column.svg",
+  "description": "Compares 2 incoming DataFrames. Outputs 3 DataFrames (A-B), (B-A), (A intersection B)",
+  "type": "join",
+  "nodeClass": "fire.nodes.etl.NodeCompareAllColumns",
+  "inputAnchors": [{"name": "First","title": "F"},{"name": "Second","title": "S"}],
+  "outputAnchors": [{"name": "First","title": "F"},{"name": "Second","title": "S"},{"name": "Common","title": "C"}],
+
+  "fields" : [
+
+  ]
+}

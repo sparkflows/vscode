@@ -1,0 +1,13 @@
+{
+  "id": "4",
+  "name": "Imputer",
+  "description": "Imputation estimator for completing missing values",
+  "type": "ml-estimator",
+  "nodeClass": "fire.nodes.etl.NodeImputer",
+  "engine": "pyspark",
+  "fields" : [
+    {"name":"inputCols", "value":"", "widget": "variables", "title": "Input Column", "required":"true", "description": "Column containing inputs"},
+    {"name": "outputCols", "value":"", "widget": "textfield", "title": "Output Column", "required":"true", "description": "Output column names"},
+    {"name": "strategy", "value":"", "widget": "array", "optionsArray": ["mean","median","mode"],"title": "Strategy", "required":"true", "description": "Imputer strategy"}
+  ]
+}

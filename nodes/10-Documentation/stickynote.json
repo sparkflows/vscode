@@ -1,0 +1,16 @@
+{
+  "id": "11",
+  "name": "Sticky Note",
+  "description": "Allows capturing Notes on the Workflow",
+  "type": "sticky",
+  "nodeClass": "fire.nodes.doc.NodeStickyNote",
+  "engine": "scala,pyspark",
+  "fields" : [
+    {"name": "bgColor", "value": "gray", "widget": "textfield", "title": "Bg Color", "description": "Background of note"},
+    {"name": "width", "value": "300px", "widget": "textfield", "title": "Width", "description": "Width of note"},
+    {"name": "height", "value": "110px", "widget": "textfield", "title": "Height", "description": "Height of note"},
+    {"name": "pushedToBack", "value": "false", "widget": "textfield", "title": "PushedToBack", "description": "Changing z-index to push the note to back"},
+    {"name":"comment", "value":"", "widget": "textarea_rich", "title": "Comment", "description": "Comments for the Workflow"}
+
+  ]
+}

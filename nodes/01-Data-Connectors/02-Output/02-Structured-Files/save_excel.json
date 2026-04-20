@@ -1,0 +1,23 @@
+{
+  "id": "7",
+  "name": "Save Excel",
+  "iconImage": "assets/images/icons/node-icon/excel.svg",
+  "description": "Saves the DataFrame into the specified location in XLS Format",
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.save.NodeSaveExcel",
+  "fields" : [
+    {"name":"path",  "display": true, "value":"", "widget": "textfield", "title": "Path",
+      "description":"Path where to save the XLS file","required":"true"},
+
+    {"name":"saveMode", "value":"Append", "widget": "array","optionsArray": ["Append","Overwrite", "ErrorIfExists", "Ignore"],
+      "title": "Save Mode", "description":"Whether to Append, Overwrite or Error if the path Exists"},
+
+    {"name":"dataAddress",  "display": true, "value":"", "widget": "textfield", "title": "SheetName",
+      "description":"SheetName and Range: 'My Sheet'!A1","required":"true"},
+	{ "name": "boxConnection", "display": false, "value": "", "widget": "boxDropdown", "title": "Box Connection" },
+	{ "name": "accessToken", "display": false, "value": "", "widget": "textfield", "title": "Access Token" }
+
+
+  ]
+}

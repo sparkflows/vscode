@@ -1,0 +1,30 @@
+{
+  "id": "6",
+  "name": "Pivot By",
+  "description": "Pivot Node",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/pivot_by.svg",
+  "type": "transform",
+  "engine": "scala",
+  "nodeClass": "fire.nodes.etl.NodePivotBy",
+  "fields" : [
+
+    {"name": "aggregate", "value":"", "widget": "tab", "title": "Aggregate"},
+
+    {"name": "groupingCols", "value":"[]", "widget": "variables", "title": "Grouping Columns", "description": "Grouping Columns"},
+    {"name": "aggregateCols", "value":"[]", "widget": "variables_list_select", "title": "Aggregate Columns", "description": "Aggregate Columns"},
+    {"name": "aggregateOperations", "value":"[]", "widget": "variables_list_array",
+            "optionsArray": ["sum", "avg", "min", "max", "count"], "title": "Aggregate Operation to use", "description": "Aggregate Operation"},
+
+    {"name": "pivot", "value":"", "widget": "tab", "title": "Pivot"},
+    {"name": "pivotCol", "value":"[]", "widget": "variable", "title": "Pivot Column", "description": "Pivoting Column",
+      "required":"true"},
+    {"name": "uniqueValues", "value":"", "widget": "textfield", "title": "UniqueValues", "description": "Comma separated unique values: Providing Unique values while performing pivot operation improves the performance of the operation since Spark does not have to first compute the list of distinct values of Pivot Column internally."},
+
+    {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names of the Table", "description": "Output Columns Names of the Table"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types of the Table", "description": "Output Column Types of the Table"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats", "description": "Output Column Formats"}
+
+  ]
+}

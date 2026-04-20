@@ -1,0 +1,26 @@
+{
+  "id": "11",
+  "name": "Read BigQuery",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/Big_query.svg",
+  "description": "It reads data from BigQuery table and creates a DataFrame from it",
+  "input": "It reads data from BigQuery table.",
+  "output": "It creates a DataFrame from the data read and sends it to its output",
+  "hint": "Whenever the file is changed, Infer the Schema",
+  "type": "dataset",
+  "nodeClass": "fire.nodes.gcp.NodeReadBigQuery",
+  "fields" : [
+    {"name":"connection", "value":"", "widget": "object_array", "title": "Connection", "description": "The Bigquery connection to connect" ,"required":"true"},
+    {"name":"bigQueryDataset", "display":true, "value":"", "widget": "textfield", "title": "BigQuery Dataset",
+      "description": "bigQueryDataset name",  "required": true},
+    {"name":"bigQueryTable", "display":true,"value":"", "widget": "textfield", "required":true, "title": "BigQuery Table", "description": "BigQueryTable name."},
+    {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names", "description": "New Output Columns of the SQL"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types", "description": "Data Type of the Output Columns"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats", "description": "Format of the Output Columns"},
+
+    {"name": "properties", "value": "", "widget": "tab", "title": "Properties"},
+    {"name": "extraOptionsKeys", "value":"[]", "widget": "key_array", "title": "Properties Name", "description": "Extra options/properites available while executing in Big Query."},
+    {"name": "extraOptionsValues", "value":"[]", "widget": "value_array", "title": "Properties Value", "description": "Config Values for the Corresponding properites name"}
+
+  ]
+}

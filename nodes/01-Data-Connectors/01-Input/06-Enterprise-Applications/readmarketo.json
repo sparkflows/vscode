@@ -1,0 +1,30 @@
+{
+  "id": "13",
+  "name": "Read Marketo",
+  "description": "This node reads data from Marketo Files",
+  "type": "dataset",
+  "nodeClass": "fire.nodes.marketo.NodeReadMarketo",
+  "fields" : [
+    {"name":"clientId", "value":"", "widget": "textfield", "title": "Client Id", "description": "Marketo account clientId"},
+    {"name":"clientSecret", "value":"", "widget": "textfield", "title": "Client Secret", "description": "Marketo account clientSecret"},
+    {"name":"instanceUrl", "value":"", "widget": "textfield", "title": "Instance Url", "description": "Instance URL to be used to access Marketo. It has to be specified without /rest. i.e it should be like https://119-AAA-888.mktorest.com"},
+    {"name":"object", "value":"", "widget": "textfield", "title": "Object", "description": "Object to be queried from Marketo. ex. leads"},
+    {"name":"filterType", "value":"", "widget": "textfield", "title": "Filter Type", "description": "Filter field to be used"},
+    {"name":"filterValues", "value":",", "widget": "textfield", "title": "Filter Values", "description": "Comma separated filter values to be applied"},
+    {"name":"fromDate", "value":"", "widget": "textfield", "title": "From Date", "description": "(Optional) Datatime from which the data has to be fetched. It has to be in ISO 8601 format"},
+    
+    {"name": "customObject", "value":"false", "widget": "array", "title": "Custom Object", "optionsArray": ["true","false"],
+            "description": "(Optional) Boolean to specify if the specified object is a custom object, default value is false", "datatypes":["boolean"]},
+
+	{"name":"apiVersion", "value":"v1", "widget": "textfield", "title": "Api Version", "description": "(Optional) API Version to be used. Default value is v1"},
+    {"name":"modifiedFields", "value":"", "widget": "textfield", "title": "Modified Fields", "description": "(Optional) Fields to be considered for LeadChanges. It has to be comma separated field names"},
+    
+    {"name": "queryType", "value":"ID", "widget": "enum", "title": "Query Type", "optionsMap":{"ID":"Id","ALL":"All","ACTIVITIES":"Activities"},
+             "description": "Query Type of Marketo"},
+    
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names for the Marketo", "description": "New Output Columns of the SQL"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types for the Marketo", "description": "Data Type of the Output Columns"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats for the Marketo", "description": "Format of the Output Columns"}
+
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "7",
+  "name": "Sample",
+  "description": "Samples the incoming DataFrame",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeSample",
+  "fields" : [
+
+    {"name": "withReplacement", "value":"false", "widget": "array", "title": "With Replacement",
+      "optionsArray": ["false","true"],
+      "description": "With or without Replacement" },
+
+    {"name":"fraction", "value": "", "widget": "textfield", "title": "Fraction", "description": "Fraction"},
+
+    {"name":"seed", "value": "", "widget": "textfield", "title": "Seed", "description": "Seed"}
+
+  ]
+}

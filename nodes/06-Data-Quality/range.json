@@ -1,0 +1,14 @@
+{ "id": "1",
+  "name": "ColumnValuesToBeBetween",
+  "description": "",
+  "iconImage": "assets/images/icons/node-icon/column.svg",
+  "type": "transform",
+  "nodeClass": "fire.nodes.quality.NodeCheckColumnValuesToBeBetween",
+  "fields" :
+  [
+    {"name": "cols", "value":"[]", "widget": "variables_list_select","title": "Column Name", "description": "The column name.","datatypes":["integer", "long", "double", "float"]},
+    {"name": "min", "value":"[]", "widget": "variables_list_textfield","title": "Min", "description": "The minimum value of column."},
+    {"name": "max", "value":"[]", "widget": "variables_list_textfield","title": "Max", "description": " The Maximum value of range"},
+    {"name": "weightage", "value":"1", "widget": "textfield","title": "Weightage", "description": " Weightage"}
+  ]
+}

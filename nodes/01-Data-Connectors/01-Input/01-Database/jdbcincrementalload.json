@@ -1,0 +1,32 @@
+{
+  "id": "12",
+  "name": "JDBC Incremental Load",
+  "iconImage": "assets/images/icons/node-icon/JDBC.svg",
+  "description": "This node is used to load incremental data from RDBMS to Hive.",
+  "input": "RDBMS detail like URL, Username , Password, Hive DB , Hive Table name",
+  "type": "dataset",
+  "nodeClass": "fire.nodes.dataset.NodeDatasetJDBCIncrementalLoad",
+
+  "fields" : [
+
+    {"name":"connection", "value":"", "widget": "object_array", "title": "Connection", "description": "The JDBC connection to connect" ,"required":"true"},
+    {"name":"sqltable", "value": "", "widget": "textfield", "title": "SQL Table", "description": ""},
+    {"name":"sqlkeycolumn", "value": "", "widget": "textfield", "title": "SQL Key Column", "description": ""},
+    {"name":"sqlkeycolumntype", "value": "", "widget": "textfield", "title": "SQL Key Column type", "description": ""},
+    {"name":"homeDirectory", "value": "", "widget": "textfield", "title": "Config Path", "description": ""},
+
+    {"name": "performance", "value":"", "widget": "tab", "title": "Performance"},
+    {"name":"partitionColumn", "value":"", "widget": "textfield", "title": "Partition Column", "description": "PartitionColumn must be a numeric, date, or timestamp column from the table" },
+    {"name":"lowerBound", "value":"", "widget": "textfield", "title": "LowerBound", "description": " LowerBound and UpperBound are just used to decide the partition stride, not for filtering the rows in the table. All rows in the table will be partitioned and returned. This option applies only to reading" },
+    {"name":"upperBound", "value":"", "widget": "textfield", "title": "UpperBound", "description": " LowerBound and UpperBound are just used to decide the partition stride, not for filtering the rows in the table. All rows in the table will be partitioned and returned. This option applies only to reading" },
+    {"name":"numPartitions", "value":"", "widget": "textfield", "title": "NumPartitions", "description": "The maximum number of partitions that can be used for parallelism in table reading" },
+    {"name":"fetchsize", "value":"", "widget": "textfield", "title": "FetchSize", "description": "The JDBC fetch size, which determines how many rows to fetch per round trip" },
+
+    {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names of the Table", "description": "Output Column Names of the Table"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types of the Table", "description": "Output Column Types of the Table"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats", "description": "Output Column Formats"}
+
+  ]
+}

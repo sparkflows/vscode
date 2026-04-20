@@ -1,0 +1,30 @@
+{
+  "id": "11",
+  "name": "Execute CRUD Stmt In Snowflake",
+  "iconImage": "assets/images/icons/node-icon/Snowflake.svg",
+  "description": "This node executes Stored Procedure in Snowflake",
+  "input": "",
+  "output": "pass the input dataframe to next node.",
+  "type": "shellcommand",
+  "nodeClass": "fire.nodes.snowflake.NodeExecuteCURDStmtInSnowflake",
+  "fields" : [
+    {"name":"authType", "value":"UserCredential", "widget": "array", "title": "Auth Type", "description": "Authentication Type. Possible value is OAUTH or USER_CREDENTIAL or KEYPAIR" ,"required":"true","optionsArray": ["UserCredential","OAuth","KeyPair"]},
+    {"name":"connection", "value":"", "widget": "object_array", "title": "Connection", "description": "The Snowflake connection to connect" ,"required":"true"},
+    {"name":"sfWarehouse", "value":"", "widget": "textfield", "title": "Snowflake Warehouse", "description": "Warehouse for connecting to the Snowflake" ,"required":"true"},
+    {"name":"sfDatabase", "value":"", "widget": "textfield", "title": "Snowflake Database", "description": "Database for connecting to the Snowflake" ,"required":"true"},
+    {"name":"sfSchema", "value":"", "widget": "textfield", "title": "Snowflake Schema", "description": "Schema for connecting to the Snowflake" ,"required":"true"},
+
+    {"name": "extraOptionsKeys", "value":"[]", "widget": "key_array", "title": "JDBC Properties Name", "description": "Extra JDBC Properties Name."},
+    {"name": "extraOptionsValues", "value":"[]", "widget": "value_array", "title": "JDBC Properties Value", "description": "Extra JDBC Properties Value"},
+
+    {"name": "curdStmtConfiguration", "value": "", "widget": "tab", "title": "CRUD Stmt Configuration", "type": "multiTab", "size": "4"},
+
+    {"name":"curdStmt", "value":"", "widget": "textarea_small", "title": "CRUD Stmt", "required":"true",
+      "description": "CRETE, DROP, INSERT, UPDATE AND DELETE"},
+
+    {"name": "inputType", "value":"[]", "widget": "key_array", "title": "CRUD Input Type", "description": "CRUD Input Type: string, integer, double, float, boolean and datetime."},
+    {"name": "inputValue", "value":"[]", "widget": "value_array", "title": "CRUD Input Value", "description": "CRUD Input Value."}
+
+  ]
+}
+

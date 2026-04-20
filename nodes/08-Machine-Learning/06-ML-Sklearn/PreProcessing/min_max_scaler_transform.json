@@ -1,0 +1,13 @@
+{
+  "id": "5",
+  "name": "Sklearn MinMax Scaler Transform",
+  "description": "Transforms DataFrame",
+
+  "input": "",
+  "output": "",
+
+  "type": "ml-predict",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.sklearn.preprocessing.NodeMinMaxScalarTransform",
+  "fields" : []
+}

@@ -1,0 +1,36 @@
+{
+    "id": "6",
+    "name": "Sharepoint Data Extraction",
+    "iconImage": "assets/images/icons/node-icon/Graph_group_by_column.svg",
+    "description": "Retrieves files and pages from a SharePoint site, extracts their content (e.g., text from PDFs, DOCX), and outputs a DataFrame with metadata and content. Designed as the starting node in a PySpark workflow, requiring no input DataFrame.",
+    "input": "",
+    "output": "A DataFrame with columns: file_name (string), file_type (string), share_point_url (string), content (string).",
+    "type": "pyspark",
+    "engine": "pyspark",
+    "nodeClass": "fire.nodes.gai.NodeSharepointLoader",
+    "fields": [
+        {
+            "name": "sharePointConnection",
+            "value": "",
+            "widget": "object_array",
+            "title": " SharePoint Connection",
+            "description": "Connection details for the SharePoint API, including tenant_id, client_id, client_secret, and sharepoint_url (e.g., https://example.sharepoint.com/sites/SparkflowsProject)."
+        },
+        {"name": "performance", "value":"", "widget": "tab", "title": "Advanced"},
+
+        {
+            "name": "start_time",
+            "value": "",
+            "widget": "textfield",
+            "title": "Start Time",
+            "description": "Optional start time for filtering files/pages by lastModifiedDateTime (format: 'YYYY-MM-DD HH:MM:SS' or ISO 8601, e.g., '2025-07-03 02:05:43' or '2025-07-03T02:05:43Z'). Assumes UTC if no timezone is specified."
+        },
+        {
+            "name": "end_time",
+            "value": "",
+            "widget": "textfield",
+            "title": "End Time",
+            "description": "Optional end time for filtering files/pages by lastModifiedDateTime (format: 'YYYY-MM-DD HH:MM:SS' or ISO 8601, e.g., '2025-07-04 23:59:59' or '2025-07-04T23:59:59Z'). Assumes UTC if no timezone is specified."
+        }
+    ]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "1",
+  "name": "Number Of Partitions",
+  "description": "This node will get the number of partitions in input dataframe.",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/Partitions.svg",
+  "type": "transform",
+  "nodeClass": "fire.nodes.util.NodeGetNumberOfPartitions"
+}

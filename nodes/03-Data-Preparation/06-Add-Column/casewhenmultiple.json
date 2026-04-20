@@ -1,0 +1,52 @@
+{
+  "id": "7",
+  "name": "Case When Advanced",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/CaseWhen_CaseWhenAdvance.svg",
+  "description": "This node creates a new Dataframe with a new column appended to it containing value based on the condition met",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeCaseWhenMultiple",
+  "fields" : [
+
+    {"name":"outputCol0", "value": "", "widget": "textfield", "title": "Output Column Name", "description": "output column name", "required": true, "size" : "30%"},
+
+    {"name": "whenConditions0", "value":"[]", "widget": "key_array", "title": "Case Condition", "description": "When Condition", "type": "sparksql"},
+
+    {"name": "values0", "value":"[]", "widget": "value_array", "title": "Case Value", "description": "Value when this condition is true", "type": "sparksql"},
+
+    {"name":"finallyElse0", "value": "", "widget": "key_textfield", "title": "Else Value", "description": "else"},
+
+
+    {"name": "caseWhen1", "value":"", "widget": "tab", "title": "CaseWhen1"},
+
+    {"name":"outputCol1", "value": "", "widget": "textfield", "title": "Output Column Name", "description": "output column name", "size" : "30%"},
+
+    {"name": "whenConditions1", "value":"[]", "widget": "key_array", "title": "Case Condition", "description": "When Condition", "type": "sparksql"},
+
+    {"name": "values1", "value":"[]", "widget": "value_array", "title": "Case Value", "description": "Value when this condition is true, ", "type": "sparksql"},
+
+    {"name":"finallyElse1", "value": "", "widget": "key_textfield", "title": "Else Value", "description": "else"},
+
+
+    {"name": "caseWhen2", "value":"", "widget": "tab", "title": "CaseWhen2"},
+
+    {"name":"outputCol2", "value": "", "widget": "textfield", "title": "Output Column Name", "description": "output column name", "size" : "30%"},
+
+    {"name": "whenConditions2", "value":"[]", "widget": "key_array", "title": "Case Condition", "description": "When Condition", "type": "sparksql"},
+
+    {"name": "values2", "value":"[]", "widget": "value_array", "title": "Case Value", "description": "Value when this condition is true", "type": "sparksql"},
+
+    {"name":"finallyElse2", "value": "", "widget": "key_textfield", "title": "Else Value", "description": "else"},
+
+
+    {"name": "caseWhen3", "value":"", "widget": "tab", "title": "CaseWhen3"},
+
+    {"name":"outputCol3", "value": "", "widget": "textfield", "title": "Output Column Name", "description": "output column name", "size" : "30%"},
+
+    {"name": "whenConditions3", "value":"[]", "widget": "key_array", "title": "Case Condition", "description": "When Condition", "type": "sparksql"},
+
+    {"name": "values3", "value":"[]", "widget": "value_array", "title": "Case Value", "description": "Value when this condition is true", "type": "sparksql"},
+
+    {"name":"finallyElse3", "value": "", "widget": "key_textfield", "title": "Else Value", "description": "else"}
+
+  ]
+}

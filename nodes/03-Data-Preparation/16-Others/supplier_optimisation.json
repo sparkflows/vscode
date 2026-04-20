@@ -1,0 +1,20 @@
+{
+  "id": "7",
+  "name": " Supplier Optimization",
+  "description": "",
+  "type": "pyspark2inputs",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.lpo.NodeSupplierOptimisation",
+  "fields" : [
+     {"name": "lead_week", "value": "2", "widget": "textfield", "title": "Lead Week", "description": "Weeks before project start for allowing delivery.", "datatypes":["integer"]},
+    {"name": "DeliveryWeek", "value": "-1", "widget": "textfield", "title": "Delivery Week", "description": " If -1, deliver by endWeek. Else, deliver by startWeek + DeliveryWeek."},
+    {"name": "MinMaxLevel", "value": "Project", "widget": "array", "optionsArray": ["Project", "Product"], "title": "MinMax Level", "description": "Project (apply Min/Max PCT at project level) or Product (per product)."},
+    {"name": "bundle_size", "value": "42", "widget": "textfield", "title": "Bundle Size", "description": "Fixed units per bundle.", "datatypes":["integer"]},
+    {"name": "solver_choice", "value": "CBC", "widget": "array", "optionsArray": ["CBC", "HiGHS"], "title": "Solver Choice", "description": "Solver name: HiGHS or CBC"},
+    {"name": "gap_rel", "value": "0.001", "widget": "textfield", "title": "Gap Rel", "description": "Relative optimality gap for solver."},
+    {"name": "running_time", "value": "180", "widget": "textfield", "title": "Running Time", "description": "Solver timeout in seconds."}
+  ]
+}
+
+
+

@@ -1,0 +1,13 @@
+{
+  "id": "11",
+  "name": "Imputing With Median",
+  "description": "Imputing with median",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/impute_advanced.svg",
+  "type": "transform",
+  "nodeClass": "fire.nodes.ml.NodeReplaceMissingValueWithMedian",
+  "engine":"scala,pyspark",
+  "fields" : [
+ {"name":"colNames", "value":"[]", "widget": "variables", "title": "Input Columns",
+     "description": "Input column of type - all numeric for median impute", "datatypes":["integer", "long", "double", "float"]}
+  ]
+}

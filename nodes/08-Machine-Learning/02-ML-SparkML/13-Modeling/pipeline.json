@@ -1,0 +1,13 @@
+{
+  "id": "4",
+  "name": "Spark Pipeline",
+  "description": "This node represents Pipeline from Spark ML",
+ "iconImage": "assets/images/icons/node-icon/latest-nodes/pyspark.svg",
+  "input": "It takes in a DataFrame as input.",
+  "output": "The incoming DataFrame is passed to the output.",
+
+  "type": "ml-pipeline",
+  "nodeClass": "fire.nodes.ml.NodePipeline",
+  "fields" : [
+  ]
+}

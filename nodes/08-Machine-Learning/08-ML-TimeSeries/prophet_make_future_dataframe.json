@@ -1,0 +1,20 @@
+{
+  "id": "5",
+  "name": "Prophet Make Future Dataframe",
+  "description": "",
+  "input" : "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "transform",
+
+  "nodeClass": "fire.nodes.ts.NodeProphetMakeFutureDataframe",
+  "fields" : [
+
+    {"name": "future_period", "value":"24", "widget": "textfield", "title": "Future Period", "description": "Int number of periods to forecast forward."},
+
+    {"name": "frequency", "value":"MS", "widget": "textfield", "title": "Frequency", "description": "Any valid frequency for pd.date_range, such as 'D' or 'M'."},
+
+    {"name": "include_history", "value":"true", "widget": "array", "title": "Include History", "optionsArray": ["false","true"], "description": "Boolean to include the historical dates in the dataframe for predictions"}
+
+  ]
+}

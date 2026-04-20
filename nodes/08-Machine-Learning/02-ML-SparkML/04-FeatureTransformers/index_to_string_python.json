@@ -1,0 +1,13 @@
+{
+  "id": "4",
+  "name": "Index To String",
+  "description": "Maps a column of indices back to a new column of corresponding string values. The index-string mapping is either from the ML attributes of the input column, or from user-supplied labels",
+  "type": "ml-estimator",
+  "nodeClass": "fire.nodes.etl.NodeIndexToString",
+  "engine": "pyspark",
+  "fields" : [
+    {"name":"inputCol", "value":"", "widget": "variable", "title": "Input Column", "required":"true", "description": "Column containing label indices"},
+    {"name": "outputCol", "value":"", "widget": "textfield", "title": "Output Column", "required":"true", "description": "Output column name"},
+    {"name": "labels", "value":"", "widget": "textfield", "title": "Labels Column", "required":"true", "description": "eg: yes,no"}
+  ]
+}

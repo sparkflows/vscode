@@ -1,0 +1,13 @@
+{
+    "id": "6",
+    "name": "Confluence Reader",
+    "description": "",
+    "input": "",
+    "output": "",
+    "type": "pyspark",
+    "engine": "pyspark",
+    "nodeClass": "fire.nodes.gai.NodeConfluenceReader",
+    "fields": [
+        {"name": "confluenceConnection", "value": "", "widget": "object_array", "title": "Select Confluence Connection", "description": "Select the configured Confluence connection containing authentication credentials and access permissions required to read pages, spaces, and content."}
+    ]
+}

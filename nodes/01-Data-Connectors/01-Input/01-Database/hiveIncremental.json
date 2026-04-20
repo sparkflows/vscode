@@ -1,0 +1,28 @@
+{
+  "id": "11",
+  "name": "Hive Incremental",
+  "iconImage": "assets/images/icons/node-icon/hive.svg",
+  "description": "This node is used to incrementally read data from Hive table.",
+  "input": "",
+  "output": "It creates a DataFrame from selected hive table with latest data",
+  "hint": "Whenever the table is changed, go to InferSchema tab and Infer the Schema",
+  "type": "dataset",
+  "nodeClass": "fire.nodes.etl.NodeHiveIncremental",
+  "fields" : [
+
+    {"name":"database", "value":"default", "widget": "textfield", "title": "HIVE Database",
+      "description": "HIVE Database"},
+
+    {"name":"table", "display":true, "value":"", "widget": "textfield", "title": "HIVE Table",
+      "description": "HIVE Table from which to read the data"},
+
+    {"name":"path", "display":true,"value":"", "widget": "textfield", "title": "Watermark File Path", "description": "Path of the watermark file."},
+
+    {"name":"filterFields", "value":"", "widget": "textfield", "title": "Incremental Load Fields",
+      "description": "Comma separated values of field names used in data filter for the incremental load."},
+
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names of the database table", "description": "Column Names of the database table"},
+
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types of the database table", "description": "Column Types of the database table"}
+  ]
+}

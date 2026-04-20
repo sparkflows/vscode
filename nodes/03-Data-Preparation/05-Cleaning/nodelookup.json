@@ -1,0 +1,40 @@
+{
+  "id": "21",
+  "name": "Lookup",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/Node_Look_Up.svg",
+  "description": "Find values in a target column using a lookup table and either append fields or replace matched text.",  
+  "type": "pyspark2inputs",
+  "engine": "scala,polars",
+  "inputAnchors": [{"name": "Find","title": "F"},{"name": "Replace","title": "R"}],
+  "nodeClass": "fire.nodes.etl.NodeLookup",
+  "fields": [
+    { "name": "Find", "value": "", "widget": "tab", "title": "Find" },
+
+    {"name": "matchLocation", "value": "AnyPart", "widget": "enum", "optionsMap":{"Beginning":"Beginning of Field","AnyPart":"Any Part of Field", "Entire":"Entire Field"}, "title": "Match", "description": "How to match the lookup find value against the target text."},
+
+    {"name": "targetCol", "value": "", "widget": "variable", "title": "Find Within Field", "description": "Column in the input dataframe to search/modify.", "schemaIndex": "0"},
+
+    {"name": "lookupFindCol", "value": "", "widget": "variable", "title": "Find Value", "description": "Column in the lookup table that contains the find values.", "schemaIndex": "1"},
+
+    {"name": "caseInsensitive", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Case Insensitive", "description": "Perform case-insensitive matching."},
+
+    {"name": "wholeWord", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Match Whole Word Only", "description": "Match Whole Word Only"},
+
+    {"name": "Replace", "value": "", "widget": "tab", "title": "Replace"},
+
+    {"name": "actionType", "value": "Append", "widget": "array", "optionsArray": ["Append", "Replace"], "title": "Action", "description": "Choose Append to add lookup columns, or Replace to change matched text in the target column."},
+
+    {"name": "lookupReplaceCol", "value": "", "widget": "variable", "title": "Lookup Replace Column","description": "When Action is Replace: column in lookup table that contains the replacement text.", "wdgtCommon": "actionType", "toggle": "Replace", "schemaIndex": "1"},
+
+    {"name": "appendCols", "value": "[]", "widget": "variables", "title": "Append Columns", "description": "When Action is Append: which columns from the lookup table to append to the input rows.", "wdgtCommon": "actionType", "toggle": "Append", "schemaIndex": "1"},
+
+    {"name": "replaceMultipleItems", "value": "false", "widget": "array", "optionsArray": ["true", "false"], "title": "Replace Multiple Items", "description": "When replacing, replace all matches rather than only the first.","wdgtCommon": "actionType", "toggle": "Replace","schemaIndex": "1"},
+    {
+      "name": "schema", "value": "", "widget": "tab", "title": "InferSchema"
+    },
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names of the Table"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types of the Table"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats"}
+
+  ]
+}

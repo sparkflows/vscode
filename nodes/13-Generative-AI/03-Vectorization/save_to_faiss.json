@@ -1,0 +1,21 @@
+{
+  "id": "6",
+  "name": "Save Faiss DB",
+  "description": "Save Vector Embeddings to faiss db",
+  "input": "It takes in a DataFrame as input",
+  "output": "",
+  "type": "pyspark",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeSaveToFaissDB",
+  "fields" : [
+    {"name": "fileNameCol", "value": "fileName", "widget": "variable", "title": "File Name Column", "description": "Column containing the source file name associated with each embedding for traceability and reference."},
+    {"name": "pageNumberCol", "value": "pageNumber", "widget": "variable", "title": "Page Number Column", "description": "Column representing the page number or logical segment of the content used to generate the embedding."},
+    {"name": "contentCol", "value": "content", "widget": "variable", "title": "Content Column", "description": "Column containing the textual content used to generate vector embeddings."},
+    {"name": "directoryPathCol", "value": "directoryPath", "widget": "variable", "title": "Directory Path Column", "description": "Column specifying the directory path associated with each document or content source."},
+    {"name": "embeddingsCol", "value": "embeddings", "widget": "variable", "title": "Embeddings Column", "description": "Column containing vector embeddings to be stored in the FAISS index."},
+    {"name": "base64ImageCol", "value": "base64Image", "widget": "variable", "title": "Base64 Image Column", "description": "Column containing base64-encoded image data associated with the embeddings, if applicable."},
+    {"name": "faissIndexName", "value": "faiss_index", "widget": "textfield", "title": "FAISS Index Name", "description": "Name of the FAISS index to create or update with the provided embeddings."},
+    {"name": "faissIndexDir", "value": "", "widget": "textfield", "title": "FAISS Index Directory Path", "description": "Filesystem directory path where the FAISS index files will be created and stored."},
+    {"name": "dimension", "value": "0", "widget": "textfield", "title": "Dimension", "description": "Dimensionality of the embedding vectors. Must match the size of the embeddings being indexed."}
+  ]
+}

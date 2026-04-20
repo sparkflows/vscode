@@ -1,0 +1,13 @@
+{
+  "id": "7",
+  "name": "Normalizer Transform",
+  "type": "ml-predict",
+  "description":"Normalizer is a Transformer which transforms a dataset of Vector rows, normalizing each Vector to have unit norm.",
+
+  "input": "It  takes in a DataFrame and transforms it to another DataFrame",
+  "output": "It adds a new column containing the normalized value of the input column, to the incoming DataFrame.",
+
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.etl.NodeNormalizerTransform",
+  "fields" : []
+}

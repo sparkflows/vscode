@@ -1,0 +1,38 @@
+{
+  "id": "6",
+  "name": "Sklearn XGBoost Regressor",
+  "description": "XGBoost Regressor implements gradient boosted decision trees for regression problems. It is designed for high performance, scalability, and accuracy by combining multiple weak learners in a sequential manner to minimize prediction error.",
+  "input": "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "ml-estimator",
+
+  "nodeClass": "fire.nodes.sklearn.NodeXGBoostRegressor",
+  "fields": [
+
+    {"name": "targetCol", "value": "", "widget": "variable", "title": "Target Column", "description": "Target column containing the continuous numeric values that the regression model is trained to predict.", "datatypes": ["integer", "long", "double", "float", "int"], "required": true, "size":"100%"},
+    {"name": "featureCols", "value": "[]", "widget": "variables", "title": "Feature Columns", "description": "List of feature columns used as input variables for training the XGBoost regression model. All features must be numeric, boolean, or vector-compatible.", "datatypes": ["integer", "long", "double", "float", "int"], "required": true, "size":"100%"},
+    {"name": "splitRatio", "value":1.0, "widget": "textfield", "title": "Split Ratio", "description": "Ratio used to split the dataset into training and testing subsets. A value of 1.0 uses the full dataset for training.", "datatypes":["float"], "size":"50%"},
+
+    {"name": "n_estimators", "value": 100, "widget": "textfield", "title": "Number of Estimators", "description": "Number of boosting rounds or decision trees built sequentially to form the final regression model.", "size":"50%"},
+    {"name": "max_depth", "value": 6, "widget": "textfield", "title": "Max Depth", "description": "Maximum depth of each individual tree. Larger values increase model complexity and risk of overfitting.", "size":"50%"},
+    {"name": "learning_rate", "value": 0.3, "widget": "textfield", "title": "Learning Rate", "description": "Step size shrinkage applied to each boosting step. Smaller values require more trees but improve generalization.", "size":"50%"},
+    {"name": "subsample", "value": 1.0, "widget": "textfield", "title": "Subsample", "description": "Fraction of training samples used to grow each tree. Lower values introduce randomness and help prevent overfitting.", "size":"50%"},
+    {"name": "colsample_bytree", "value": 1.0, "widget": "textfield", "title": "Colsample Bytree", "description": "Fraction of features randomly selected for constructing each tree, increasing diversity among trees.", "size":"50%"},
+    {"name": "colsample_bylevel", "value": 1.0, "widget": "textfield", "title": "Colsample Bylevel", "description": "Fraction of features sampled at each level of the tree, controlling feature usage during splits.", "size":"50%"},
+    {"name": "colsample_bynode", "value": 1.0, "widget": "textfield", "title": "Colsample Bynode", "description": "Fraction of features sampled at each split node, providing fine-grained feature subsampling.", "size":"50%"},
+    {"name": "reg_alpha", "value": 0.0, "widget": "textfield", "title": "Reg Alpha (L1)", "description": "L1 regularization term applied to leaf weights, encouraging sparsity and feature selection.", "size":"50%"},
+    {"name": "reg_lambda", "value": 1.0, "widget": "textfield", "title": "Reg Lambda (L2)", "description": "L2 regularization term applied to leaf weights to reduce overfitting and improve model stability.", "size":"50%"},
+    {"name": "gamma", "value": 0.0, "widget": "textfield", "title": "Gamma", "description": "Minimum loss reduction required for a split to occur. Higher values make the model more conservative.", "size":"50%"},
+    {"name": "min_child_weight", "value": 1, "widget": "textfield", "title": "Min Child Weight", "description": "Minimum sum of instance weights required in a child node. Controls tree growth and model robustness.", "size":"50%"},
+    {"name": "max_delta_step", "value": 0, "widget": "textfield", "title": "Max Delta Step", "description": "Maximum allowed change in leaf weight estimation. Useful for stabilizing updates in highly imbalanced targets.", "size":"50%"},
+    {"name": "random_state", "value": 42, "widget": "textfield", "title": "Random State", "description": "Seed used for random number generation to ensure reproducible training results.", "size":"50%"},
+    {"name": "n_jobs", "value": -1, "widget": "textfield", "title": "Number of Jobs", "description": "Number of parallel threads used during training. A value of -1 utilizes all available cores.", "size":"50%"},
+    {"name": "verbosity", "value": 1, "widget": "textfield", "title": "Verbosity", "description": "Controls the level of training log output, ranging from silent execution to detailed debug information.", "size":"50%"},
+    {"name": "booster", "value": "gbtree", "widget": "array", "title": "Booster", "optionsArray": ["gbtree", "gblinear", "dart"], "description": "Type of booster used for learning, such as tree-based, linear, or dropout-based boosting.", "size":"50%"},
+    {"name": "tree_method", "value": "auto", "widget": "array", "title": "Tree Method", "optionsArray": ["auto", "exact", "approx", "hist", "gpu_hist"], "description": "Algorithm used to construct decision trees, optimized for speed, accuracy, or hardware acceleration.", "size":"50%"},
+    {"name": "objective", "value": "reg:squarederror", "widget": "array", "title": "Objective", "optionsArray": ["reg:squarederror", "reg:squaredlogerror", "reg:pseudohubererror"], "description": "Objective function defining the learning task and loss function optimized during training.", "size":"50%"},
+    {"name": "eval_metric", "value": "rmse", "widget": "array", "title": "Evaluation Metric", "optionsArray": ["rmse", "mae", "rmsle", "mape"], "description": "Metric used to evaluate model performance on validation data during training.", "size":"50%"},
+    {"name": "early_stopping_rounds", "value": "", "widget": "textfield", "title": "Early Stopping Rounds", "description": "Stops training early if the evaluation metric does not improve for the specified number of consecutive rounds.", "size":"50%"}
+  ]
+}

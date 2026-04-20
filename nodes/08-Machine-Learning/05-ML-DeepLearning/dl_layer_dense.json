@@ -1,0 +1,34 @@
+{
+  "id": "5",
+  "name": "Dense Layer",
+  "description": "",
+  "input" : "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "transform",
+
+  "nodeClass": "fire.nodes.dl.NodeKerasLayerDense",
+  "fields" : [
+
+    {"name": "units", "value":1, "widget": "textfield", "title": "Units", "description": ""},
+
+    {"name": "activation", "value":"None", "widget": "textfield", "title": "Activation", "description": ""},
+
+    {"name": "use_bias", "value":"true", "widget": "array", "title": "Use Bias", "optionsArray": ["True", "False"], "description": ""},
+
+    {"name": "kernel_initializer", "value": "glorot_uniform", "widget": "textfield", "title": "Kernel Initializer", "description": ""},
+
+    {"name": "bias_initializer", "value": "zeros", "widget": "textfield", "title": "Bias Initializer", "description": ""},
+
+    {"name": "kernel_regularizer", "value": "None", "widget": "textfield", "title": "Kernel Regularizer", "description": ""},
+
+    {"name": "bias_regularizer", "value": "None", "widget": "textfield", "title": "Bias Regularizer", "description": ""},
+
+    {"name": "activity_regularizer", "value": "None", "widget": "textfield", "title": "Activity Regularizer", "description": ""},
+
+    {"name": "kernel_constraint", "value": "None", "widget": "textfield", "title": "Kernel Constraint", "description": ""},
+
+    {"name": "bias_constraint", "value": "None", "widget": "textfield", "title": "Bias Constraint", "description": ""}
+
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "3",
+  "name": "Box Plot",
+  "description": "",
+  "type": "transform",
+  "iconImage": "assets/images/icons/node-icon/Box_plot.svg",
+  "engine": "scala,pyspark",
+  "outputAnchors": [{"name": "output", "title": "O"}, {"name": "input", "title": "I"}],
+  "nodeClass": "fire.nodes.graph.NodeBoxPlot",
+  "fields" : [
+    {"name":"title", "value":"Box Plot", "widget": "textfield", "title": "Title"},
+    {"name":"titleColor", "value":"#2563EB", "widget": "textcolors", "title": "Title Color"},
+    {"name":"description", "value":"", "widget": "textareafield", "title": "Description"},
+    {"name":"descriptionColor", "value":"#6D6E70", "widget": "textcolors", "title": "Description Color"},
+    {"name":"chartColors", "value":"", "widget": "colors", "title": "Chart Colors"},
+    {"name":"xlabel", "value":"", "widget": "textfield", "title": "X Label"},
+    {"name":"ylabel", "value":"", "widget": "textfield", "title": "Y Label"},
+
+    {"name":"maxValuesToDisplay", "value": "20", "widget": "textfield", "title": "Max Values To Display",
+      "description": "Maximum number of values to display in result.", "required": true},
+
+    {"name":"groupByColumn", "value":"", "widget": "variable", "title": "Group By Column", "required":"true"},
+
+    {"name":"valueColumn", "value":"", "widget": "variable", "title": "Value Column","datatypes":["integer", "long", "double", "float"], "required":"true"}
+
+  ]
+}

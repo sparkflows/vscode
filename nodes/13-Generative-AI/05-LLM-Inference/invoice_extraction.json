@@ -1,0 +1,22 @@
+{
+  "id": "6",
+  "name": "Invoice Extraction",
+  "iconImage": "assets/images/icons/node-icon/Graph_group_by_column.svg",
+  "description": "",
+  "input": "It may take in Dataframe as an input",
+  "output": "",
+  "type": "pyspark",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeInvoiceExtractions",
+
+  "fields": [
+    {"name": "userQuery", "value": "", "widget": "textarea_small", "title": "User Query", "description": "User-defined query or instruction describing the invoice fields and information to be extracted.", "required": "true"},
+    {"name": "llmConnection", "value": "", "widget": "object_array", "title": "Select Connection", "description": "Select the configured LLM connection used to process invoice data and generate structured extraction results."},
+    {"name": "separator", "value": "|", "widget": "textfield", "title": "Separator", "description": "Delimiter used to separate extracted values when constructing the output DataFrame."},
+
+    {"name": "config", "value": "", "widget": "tab", "title": "Additional"},
+    {"name": "temperature", "value": "0", "widget": "textfield", "title": "Temperature", "description": "Controls the determinism of the model output. Lower values produce more consistent and repeatable extractions."},
+    {"name": "writePrompt", "value": "", "widget": "textarea_small", "title": "System Prompt", "description": "Optional system-level prompt used to guide extraction behavior, formatting rules, and domain-specific instructions."}
+  ]
+
+}

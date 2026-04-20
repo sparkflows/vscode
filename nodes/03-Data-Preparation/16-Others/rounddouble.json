@@ -1,0 +1,13 @@
+{
+  "id": "6",
+  "name": "Round Value",
+  "description": "",
+  "input": "It takes in a DataFrame as input",
+  "output": "",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeRoundDouble",
+  "fields" : [
+    {"name": "inputCols", "value":"[]",  "widget": "variables", "title": "Input Column", "description": "The columns containing double or float values to round."},
+    {"name": "precision", "value":2, "widget": "textfield", "title": "Precision", "description": "The scale of the double values to round to."}
+  ]
+}

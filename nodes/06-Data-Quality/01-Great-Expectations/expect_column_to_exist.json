@@ -1,0 +1,12 @@
+{
+  "id": "7",
+  "name": "ExpectColumnToExist",
+  "description": "",
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.ge.NodeExpectColumnToExist",
+  "fields" : [
+    {"name": "cols", "value":"", "widget": "textfield",
+      "title": "Column Name", "description": "Comma separated column names."}
+  ]
+}

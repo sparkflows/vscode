@@ -1,0 +1,13 @@
+{
+  "id": "1",
+  "name": "Data Wrangling",
+  "iconImage": "assets/images/icons/node-icon/data_cleansing.svg",
+  "description": "This node creates a new DataFrame by applying each of the Rules specified",
+  "input" : "It takes in a DataFrame as Input",
+  "output": "It creates the output DataFrame by applying the data wrangling rules provided",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeDataWrangling",
+  "fields" : [
+    {"name":"rules", "value": "", "widget": "textarea_wrangling", "title": "Rules", "description": "Rules to be applied on column and rows"}
+  ]
+}

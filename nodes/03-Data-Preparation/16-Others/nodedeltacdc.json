@@ -1,0 +1,54 @@
+{
+  "id": "6",
+  "name": "DeltaMerge",
+  "description": "Insert, delete and update data using the Delta merge command.",
+  "input": "",
+  "output": "",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeDeltaMerge",
+  "fields" : [
+    {"name":"targetLocation", "display":true,"value":"", "widget": "textfield", "title": "TargetPath", "description": "Path of the target location"},
+    {"name":"sourceAlias", "display":true,"value":"", "widget": "textfield", "title": "Source Alias", "description": "Alias to use for the source DataFrame"},
+    {"name":"targetAlias", "display":true,"value":"", "widget": "textfield", "title": "Target Alias", "description": "Alias to use for existing target Delta table"},
+    {"name":"mergeCondition", "value":"", "widget": "textarea_large", "type": "sql_mysql", "title": "Merge Condition",
+      "required": true, "description": "Condition to merge data from source DataFrame to target table, which would be used to perform update, delete, or insert actions as specified."},
+
+    {"name": "whenMatchedUpdate", "value":"", "widget": "tab", "title": "When Matched Update"},
+    {"name":"whenMatchedUpdateAction", "value":"update", "widget": "array","optionsArray": ["update", "ignore"],  "required": true,
+      "title": "WhenMatched Update Action", "description":"Update the row from Source that already exists in Target based on Merge Condition."},
+
+    {"name":"whenMatchedUpdateCondition", "value":"", "widget": "textarea_large", "type": "sql_mysql", "title": "Merge Condition",
+      "description": "Optional additional condition for updating row. If specified then it must evaluate to true for the row to be updated."},
+
+    {"name": "whenMatchedUpdateTargetColumns", "value":"[]", "widget": "key_array",
+      "title": "Target Columns", "description": "Target Column","type": "sparksql"}, 
+
+    {"name": "whenMatchedUpdateExpressions", "value":"[]", "widget": "value_array",
+      "title": "Expressions", "description": "Replace default update with expression","type": "sparksql"},
+
+
+
+    {"name": "whenMatchedDelete", "value":"", "widget": "tab", "title": "When Matched Delete"},
+    {"name":"whenMatchedDeleteAction", "value":"ignore", "widget": "array","optionsArray": ["delete", "ignore"],  "required": true,
+      "title": "WhenMatched Delete Action", "description":"Delete rows if Merge Condition and the optional additional condition evaluates to true."},
+
+    {"name":"whenMatchedDeleteCondition", "value":"", "widget": "textarea_large", "type": "sql_mysql", "title": "WhenMatched Delete Condition",
+      "description": "Optional additional condition for deleting row. If a condition is specified then it must evaluate to true for the row to be deleted."},
+
+
+
+
+    {"name": "whenNotMatched", "value":"", "widget": "tab", "title": "When Not Matched"},
+    {"name":"whenNotMatchedAction", "value":"insert", "widget": "array","optionsArray": ["insert", "ignore"],  "required": true,
+      "title": "WhenNot Matched Action", "description":"The action to perform if the row from Source is not present in Target based on Merge Condition"},
+
+    {"name":"whenNotMatchedCondition", "value":"", "widget": "textarea_large", "type": "sql_mysql", "title": "WhenNot Matched Condition",
+      "description": "Optional condition for inserting row. If a condition is specified then it must evaluate to true for the row to be updated."},
+
+    {"name": "whenNotMatchedTargetColumns", "value":"[]", "widget": "key_array",
+      "title": "Target Columns", "description": "Target Column", "type": "sparksql"},
+
+    {"name": "whenNotMatchedExpressions", "value":"[]", "widget": "value_array",
+      "title": "Expressions", "description": "Replace default insert with expression", "type": "sparksql"}
+  ]
+}

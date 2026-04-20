@@ -1,0 +1,17 @@
+{
+  "id": "7",
+  "name": "Vector Slicer",
+  "type": "ml-transformer",
+  "engine": "scala,pyspark",
+  "description": "VectorSlicer feature selection, which takes a feature vector and outputs a new feature vector with a sub-array of the original features. It is useful for extracting features from a vector column",
+  "nodeClass": "fire.nodes.ml.NodeVectorSlicer",
+  "fields" : [
+    {"name":"inputCol", "value":"", "widget": "variable", "title": "Features Column ","required": true, "datatypes":["vectorudt"], "description": "The features column name"},
+
+    {"name":"outputCol", "value":"", "widget": "textfield", "title": "Output Column", "required": true, "description": "The output column name"},
+
+    {"name":"indices", "value":"", "widget": "textfield", "title": "Indices",  "description": "comma seprated"},
+
+    {"name":"names", "value":"", "widget": "textfield", "title": "Names","description": "The output column name"}
+  ]
+}

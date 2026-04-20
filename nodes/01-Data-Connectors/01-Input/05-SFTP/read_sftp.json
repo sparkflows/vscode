@@ -1,0 +1,20 @@
+{
+  "id": "11",
+  "name": "SFTP Read",
+  "description": "This node reads data from SFTP location with format(csv, txt, json, avro and parquet) and return the dataframe.",
+  "input": "",
+  "output": "Dataframe created from the data read from SFTP location.",
+
+  "type": "dataset",
+  "nodeClass": "fire.nodes.sftp.NodeReadSFTP",
+  "fields" : [
+    {"name":"connection", "value":"", "widget": "object_array", "title": "Connection", "description": "The SFTP connection to connect" ,"required":"true"},
+    {"name":"path", "value":"", "widget": "textfield", "title": "SFTP Location", "description": "SFTP Location",  "required": true},
+    {"name":"fileFormat", "value":"CSV", "widget": "textfield", "title": "Fileformat", "description": "Type like csv, txt, json, avro and parquet" ,"required":"true"},
+    {"name":"delimiter", "value":",", "widget": "textfield", "title": "Delimiter", "description": "Set the field delimiter. Applicable only for csv fileType." ,"required":""},
+    {"name":"header", "value":"true", "widget": "array", "optionsArray": ["true", "false"], "title": "Header", "description": "Applicable only for csv fileType. Is the first row in CSV file is header.",  "required": ""},
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Output Column Names", "description": "Name of the Output Columns"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Output Column Types", "description": "Data Type of the Output Columns"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Output Column Formats", "description": "Format of the Output Columns"}
+  ]
+}

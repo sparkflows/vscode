@@ -1,0 +1,29 @@
+{
+  "id": "5",
+  "name": "SkLearn Lasso Regression",
+  "description": "Lasso Regression is a linear regression technique that applies L1 regularization to shrink coefficients and perform feature selection by driving some coefficients exactly to zero.",
+  "input" : "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "ml-estimator",
+
+  "nodeClass": "fire.nodes.sklearn.NodeSklearnLassoRegression",
+  "fields" : [
+
+    {"name": "targetCol", "value": "", "widget": "variable", "title": "Target Column", "description": "Target column containing the continuous response variable that the Lasso regression model learns to predict.", "datatypes": ["integer", "long", "double", "float", "int"], "required": true, "size":"100%"},
+    {"name": "featureCols", "value": "[]", "widget": "variables", "title": "Feature Columns", "description": "List of input feature columns used for training the model. All features must be numeric, boolean, or vector-compatible.", "datatypes": ["integer", "long", "double", "float", "int"], "required": true, "size":"100%"},
+    {"name": "splitRatio", "value":1.0, "widget": "textfield", "title": "Split Ratio", "description": "Ratio used to split the dataset into training and testing sets. A value of 1.0 uses the entire dataset for training.", "datatypes":["float"], "size":"50%"},
+
+    {"name": "alpha", "value": 1.0, "widget": "textfield", "title": "Alpha", "description": "Regularization strength controlling the amount of L1 penalty applied to coefficients. Higher values increase sparsity by shrinking more coefficients to zero.", "size":"50%"},
+    {"name": "fit_intercept", "value": "true", "widget": "array", "title": "Fit Intercept", "optionsArray": ["false", "true"], "description": "Determines whether an intercept term is included in the regression model. Disabling this forces the model to pass through the origin.", "datatypes": ["boolean"], "size":"50%"},
+    {"name": "normalize", "value": "false", "widget": "array", "title": "Normalize", "optionsArray": ["false", "true"], "description": "If enabled, input features are normalized before regression. This option is ignored when Fit Intercept is set to False.", "datatypes": ["boolean"], "size":"50%"},
+    {"name": "precompute", "value": "false", "widget": "array", "title": "Precompute", "optionsArray": ["false", "true"], "description": "Specifies whether to use a precomputed Gram matrix to speed up optimization. Useful for datasets with many samples but fewer features.", "datatypes": ["boolean"], "size":"50%"},
+    {"name": "max_iter", "value": 2, "widget": "textfield", "title": "Max Iterations", "description": "Maximum number of optimization iterations allowed for the coordinate descent solver to converge.", "size":"50%"},
+    {"name": "tol", "value": 0.0001, "widget": "textfield", "title": "Tolerance", "description": "Convergence threshold for optimization. Training stops when coefficient updates fall below this value and the duality gap is sufficiently small.", "size":"50%"},
+    {"name": "warm_start", "value": "false", "widget": "array", "title": "Warm Start", "optionsArray": ["True", "False"], "description": "When enabled, reuses coefficients from a previous fit as initialization, allowing incremental training or faster convergence.", "datatypes": ["boolean"], "size":"50%"},
+    {"name": "positive", "value": "false", "widget": "array", "title": "Positive", "optionsArray": ["True", "False"], "description": "Forces all learned coefficients to be non-negative, which can be useful when domain constraints require positive relationships.", "datatypes": ["boolean"], "size":"50%"},
+    {"name": "random_state", "value": "", "widget": "textfield", "title": "Random State", "description": "Seed controlling randomness when using randomized feature updates, ensuring reproducible training behavior.", "size":"50%"},
+    {"name": "selection", "value": "cyclic", "widget": "textfield", "title": "Selection", "description": "Defines how coefficients are updated during optimization. Cyclic updates features sequentially, while random selects features randomly to potentially speed up convergence.", "size":"50%"}
+
+  ]
+}

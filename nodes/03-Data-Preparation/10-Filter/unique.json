@@ -1,0 +1,24 @@
+{
+  "id": "4",
+  "name": "FindDuplicate",
+  "type": "transform",
+  "iconImage": "assets/images/icons/node-icon/filter.svg",
+  "description": "This node splits the incoming DataFrame into two output DataFrames one having unique values and other having rest of duplicates",
+
+  "input" : "It accepts a DataFrame as input from the previous Node",
+  "engine": "scala,pyspark,polars",
+  "outputAnchors": [{"name": "Unique","title": "U"},{"name": "Duplicate","title": "D"}],
+  "nodeClass": "fire.nodes.etl.NodeUnique",
+  "fields" : [
+    {"name": "inputCols", "value":"[]", "widget": "variables", "title": "Select Columns", "description": "Select the columns you want to check for unique values."},
+
+    {"name": "sortByColNames", "value":"[]", "widget": "variables_list_select", "title": "Columns",
+      "description": "Select one or more columns to sort by. Drag to reorder - the top column is the primary sort key, followed by secondary, tertiary, etc."},
+
+    {"name": "ascDesc", "value":"[]", "widget": "variables_list_array",
+      "optionsArray": ["DESC", "ASC"],
+      "title": "Sorting Order", "description": "Individually set ASC (ascending) or DESC (descending) for each selected column. Example: Salary To DESC, then Department To ASC, then Name To ASC"}
+
+
+  ]
+}

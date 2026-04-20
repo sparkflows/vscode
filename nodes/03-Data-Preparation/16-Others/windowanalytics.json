@@ -1,0 +1,21 @@
+{
+  "id": "11",
+  "name": "Window Analytics",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/window_function.svg",
+  "description": "",
+  "input": "",
+  "engine": "scala,pyspark",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeWindowAnalytics",
+  "fields" : [
+
+    {"name":"partitionByCols", "value": "", "widget": "textfield", "title": "PartitionBy", "description": "partition column names separated by comma(,) "},
+    {"name":"orderByCols", "value": "", "widget": "textfield", "title": "OrderBy", "description": "order by column names separated by comma(,)",  "required": true},
+    {"name":"windowFunction", "value":"first_value", "widget": "array",
+      "optionsArray": [ "first_value", "last_value", "lag", "lead"], "title": "Window Function",
+      "description": "Window Function Name", "required": true},
+    {"name":"analyticsCol", "value": "", "widget": "variable", "title": "Analytics Column", "description": "",  "required": true},
+    {"name":"window_offset", "value": "1", "widget": "textfield", "title": "Window Offset", "description": "It's used in lead and lag functions.",  "required": true}
+
+  ]
+}

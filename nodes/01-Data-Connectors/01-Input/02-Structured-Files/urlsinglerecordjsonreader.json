@@ -1,0 +1,17 @@
+{
+  "id": "11",
+  "name": "URL Single Record JSON Reader",
+  "description": "It reads single record JSON from the given URL and creates a DataFrame from it",
+  "iconImage": "assets/images/icons/node-icon/JSON.svg",
+  "type": "dataset",
+  "nodeClass": "fire.nodes.dataset.NodeDatasetURLSingleRecordJsonReader",
+  "fields" : [
+    {"name":"URL", "value":"", "widget": "textfield", "title": "URL", "description": "URL from where to read the JSON string from"},
+
+    {"name": "schema", "value": "", "widget": "tab", "title": "InferSchema"},
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names", "description": "Column Names"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types", "description": "Data Types"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats", "description": "Formats"}
+
+  ]
+}

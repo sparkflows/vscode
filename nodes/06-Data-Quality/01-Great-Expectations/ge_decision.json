@@ -1,0 +1,14 @@
+{
+  "id": "11",
+  "name": "GE Decision",
+  "description": "This Node takes in an expression. It evaluates the expression and based on the results sends the execution to the first or the second output Node",
+  "input" : "It accepts a DataFrame as input from the previous Node",
+  "output": "The incoming DataFrame is sent to the output. Only one of the output Nodes receives the DataFrame based on the results of the expression",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeGEDecision",
+  "engine": "pyspark",
+  "fields" : [
+    {"name":"expression", "value": "", "widget": "textarea_medium", "title": "Expression", "description": "Expression to be evaluated. It can use variables computed in the previous Nodes"},
+    {"name":"status_file_path", "display":true,"value":"", "widget": "textfield",  "title": "Path", "description": "Path to generate _success and _failed directory."}
+  ]
+}

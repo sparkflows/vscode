@@ -1,0 +1,8 @@
+{
+  "id": "4",
+  "name": "Imputer Transform",
+  "description": "Imputation estimator for completing missing values",
+  "type": "ml-predict",
+  "nodeClass": "fire.nodes.ml.NodeImputerTransform",
+  "fields" : []
+}

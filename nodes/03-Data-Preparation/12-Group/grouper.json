@@ -1,0 +1,27 @@
+{
+  "id": "6",
+  "name": "Group By",
+  "description": "Group By Node",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/group_by.svg",
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.etl.NodeGroupBy",
+  "fields" : [
+
+    {"name": "Aggregation Setting", "value":"", "widget": "tab", "title": "Aggregation Setting"},
+
+    {"name": "groupingCols", "value":"[]", "widget": "variables", "title": "Grouping Columns", "description": "Grouping Columns",
+      "required": true},
+
+    {"name": "aggregateCols", "value":"[]", "widget": "variables_list_select", "title": "Aggregate Columns","header":"Aggregate", "description": "Aggregate Columns","required": true},
+    {"name": "aggregateOperations", "value":"[]", "widget": "variables_list_array",
+            "optionsArray": ["sum", "avg", "min", "max", "count", "count_distinct"], "title": "Aggregate Operation", "description": "Aggregate Operation", "required": true},
+    {"name": "outputColNames", "value":"[]", "widget": "variables_list_textfield", "title": "Output Column Names", "description": "Output Column Names, default value is aggregateOperation_aggregateCol."},
+
+    {"name": "Filter Setting", "value":"", "widget": "tab", "title": "Filter Setting"},
+
+    {"name":"whereClause", "value":"", "widget": "code_editor", "type": "sparksql", "title": "Where Clause", "description": "where condition before group by function"},
+
+    {"name":"havingClause", "value":"", "widget": "code_editor", "type": "sparksql", "title": "Having Clause", "description": "having condition after group by function"}
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "11",
+  "name": "Generate UUID",
+  "description": "This node Generates a Universally Unique ID",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/Generate_UUID.svg",
+  "input": "It accepts a dataframe as input",
+  "output": "It adds a new column for UUID to the input DataFrame. This new DataFrame is sent to the output",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeGenerateUUID",
+  "fields" : [
+
+	{"name":"outputCol", "value": "", "widget": "textfield", "title": "Output Column", "description": "Output Column Name"}
+
+	]
+}

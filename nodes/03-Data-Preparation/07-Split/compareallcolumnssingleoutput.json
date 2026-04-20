@@ -1,0 +1,18 @@
+{
+  "id": "7",
+  "name": "Compare All Columns Single Output",
+  "iconImage": "assets/images/icons/node-icon/column.svg",
+  "description": "Compares 2 incoming DataFrames. Outputs 1 DataFrame (A-B) or (B-A) or (A intersection B) based on user's input",
+  "type": "join",
+  "nodeClass": "fire.nodes.etl.NodeCompareAllColumnsSingleOutput",
+  "inputAnchors": [{"name": "First","title": "F"},{"name": "Second","title": "S"}],
+  "fields": [{
+    "name": "compareOption",
+    "value": "LEFTDATAFRAME_EXCEPT_RIGHTDATAFRAME",
+    "widget": "array",
+    "optionsArray": ["LEFTDATAFRAME_EXCEPT_RIGHTDATAFRAME", "LEFTDATAFRAME_INTERSECT_RIGHTDATAFRAME", "RIGHTDATAFRAME_EXCEPT_LEFTDATAFRAME"],
+    "title": "Compare Type",
+    "required": true,
+    "description": "Comparision options whether (A-B) or (B-A) or (A intersection B)"
+  }]
+}

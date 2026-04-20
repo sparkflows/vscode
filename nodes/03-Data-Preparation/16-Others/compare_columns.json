@@ -1,0 +1,25 @@
+{
+  "id": "16",
+  "name": "Compare Columns",
+  "description": "Compare columns between two DataFrames using key ID columns. Produces column-level match and difference statistics with example differing values.",
+  "input": "Accepts two DataFrames as input for comparison.",
+  "output": "Returns a summary DataFrame with match counts, difference counts, and example differing values per column.",
+  "type": "pyspark2inputs",
+  "engine": "scala",
+  "nodeClass": "fire.nodes.etl.NodeCompareColumns",
+  "inputAnchors": [{"name": "First","title": "F"},{"name": "Second","title": "S"}],
+  "fields": [
+    { "name": "general", "value": "", "widget": "tab", "title": "General" },
+    {"name": "idColumns", "value": "[]", "widget": "variables", "title": "Primary Key / Join Columns", "description": "Select one or more key columns used to join the two DataFrames. These columns uniquely identify rows for comparison.", "required": "true"},
+    {"name": "outputColumnName", "value": "column_name", "widget": "textfield", "title": "Compared Column Name Field", "description": "Name of the output column that lists the compared column names."},
+    {"name": "matchCountColumnName", "value": "match_count", "widget": "textfield", "title": "Match Count Field", "description": "Name of the output column that contains the count of matching rows per compared column."},
+    {"name": "differenceCountColumnName", "value": "difference_count", "widget": "textfield", "title": "Difference Count Field", "description": "Name of the output column that contains the count of non-matching rows per compared column."},
+    {"name": "differenceExampleLeftColumnName", "value": "difference_sample_first", "widget": "textfield", "title": "Difference Sample Value (First Dataset)", "description": "Name of the output column showing a sample differing value from the first DataFrame."},
+    {"name": "differenceExampleRightColumnName", "value": "difference_sample_second", "widget": "textfield", "title": "Difference Sample Value (Second Dataset)", "description": "Name of the output column showing a sample differing value from the second DataFrame."},
+    {"name": "differenceExampleIdColumnPrefix", "value": "difference_sample_", "widget": "textfield", "title": "Difference Sample ID Column Prefix", "description": "Prefix used for output columns that show ID values where differences occurred (e.g., difference_sample_customer_id)."},
+    { "name": "schema", "value": "", "widget": "tab", "title": "InferSchema" },
+    {"name": "outputColNames", "value": "[]", "widget": "schema_col_names", "title": "Explicit Output Column Names", "description": "Explicitly define the output schema column names. If left empty, schema is inferred automatically."},
+    {"name": "outputColTypes", "value": "[]", "widget": "schema_col_types", "title": "Explicit Output Column Data Types", "description": "Explicitly define the output schema column data types. If left empty, schema is inferred automatically."},
+    {"name": "outputColFormats", "value": "[]", "widget": "schema_col_formats", "title": "Output Column Formatting (Optional)", "description": "Optional formatting for output columns."}
+  ]
+}

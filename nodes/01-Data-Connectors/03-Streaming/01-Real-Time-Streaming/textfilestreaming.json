@@ -1,0 +1,18 @@
+{
+  "id": "6",
+  "name": "Streaming Text File Stream",
+  "description": "It monitors a specified directory for new files. It keeps reading in any new files created in the directory.",
+
+  "input": "It does not take any DataFrame as input",
+  "output": "It reads the new files and creates DataFrame from the content of the text files. This DataFrame is passed to the output Nodes.",
+
+  "type": "sparkstreaming",
+  "nodeClass": "fire.nodes.streaming.NodeStreamingTextFileStream",
+  "fields" : [
+    {"name":"path", "value":"", "widget": "textfield", "title": "Path", "description": "Directory from where to pick up files from"},
+
+    {"name": "batchDuration", "value":"30", "widget": "textfield", "title": "Batch Duration in Seconds", "description": "Batch Duration in Seconds"},
+
+    {"name": "outputCol", "value":"lines", "widget": "textfield", "title": "Output Column", "description": "Output Column"}
+  ]
+}

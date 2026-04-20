@@ -1,0 +1,26 @@
+{
+  "id": "11",
+  "name": "Save JDBC",
+  "iconImage": "assets/images/icons/node-icon/JDBC.svg",
+  "description": "This node writes data to databases using JDBC.",
+  "type": "transform",
+  "nodeClass": "fire.nodes.save.NodeSaveJDBC1",
+  "engine": "scala",
+  "fields" : [
+    {"name":"connection", "value":"", "widget": "object_array", "title": "Connection", "description": "The JDBC connection to connect" ,"required":"true"},
+    {"name":"jdbcDatabase", "value":"", "widget": "textfield", "title": "Database", "description": "Database for connecting to the JDBC" ,"required":"true"},
+    {"name":"jdbctable", "value":"", "widget": "textfield", "title": "Table", "description": "JDBC Table from which to read the data",  "required": "true"},
+
+    {"name":"truncate", "value":"false", "widget": "array","optionsArray": ["false","true"],
+      "title": "Truncate", "description":"Whether to truncate the table in case Save Mode is Overwrite"},
+
+    {"name":"saveMode", "value":"Append", "widget": "array","optionsArray": ["Append","Overwrite", "ErrorIfExists", "Ignore"],
+      "title": "Save Mode", "description":"Whether to Append, Overwrite or Error if the table Exists"},
+
+    {"name": "properties", "value": "", "widget": "tab", "title": "Properties"},
+    {"name": "extraOptionsKeys", "value":"[]", "widget": "key_array", "title": "Properties Name", "description": "Extra options/properites available while executing in Save JDBC."},
+    {"name": "extraOptionsValues", "value":"[]", "widget": "value_array", "title": "Properties Value", "description": "Config Values for the Corresponding properites name"}
+
+
+  ]
+}

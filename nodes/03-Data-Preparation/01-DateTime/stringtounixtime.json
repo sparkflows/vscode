@@ -1,0 +1,15 @@
+{
+  "id": "11",
+  "name": "String To Unix Time",
+  "description": "This node converts a string to Unix Time",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/string_to_unix.svg",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeStringToUnixTime",
+  "fields" : [
+
+    {"name":"inputColName", "value": "", "widget": "variable", "title": "Input Column Name", "description": "Input Column Name", "datatypes":["string"] ,"required": true},
+    {"name":"inputColFormat", "value": "", "widget": "textfield", "title": "Input Column Format", "description": "Input Column Format (eg: yyyy-MM-dd HH:mm:ss)" ,"required": true},
+    {"name":"outputColName", "value": "", "widget": "textfield", "title": "Output Column Name", "description": "Output Column Name" ,"required": true}
+
+  ]
+}

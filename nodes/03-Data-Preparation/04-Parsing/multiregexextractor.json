@@ -1,0 +1,39 @@
+{
+  "id": "11",
+  "name": "Multi Regex Extractor",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/regex.svg",
+  "description": "This node is used to extract pattern from input columns",
+  "input": "This type of node takes in a DataFrame and transforms it to another DataFrame",
+  "output": "This node extract pattern from input columns as specified",
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.etl.NodeMultiRegexExtractor",
+  "fields" : [
+
+    {"name": "inputColNames", 
+         "value":"[]",
+         "widget": "variables_list_select",
+         "title": "InputColumnsName",
+         "description": "Columns"},
+
+    {"name":"outputColNames",
+       "value":"[]",
+      "widget": "variables_list_textfield",
+      "title": "OuputColumnsName", 
+      "description": "name of the output column"},
+     
+    {"name": "patterns", 
+        "value":"[]", 
+        "widget": "variables_list_textfield",
+         "title": "Patterns", 
+         "description": "patterns or regex to extract the input column name"},
+    
+      {"name": "groups", 
+        "value":"[]", 
+        "widget": "variables_list_textfield",
+         "title": "Groups", 
+         "description": "An regular expression group number starting with 1, defining which portion of the matching string will be returned"}
+    
+
+  ]
+}

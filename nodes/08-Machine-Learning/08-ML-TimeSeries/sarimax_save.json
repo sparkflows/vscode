@@ -1,0 +1,16 @@
+{
+  "id": "4",
+  "name": "Sarimax Model Save",
+
+  "description": "This node saves the Sarimax model generated at the specified path in pickle file.",
+
+  "input": "It takes in a Model and DataFrame as input.",
+  "output": "The incoming dataframe is passed to the output.",
+
+  "engine": "pyspark",
+  "type": "ml-modelsave",
+  "nodeClass": "fire.nodes.ts.NodeSarimaxSave",
+  "fields" : [
+    {"name":"path", "value":"modelsavepath", "widget": "textfield", "title": "Path", "required": true}
+  ]
+}

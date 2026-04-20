@@ -1,0 +1,29 @@
+{
+  "id": "5",
+  "name": "Regression Evaluator",
+  "description": "Evaluator for regression, which expects two input columns: prediction and label.",
+
+  "input": "It takes in a DataFrame as input",
+  "output": "The incoming DataFrame is passed to the output",
+
+  "type": "ml-evaluator",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.ml.NodeRegressionEvaluator",
+  "fields" : [
+    {
+      "name": "useChampion",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": ["true", "false"],
+      "title": "Use Champion Model",
+      "description": "Uses Champion Model UUID to Update Metrics Over Time Graph under Models Page."
+    },
+    {"name":"modelUUID", "display": true, "value":"", "widget": "textfield", "title": "Model UUID", "description": "Enter the model uuid","wdgtCommon": "useChampion", "toggle": "false"},
+
+    {"name":"labelCol", "value":"", "widget": "variable", "title": "Label Column", "description": "The label column for model fitting.", "datatypes":["double"]},
+
+    {"name":"predictionCol", "value":"", "widget": "variable", "title": "Prediction Column", "description": "The prediction column.", "datatypes":["double"]}
+
+
+  ]
+}

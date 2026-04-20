@@ -1,0 +1,16 @@
+{
+  "id": "7",
+  "name": "JsonToEDI",
+  "iconImage": "assets/images/icons/node-icon/JSON.svg",
+  "description": "",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeJsonToEDI",
+  "fields" : [
+
+    {"name":"inputJsonCol", "display":true, "value": "", "widget": "variable", "title": "InputJsonCol", "description": ""},
+
+    {"name":"outputCol", "display":true, "value":"", "widget": "textfield", "title": "OutputCol", "description": ""},
+
+    {"name":"endPoint", "display":true, "value":"http://44.234.63.143:8080/NagataEDIServiceDemo_Java8/edi837/create837p", "widget": "textfield", "title": "EndPoint", "description": "", "expandable":true}
+  ]
+}

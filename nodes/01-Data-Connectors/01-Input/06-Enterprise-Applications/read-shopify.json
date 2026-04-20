@@ -1,0 +1,41 @@
+{
+  "id": "11",
+  "name": "Read Shopify",
+  "description": "This node reads data from Shopify.",
+  "type": "dataset",
+  "nodeClass": "fire.nodes.shopify.ReadFromShopify",
+  "fields" : [
+    {"name":"connection", "value":"", "widget": "object_array", "title": "Connection", "description": "The Shopify connection to connect" ,"required":"true"},
+    {"name":"api_version", "value":"2024-04", "widget": "textfield", "title": "API Version", "description": "API Version of Shopify."},
+    
+    {"name": "useGraphQLQuery", "value": "true", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Use GraphQL Query",
+      "description": "Use given GraphQL query to pull given schema or enter the resource name to pull full schema"},
+
+    {"name":"pageSize",  "value":"250", "widget": "textfield", "title": "Page Size", "description":"Page Size"},
+
+    {"name":"graphQLQuery",  "value":"", "widget": "textarea_large", "title": "GraphQL Query", "description":"Enter the valid GraphQLQuery.",
+      "wdgtCommon":"useGraphQLQuery", "toggle":"true"},
+    
+    {"name": "resource", "value":"", "widget": "textfield", "title": "Resource Name", "description": "orders, products, customers",
+      "wdgtCommon":"useGraphQLQuery", "toggle":"false"},
+
+    {"name": "addFilter", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Add Filter", "description": "add filter condition."},
+    {"name":"filterCondition",  "value":"", "widget": "textfield", "title": "Filter", "description":"Filter condition", "wdgtCommon":"addFilter", "toggle":"true"},
+    
+    {"name": "denyColumns", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Deny Columns",
+      "description": "To add comma separated column names."},
+    {"name":"dropColumns",  "value":"", "widget": "textarea_large", "title": "Drop Columns", "description":"Comma separated column names.",
+      "wdgtCommon":"denyColumns", "toggle":"true"},
+
+
+     {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+    
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names of the Table", "description": "Output Columns Names of the Objects"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types of the Table", "description": "Output Column Types of the Objects"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats", "description": "Output Column Formats"},
+
+    { "name": "interactiveRunConfiguration", "value": "", "widget": "tab", "title": "Interactive Run Configuration"},
+    {"name":"limitInputRecords", "value":"20", "widget": "numberfield", "title": "Limit Input Records","description":"Maximum rows to preview in interactive/design mode (default 20). Does not affect batch execution.", "min":"1", "step":"1", "max":"1000",
+      "size": "10.0%"}
+  ]
+}

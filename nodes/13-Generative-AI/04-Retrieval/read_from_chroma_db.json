@@ -1,0 +1,16 @@
+{
+  "id": "12",
+  "name": "Read Chroma DB",
+  "description": "Read Vector Embeddings from Chroma DB Collection gives user query",
+  "input": "It takes in a DataFrame as input",
+  "output": "",
+  "type": "pyspark",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeReadFromChromaDB",
+  "fields" : [
+    {"name": "userQuery", "value": "", "widget": "variable", "title": "Query Column", "description": "Column containing the raw user query text used to perform similarity search against the ChromaDB collection."},
+    {"name": "userQueryEmbeddings", "value": "", "widget": "variable", "title": "Query Embeddings Column", "description": "Column containing precomputed vector embeddings for each query, used directly for nearest-neighbor search."},
+    {"name": "collection", "value": "", "widget": "textfield", "title": "Collection Name (case sensitive)", "description": "Name of the ChromaDB collection to query. Collection names are case sensitive and must exist prior to execution."},
+    {"name": "topK", "value":"3", "widget": "textfield", "title": "Top K", "description": "Number of most similar vectors to return for each query based on similarity scoring.", "datatypes":["integer"]}
+  ]
+}

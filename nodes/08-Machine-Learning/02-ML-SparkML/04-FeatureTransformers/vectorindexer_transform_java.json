@@ -1,0 +1,12 @@
+{
+  "id": "7",
+  "name": "Vector Indexer Transform",
+  "type": "ml-predict",
+  "description": "Vector Indexer indexes categorical features inside of a Vector. It decides which features are categorical and converts them to category indices. The decision is based on the number of distinct values of a feature.",
+
+  "input": "It takes in a DataFrame and transforms it to another DataFrame",
+  "output": "It indexes categorical features in datasets of Vectors and stores the result into a new column of the DataFrame.",
+
+  "nodeClass": "fire.nodes.ml.NodeVectorIndexerTransform",
+  "fields" : []
+}

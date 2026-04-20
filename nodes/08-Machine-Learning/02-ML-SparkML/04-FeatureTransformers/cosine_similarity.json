@@ -1,0 +1,81 @@
+{
+  "id": "cosine_similarity",
+  "name": "Cosine Similarity",
+  "description": "Computes cosine similarity between NEW and OLD entities using encoded and scaled feature vectors.",
+  "input": "Takes a DataFrame containing categorical and numeric feature columns.",
+  "output": "Returns top-K most similar OLD records for each NEW record.",
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.ml.NodeCosineSimilarity",
+
+  "fields": [
+
+    {
+      "name": "categorical_cols",
+      "value": "[]",
+      "widget": "variables",
+      "title": "Categorical Columns",
+      "description": "Categorical feature columns used for similarity computation. These columns are indexed and one-hot encoded."
+    },
+
+    {
+      "name": "numeric_cols",
+      "value": "[]",
+      "widget": "variables",
+      "title": "Numeric Columns",
+      "description": "Numeric feature columns used for similarity computation. These columns are assembled and scaled."
+    },
+
+    {
+      "name": "new_id_col",
+      "value": "",
+      "required": "true",
+      "widget": "variable",
+      "title": "NEW ID Column",
+      "description": "Unique identifier column for NEW records."
+    },
+
+    {
+      "name": "old_id_col",
+      "value": "",
+      "required": "true",
+      "widget": "variable",
+      "title": "OLD ID Column",
+      "description": "Unique identifier column for OLD records."
+    },
+
+    {
+      "name": "status_col",
+      "value": "",
+      "required": "true",
+      "widget": "variable",
+      "title": "Status Column",
+      "description": "Column used to differentiate between OLD and NEW records."
+    },
+
+    {
+      "name": "old_value",
+      "value": "OLD",
+      "widget": "textfield",
+      "title": "OLD Status Value",
+      "description": "Value in the status column that identifies OLD records."
+    },
+
+    {
+      "name": "new_value",
+      "value": "NEW",
+      "widget": "textfield",
+      "title": "NEW Status Value",
+      "description": "Value in the status column that identifies NEW records."
+    },
+
+    {
+      "name": "top_k",
+      "value": "5",
+      "widget": "textfield",
+      "title": "Top K Matches",
+      "description": "Number of most similar OLD records to return for each NEW record.",
+      "datatypes": ["integer"]
+    }
+  ]
+}

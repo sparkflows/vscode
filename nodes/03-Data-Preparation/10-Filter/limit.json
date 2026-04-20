@@ -1,0 +1,13 @@
+{
+  "id": "1",
+  "name": "Limit",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/limit.svg",
+  "description": "This node Limits the number of rows in the output",
+  "input": "It accepts DataFrame as input from the previous Node",
+  "output": "Limits the number of rows in the output",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeLimit",
+  "fields" : [
+    {"name":"limit", "value":"", "widget": "textfield", "title": "Limit", "description": "Number of rows required in output", "required": true}
+  ]
+}

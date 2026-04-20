@@ -1,0 +1,15 @@
+{
+  "id": "4",
+  "name": "Load MLeap",
+
+  "description": "",
+
+  "input": "",
+  "output": "",
+
+  "type": "ml-modelload",
+  "nodeClass": "fire.nodes.serving.NodeLoadMleap",
+  "fields" : [
+    {"name":"path", "value":"", "widget": "textfield", "title": "Path", "required": true}
+  ]
+}

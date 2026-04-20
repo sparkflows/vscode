@@ -1,0 +1,15 @@
+{
+  "id": "4",
+  "name": "Save MLeap",
+
+  "description": "",
+
+  "input": "",
+  "output": "",
+
+  "type": "ml-modelsave",
+  "nodeClass": "fire.nodes.serving.NodeSaveMleap",
+  "fields" : [
+    {"name":"path", "value":"", "widget": "textfield", "title": "Path", "required": true}
+  ]
+}

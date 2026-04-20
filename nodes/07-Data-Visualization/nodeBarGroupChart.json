@@ -1,0 +1,62 @@
+{
+  "id": "3",
+  "name": "Bar Group Chart",
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "iconImage": "assets/images/icons/node-icon/bar_group_chart.svg",
+  "nodeClass": "fire.nodes.graph.NodeBarGroupChart",
+  "fields": [
+    {"name":"title","value":"Bar Group Chart","widget":"textfield","title":"Title","size":"50%"},
+    {"name":"titleColor","value":"#2563EB","widget":"textcolors","title":"Title Color","size":"50%"},
+
+    {"name":"description","value":"","widget":"textareafield","title":"Description"},
+    {"name":"descriptionColor","value":"#6D6E70","widget":"textcolors","title":"Description Color","size":"50%"},
+
+    {"name":"xlabel","value":"","widget":"textfield","title":"X Label","size":"50%"},
+    {"name":"ylabel","value":"","widget":"textfield","title":"Y Label","size":"50%"},
+
+    {"name":"xSort","value":"","widget":"array","title":"X Axis Sorting order",
+      "optionsArray":["asc","desc"],
+      "description":"Choose sorting for X-axis if needed.",
+      "datatypes":["boolean"],
+      "size":"50%"},
+
+    {"name":"maxValuesToDisplay","value":"20","widget":"textfield","title":"Max Values To Display",
+      "description":"Maximum number of values to display in result.",
+      "required":true,
+      "size":"50%"},
+
+    {"name":"graphType","value":"VERTICALBARGROUP","widget":"enum","title":"Chart Type",
+      "optionsMap":{"VERTICALBAR":"Vertical Bar Chart"},
+      "size":"50%"},
+
+    {"name":"chartColors","value":"","widget":"colors","title":"Chart Colors","size":"50%"},
+
+    {"name":"isStreaming","value":"false","widget":"array","title":"Is Streaming?",
+      "optionsArray":["true","false"],
+      "description":"Whether the Graph is a Streaming Graph or not",
+      "datatypes":["boolean"],
+      "size":"50%"},
+
+    {"name":"material","value":"false","widget":"array","title":"Material Chart",
+      "optionsArray":["true","false"],
+      "description":"Select true will use material design",
+      "datatypes":["boolean"],
+      "size":"50%"},
+
+    {"name":"percent","value":"false","widget":"array","title":"Use percent",
+      "optionsArray":["true","false"],
+      "description":"Select true to present data in percent",
+      "datatypes":["boolean"],
+      "size":"50%"},
+
+    {"name":"xCol","value":"","widget":"variable","title":"X Column","required":true,"size":"50%"},
+    {"name":"groupByCol","value":"","widget":"variable","title":"Group by Column","required":true,"size":"50%"},
+
+    {"name":"yCol","value":"","widget":"variable",
+      "title":"Y Column",
+      "required":true,
+      "datatypes":["integer","long","double","float"],
+      "size":"50%"}
+  ]
+}

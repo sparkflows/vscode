@@ -1,0 +1,25 @@
+{
+  "id": "5",
+  "name": "Sklearn Ridge Regression",
+  "description": "Ridge Regression solves a linear regression problem by minimizing the least squares loss while applying L2 regularization to the model coefficients. This helps reduce model variance, handle multicollinearity, and improve generalization on unseen data.",
+  "input" : "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "ml-estimator",
+
+  "nodeClass": "fire.nodes.sklearn.NodeSklearnRidgeRegression",
+  "fields" : [
+
+    {"name": "targetCol", "value": "", "widget": "variable", "title": "Target Column", "description": "Target column containing the continuous numeric value that the Ridge Regression model learns to predict.", "datatypes": ["integer", "long", "double", "float", "int"], "required": true, "size":"100%"},
+    {"name": "featureCols", "value": "[]", "widget": "variables", "title": "Feature Columns", "description": "List of input feature columns used to train the regression model. All features must be numeric, boolean, or vector-compatible.", "datatypes": ["integer", "long", "double", "float", "int"], "required": true, "size":"100%"},
+    {"name": "splitRatio", "value":1.0, "widget": "textfield", "title": "Split Ratio", "description": "Ratio used to split the dataset into training and testing subsets. A value of 1.0 uses the entire dataset for training.", "datatypes":["float"], "size":"50%"},
+
+    {"name": "alpha", "value": 1.0, "widget": "textfield", "title": "Alpha", "description": "Regularization strength applied to the L2 penalty term. Higher values increase shrinkage of coefficients and reduce model complexity.", "size":"50%"},
+    {"name": "fitintercept", "value": "true", "widget": "array", "title": "Fit Intercept", "optionsArray": ["false", "true"], "description": "Determines whether an intercept term is included in the regression model. Disabling this assumes data is already centered.", "datatypes": ["boolean"], "size":"50%"},
+    {"name": "normalize", "value": "false", "widget": "array", "title": "Normalize", "optionsArray": ["false", "true"], "description": "If enabled and fit_intercept is true, input features are normalized before regression, which can improve numerical stability.", "datatypes": ["boolean"], "size":"50%"},
+    {"name": "maxiter", "value": "", "widget": "textfield", "title": "Max Iterations", "description": "Maximum number of iterations for iterative solvers such as lsqr or sparse_cg to reach convergence.", "size":"50%"},
+    {"name": "tol", "value": 1e-3, "widget": "textfield", "title": "Tolerance", "description": "Convergence tolerance for the solver. Training stops when updates fall below this threshold.", "size":"50%"},
+    {"name": "solver", "value": "auto", "widget": "array", "title": "Solver", "optionsArray": ["auto", "svd", "cholesky", "lsqr", "sparse_cg", "sag", "saga"], "description": "Algorithm used to solve the Ridge Regression optimization problem. Different solvers vary in speed, memory usage, and dataset suitability.", "size":"50%"},
+    {"name": "randomstate", "value": "", "widget": "textfield", "title": "Random State", "description": "Seed controlling randomness in solvers that rely on data shuffling, ensuring reproducible model training results.", "size":"50%"}
+  ]
+}

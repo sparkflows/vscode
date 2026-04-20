@@ -1,0 +1,14 @@
+{
+  "id": "11",
+  "name": "Distinct Values In Column",
+  "iconImage": "assets/images/icons/node-icon/column.svg",
+  "description": "",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeDistinctValues",
+  "engine": "scala,pyspark",
+  "fields" : [
+
+    {"name":"distinctCols", "value": "[]", "widget": "variables", "title": "Column Names",
+      "description": "Name of columns to get the distinct combination of values.", "required": true}
+  ]
+}

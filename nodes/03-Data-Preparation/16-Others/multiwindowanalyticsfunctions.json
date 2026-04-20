@@ -1,0 +1,51 @@
+{
+  "id":"11",
+  "name":"Multi Window Analytics",
+  "description":"",
+  "input":"",
+  "type":"transform",
+  "nodeClass":"fire.nodes.etl.NodeMultiWindowAnalytics",
+  "fields":[
+    {
+      "name":"analyticsCols",
+      "value":"[]",
+      "widget":"variables_list_select",
+      "title":"AnalyticsColumn",
+      "description":""
+    },
+	  {
+      "name":"windowFunctions",
+      "value":"[]",
+      "widget":"variables_list_array",
+      "optionsArray":[
+        "first_value",
+        "last_value",
+        "lag",
+        "lead"
+      ],
+      "title":"Window Function",
+      "description":"Window Function Name"
+    },
+    {
+      "name":"partitionByCols",
+      "value":"[]",
+      "widget":"variables_list_textfield",
+      "title":"PartitionBy",
+      "description":"partition column names separated by comma(,) "
+    },
+    {
+      "name":"orderByCols",
+      "value":"[]",
+      "widget":"variables_list_textfield",
+      "title":"OrderBy",
+      "description":"order by column names separated by comma(,)"
+    },
+    {
+      "name":"outPutColumns",
+      "value":"[]",
+      "widget":"variables_list_textfield",
+      "title":"OutPutColumn",
+      "description":"Enter output field(column) name"
+    }
+  ]
+}

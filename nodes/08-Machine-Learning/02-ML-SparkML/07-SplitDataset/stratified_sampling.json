@@ -1,0 +1,18 @@
+{
+  "id": "4",
+  "name": "Split With Stratified Sampling",
+
+  "description": "This node splits the incoming DataFrame into 2. It takes in the fraction to use in splitting the data by Stratified Sampling.",
+
+  "input": "It takes in a DataFrame as input",
+  "output": "The input DataFrame is split into 2 DataFrames and output",
+
+  "type": "transform",
+  "outputAnchors": [{"name": "First","title": "F"},{"name": "Second","title": "S"}],
+  "nodeClass": "fire.nodes.util.SplitWithStratifiedSampling",
+  "fields" : [
+    {"name":"keyInputCol", "value":"", "required":true, "widget": "variable",  "title": "Column Name", "description": "column that defines strata"},
+    {"name":"fraction", "value":0.8,  "widget": "textfield", "dataType": "double", "title": "Fraction", "description": "sampling fraction for each stratum. If a stratum is not specified, we treat its fraction as zero"},
+    {"name":"seed", "value":0,  "widget": "textfield", "title": "Seed", "description": "random seed"}
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "id": "12",
+  "name": "Join Advanced",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/join_node_2input_3output.svg",
+  "description": "Advanced Join Node - Combine two DataFrames using flexible join strategies with full control over join keys, column selection, renaming, data types, and schema propagation. Ideal for enriching datasets, lookup joins, and building clean, well-structured outputs.",
+  "type": "join2inputs",
+  "engine": "scala,polars",
+  "nodeClass": "fire.nodes.etl.NodeJoin",
+  "inputAnchors": [{"name": "Left","title": "L"},{"name": "Right","title": "R"}],
+  "outputAnchors": [{"name": "LeftAnti","title": "L"},{"name": "Join","title": "J"},{"name": "RightAnti","title": "R"},
+    {"name": "LeftOuter","title": "LO"},{"name": "RightOuter","title": "RO"},{"name": "FullOuter","title": "FO"}],
+  "fields": [
+    {"name": "Join", "value":"", "widget": "tab", "title": "Join"},
+
+    {"name": "joinBy", "value": "Specific Fields", "widget": "array_single", "optionsArray": ["Position", "Specific Fields"], "title": "Join By", "description": "Defines how the join condition is created:\n• Position - Join columns by their position/order in both inputs (first column with first, second with second, etc.).\n• Specific Fields - Explicitly select matching columns from left and right inputs. Recommended for clarity and safety."},
+
+    {"name": "leftTableJoinColumn", "value":"[]", "widget": "key_array_join",
+      "title": "LeftTableJoinColumn", "description": "Select one or more columns from the left (primary) DataFrame to be used as join keys. These columns are matched with the corresponding right-side join columns.", "wdgtCommon":"joinBy", "toggle":"Specific Fields"},
+
+    {"name": "rightTableJoinColumn", "value":"[]", "widget": "value_array_join",
+      "title": "RightTableJoinColumn", "description": "Select one or more columns from the right (secondary) DataFrame to join against the left-side join keys. The number and order must match the left join columns."},
+
+
+    {"name": "Select", "value":"", "widget": "tab", "title": "Select"},
+
+    {
+      "name": "selectLeftFields",
+      "value": "[]",
+      "widget": "variables_list_select",
+      "title": "Select Left Fields",
+      "description": "Choose which columns from the left DataFrame should be included in the output. Leave empty to include all left-side columns."
+    },
+    {
+      "name": "dataTypeLeftFields",
+      "value": "[]",
+      "widget": "variables_list_array",
+      "optionsArray": [
+        "BOOLEAN",
+        "BYTE",
+        "DATE",
+        "DECIMAL",
+        "DOUBLE",
+        "FLOAT",
+        "INTEGER",
+        "LONG",
+        "SHORT",
+        "STRING",
+        "TIMESTAMP"
+      ],
+      "title": "Data Type Left Fields",
+      "description": "Optionally override the data types of the selected left-side columns. Useful for correcting inferred types or preparing columns for downstream joins and calculations.",
+      "wdgtCommon": "selectLeftFields"
+    },
+    {
+      "name": "renameLeftFields",
+      "value": "[]",
+      "widget": "variables_list_textfield",
+      "title": "Rename Left Fields",
+      "description": "Provide new names for the selected left-side columns. Helps avoid name collisions and improves readability in the final output.",
+      "wdgtCommon": "selectLeftFields"
+    },
+
+    {
+      "name": "selectRightFields",
+      "value": "[]",
+      "widget": "variables_list_select",
+      "title": "Select Right Fields",
+      "description": "Choose which columns from the right DataFrame should be included in the output. Leave empty to include all right-side columns."
+    },
+    {
+      "name": "dataTypeRightFields",
+      "value": "[]",
+      "widget": "variables_list_array",
+      "optionsArray": [
+        "BOOLEAN",
+        "BYTE",
+        "DATE",
+        "DECIMAL",
+        "DOUBLE",
+        "FLOAT",
+        "INTEGER",
+        "LONG",
+        "SHORT",
+        "STRING",
+        "TIMESTAMP"
+      ],
+      "title": "Data Type Right Fields",
+      "description": "Optionally override the data types of the selected right-side columns. Useful when schemas differ or when explicit casting is required.",
+      "wdgtCommon": "selectRightFields"
+    },
+    {
+      "name": "renameRightFields",
+      "value": "[]",
+      "widget": "variables_list_textfield",
+      "title": "Rename Right Fields",
+      "description": "Provide new names for the selected right-side columns. Strongly recommended to avoid duplicate column names after the join.",
+      "wdgtCommon": "selectRightFields"
+    },
+    {"name": "Drop", "value":"", "widget": "tab", "title": "Drop"},
+
+    {
+      "name": "inputPropagateSchema",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": ["true", "false"],
+      "title": "Propagate Input Schema",
+      "description": "When enabled, preserves the original input schemas as much as possible while performing the join. Useful when downstream nodes rely on exact schema lineage."
+    },
+    {"name":"types", "value":"", "widget": "variablesTypeFilter", "title": "Type Filter", "description": "Type Filter", "wdgtCommon":"dropLeftFields,dropRightFields"},
+    {"name":"dropLeftFields", "value":"[]", "widget": "variables", "title": "Drop Left Columns", "description": "Select columns from the left DataFrame that should be removed from the final output. Applied after join and selection.", "schemaIndex": "0"},
+
+    {"name":"dropRightFields", "value":"[]", "widget": "variables", "title": "Drop Right Columns", "description": "Select columns from the right DataFrame that should be removed from the final output. Applied after join and selection.", "schemaIndex": "1"}
+
+  ]
+}

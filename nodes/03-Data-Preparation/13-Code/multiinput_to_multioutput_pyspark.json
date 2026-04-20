@@ -1,0 +1,21 @@
+{
+  "id": "11",
+  "name": "Multi Input To Multi Output PySpark",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/pyspark.svg",
+  "description": "This node runs any given PySpark code. The input dataframe is passed in the variable inDFs. The output array of dataframes is passed back by registering each dataframe as a temporary table.",
+  "input": "The input dataframe is passed in the variable inDFs.",
+  "output": "The output array of dataframes is passed back by registering each dataframe as a temporary table",
+  "type": "pyspark2inputs",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.code.NodeMultiInputToMultiOutputPySpark",
+  "fields" : [
+    {"name":"code", "value":"'''\nInput:\n  spark: spark session \n  workflowContext:  workflowcontext object \n  id: node number \n  inDFs: array of input pyspark dataframes \n  cust_dict: Dictionary of the workflow variables passed from previous node \nOutput:\n  outDF: return pyspark dataframe i.e outDF \n ''' \n \nfrom pyspark.sql.types import * \nfrom pyspark.sql.functions import * \nfrom pyspark.sql import * \nfrom fire.workflowcontext import WorkflowContext \n\ndef myfn(spark: SparkSession, workflowContext: WorkflowContext, id: int, inDFs: [DataFrame], cust_dict:dict):\n  outDFs = []  #array of output dataframe\n \n  outDFs.append(inDFs[0]) #add the first dataframe\n  outDFs.append(inDFs[1]) #add the second dataframe\n  return outDFs", "widget": "textarea_large", "type": "python", "title": "PySpark", "description": "PySpark code to be run. Input dataframe : \"inDF\", SparkContext : \"sc\", SQLContext : \"sqlContext\",  Output/Result dataframe should be registered as a temporary table - df.registerTempTable(\"outDF\")"},
+
+    {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names for the CSV", "description": "New Output Columns of the SQL"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types for the CSV", "description": "Data Type of the Output Columns"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats for the CSV", "description": "Format of the Output Columns"}
+
+  ]
+}

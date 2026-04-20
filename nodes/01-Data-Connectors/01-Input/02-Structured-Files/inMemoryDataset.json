@@ -1,0 +1,26 @@
+{
+  "id": "11",
+  "name": "InMemoryDataset",
+  "iconImage": "assets/images/icons/node-icon/dataset.svg",
+  "description": "In-Memory Dataset Node - Create a DataFrame directly from inline data definitions without reading from external files. Ideal for testing, small reference datasets, lookup tables, and quick prototyping workflows.",
+  "input": "Creates an in-memory DataFrame from user-provided data and schema definitions.",
+  "output": "Outputs a DataFrame constructed from the provided data string and field definitions.",
+  "type": "dataset",
+  "engine": "scala,pyspark,polars",
+  "nodeClass": "fire.nodes.dataset.NodeDatasetInMemory",
+  "fields" : [
+
+    {"name": "dataType", "value": "json", "widget": "array_single", "optionsArray": ["json", "comma_delimited"], "title": "Data Type", "description": "Select the format of the input data. Use json for structured JSON records or comma_delimited for CSV-style inline data."},
+    {"name":"dataStr", "value":"", "widget": "textarea_large","title": "Data Str", "description": "Inline data used to build the DataFrame. Provide valid JSON records or comma-delimited rows based on the selected Data Type. Refer to the Examples tab for supported formats."},
+    {"name":"fieldDefsStr",  "value":"", "widget": "textfield", "title": "Field Defs Str",
+      "description":"Define the schema for comma-delimited data using name:type pairs (e.g., id:Integer,name:String,score:Float,signup_date:Date). Required only when Data Type is comma_delimited.", "wdgtCommon":"dataType", "toggle":"comma_delimited"},
+
+
+
+    {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names for the fieldstr", "description": "Explicitly specify output column names. Overrides names inferred from the data or field definitions."},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types for the Delta", "description": "Define the data types for output columns. Useful when you want strict control over casting and schema consistency."},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats for the Delta", "description": "Optional formatting rules for output columns, such as date or timestamp formats, applied during DataFrame creation."}
+
+  ]
+}

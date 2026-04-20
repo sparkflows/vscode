@@ -1,0 +1,18 @@
+{
+  "id": "6",
+  "name": "Hugging Face Sentiment Analysis",
+  "description": "Sentiment Analysis using models hosted in Hugging Face repository.",
+  "input": "It takes in a DataFrame as input",
+  "output": "",
+  "type": "ml-estimator",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeHFSentimentAnalysis",
+  "fields" : [
+    {"name": "column_name", "value":"", "required":"true", "widget": "variable", "title": "Column to analyse sentiment", "description": "Column to analyse sentiment."},
+    {"name": "preloaded_model", "value":"", "widget": "array","optionsArray": ["distilbert-base-uncased-finetuned-sst-2-english","cardiffnlp-twitter-roberta-base-sentiment","nlptown-bert-base-multilingual-uncased-sentiment","LiYuan-amazon-review-sentiment-analysis"], "title": "Model to be used for Sentiment analysis", "description": "Computes the sentiment using the model chosen."},
+    {"name": "preloaded_model_path", "value":"", "widget": "textfield", "title": "Path", "description": "Pre-loaded models parent directory.", "datatypes":["String"]},
+    {"name": "custom_model", "value":"", "widget": "textfield", "title": "Custom model name", "description": "Model name to pull model from Hugging Face repo.", "datatypes":["String"]},
+    {"name": "explain_prediction", "value":"false", "widget": "array", "title": "Top word affecting the sentiment per row?",
+      "optionsArray": ["true","false"], "description": "Do you need the top word affecting the sentiment per row? Computation takes time", "datatypes":["boolean"]}
+  ]
+}

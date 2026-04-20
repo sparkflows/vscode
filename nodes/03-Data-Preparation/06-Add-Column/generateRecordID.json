@@ -1,0 +1,21 @@
+{
+  "id": "12",
+  "name": "Record ID",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/row_numbering.svg",
+  "description": "Adds a sequential Record ID column to the dataset, similar to Alteryx Record ID Tool. Supports grouping, sorting, and formatted incremental IDs.",
+  "input": "Accepts a DataFrame as input.",
+  "output": "Returns a DataFrame with a new Record ID column added.",
+  "type": "transform",
+  "engine": "scala,pyspark,polars",
+  "nodeClass": "fire.nodes.etl.NodeGenerateRecordID",
+  "fields" : [
+    { "name": "outputCol", "value": "RecordID", "widget": "textfield", "title": "Output Column Name", "description": "Name of the column that will contain generated Record IDs." },
+    { "name": "startValue", "value": "1", "widget": "textfield", "title": "Starting Value", "description": "The first value in the sequence. Default is 1." },
+    { "name": "dataType", "value": "Int64", "widget": "array", "title": "Data Type", "optionsArray": ["INTEGER", "LONG","String"], "description": "Select the data type of the Record ID column." },
+    { "name": "size", "value": "6", "widget": "textfield", "title": "Size (String Only)", "description": "Applicable only when Data Type is String. Pads the value with leading zeros to match this length.", "wdgtCommon":"dataType", "toggle":"String" },
+    { "name": "position", "value": "last", "widget": "array", "title": "Column Position", "optionsArray": ["first", "last"], "description": "Position of the new column in the output DataFrame." },
+    { "name": "generationScope", "value": "entire_table", "widget": "array", "title": "Record ID Generation Scope", "optionsArray": ["entire_table", "within_group"], "description": "Generate IDs across the entire dataset or restart numbering within each group." },
+    { "name": "groupByCols", "value": "", "widget": "variable", "title": "Group By Columns", "description": "Columns to group by when generating Record IDs within groups.", "wdgtCommon":"generationScope", "toggle":"within_group" },
+    { "name": "orderByCols", "value": "", "widget": "variable", "title": "Order Rows Within Each Group", "description": "Optional columns to define the order of rows within each group before numbering. Supports ascending or descending order.", "wdgtCommon":"generationScope", "toggle":"within_group" }
+  ]
+}

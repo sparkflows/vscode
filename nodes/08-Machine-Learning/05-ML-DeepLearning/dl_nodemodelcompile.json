@@ -1,0 +1,27 @@
+{
+  "id": "5",
+  "name": "Keras Model Compile",
+  "description": "",
+  "input" : "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "transform",
+
+  "nodeClass": "fire.nodes.dl.NodeModelCompile",
+  "fields" : [
+
+    {"name": "optimizer", "value":"adam", "widget": "array", "title": "Optimizer", "optionsArray": ["adam"],"description": "name of optimizer"},
+
+    {"name": "loss", "value":"mse", "widget": "array", "title": "Loss", "optionsArray": ["mse"],"description": "String (name of objective function), objective function or `tf.losses.Loss` instance"},
+
+    {"name": "metrics", "value":"mse, mae" , "widget": "textfield", "title": "Metrics", "description": "List of metrics to be evaluated by the model during trainin and testing"},
+
+    {"name": "loss_weights", "value": "", "widget": "textfield", "title": "Loss Weights", "description": "Optional list or dictionary specifying scalar coefficients (Python floats) to weight the loss contributions of different model outputs."},
+
+    {"name": "sample_weight_mode", "value":"", "widget": "textfield", "title": "Sample Weight Mode", "description": ""},
+
+    {"name": "weighted_metrics", "value":"", "widget": "textfield", "title": "Weighted Metrics", "description": "List of metrics to be evaluated and weighted by sample_weight or class_weight during training and testing."},
+
+    {"name": "target_tensors", "value": "", "widget": "textfield", "title": "Target Tensors", "description": ""}
+  ]
+}

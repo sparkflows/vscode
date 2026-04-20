@@ -1,0 +1,13 @@
+{
+  "id": "11",
+  "name": "H2O ML Model Save",
+  "description": "Saves an H2O MOJO ML model at the specified path.",
+  "input": "It takes in a Model and DataFrame as input",
+  "output": "The incoming dataframe is passed to the output",
+  "type": "ml-modelsave",
+  "nodeClass": "fire.nodes.h2o.NodeH2OMojoSave",
+  "fields" : [
+    {"name": "path", "value":"", "required":true, "widget": "textfield","title": "Path", "description": "Path for saving the H2O MOJO","size": "50%"},
+    {"name": "fixedPath", "value":"false", "widget": "array", "title": "Static path", "optionsArray": ["false","true"], "description": "Set this to true if you want model to be saved in a static path. It will overwrite the model in the directory specified." ,"datatypes":["boolean"],"size": "50%"}
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "7",
+  "name": "Vector Assembler",
+  "type": "ml-transformer",
+  "description" : "Merges multiple columns into a vector column.",
+
+  "input": "It takes in a DataFrame and transforms it to another DataFrame",
+  "output": "It adds a new column to the incoming DataFrame. The new column contains the values of the input columns concatenated into a vector in the specified order.",
+
+  "nodeClass": "fire.nodes.ml.NodeVectorAssembler",
+  "engine": "scala,pyspark",
+  "fields" : [
+    {"name":"inputCols", "value":"[]", "widget": "variables", "title": "Input Columns",
+     "description": "Input column of type - all numeric, boolean and vector", "datatypes":["integer", "long", "double", "float", "vectorudt"]},
+    {"name":"outputCol", "value":"", "widget": "textfield", "title": "Output Column", "required":"true", "description": "Output column name"},
+    {"name":"handleInvalid", "value":"error", "widget": "array", "title": "Handle Invalid", "optionsArray": ["error","skip","keep"],
+      "description": "How to handle invalid data (NULL values). Options are 'skip' (filter out rows with invalid data), 'error' (throw an error), or 'keep' (return relevant number of NaN in the output)."}
+  ]
+}

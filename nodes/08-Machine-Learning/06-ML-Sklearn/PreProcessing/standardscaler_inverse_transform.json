@@ -1,0 +1,13 @@
+{
+  "id": "7",
+  "name": "Standard Scaler Inverse Transform",
+  "type": "ml-predict",
+  "description": "The inverse transform node is used to transform the scaled data back to its original form.",
+
+  "input": "It takes in a DataFrame as input along with the fit_transform model.",
+  "output": "It reverses the transformation on the dataframe",
+
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.sklearn.preprocessing.NodeStandardScalerInverseTransform",
+  "fields" : []
+}

@@ -1,0 +1,31 @@
+{
+  "id": "7",
+  "name": "Save CSV",
+  "iconImage": "assets/images/icons/node-icon/csv.svg",
+  "description": "Saves the DataFrame into the specified location in CSV Format",
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.save.NodeSaveCSV",
+  "fields" : [
+    {"name":"path",  "display": true, "value":"", "widget": "textfield", "title": "Path",
+      "description":"Path where to save the CSV files","required":"true"},
+
+    {"name":"saveMode", "value":"Append", "widget": "array","optionsArray": ["Append","Overwrite", "ErrorIfExists", "Ignore"],
+      "title": "Save Mode", "description":"Whether to Append, Overwrite or Error if the path Exists"},
+
+    {"name": "header", "value":"true", "widget": "array", "title": "Header", "optionsArray": ["true","false"],
+      "description": "Should a Header Row be saved with each File?"},
+    {"name": "encoding", "value":"UTF-8", "widget": "textfield", "title": "Encoding", "description": "Decodes the CSV files by the given encoding type"},
+    {"name":"quote", "value":"\"", "widget": "textfield", "title": "Quote", "description": "Sets a single character used for escaping quoted values where the separator can be part of the value"},
+    {"name":"escape", "value":"\\", "widget": "textfield", "title": "Escape", "description": "Sets a single character used for escaping quotes inside an already quoted value."},
+
+    {"name": "advanced", "value":"", "widget": "tab", "title": "Advanced"},
+
+    {"name":"partitionColNames", "value": "[]", "widget": "variables", "title": "Partition Column Names", "description": "Partition Column Names"},
+    {"name": "enableDownloadLink", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Download Link", "description": "Generate download links for the saved CSV files"},
+    {"name":"fileName",  "value":"", "widget": "textfield", "title": "File Name To Download",
+      "description":"Enter the FileName", "wdgtCommon":"enableDownloadLink", "toggle":"true"},
+    {"name": "saveAsOneFile", "value": "false", "widget": "array", "optionsArray": ["true", "false"], "title": "Save as One File", "description": "Save the output as a single CSV file using coalesce"}
+
+  ]
+}

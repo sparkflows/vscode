@@ -1,0 +1,27 @@
+{
+  "id": "7",
+  "name": " H2O Clustering Evaluator",
+  "description": "Evaluator for Clustering, which expects two input columns: features and prediction.",
+
+  "output": "It outputs the silhouette score ",
+
+  "type": "ml-evaluator",
+  "engine": "scala",
+  "nodeClass": "fire.nodes.h2o.NodeH2OClusteringEvaluator",
+  "fields" : [
+    {
+      "name": "useChampion",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": ["true", "false"],
+      "title": "Use Champion Model",
+      "description": "Uses Champion Model UUID to Update Metrics Over Time Graph under Models Page."
+    },
+    {"name":"modelUUID", "display": true, "value":"", "widget": "textfield", "title": "Model UUID", "description": "Enter the model uuid","wdgtCommon": "useChampion", "toggle": "false"},
+
+    {"name":"predictionCol", "value":"prediction", "widget": "textfield", "title": "Prediction Column", "description": "The prediction column."},
+
+    {"name": "metric", "value":"squaredEuclidean", "widget": "textfield", "title": "Metric Column", "description": "The distance metric to use for evaluating the clustering algorithm. This can be set to 'cosine', or 'squaredEuclidean","size": "50%"}
+
+  ]
+}

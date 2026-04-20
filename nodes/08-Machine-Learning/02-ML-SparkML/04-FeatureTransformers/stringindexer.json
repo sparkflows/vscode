@@ -1,0 +1,23 @@
+{
+  "id": "7",
+  "name": "String Indexer",
+  "description" : "StringIndexer encodes a string column of labels to a column of label indices",
+
+  "input": "It takes in a DataFrame and transforms it to another DataFrame",
+  "output": "It adds a new column containing the encoding of the string column of labels to a column of label indices, to the incoming DataFrame.",
+
+  "type": "ml-transformer",
+  "nodeClass": "fire.nodes.ml.NodeStringIndexer",
+  "fields" : [
+    {
+      "name": "handleInvalid", "value": "error", "widget": "array", "title": "Handle Invalid",
+      "optionsArray": ["skip","error"],
+      "description": "Invalid entries to be skipped or thrown error"
+    },
+    {"name": "inputCols", "value":"[]", "widget": "variables_list_select", "title": "Input Columns", "datatypes":["string"], "description": "Input columns for encoding"},
+
+    {"name": "outputCols", "value":"[]", "widget": "variables_list_textfield", "title": "Output Columns", "description": "Output columns"},
+
+    {"name": "stringOrderType", "value":"frequencyDesc", "widget": "array", "title": "String Order Type", "optionsArray": ["frequencyDesc", "frequencyAsc", "alphabetDesc", "alphabetAsc"], "description": "Param for how to order labels of string column"}
+  ]
+}

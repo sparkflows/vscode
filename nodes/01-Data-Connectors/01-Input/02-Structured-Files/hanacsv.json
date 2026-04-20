@@ -1,0 +1,21 @@
+{
+  "id": "18",
+  "name": "Read HANA CSV",
+  "iconImage": "assets/images/icons/node-icon/csv.svg",
+
+  "description": "It reads in HANA CSV files and creates a DataFrame from it",
+  "input": "It reads in CSV text files and SQL File to create schema from it",
+  "output": "It creates a DataFrame from the data read and sends it to its output",
+  "hint": "Whenever the file is changed, Infer the schema",
+  "type": "dataset",
+  "nodeClass": "fire.nodes.dataset.NodeReadHANACSVDump",
+  "fields" : [
+   {"name":"path", "display":true,"value":"", "widget": "textfield", "required":true, "title": "Path", "description": "Path of the Text file/directory"},
+   {"name":"hdfsSqlFile", "display":true,"value":"", "widget": "textfield", "required":true, "title": "SQL File", "description": "Path of the sql file that contains create table script."},
+    {"name": "schema", "value": "", "widget": "tab", "title": "InferSchema"},
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names for the CSV", "description": "New Output Columns of the SQL"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types for the CSV", "description": "Data Type of the Output Columns"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats for the CSV", "description": "Format of the Output Columns"}
+
+  ]
+}

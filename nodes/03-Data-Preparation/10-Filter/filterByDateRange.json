@@ -1,0 +1,18 @@
+{
+  "id": "11",
+  "name": "Filter By Date Range",
+  "iconImage": "assets/images/icons/node-icon/filter.svg",
+  "description": "This node filters Rows within the given date range",
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.etl.NodeFilterByDateRange",
+  "fields" : [
+    {"name":"inputCol", "value":"", "widget": "variable", "title": "Column", "description": "input column name", "datatypes":["date"],  "required": true},
+
+    {"name":"fromDateCol", "value":"1850-01-01", "widget": "datefield", "title": "From Date", "datatypes":["date"],  "required": true, "description": "Takes Start Date in the form of yyyy-MM-dd"},
+
+    {"name":"toDateCol", "value":"2100-12-31", "widget": "datefield", "title": "To Date", "datatypes":["date"],  "required": true, "description": "Takes End Date in the form of yyyy-MM-dd"}
+
+
+  ]
+}

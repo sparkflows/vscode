@@ -1,0 +1,16 @@
+{
+  "id": "7",
+  "name": "ExpectColumnValuesToBeUnique",
+  "description": "",
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.ge.NodeExpectColumnValuesToBeUnique",
+  "fields" : [
+
+    {"name": "cols", "value":"[]", "widget": "variables_list_select",
+      "title": "Column Name", "description": "The column name."},
+
+    {"name": "mostly", "value":"[]", "widget": "variables_list_textfield",
+      "title": "Mostly", "description": "Mostly value is between 0 and 1, and evaluates it as a percentage and as long as mostly percent of rows evaluate to True, the expectation returns “success”: True."}
+  ]
+}

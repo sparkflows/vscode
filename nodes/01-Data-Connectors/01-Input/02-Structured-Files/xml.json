@@ -1,0 +1,23 @@
+{
+  "id": "11",
+  "name": "Read XML",
+  
+  "description": "It reads in XML files and creates a DataFrame from it",
+   "iconImage": "assets/images/icons/node-icon/latest-nodes/XML.svg",
+  "input": "It reads in XML Text Files",
+  "output": "It creates a DataFrame from the data read and sends it to its output",
+  "engine": "scala,pyspark",
+  "type": "dataset",
+  "nodeClass": "fire.nodes.dataset.NodeDatasetXML",
+  "fields" : [
+    {"name":"path", "display": true, "value":"", "widget": "textfield", "title": "Path", "description": "Path of the Text file/directory"},
+    {"name":"rowTag", "value":"", "widget": "textfield", "title": "Row Tag", "description": "Row Tag"},
+    {"name": "addInputFileName", "value":"false", "widget": "array", "title": "Add Input File Name", "optionsArray": ["false","true"],
+      "description": "Add the new field:input_file_name"},
+    {"name": "schema", "value": "", "widget": "tab", "title": "InferSchema"},
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names for the CSV", "description": "New Output Columns of the SQL"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types for the CSV", "description": "Data Type of the Output Columns"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats for the CSV", "description": "Format of the Output Columns"}
+
+  ]
+}

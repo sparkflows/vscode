@@ -1,0 +1,19 @@
+{
+  "id": "4",
+  "name": "SMOTE",
+  "description": "Implementation of SMOTE - Synthetic Minority Over-sampling Technique.",
+
+  "input": "This type of node takes in a DataFrame and transforms it to another DataFrame",
+  "output": "Output DataFrame",
+  "type": "ml-transformer",
+
+  "nodeClass": "fire.nodes.ml.NodeSMOTE",
+  "fields" : [
+    {"name":"labelCol", "value":"", "widget": "variable", "title": "Label Column", "required": true,"description": "Label Column."},
+
+    {"name":"featureCol", "value":"", "widget": "variable", "title": "Feature Column", "required": true,
+      "description": "Feature Column with vector type.", "datatypes":["vectorudt"]},
+
+    {"name": "bucketLength", "value":100, "widget": "textfield", "title": "BucketLength", "description": "Bucket Length for LSH - The length of each hash bucket, a larger bucket lowers the false negative rate."}
+  ]
+}

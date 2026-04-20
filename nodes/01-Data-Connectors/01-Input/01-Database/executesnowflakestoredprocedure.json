@@ -1,0 +1,35 @@
+{
+  "id": "11",
+  "name": "Execute Stored Procedure In Snowflake",
+  "iconImage": "assets/images/icons/node-icon/Snowflake.svg",
+  "description": "This node executes Stored Procedure in Snowflake",
+  "input": "",
+  "output": "Pass the return data from SP to in next node and pass the input dataframe to next node.",
+  "type": "shellcommand",
+  "nodeClass": "fire.nodes.snowflake.NodeExecuteStoredProcedureInSnowFlake",
+  "fields" : [
+    {"name":"authType", "value":"UserCredential", "widget": "array", "title": "Auth Type", "description": "Authentication Type. Possible value is OAUTH or USER_CREDENTIAL or KEYPAIR" ,"required":"true","optionsArray": ["UserCredential","OAuth","KeyPair"]},
+    {"name":"connection", "value":"", "widget": "object_array", "title": "Connection", "description": "The Snowflake connection to connect" ,"required":"true"},
+    {"name":"sfWarehouse", "value":"", "widget": "textfield", "title": "Snowflake Warehouse", "description": "Warehouse for connecting to the Snowflake" ,"required":"true"},
+    {"name":"sfDatabase", "value":"", "widget": "textfield", "title": "Snowflake Database", "description": "Database for connecting to the Snowflake" ,"required":"true"},
+    {"name":"sfSchema", "value":"", "widget": "textfield", "title": "Snowflake Schema", "description": "Schema for connecting to the Snowflake" ,"required":"true"},
+
+    {"name": "extraOptionsKeys", "value":"[]", "widget": "key_array", "title": "JDBC Properties Name", "description": "Extra JDBC Properties Name."},
+    {"name": "extraOptionsValues", "value":"[]", "widget": "value_array", "title": "JDBC Properties Value", "description": "Extra JDBC Properties Value"},
+
+
+    {"name": "storedProcedureInputConfiguration", "value": "", "widget": "tab", "title": "StoredProcedureInputConfiguration"},
+
+    {"name":"storedProcedureStmt", "value":"call return_value_proc(?)", "widget": "textarea_small", "title": "Stored Procedure Stmt", "required":"true",
+      "description": "example: call return_value_proc(?)"},
+
+    {"name": "parameterType", "value":"[]", "widget": "key_array", "title": "SP Parameter Type", "description": "Stored Procedure input parameter Type: string, integer, double, float, boolean and datetime."},
+    {"name": "parameterValue", "value":"[]", "widget": "value_array", "title": "SP Parameter Value", "description": "Stored Procedure input parameter values."},
+
+    {"name": "storedProcedureOutputConfiguration", "value": "", "widget": "tab", "title": "StoredProcedureOutputConfiguration"},
+
+
+    {"name": "returnValueName", "value":"[]", "widget": "key_array", "title": "SP Return Value Name", "description": "Stored Procedure ouput Return Value Name."},
+    {"name": "returnValueType", "value":"[]", "widget": "value_array", "title": "SP Return Type", "description": "Stored Procedure ouput Return Value Type: string, integer, double, float, boolean and datetime.."}
+  ]
+}

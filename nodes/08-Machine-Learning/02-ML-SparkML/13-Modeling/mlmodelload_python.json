@@ -1,0 +1,51 @@
+{
+  "id": "4",
+  "name": "Spark ML Model Load",
+  "type": "ml-modelload",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/pyspark.svg",
+  "nodeClass": "fire.nodes.ml.NodeModelLoad",
+  "engine": "pyspark",
+  "fields" : [
+    {
+      "name": "selectChampionModel",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": ["true", "false"],
+      "title": "Use Champion Model",
+      "description": "Uses Champion Model For Prediction."
+    },
+    {"name":"path", "value":"modelsavepath", "widget": "textfield", "title": "Path To Load SparkML model","wdgtCommon": "selectChampionModel", "toggle": "false"},
+    {"name":"modelType", "value":"", "widget": "array", "title": "Model Type", "description" : "Type of ML model to load",
+     "optionsArray":
+     [
+        "AFTSurvivalRegressionModel",
+        "DecisionTreeClassificationModel",
+        "DecisionTreeRegressionModel",
+        "GBTClassificationModel",
+        "GBTRegressionModel",
+        "KMeansModel",
+        "LinearRegressionModel",
+        "LogisticRegressionModel",
+        "NaiveBayesModel",
+        "RandomForestClassificationModel",
+        "RandomForestRegressionModel",
+        "LDAModel",
+        "StandardScalerModel",
+        "StringIndexerModel",
+        "VectorIndexerModel",
+        "MinMaxScalerModel",
+        "OneHotEncoderModel",
+        "Normalizer",
+        "Bucketizer",
+        "IndexToString",
+        "Interaction",
+        "ImputerModel",
+        "QuantileDiscretizer",
+        "MaxAbsScalerModel",
+        "RobustScalerModel",
+        "FPGrowthModel"
+     ]
+    }
+  ]
+}
+

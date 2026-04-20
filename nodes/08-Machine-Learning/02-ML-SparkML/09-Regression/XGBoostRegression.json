@@ -1,0 +1,74 @@
+{
+  "id": "5",
+  "name": "XGBoost Regressor",
+  "description": "XGBoost Regressor is a high-performance gradient boosting algorithm designed for predicting continuous numeric values with strong accuracy and scalability.",
+
+  "input": "It takes in a DataFrame as input and performs XGBoost Regression",
+  "output": "The XGBoost Model generated is passed along to the next nodes. The input DataFrame is also passed along to the next nodes",
+
+  "type": "ml-estimator",
+  "nodeClass": "fire.nodes.ml.NodeXGBoostRegressor",
+  "fields" : [
+
+    {"name": "featuresCol", "value":"", "widget": "variable", "title": "Features Column", "description": "Vector column containing all input features used to train the regression model.", "datatypes":["vectorudt"], "size":"50%"},
+
+    {"name": "labelCol", "value":"", "widget": "variable", "title": "Label Column", "description": "Target column containing the continuous numeric value the model is trained to predict.", "datatypes":["double"], "size":"50%"},
+
+    {"name": "predictionCol", "value":"", "widget": "textfield", "title": "Prediction Column", "description": "Output column where predicted numeric values are written after model scoring.", "size":"50%"},
+    {"name": "splitRatio", "value":1.0, "widget": "textfield", "title": "Split Ratio", "description": "Controls the proportion of data used for training versus validation.", "datatypes":["float"], "size":"50%"},
+
+    {"name": "maxDepth", "value":6, "widget": "textfield", "title": "Max Depth", "description": "Maximum depth of each decision tree, controlling model complexity and overfitting.", "datatypes":["integer"], "size":"50%"},
+
+    {"name": "maxBins", "value":32, "widget": "textfield", "title": "Max Bins", "description": "Maximum number of bins used for discretizing feature values during split evaluation.", "datatypes":["integer"], "size":"50%"},
+
+    {"name": "maxLeaves", "value":32, "widget": "textfield", "title": "Max Leaves", "description": "Maximum number of leaf nodes allowed per tree, limiting tree growth.", "datatypes":["integer"], "size":"50%"},
+
+    {"name": "numRound", "value":100, "widget": "textfield", "title": "Num Round", "description": "Number of boosting iterations used to sequentially build trees.", "datatypes":["integer"], "size":"50%"},
+
+    {"name": "numWorkers", "value":1, "widget": "textfield", "title": "Num Workers", "description": "Number of parallel worker threads used during model training.", "datatypes":["integer"], "size":"50%"},
+
+    {"name": "objective", "value":"reg:linear", "widget": "array", "title": "Objective", "optionsArray": ["reg:linear", "reg:gamma", "reg:tweedie"], "description": "Defines the regression objective function optimized during training.", "size":"50%"},
+
+    {"name": "eta", "value":0.3, "widget": "textfield", "title": "Eta", "description": "Learning rate that controls how much each tree contributes to the final prediction.", "datatypes":["double"], "size":"50%"},
+
+
+    {"name": "regLambda", "value":1, "widget": "textfield", "title": "Reg Lambda", "description": "L2 regularization term that helps prevent overfitting.", "datatypes":["double"], "size":"50%"},
+
+    {"name": "regAlpha", "value":0, "widget": "textfield", "title": "Reg Alpha", "description": "L1 regularization term that promotes sparsity in the model.", "datatypes":["double"], "size":"50%"},
+
+    {"name": "subsample", "value":1, "widget": "textfield", "title": "Sub Sample", "description": "Fraction of training data sampled for each boosting round.", "datatypes":["double"], "size":"50%"},
+
+    {"name": "sampleType", "value":"uniform", "widget": "array", "title": "Sample Type", "optionsArray": ["uniform", "gradient_based"], "description": "Controls how training samples are selected during boosting.", "size":"50%"},
+
+    {"name": "treeMethod", "value":"auto", "widget": "array", "title": "Tree Method", "optionsArray": ["auto", "exact", "approx", "hist", "gpu_hist"], "description": "Algorithm used to construct decision trees efficiently.", "size":"50%"},
+
+    {"name": "useExternalMemory", "value":"false", "widget": "array", "title": "Use External Memory", "optionsArray": ["false","true"], "description": "Enables out-of-core computation for very large datasets.", "datatypes":["boolean"], "size":"50%"},
+
+    {"name": "seed", "value":0, "widget": "textfield", "title": "Seed", "description": "Seed value used to ensure reproducible model training.", "datatypes":["double"], "size":"50%"},
+
+    {"name": "baseScore", "value":0.5, "widget": "textfield", "title": "Base Score", "description": "Initial prediction score before any boosting iterations.", "datatypes":["double"], "size":"50%"},
+
+    {"name": "minChildWeight", "value":1, "widget": "textfield", "title": "Min Child Weight", "description": "Minimum sum of instance weights needed in a child node to allow further splits.", "datatypes":["double"], "size":"50%"},
+
+    {"name": "colsampleBylevel", "value":1, "widget": "textfield", "title": "Col Sample By Level", "description": "Fraction of features sampled at each tree level.", "datatypes":["double"], "size":"50%"},
+
+    {"name": "colsampleBytree", "value":1, "widget": "textfield", "title": "Col Sample By Tree", "description": "Fraction of features sampled for each tree.", "datatypes":["double"], "size":"50%"},
+
+    {"name": "minSplitLoss", "value":0, "widget": "textfield", "title": "Min Split Loss", "description": "Minimum loss reduction required to make a further partition.", "datatypes":["double"], "size":"50%"},
+
+    {"name": "maxDeltaStep", "value":0, "widget": "textfield", "title": "Max Delta Step", "description": "Maximum step size allowed for weight updates.", "datatypes":["double"], "size":"50%"},
+
+    {"name": "sketchEps", "value":0.03, "widget": "textfield", "title": "Sketch Eps", "description": "Precision parameter for approximate histogram construction.", "datatypes":["double"], "size":"50%"},
+
+    {"name": "scalePosWeight", "value":0.3, "widget": "textfield", "title": "Scale Pos Weight", "description": "Scales gradients for imbalanced regression problems.", "datatypes":["double"], "size":"50%"},
+
+    {"name": "growPlicy", "value":"depthwise", "widget": "array", "title": "Grow Policy", "optionsArray": ["depthwise", "lossguide"], "description": "Defines how trees grow, either level-by-level or guided by loss reduction.", "size":"50%"},
+
+    {"name": "normalizeType", "value":"tree", "widget": "array", "title": "Normalize Type", "optionsArray": ["tree", "forest"], "description": "Controls how normalization is applied during boosting.", "size":"50%"},
+
+    {"name": "skipDrop", "value":0.0, "widget": "textfield", "title": "Skip Drop", "description": "Probability of skipping trees during DART boosting.", "datatypes":["double"], "size":"50%"},
+
+    {"name": "rateDrop", "value":0.0, "widget": "textfield", "title": "Rate Drop", "description": "Dropout rate for trees during boosting.", "datatypes":["double"], "size":"50%"}
+
+  ]
+}

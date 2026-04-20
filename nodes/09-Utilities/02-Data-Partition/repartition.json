@@ -1,0 +1,13 @@
+{
+  "id": "1",
+  "name": "Repartition",
+  "description": "This node repartitions incoming dataframe into a specified number of partitions",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/Coalesce.svg",
+  "input": "It accepts a DataFrame as input from the previous Node", 
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeRepartition",
+  "fields" : [
+    {"name":"numPartitions", "value":"", "widget": "textfield", "title": "Number of Partitions", "description": "Number of Partitions", "required": true}
+
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "11",
+  "name": "SQL Executer",
+  "description": "This node runs the given SQL query",
+   "iconImage": "assets/images/icons/node-icon/latest-nodes/SQL.svg",
+  "input": "This type of node takes the sql query of any statement type",
+  "output": "This node executes the given SQL query",
+  "type": "dataset",
+  "nodeClass": "fire.nodes.runrdbmssql.NodeSqlExecuter",
+  "fields" : [
+    {"name":"url", "display":true,"value":"", "widget": "textfield", "title": "Db Url", "description": "URL of SQL"},
+    {"name":"driver", "display":true,"value":"com.mysql.cj.jdbc.Driver", "widget": "textfield", "title": "driver class name", "description": "driver class name for SQL"},
+    {"name":"user name", "value":"", "widget": "textfield", "title": "User Name", "description": "User name of SQL"},
+    {"name":"password", "value":"", "widget": "textfield", "title": "password", "description": "password of SQL"},
+    {"name":"statementType", "value":"DML", "widget": "array", "optionsArray": ["DDL", "DML", "STORED PROCEDURE", "FUNCTION"], "title": "Statement Type", "description": "statementType of SQL"},
+    {"name":"query", "value":"", "widget": "code_editor", "type": "sql_mysql", "title": "query", "description": "query to execute"}
+  
+  ]
+}

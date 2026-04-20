@@ -1,0 +1,12 @@
+{
+  "id": "7",
+  "name": "Run Python File",
+  "description": "This node executes the given python file.",
+  "type": "dataset",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.etl.NodeRunPythonFile",
+  "fields" : [
+    {"name":"path",  "display": true, "value":"", "widget": "textfield", "title": "Path",
+      "description":"path of the python file.","required":"true"}
+  ]
+}

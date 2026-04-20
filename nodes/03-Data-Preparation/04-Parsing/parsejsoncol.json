@@ -1,0 +1,40 @@
+{
+  "id": "6",
+  "name": "Parse JSON Col",
+  "iconImage": "assets/images/icons/node-icon/JSON.svg",
+  "description": "Parses JSON content in a given column",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeParseJSONColumn",
+  "engine": "scala,pyspark",
+  "fields" : [
+
+    {"name": "jsonColName", "value":"", "widget": "variable",
+      "title": "JSON Col Name", "description": "Specifies the input column containing the JSON data",
+      "datatypes":["string"]},
+
+    {"name": "inputCol", "value":"[]", "widget": "variables_list_select",
+      "title": "Input Col", "description": "Input Columns"},
+
+    {"name": "jsonFieldNames", "value":"[]", "widget": "variables_list_textfield",
+      "title": "JSON Field names", "description": "JSON Field names"},
+
+    {"name": "jsonFieldTypes", "value":"[]", "widget": "variables_list_array",
+      "optionsArray": ["STRING", "INTEGER", "DOUBLE", "FLOAT", "LONG", "BOOLEAN", "BYTE", "SHORT", "STRUCT", "ARRAY", "MAP"],
+      "title": "JSON Field Type", "description": "Data Type of the JSON field"},
+
+    {"name": "advance", "value":"", "widget": "tab", "title": "Advance"},
+
+    {"name": "stringJsonColNames", "value":"[]", "widget": "variables_list_select",
+      "title": "String Json ColNames", "datatypes":["string"], "description": "Specifies the input column containing the JSON data"},
+
+    {"name": "outputJsonColNames", "value":"[]", "widget": "variables_list_textfield",
+      "title": "Output ColNames", "description": "uses the schema from the column you provide and create the new output column."},
+
+
+    {"name": "outputSchema", "value":"", "widget": "tab", "title": "InferSchema"},
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Output Column Name", "description": "Output Columns"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Output Column Type", "description": "Data Type of the Output Columns"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Output Column Format", "description": "Format of the Output Columns"}
+
+  ]
+}

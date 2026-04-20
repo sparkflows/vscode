@@ -1,0 +1,24 @@
+{
+  "id": "6",
+  "name": "SCDType2DeltaMerge",
+  "description": "It is a Delta merge operation that stores and manages both current and historical data over time.",
+  "input": "",
+  "output": "",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeSCDType2DeltaMerge",
+  "fields" : [
+    {"name":"targetType", "value":"", "widget": "array", "optionsArray": ["Table", "Path"], "title": "Target Type", "description": "Target Type Table or Path", "required": true},
+    {"name":"targetLocation", "display":true,"value":"", "widget": "textfield", "title": "Target Delta Path", "description": "Delta Path of the target location"},
+    {"name":"tableName", "display":true,"value":"", "widget": "textfield", "title": "TableName", "description": "TableName"},
+    {"name":"keyColumns", "display":true, "value":"[]", "widget": "variables", "title": "Key Columns", "description": "Merge Check.", "required": true},
+    {"name":"active_flag_col", "display":true,"value":"", "widget": "textfield", "title": "Active Flag Column", "description": "Used to mark which record is the current active one.", "required": true},
+    {"name":"active_flag_vals", "display":true,"value":"true or false", "widget": "textfield", "title": "Active Flag Value", "description": "True or False OR 1 or 0.", "required": true},
+
+    {"name":"start_date_col", "display":true,"value":"effective_start_date", "widget": "textfield", "title": "Start Date Column Name", "description": "Column Name when a particular version of a record became valid or active"},
+    {"name":"end_date_col", "display":true,"value":"effective_end_date", "widget": "textfield", "title": "End Date Column Name", "description": "Column Name when a particular version of a record became invalid or inactive"},
+
+    {"name":"start_date_val", "display":true,"value":"current_date()", "widget": "textfield", "title": "Start Date Column Value", "description": "date value for particular version of a record became valid or active"},
+    {"name":"end_date_val", "display":true,"value":"current_date() - 1", "widget": "textfield", "title": "End Date Column Value", "description": "date value for a particular version of a record became valid or active"}
+
+  ]
+}

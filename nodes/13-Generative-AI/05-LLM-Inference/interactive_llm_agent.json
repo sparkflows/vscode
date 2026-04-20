@@ -1,0 +1,18 @@
+{
+  "id": "7",
+  "name": "Interactive LLM Agent",
+  "iconImage": "assets/images/icons/node-icon/Graph_group_by_column.svg",
+  "description": "This node enables standalone or dataframe-optional LLM queries across multiple providers (OpenAI, Bedrock, Gemini). It is designed for sequential agent flows like 'Similar Company Finder' and supports saving structured responses.",
+  "input": "Optional DataFrame (if metadata columns are selected)",
+  "output": "Returns response as DataFrame",
+  "type": "pyspark",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeInteractiveLLMAgent",
+
+  "fields": [
+    {"name": "llmConnection", "value": "", "widget": "object_array", "title": "Select Connection", "description": "Select the configured LLM connection that defines the provider, authentication credentials, and model settings used by the interactive agent."},
+    {"name": "customPrompt", "value": "", "widget": "textareafield", "min":"250px", "title": "Prompt", "description": "Custom instruction or task definition provided to the LLM agent. Used to guide agent behavior, reasoning flow, and response structure."},
+    {"name": "metadataCols", "value": "[]", "widget": "variables", "title": "Metadata Columns", "description": "Optional columns from the input DataFrame to pass as contextual metadata to the agent for grounding, enrichment, or response attribution."}
+
+  ]
+}

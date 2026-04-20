@@ -1,0 +1,25 @@
+{
+  "id": "7",
+  "name": "Save Text",
+  "description": "Saves the DataFrame into the specified location in Text Format",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/text.svg",
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.save.NodeSaveText",
+  "fields" : [
+    {"name":"path",  "display": true, "value":"", "widget": "textfield", "title": "Path",
+      "description":"Path where to save the TEXT files","required":"true"},
+
+    {"name":"saveMode", "value":"Append", "widget": "array","optionsArray": ["Append","Overwrite", "ErrorIfExists", "Ignore"],
+      "title": "Save Mode", "description":"Whether to Append, Overwrite or Error if the path Exists"},
+
+    {"name": "advanced", "value":"", "widget": "tab", "title": "Advanced"},
+
+    {"name":"partitionColNames", "value": "[]", "widget": "variables", "title": "Partition Column Names", "description": "Partition Column Names"},
+    {"name": "enableDownloadLink", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Download Link", "description": "Generate download links for the saved TEXT files"},
+    {"name":"fileName",  "value":"", "widget": "textfield", "title": "File Name To Download",
+      "description":"Enter the FileName", "wdgtCommon":"enableDownloadLink", "toggle":"true"},
+    {"name": "saveAsOneFile", "value": "false", "widget": "array", "optionsArray": ["true", "false"], "title": "Save as One File", "description": "Save the output as a single TEXT file using coalesce"}
+
+  ]
+}

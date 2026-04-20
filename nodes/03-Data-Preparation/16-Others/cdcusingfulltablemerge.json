@@ -1,0 +1,23 @@
+{
+  "id": "7",
+  "name": "CDC Using Full Table Merge",
+  "description": "CDC Using Full Table Merge",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeCDCUsingFullTableMerge",
+  "fields" : [
+
+    {"name":"baseTable", "value": "", "widget": "textfield", "title": "Base Table Name", "description": "Name of the Base Table"},
+
+    {"name":"idCols", "value": "[]", "widget": "variables", "title": "ID Column Names", "description": "ID Column names"},
+
+    {"name": "modifiedDateCol", "value":"", "widget": "variable",
+        "title": "Modified Date Column", "description": "Modified Date Column", "datatypes":["date", "timestamp"]}
+
+
+  ]
+}
+
+
+
+
+

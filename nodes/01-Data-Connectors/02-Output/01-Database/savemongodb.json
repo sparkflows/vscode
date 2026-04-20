@@ -1,0 +1,17 @@
+{
+  "id": "11",
+  "name": "Save MongoDB",
+
+  "description": "It Saves the incoming Dataframe into MongoDB",
+  "input": "It takes in a DataFrame as input",
+  "output": "Incoming dataFrame is passed along to the next nodes.",
+
+  "type": "transform",
+  "nodeClass": "fire.nodes.mongodb.NodeSaveMongoDB",
+  "fields" : [
+    {"name":"mongoURI","display":true,"value":"", "widget": "textfield", "required":true, "title": "mongo URI", "description": "URI of mongodb"},
+    {"name":"mongoDBName", "value":"", "widget": "textfield", "title": "mongoDB Name", "description": "mongoDB  Name"},
+    {"name":"mongoTableName", "value":"", "widget": "textfield", "title": "mongo Table Name", "description": "mongo Table Name"}
+    
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "1",
+  "name": "String To Date",
+  "description": "This node converts string columns to date using the specified date/time format",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/string_to_date.svg",
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.etl.NodeMultiStringToDate",
+  "fields" : [
+
+    {"name": "inputColNames", "value":"[]", "widget": "variables_list_select", "required": true,
+          "title": "Columns", "description": "Columns", "datatypes":["string"]},
+
+    {"name": "inputColFormats", "value":"[]", "widget": "variables_list_textfield", "required": true,
+          "title": "Input Column Formats", "description": "Input Column Formats. eg: yyyy-MM-dd yyyy-MM-dd HH:mm:ss"},
+
+    {"name": "outputColNames", "value":"[]", "widget": "variables_list_textfield", "required": true,
+      "title": "Output Column Names", "description": "Output Column Names"},
+
+    {"name":"outputColTypes", "value":"[]",
+      "widget": "variables_list_array",
+      "optionsArray": ["DATE", "TIMESTAMP"], "required": true,
+      "title": "New Data Types", "description": "New data types (DATE, TIMESTAMP)"}
+    
+  ]
+}

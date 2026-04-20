@@ -1,0 +1,12 @@
+{
+  "id": "7",
+  "name": "Split Into Good And Bad Records",
+  "description": "",
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.ge.NodeSplitIntoGoodAndBadRecords",
+  "fields" : [
+    {"name": "uniqueId", "value":"row_index", "widget": "textfield", "title": "Create Identifier Column", "description": "Enter name for a unique identifier column", "datatypes":["string"]},
+    {"name": "separator", "value":",", "widget": "textfield", "title": "Separator", "description": "Enter a separator for separating exception_reason and failed column name"}
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": "11",
+  "name": "AutoIncrement",
+ "iconImage": "assets/images/icons/node-icon/incremental.svg",
+  "description": "This node reads data from Relational Databases using JDBC and creates a DataFrame from it",
+  "input": "It reads data from Relational Databases",
+  "output": "It creates a DataFrame from the data read and sends it to its output",
+
+  "type": "dataset",
+  "nodeClass": "fire.nodes.dataset.NodeAutoIncrement",
+  "fields" : [
+    {"name":"connection", "value":"", "widget": "object_array", "title": "Connection", "description": "The JDBC connection to connect" ,"required":"true"},
+
+    {"name":"database", "value":"", "widget": "textfield", "title": "Database Name", "required":"true", "description": ""},
+    {"name":"table", "value":"", "widget": "textfield", "title": "Table Name", "required":"true", "description": ""},
+
+
+    {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names of the Table", "description": "Output Columns Names of the Table"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types of the Table", "description": "Output Column Types of the Table"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats", "description": "Output Column Formats"}
+  ,
+    {"name": "properties", "value":"", "widget": "tab", "title": "Properties"},
+    {"name":"keycolumnName", "value":"", "widget": "variable_infer_schema", "title": "Key Column Name", "description": "key column name","required":"true"},
+    {"name":"keycolumntype", "value":"", "widget": "array", "optionsArray": ["index","timestamp","date"],  "title": "Key Column Type", "description": "index, timestamp or date type supported","required":"true"},
+    {"name":"keycolumnformat", "value":"", "widget": "textfield", "title": "Key Column Format", "description": "timestamp column format"},
+
+    {"name":"onSchemaChange", "value":"IgnoreSchemaChanges", "widget": "array", "title": "On Schema Change", "optionsArray": ["IgnoreSchemaChanges", "FailOnSchemaChange", "AutoHandleSchemaChanges"], "description": "IgnoreSchemaChanges: Don’t check or react to schema changes., FailOnSchemaChange:Abort execution if schema has changed.,AutoHandleSchemaChanges:Automatically handle schema changes (e.g., add/remove columns as needed)." },
+
+    {"name": "performance", "value":"", "widget": "tab", "title": "Performance"},
+    {"name":"filter", "value":"", "widget": "textarea_small", "title": "filter", "description": "filter condition to select the required rows."},
+    {"name":"partitionColumn", "value":"", "widget": "variable_infer_schema", "title": "Partition Column Name", "description": "PartitionColumn must be a numeric, date, or timestamp column from the table" },
+    {"name":"partitionColType", "value":"", "widget": "array", "optionsArray": ["index","timestamp","date"],  "title": "Partition Column Type", "description": "index, timestamp or date type supported"},
+    {"name":"numPartitions", "value":"", "widget": "textfield", "title": "Num Partitions", "description": "The maximum number of partitions that can be used for parallelism in table reading" },
+    {"name":"fetchsize", "value":"", "widget": "textfield", "title": "Fetch Size", "description": "The JDBC fetch size, which determines how many rows to fetch per round trip. This can help performance on JDBC drivers which default to low fetch size (e.g. Oracle with 10 rows)." },
+    {"name":"pushDownPredicate", "value":"true", "widget": "array", "title": "Push Down Predicate", "optionsArray": ["true","false"], "description": "Enable or disable predicate push-down into the JDBC data source. The default value is true, in which case Spark will push down filters to the JDBC data source as much as possible. " },
+    {"name":"pushDownAggregate", "value":"false", "widget": "array", "title": "Push Down Aggregate", "optionsArray": ["true","false"], "description": "Enable or disable aggregate push-down in V2 JDBC data source. The default value is false, in which case Spark will not push down aggregates to the JDBC data source. Aggregate push-down is usually turned off when the aggregate is performed faster by Spark than by the JDBC data source. Please note that aggregates can be pushed down if and only if all the aggregate functions and the related filters can be pushed down." },
+    {"name":"queryTimeout", "value":"", "widget": "textfield", "title": "Query Timeout", "description": "The number of seconds the driver will wait for a Statement object to execute. Zero means there is no limit." },
+    {"name":"sessionInitStatement", "value":"", "widget": "textfield", "title": "Session Init Statement", "description": "After each database session is opened to the remote DB and before starting to read data, this parameter executes a custom SQL statement (or a PL/SQL block). Use this to implement session initialization code. Example: option(\"sessionInitStatement\", \"BEGIN execute immediate 'alter session set \"_serial_direct_read\"=true'; END;\").", "expandable": true}
+  ]
+}

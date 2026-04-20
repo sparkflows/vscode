@@ -1,0 +1,21 @@
+{
+  "id": "10",
+  "name": "Execute Workflow",
+  "description": "Fires the given workflow. Does not wait for the workflow to complete to resume execution",
+  "type": "transform",
+  "nodeClass": "fire.nodes.util.NodeExecuteWorkflow",
+  "fields" : [
+
+    {"name":"workflowUuid", "value":"", "widget": "workflow", "title": "Workflow","description":"The workflow to execute"},
+
+    {"name":"isEnabled", "value":true,  "widget": "array", "title": "IsEnabled", "optionsArray": ["true","false"],
+      "description":"isEnabled true execute the selected workflow."},
+
+    {"name": "parameterName", "value":"[]", "widget": "key_array",
+      "title": "Parameter Name", "description": "parameters name."},
+
+    {"name": "parameterValue", "value":"[]", "widget": "value_array",
+      "title": "Parameter Value", "description": "parameters value."}
+
+  ]
+}

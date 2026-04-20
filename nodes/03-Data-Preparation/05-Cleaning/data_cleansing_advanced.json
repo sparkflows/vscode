@@ -1,0 +1,137 @@
+{
+  "id": "12",
+  "name": "Data Cleansing Advanced",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/data_cleaning.svg",
+  "description": "This node cleanses the selected columns from the dataset",
+  "input": "It accepts a DataFrame as input from the previous Node",
+  "output": "This node outputs cleansed data",
+  "type": "transform",
+  "engine": "scala",
+  "nodeClass": "fire.nodes.etl.NodeDataCleansingAdvanced",
+  "fields": [
+    {
+      "name": "Remove Nulls",
+      "value": "",
+      "widget": "tab",
+      "title": "Remove Nulls"
+    },
+    {
+      "name": "removeNullRows",
+      "value": "false",
+      "widget": "array",
+      "optionsArray": ["false", "true"],
+      "title": "Remove Null Rows",
+      "description": "Removes rows with null values in any selected column; removes all rows if no columns are selected",
+      "required": false,
+      "datatypes": ["boolean"]
+    },
+    {
+      "name": "nullRowsCols",
+      "value": "[]",
+      "widget": "variables",
+      "title": "Columns for Null Rows Check",
+      "description": "Select columns to apply Remove Null Rows operation"
+    },
+    {
+      "name": "removeNullColumns",
+      "value": "false",
+      "widget": "array",
+      "optionsArray": ["false", "true"],
+      "title": "Remove Null Columns",
+      "description": "Removes columns with all null values; removes selected columns with at least one null if columns are specified",
+      "required": false,
+      "datatypes": ["boolean"]
+    },
+    {
+      "name": "nullColsCols",
+      "value": "[]",
+      "widget": "variables",
+      "title": "Columns for Null Columns Check",
+      "description": "Select columns to apply Remove Null Columns operation"
+    },
+    {
+      "name": "Column Wise",
+      "value": "",
+      "widget": "tab",
+      "title": "Column-Level Cleansing"
+    },
+    {
+      "name": "inputCols",
+      "value": "[]",
+      "widget": "variables_list_select",
+      "title": "Input Columns",
+      "description": "Select columns to be processed for data cleansing"
+    },
+    {
+      "name": "replaceWithBlanks",
+      "value": "[]",
+      "widget": "variables_list_array",
+      "title": "Replace Nulls With Blanks (String Fields)",
+      "optionsArray": ["true", "false"],
+      "description": "Replaces null values in string fields with empty strings ('') for the corresponding selected column"
+    },
+    {
+      "name": "replaceWithZero",
+      "value": "[]",
+      "widget": "variables_list_array",
+      "title": "Replace Nulls With 0 (Numeric Fields)",
+      "optionsArray": ["true", "false"],
+      "description": "Replaces null values in numeric fields with 0 for the corresponding selected column"
+    },
+    {
+      "name": "removeWhitespaces",
+      "value": "[]",
+      "widget": "variables_list_array",
+      "title": "Remove Whitespaces",
+      "optionsArray": ["true", "false"],
+      "description": "Removes whitespace characters from the corresponding selected columns"
+    },
+    {
+      "name": "removeLetters",
+      "value": "[]",
+      "widget": "variables_list_array",
+      "title": "Remove Letters",
+      "optionsArray": ["true", "false"],
+      "description": "Removes alphabetic characters from the corresponding selected columns"
+    },
+    {
+      "name": "removeDigits",
+      "value": "[]",
+      "widget": "variables_list_array",
+      "title": "Remove Digits",
+      "optionsArray": ["true", "false"],
+      "description": "Removes numeric digits from the corresponding selected columns"
+    },
+    {
+      "name": "removeSigns",
+      "value": "[]",
+      "widget": "variables_list_array",
+      "title": "Remove Special Signs",
+      "optionsArray": ["true", "false"],
+      "description": "Removes special symbols or signs from the corresponding selected columns"
+    },
+    {
+      "name": "removeCommas",
+      "value": "[]",
+      "widget": "variables_list_array",
+      "title": "Remove Commas",
+      "optionsArray": ["true", "false"],
+      "description": "Removes commas from the corresponding selected columns"
+    },
+    {
+      "name": "modifyCases",
+      "value": "[]",
+      "widget": "variables_list_array",
+      "title": "Modify Case",
+      "optionsArray": ["Upper Case", "Lower Case", "Title Case", "Default"],
+      "description": "Converts text in the corresponding selected columns to upper, lower, or title case"
+    },
+    {
+      "name": "schema", "value": "", "widget": "tab", "title": "InferSchema"
+    },
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names of the Table", "description": "Output Columns Names of the Table"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types of the Table", "description": "Output Column Types of the Table"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats", "description": "Output Column Formats"}
+
+  ]
+}

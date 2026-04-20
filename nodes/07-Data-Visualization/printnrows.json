@@ -1,0 +1,115 @@
+{
+  "id": "10",
+  "name": "Print N Rows",
+  "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+  "type": "transform",
+  "iconImage": "assets/images/icons/node-icon/print_n_rows.svg",
+  "engine": "scala,pyspark,polars",
+  "nodeClass": "fire.nodes.util.NodePrintFirstNRows",
+  "fields" : [
+    {"name":"title", "value":"Row Values", "widget": "textfield", "title": "Title"},
+    {"name":"n", "value":"10", "widget": "textfield", "title": "Num Rows to Print","description":"Number of rows to be printed"},
+    {"name": "columns", "value": "[]", "widget": "variables", "title": "Select Columns to Print", "description": "Select the columns to display, or leave blank to show all columns"},
+    {"name":"enableInExecution", "value":"true", "widget": "array", "title": "Enable in Execution", "optionsArray": ["true","false"],"description":"If it's enabled, during the execution data is displayed." ,"size": "50%"},
+    {"name":"displayDataType", "value":"true", "widget": "array", "title": "Display Data Type", "optionsArray": ["true","false"],"description":"If true display rows DataType" ,"size": "50%"},
+
+    { "name":"highlight_tab", "value":"", "widget":"tab", "title":"Highlights", "description":"Configure to highlights row, column and cell." },
+
+    {
+      "name": "highlight",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": ["false", "true"],
+      "title": "Highlight",
+      "description": "enable and disable the highlight."
+    },
+    {
+      "name": "highlight_type",
+      "value": "[]",
+      "widget": "list_array",
+      "optionsArray": [
+        "row",
+        "column",
+        "cell"
+      ],
+      "title": "Type",
+      "description": "highlight type",
+      "wdgtCommon": "highlight",
+      "toggle": "true"
+    },
+    {
+      "name":"highlight_expression",
+      "value":"[]",
+      "widget":"list_textfield",
+      "title":"Condition",
+      "description":"Condition to evaluate for highlight (e.g., bathrms==1, price>500000, any(==0))",
+      "wdgtCommon":"highlight", "toggle":"true"
+    },
+    {
+      "name":"color_code",
+      "value":"[]",
+      "widget":"list_textfield",
+      "title":"Color Code",
+      "description":"color code used in highlight (e.g., #FF0000)",
+      "wdgtCommon":"highlight", "toggle":"true"
+    },
+
+    {
+      "name": "rowHeader_tab",
+      "value": "",
+      "widget": "tab",
+      "title": "Row Header Highlight",
+      "description": "Configure to highlight row header, column, and cell."
+    },
+    {
+      "name": "rowHeader",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": [
+        "false",
+        "true"
+      ],
+      "title": "Row Header",
+      "description": "Enable and disable row header highlight."
+    },
+    
+    {
+      "name": "rowHeader_columns",
+      "value": "[]",
+      "widget": "array_textfield",
+      "title": "Columns",
+      "description": "Columns to make row header.",
+      "wdgtCommon": "rowHeader",
+      "toggle": "true"
+    },
+    {
+      "name": "rowHeader_color",
+      "value": "[]",
+      "widget": "list_textfield",
+      "title": "Color Code",
+      "description": "Color of header cell (e.g., #FF0000)",
+      "wdgtCommon": "rowHeader",
+      "toggle": "true"
+    },
+    {
+      "name": "rowHeader_bgColor",
+      "value": "[]",
+      "widget": "list_textfield",
+      "title": "Background",
+      "description": "Background of header cell (e.g., #FFFF00)",
+      "wdgtCommon": "rowHeader",
+      "toggle": "true"
+    },
+    {
+      "name": "rowHeader_value",
+      "value": "[]",
+      "widget": "list_textfield",
+      "title": "Header Name",
+      "description": "Header name.",
+      "wdgtCommon": "rowHeader",
+      "toggle": "true"
+    }
+
+
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "5",
+  "name": "Sklearn Normalizer",
+  "description": "Normalizes samples individually to unit norm.",
+
+  "input": "",
+  "output": "",
+
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.sklearn.preprocessing.NodeNormalizerFitTransform",
+  "fields" : [
+
+    {"name":"columnsToNormalize", "value":"[]", "widget": "variables", "title": "ColumnsToNormalize",
+      "description": "Select the columns to normalize", "datatypes":["integer", "long", "double", "float", "int"], "required": true},
+
+
+    {"name": "norm", "value":"l2", "widget": "array", "title": "Norm", "optionsArray": ["l2","l1", "max"], "description": "" }
+
+  ]
+}

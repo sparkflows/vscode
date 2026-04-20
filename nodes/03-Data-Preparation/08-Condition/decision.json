@@ -1,0 +1,24 @@
+{
+  "id": "6",
+  "name": "Decision",
+  "description": "It computes expressions to determine if the condition is met or not. Accordingly proceeds to the next step or stops here.",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeDecision",
+  "engine" : "scala,pyspark",
+
+  "fields" : [
+
+    {"name": "inputCols", "value":"[]", "widget": "variables_list_select", "title": "Columns", "description": "Columns"},
+
+    {"name": "functions", "value":"[]", "widget": "variables_list_array",
+      "optionsArray": ["COUNT_RECORDS"],
+      "title": "Function", "description": "Function to apply"},
+
+    {"name": "symbols", "value":"[]", "widget": "variables_list_array",
+      "optionsArray": ["<", "==", ">"],
+      "title": "Symbol", "description": "Symbol to apply"},
+
+    {"name": "values", "value":"[]", "widget": "variables_list_textfield", "title": "Values", "description": "Values"}
+
+  ]
+}

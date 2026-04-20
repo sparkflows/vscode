@@ -1,0 +1,32 @@
+{
+  "id": "4",
+  "name": "Gaussian Mixture",
+  "description": "Gaussian Mixture Model (GMM) performs probabilistic clustering using multiple Gaussian distributions, allowing each data point to belong to clusters with varying probabilities.",
+
+  "input": "It takes in a DataFrame as input and performs GaussianMixture clustering",
+  "output": "The input DataFrame is passed along to the next Processors",
+
+  "type": "ml-estimator",
+  "nodeClass": "fire.nodes.ml.NodeGaussianMixture",
+  "fields" : [
+
+    {"name": "featuresCol", "value":"", "required":true, "widget": "variable", "title": "Features Column", "description": "Vector column containing features used to compute Gaussian distributions.", "datatypes":["vectorudt"], "size":"50%"},
+
+    {"name": "k", "value":2, "required":true, "widget": "textfield","title": "K", "description": "Number of Gaussian clusters to be created during training.", "datatypes":["integer"], "size":"50%"},
+
+    {"name": "maxIter", "value":20, "widget": "textfield", "title": "Max Iterations", "description": "Maximum number of Expectation-Maximization iterations.", "datatypes":["integer"], "size":"50%"},
+
+    {"name": "predictionCol", "value":"", "widget": "textfield", "title": "Prediction Column", "description": "Column containing the predicted cluster assignment for each record.", "size":"50%"},
+
+    {"name": "seed", "value":"", "widget": "textfield", "title": "Seed", "description": "Random seed used for model initialization and reproducibility.", "datatypes":["long"], "size":"50%"},
+
+    {"name": "tol", "value":1e-4, "widget": "textfield", "title": "Tolerence", "description": "Convergence threshold that determines when training stops.","datatypes":["double"], "size":"50%" },
+
+    {"name": "weightCol", "value":"", "widget": "variable", "title": "Weight Column", "description": "Optional column specifying weights for each training instance.", "datatypes":["double"], "size":"50%"},
+
+    {"name": "aggregationDepth", "value": 2, "widget": "textfield", "title": "Aggregation Depth", "description": "Controls tree aggregation depth for distributed computation (>= 2).", "size":"50%"},
+
+    {"name":"probabilityCol", "value": "", "widget": "variable", "title": "Probability Column", "description": "Column containing cluster membership probabilities for each data point.", "size":"50%"}
+
+  ]
+}

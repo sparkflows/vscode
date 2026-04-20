@@ -1,0 +1,49 @@
+{
+  "id": "node_time_series_features",
+  "name": "Time Series Features",
+  "description": "This node computes various time-series related features from a DataFrame containing transactional data.",
+  "input": "It takes a DataFrame with user, date, and optionally amount, item, and category columns.",
+  "output": "Returns the original DataFrame with new time-series feature columns appended.",
+  "type": "pyspark",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.fe.NodeTimeSeriesFeatures",
+  "fields": [
+    {"name": "userCol", "value": "", "widget": "variable", "title": "User ID Column", "description": "Column representing the user or entity ID.", "required": true, "size": "50%"},
+    {"name": "dateCol", "value": "", "widget": "variable", "title": "Date/Timestamp Column", "description": "Column representing the transaction date or timestamp.", "required": true, "size": "50%"},
+    {"name": "amountCol", "value": "", "widget": "variable", "title": "Amount Column", "description": "Column representing the transaction amount (optional).", "size": "33%"},
+    {"name": "itemCol", "value": "", "widget": "variable", "title": "Item Column", "description": "Column representing the item purchased (optional).", "size": "33%"},
+    {"name": "categoryCol", "value": "", "widget": "variable", "title": "Category Column", "description": "Column representing the transaction category (optional).", "size": "34%"},
+    {"name": "enable_days_since_last_transaction", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Days Since Last Transaction", "description": "Calculates the time elapsed since the user's last transaction.", "size": "50%"},
+    {"name": "days_since_last_transaction_unit", "value": "days", "widget": "array", "optionsArray": ["days", "hours"], "title": "Unit", "description": "Time unit for calculation.", "size": "50%", "wdgtCommon": "enable_days_since_last_transaction", "toggle": "true"},
+    {"name": "enable_days_until_next_transaction", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Days Until Next Transaction", "description": "Calculates the time remaining until the user's next transaction.", "size": "50%"},
+    {"name": "days_until_next_transaction_unit", "value": "days", "widget": "array", "optionsArray": ["days", "hours"], "title": "Unit", "description": "Time unit for calculation.", "size": "50%", "wdgtCommon": "enable_days_until_next_transaction", "toggle": "true"},
+    {"name": "enable_transaction_hour", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Transaction Hour", "description": "Extracts the hour from the transaction timestamp."},
+    {"name": "enable_transaction_day_of_week", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Transaction Day of Week", "description": "Extracts the day of the week from the transaction timestamp.", "size": "50%"},
+    {"name": "transaction_day_of_week_start", "value": "monday", "widget": "array", "optionsArray": ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"], "title": "Week Start Day", "description": "Select the day to be considered as the start of the week (0).", "size": "50%", "wdgtCommon": "enable_transaction_day_of_week", "toggle": "true"},
+    {"name": "enable_transaction_day_of_month", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Transaction Day of Month", "description": "Extracts the day of the month from the transaction timestamp."},
+    {"name": "enable_week_of_year", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Week of Year", "description": "Extracts the week of the year from the transaction timestamp."},
+    {"name": "enable_is_weekend", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Is Weekend", "description": "Creates a binary flag indicating if the transaction occurred on a weekend."},
+    {"name": "enable_is_month_start", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Is Month Start", "description": "Creates a binary flag if the transaction is at the start of the month.", "size": "50%"},
+    {"name": "month_start_days", "value": "2", "widget": "textfield", "title": "Start Days", "description": "Number of days from the start of the month to consider.", "size": "50%"},
+    {"name": "enable_is_month_end", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Is Month End", "description": "Creates a binary flag if the transaction is at the end of the month.", "size": "50%"},
+    {"name": "month_end_days", "value": "28", "widget": "textfield", "title": "End Days", "description": "Day of the month from which to consider the end (e.g., 28 for last 3 days of Feb).", "size": "50%"},
+    {"name": "enable_time_since_first_transaction", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Time Since First Transaction", "description": "Calculates the time elapsed since the user's very first transaction.", "size": "50%"},
+    {"name": "time_since_first_transaction_unit", "value": "days", "widget": "array", "optionsArray": ["days", "hours"], "title": "Unit", "description": "Time unit for calculation.", "size": "50%", "wdgtCommon": "enable_time_since_first_transaction", "toggle": "true"},
+
+    {"name": "enable_time_of_day_bin", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Time of Day Bin", "description": "Categorizes transactions into 'night', 'morning', 'afternoon', and 'evening'."},
+    {"name": "enable_season", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Season", "description": "Assigns a season ('winter', 'spring', 'summer', 'autumn') to each transaction based on the month."},
+
+    {"name": "enable_avg_time_between_txns", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Average Time Between Transactions", "description": "Calculates the average time between a user's transactions.", "size": "50%"},
+    {"name": "avg_time_between_txns_unit", "value": "days", "widget": "array", "optionsArray": ["days", "hours"], "title": "Unit", "description": "Time unit for calculation.", "size": "50%", "wdgtCommon": "enable_avg_time_between_txns", "toggle": "true"},
+
+    {"name": "enable_rolling_transaction_count", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Rolling Transaction Count", "description": "Counts the number of transactions in a rolling window.", "size": "50%"},
+    {"name": "rolling_transaction_count_window", "value": "30", "widget": "textfield", "title": "Window Size (days)", "description": "Window size for the rolling count.", "size": "50%", "wdgtCommon": "enable_rolling_transaction_count", "toggle": "true"},
+    {"name": "enable_rolling_amount_mean", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Rolling Amount Mean (Required field : Amount)", "description": "Computes a rolling average of transaction amounts over a defined window", "size": "50%"},
+    {"name": "rolling_amount_mean_window", "value": "7", "widget": "textfield", "title": "Window Size (days)", "description": "Window size for the rolling mean.", "size": "50%", "wdgtCommon": "enable_rolling_amount_mean", "toggle": "true"},
+
+    {"name": "enable_days_since_last_same_item", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Days Since Last Same Item (Required field : Item)", "description": "Calculates time since the last purchase of the same item", "size": "50%"},
+    {"name": "days_since_last_same_item_unit", "value": "days", "widget": "array", "optionsArray": ["days", "hours"], "title": "Unit", "description": "Time unit for calculation.", "size": "50%", "wdgtCommon": "enable_days_since_last_same_item", "toggle": "true"},
+    {"name": "enable_days_since_last_same_category", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Days Since Last Same Category (Required field : Category)", "description": "Calculates time since the last purchase in the same category.", "size": "50%"},
+    {"name": "days_since_last_same_category_unit", "value": "days", "widget": "array", "optionsArray": ["days", "hours"], "title": "Unit", "description": "Time unit for calculation.", "size": "50%", "wdgtCommon": "enable_days_since_last_same_category", "toggle": "true"}
+  ]
+}

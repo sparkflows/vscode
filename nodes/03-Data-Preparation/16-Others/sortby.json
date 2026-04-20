@@ -1,0 +1,17 @@
+{
+  "id": "6",
+  "name": "Sort By",
+  "description": "Sorts the entire DataFrame by one or multiple columns with full control over ascending/descending order per column. Essential for ranked reports, leaderboards, time-series ordering, and preparing data for window functions or exports.",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/sort_by.svg",
+  "type": "transform",
+  "engine": "scala,pyspark,polars",
+  "nodeClass": "fire.nodes.etl.NodeSortBy",
+  "fields" : [
+    {"name": "sortByColNames", "value":"[]", "widget": "variables_list_select", "title": "Columns",
+      "description": "Select one or more columns to sort by. Drag to reorder - the top column is the primary sort key, followed by secondary, tertiary, etc."},
+
+    {"name": "ascDesc", "value":"[]", "widget": "variables_list_array",
+      "optionsArray": ["DESC", "ASC"],
+      "title": "Sorting Order", "description": "Individually set ASC (ascending) or DESC (descending) for each selected column. Example: Salary - DESC, then Department - ASC, then Name - ASC"}
+  ]
+}

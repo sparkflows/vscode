@@ -1,0 +1,16 @@
+{
+  "id": "10",
+  "name": "Specify Parameters",
+  "description": "Provides additional parameters to the workflow. When running with spark-submit, variables can also be given on the command line with --var name=value.",
+  "type": "doc",
+  "nodeClass": "fire.nodes.util.NodeSpecifyParameters",
+  "fields" : [
+
+    {"name": "names", "value":"[]", "widget": "key_array",
+      "title": "Parameter Names", "description": "Parameter Names"},
+
+    {"name": "values", "value":"[]", "widget": "value_array",
+      "title": "Parameter Values", "description": "Parameter Values"}
+
+  ]
+}

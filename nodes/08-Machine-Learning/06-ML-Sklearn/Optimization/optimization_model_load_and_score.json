@@ -1,0 +1,19 @@
+{
+  "id": "5",
+  "name": "Optimization Model Load And Score",
+  "description": "",
+  "input" : "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "transform",
+
+  "nodeClass": "fire.nodes.lpo.NodeOptimizationModelLoadAndScore",
+  "fields" : [
+    {"name": "mainVar", "value": "", "widget": "variable", "title": "Main Variable", "description": "Select Main Variable column name"},
+    {"name": "mapLoopCol", "value": "", "widget": "variable", "title": "Set Dataframe Label Name", "description": "For selecting the revenue parabola dataframes main Label name."},
+    {"name":"path", "value":"", "widget": "textfield", "title": "Path", "description": "Enter Load Model path"}
+  ]
+}
+
+
+

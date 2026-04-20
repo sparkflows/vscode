@@ -1,0 +1,92 @@
+{
+  "output" : "",
+  "input" : "",
+  "nodeClass" : "fire.nodes.etl.NodeCustomPySpark_dd281630-bf8f-4e04-8526-1cb555871c46",
+  "engine" : "pyspark",
+  "name" : "ScoreCard_Binning",
+  "description" : "",
+  "id" : 5,
+  "type" : "transform",
+  "fields" : [ {
+    "disableRefresh" : false,
+    "widget" : "textfield",
+    "editable" : true,
+    "display" : true,
+    "name" : "method",
+    "description" : "",
+    "title" : "Method",
+    "value" : "tree",
+    "required" : false
+  }, {
+    "disableRefresh" : false,
+    "widget" : "textfield",
+    "editable" : true,
+    "display" : true,
+    "name" : "positive",
+    "description" : "",
+    "title" : "Positive",
+    "value" : "bad|1",
+    "required" : false
+  }, {
+    "disableRefresh" : false,
+    "widget" : "textarea_large",
+    "editable" : true,
+    "display" : true,
+    "name" : "code",
+    "description" : "Python Code to be run",
+    "type" : "python",
+    "title" : "python",
+    "value" : "from pyspark.sql import *\nfrom fire.workflowcontext import *\nimport scorecardpy as sc\n\ndef myfn(spark: SparkSession, workflowContext: WorkflowContext, id: int, inDF: DataFrame, parameters: dict):\n    # Write your code here by using input dataframe i.e inDF and pass the output result as outDF dataframe.\n\n    pandas_df = inDF.toPandas()\n    variables = [\"purpose\"]\n    stopLimit = 0.1\n    countDistrLimit = 0.05\n    binNumLimit = 8\n    method = \"tree\"\n    positive = \"bad|1\"\n    workflowContext.outStr(id, \"Method: \" + parameters['method'] + \", Positive:\" + parameters['positive'])\n    \n    bins = sc.woebin(pandas_df, y=\"creditability\", x=variables, stop_limit=float(stopLimit),\n                 count_distr_limit=float(countDistrLimit),\n                 bin_num_limit=int(binNumLimit), method=method, positive=positive)\n    bins_ply = sc.woebin_ply(pandas_df, bins)\n    spark_df = spark.createDataFrame(bins_ply)\n    outDF = spark_df\n    return outDF  ",
+    "required" : false
+  }, {
+    "disableRefresh" : false,
+    "widget" : "textarea_large",
+    "editable" : true,
+    "display" : true,
+    "name" : "schemaCode",
+    "type" : "python",
+    "title" : "Schema",
+    "value" : "from fire.workflowengine import JobContext, InputSchemaContext, FireSchema\n\ndef schema(inputSchema: FireSchema, parameters: dict):\n    #to add new column\n    #inputSchema.append(\"house_type\", \"string\")\n              \n    #to drop a column\n    #inputSchema.drop(\"id\")\n    inputSchema.append('purpose_woe', 'double')\n    \n    return inputSchema",
+    "required" : false
+  }, {
+    "disableRefresh" : false,
+    "widget" : "tab",
+    "editable" : true,
+    "display" : true,
+    "name" : "schema",
+    "description" : "",
+    "title" : "Schema",
+    "value" : "",
+    "required" : false
+  }, {
+    "disableRefresh" : false,
+    "widget" : "schema_col_names",
+    "editable" : true,
+    "display" : true,
+    "name" : "outputColNames",
+    "description" : "New Output Columns of the SQL",
+    "title" : "Column Names for the CSV",
+    "value" : "[]",
+    "required" : false
+  }, {
+    "disableRefresh" : false,
+    "widget" : "schema_col_types",
+    "editable" : true,
+    "display" : true,
+    "name" : "outputColTypes",
+    "description" : "Data Type of the Output Columns",
+    "title" : "Column Types for the CSV",
+    "value" : "[]",
+    "required" : false
+  }, {
+    "disableRefresh" : false,
+    "widget" : "schema_col_formats",
+    "editable" : true,
+    "display" : true,
+    "name" : "outputColFormats",
+    "description" : "Format of the Output Columns",
+    "title" : "Column Formats for the CSV",
+    "value" : "[]",
+    "required" : false
+  } ]
+}

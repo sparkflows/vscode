@@ -1,0 +1,19 @@
+{
+  "id": "1",
+  "name": "Date To String",
+  "description": "This node converts a date/time column to string with given format",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/data_to_string.svg",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeMultiDateToString",
+  "fields" : [
+  
+    {"name": "inputColNames", "value":"[]", "widget": "variables_list_select",
+      "title": "Input Column Name", "description": "Input Column Name", "required": true, "datatypes":["date", "timestamp"]},
+
+    {"name": "outputColFormats", "value":"[]", "widget": "variables_list_textfield", "required": true,
+      "title": "Output Column Formats", "description": "Output Column Formats. eg: yyyy-MM-dd yyyy-MM-dd HH:mm:ss"},
+
+    {"name": "outputColNames", "value":"[]", "widget": "variables_list_textfield", "required": true,
+      "title": "Output Column Names", "description": "Output Column Names"}
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "4",
+  "name": "Binarizer",
+  "description": "Binarize a column of continuous features given a threshold.",
+
+  "input": "This type of node takes in a DataFrame and transforms it to another DataFrame",
+  "output": "A new column containing the binarized values is added to the incoming DataFrame",
+
+  "type": "ml-transformer",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.ml.NodeBinarizer",
+  "fields" : [
+    {"name":"inputCol", "value":"", "widget": "variable", "title": "Input Column", "datatypes":["double"], "required": true,"description": "The input column name"},
+
+    {"name": "outputCol", "value":"", "widget": "textfield", "title": "Output Column", "required": true, "description": "The output column name"},
+
+    {"name": "threshold", "value":"0.0", "widget": "textfield", "title": "Threshold", "datatypes":["double"], "required": true,
+      "description": "The features greater than the threshold, will be binarized to 1.0.The features equal to or less than the threshold, will be binarized to 0.0."}
+  ]
+}

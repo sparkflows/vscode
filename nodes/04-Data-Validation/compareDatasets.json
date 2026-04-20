@@ -1,0 +1,12 @@
+{
+  "id": "6",
+  "name": "Compare Datasets",
+  "iconImage": "assets/images/icons/node-icon/dataset.svg",
+  "description": "Validate the input datasets",
+  "type": "join",
+  "inputAnchors": [{"name": "First","title": "F"},{"name": "Second","title": "S"}],
+  "outputAnchors": [{"name": "First","title": "F"},{"name": "Second","title": "S"},{"name": "Common","title": "C"}],
+  "nodeClass": "fire.nodes.validation.NodeCompareDatasets",
+  "fields" : [
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "11",
+  "name": "Save Iceberg",
+  "iconImage": "assets/images/icons/node-icon/column.svg",
+  "description": "",
+  "input": "The Dataframe from the previous node",
+  "output": "The incoming Dataframe is passed to the next node as it is",
+  "type": "transform",
+  "nodeClass": "fire.nodes.iceberg.WriteIcebergTable",
+  "fields" : [
+
+    {"name":"catalogName", "display":true, "value":"", "widget": "textfield", "title": "Iceberg Catalog",
+      "description": "Catalog name",  "required": true},
+
+    {"name":"catalogType", "value":"hadoop", "widget": "array_single", "optionsArray": ["hadoop","hive"], "title": "Catalog Type", "description":"Choose Catalog type - hadoop or hive"},
+    {"name":"metastoreUri", "value":"", "widget": "textfield", "title": "Hive metastore uri", "description": "Hive metastore uri",
+      "wdgtCommon":"catalogType", "toggle":"hive"},
+
+    {"name":"warehousePath", "display":true,"value":"", "widget": "textfield",  "title": "Warehouse path", "description": "Warehouse path  for Hadoop and Hive catalog"},
+
+    {"name":"databaseName", "value":"default", "widget": "textfield", "title": "HIVE Database",
+      "description": "HIVE Database", "wdgtCommon":"catalogType", "toggle":"hive"},
+
+    {"name":"tableName", "display":true, "value":"", "widget": "textfield", "title": "HIVE Table",
+      "description": "HIVE Table from which to save the data", "wdgtCommon":"catalogType", "toggle":"hive"},
+
+    {"name":"icebergDatabaseName", "value":"default", "widget": "textfield", "title": "Iceberg Database",
+      "description": "Iceberg Database", "wdgtCommon":"catalogType", "toggle":"hadoop"},
+
+    {"name":"icebergTableName", "display":true, "value":"", "widget": "textfield", "title": "Iceberg Table",
+      "description": "Iceberg Table from which to save the data", "wdgtCommon":"catalogType", "toggle":"hadoop"},
+
+    {"name":"saveMode", "value":"Create", "widget": "array","optionsArray": ["Append","Overwrite", "Create", "Overwrite_Partitions", "Error"], "title": "Save Mode", "description":"Whether to Append, Overwrite or Error if the table Exists"},
+
+    {"name": "advanced", "value":"", "widget": "tab", "title": "Advanced"},
+
+    {"name":"partitionColNames", "value": "[]", "widget": "variables",
+      "title": "Partition Column Names", "description": "Partition Column Names"}
+  ]
+}

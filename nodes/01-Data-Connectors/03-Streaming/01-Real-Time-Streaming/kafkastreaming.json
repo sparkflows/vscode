@@ -1,0 +1,33 @@
+{
+  "id": "6",
+  "name": "Streaming Kafka",
+  "description": "Reads in streaming text from topics in Apache Kafka",
+
+  "input": "It does not take any DataFrame as input",
+  "output": "It reads events from Kafka and creates DataFrame from the resulting rows. This DataFrame is passed to the output Nodes.",
+
+  "type": "sparkstreaming",
+  "nodeClass": "fire.nodes.streaming.NodeStreamingKafka",
+  "fields" : [
+    {"name": "batchDuration", "value":"30", "widget": "textfield", "title": "Batch Duration in Seconds",
+                "description": "Batch Duration in Seconds"},
+
+    {"name": "brokers", "value":"localhost:9092", "widget": "textfield", "title": "Kafka Brokers", "description": "Kafka Brokers"},
+    {"name": "group", "value":"my-consumer-group", "widget": "textfield", "title": "Consumer Group", "description": "Consumer Group"},
+    {"name": "topics", "value":"topic1", "widget": "textfield", "title": "Kafka Topics",
+            "description": "List of Topics separated by , (comma)"},
+
+    {"name": "autoOffsetReset", "value":"latest", "widget": "textfield", "title": "auto.offset.reset", "description": "Auto Offset Reset"},
+    {"name": "enableAutoCommit", "value":"true", "widget": "textfield", "title": "enable.auto.commit", "description": "Enable Auto Commit"},
+
+    {"name": "kafkaParamsKeys", "value":"[]", "widget": "key_array",
+      "title": "Params Key/Value Pairs", "description": "More Config Values" },
+
+    {"name": "kafkaParamsValues", "value":"[]", "widget": "value_array",
+      "title": "Parms Key/Value Pairs", "description": "More Config Values"}
+
+
+  ]
+}
+
+

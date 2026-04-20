@@ -1,0 +1,46 @@
+{
+  "id": "3",
+  "name": "Geo Chart",
+  "description": "This node maps the values on a Map",
+  "iconImage": "assets/images/icons/node-icon/Geo_chart.svg",
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.graph.NodeGraphRegionGeo",
+  "fields": [
+    {"name":"title","value":"Geo Chart","widget":"textfield","title":"Title","size":"50%"},
+    {"name":"titleColor","value":"#2563EB","widget":"textcolors","title":"Title Color","size":"50%"},
+
+    {"name":"description","value":"","widget":"textareafield","title":"Description"},
+    {"name":"descriptionColor","value":"#6D6E70","widget":"textcolors","title":"Description Color","size":"50%"},
+
+    {"name":"maxValuesToDisplay","value":"20","widget":"textfield","title":"Max Values To Display",
+      "description":"Maximum number of values to display in result.",
+      "required":true,
+      "size":"50%"},
+
+    {"name":"groupByColumn1","value":"country","widget":"variable",
+      "title":"Group By Column1",
+      "datatypes":["string"],
+      "description":"Group by Group By Column1 & Group By Column2, get a count of the rows in each group and then display the count in a graph",
+      "size":"50%"},
+
+    {"name":"groupByColumn2","value":"popularity","widget":"variable",
+      "title":"Group By Column2",
+      "description":"Group by Group By Column1 & Group By Column2, get a count of the rows in each group and then display the count in a graph",
+      "size":"50%"},
+
+    {"name":"displayMode","value":"markers","widget":"enum","title":"Display Mode",
+      "optionsMap":{"regions":"regions","markers":"markers","text":"text"},
+      "size":"50%"},
+
+    {"name":"resolution","value":"provinces","widget":"enum","title":"Resolution",
+      "optionsMap":{"countries":"countries","provinces":"provinces"},
+      "size":"50%"},
+
+    {"name":"region","value":"US","widget":"array",
+      "optionsArray":["world","US","IN","SG","AU","GB","FR","CN","RU"],
+      "title":"Region",
+      "description":"Region of the world to display",
+      "size":"50%"}
+  ]
+}

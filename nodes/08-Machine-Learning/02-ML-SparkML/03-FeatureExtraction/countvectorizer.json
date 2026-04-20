@@ -1,0 +1,22 @@
+{
+  "id": "4",
+  "name": "Count Vectorizer",
+  "type": "ml-transformer",
+  "description":"Extracts the vocabulary from a given collection of documents and generates a vector of token counts for each document.",
+
+  "input": "It takes in a DataFrame as input and transforms it to another DataFrame",
+  "output": "It adds a new column to the incoming DataFrame containing the vector of token counts in the input column, to generate the output DataFrame",
+
+  "nodeClass": "fire.nodes.ml.NodeCountVectorizer",
+  "engine": "scala,pyspark",
+  "fields" : [
+    {"name": "inputCol", "value":"text", "widget": "variable", "title": "Input Column",
+          "description": "Input column name", "datatypes":["array"]},
+    {"name": "outputCol", "value":"outputCol", "required":"true", "widget": "textfield", "title": "Output Column", "description": "Output column name"},
+    {"name": "vocabularySize", "value":"3", "widget": "textfield", "title": "Vocabulary Size", "description": "Max size of the vocabulary."},
+    {"name": "minDF", "value":1.0, "widget": "textfield","title": "Min DF",  "description": "Specifies the minimum number of different documents a term must appear in to be included in the vocabulary" },
+    {"name": "maxDF", "value":9.223372e+18, "widget": "textfield","title": "Max DF",  "description": "Specifies the maximum number of different documents a term could appear in to be included in the vocabulary" },
+    {"name": "minTF", "value":1.0, "widget": "textfield","title": "Min TF",  "description": "Filter to ignore rare words in a document" },
+    {"name": "binary", "value":"false", "widget": "array", "title": "Binary", "optionsArray": ["true","false"], "description": "Binary toggle to control the output vector values.", "datatypes":["boolean"]}
+  ]
+}

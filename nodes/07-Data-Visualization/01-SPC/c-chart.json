@@ -1,0 +1,47 @@
+{
+  "id": "3",
+  "name": "C Chart",
+  "type": "SPC-Chart",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.graph.NodeSpcCChart",
+  "description": "This node outputs SPC C Chart and performs control tests.",
+  "fields": [
+    {"name":"title","value":"","widget":"textfield","title":"Title","size":"50%"},
+    {"name":"titleColor","value":"#2563EB","widget":"textcolors","title":"Title Color","size":"50%"},
+
+    {"name":"description","value":"","widget":"textareafield","title":"Description"},
+    {"name":"descriptionColor","value":"#6D6E70","widget":"textcolors","title":"Description Color","size":"50%"},
+
+    {"name":"attribute","value":"[]","widget":"variables",
+      "title":"Attribute Columns",
+      "description":"Attribute column names",
+      "required":true},
+
+    {"name":"subgroup","value":"","widget":"variable",
+      "title":"Subgroup Column",
+      "description":"Subgroup column name",
+      "required":true,
+      "size":"50%"},
+
+    {"name":"identifier","value":"","widget":"variable",
+      "title":"Identifier Columns",
+      "description":"Identifier column name",
+      "size":"50%"},
+
+    {"name":"test1","value":"false","widget":"boolean",
+      "title":"Point beyond the control limits",
+      "size":"50%"},
+
+    {"name":"test2","value":"9","widget":"textfield",
+      "title":"k or more consecutive points are one side of the centerline",
+      "size":"50%"},
+
+    {"name":"test3","value":"6","widget":"textfield",
+      "title":"k or more consecutive points are increasing or decreasing",
+      "size":"50%"},
+
+    {"name":"test4","value":"10","widget":"textfield",
+      "title":"k consecutive points alternate up or down",
+      "size":"50%"}
+  ]
+}

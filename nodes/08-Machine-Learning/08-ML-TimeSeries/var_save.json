@@ -1,0 +1,16 @@
+{
+  "id": "4",
+  "name": "VAR Model Save",
+
+  "description": "This node saves the VAR model generated at the specified path in pickle file.",
+
+  "input": "It takes in a Model and DataFrame as input.",
+  "output": "The incoming dataframe is passed to the output.",
+
+  "engine": "pyspark",
+  "type": "ml-modelsave",
+  "nodeClass": "fire.nodes.ts.NodeVarSave",
+  "fields" : [
+    {"name":"path", "value":"modelsavepath", "widget": "textfield", "title": "Path", "required": true}
+  ]
+}

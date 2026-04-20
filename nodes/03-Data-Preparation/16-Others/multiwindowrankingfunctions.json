@@ -1,0 +1,43 @@
+{
+  "id":"11",
+  "name":"Multi Window Ranking",
+  "description":"",
+  "input":"",
+  "type":"transform",
+  "nodeClass":"fire.nodes.etl.NodeMultiWindowRanking",
+  "fields":[
+    {
+      "name":"windowFunctions",
+      "value":"[]",
+      "widget":"list_array",
+      "optionsArray":[
+        "RANK",
+        "ROW_NUMBER",
+        "DENSE_RANK"
+      ],
+      "title":"WindowFunction",
+      "description":"Window Function Name"
+    },
+    {
+      "name":"partitionByCols",
+      "value":"[]",
+      "widget":"list_textfield",
+      "title":"PartitionBy",
+      "description":"partition column names separated by comma(,) "
+    },
+    {
+      "name":"orderByCols",
+      "value":"[]",
+      "widget":"list_textfield",
+      "title":"OrderBy",
+      "description":"order by column names separated by comma(,)"
+    },
+    {
+      "name":"outPutColumns",
+      "value":"[]",
+      "widget":"list_textfield",
+      "title":"OutputColumn",
+      "description":"Enter output field(column) name"
+    }
+  ]
+}

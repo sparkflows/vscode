@@ -1,0 +1,24 @@
+{
+  "id": "11",
+  "name": "Remove Unwanted Characters",
+  "description": "This node removes unwanted characters from the specified input columns",
+  "input": "It accepts a DataFrame as input from the previous Node", 
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeRemoveUnwantedCharacters",
+  "fields" : [
+    {"name":"inputCols", "value": "[]", "widget": "variables", "title": "Input Columns","datatypes":["string"],
+            "required": true, "description": "Input columns"},
+    
+    {"name": "removeWhitespaces", "value":"false", "widget": "array", "title": "Remove Whitespaces", "optionsArray": ["true","false"],
+            "description": "Removes white space", "datatypes":["boolean"]},
+    {"name": "removeLetters", "value":"false", "widget": "array", "title": "Remove Letters", "optionsArray": ["true","false"],
+            "description": "Removes letters", "datatypes":["boolean"]},
+    {"name": "removeDigits", "value":"false", "widget": "array", "title": "Remove Digits", "optionsArray": ["true","false"],
+            "description": "Removes digits", "datatypes":["boolean"]},
+    {"name": "removeSigns", "value":"false", "widget": "array", "title": "Remove Signs", "optionsArray": ["true","false"],
+            "description": "Removes signs", "datatypes":["boolean"]},
+    {"name": "removeCommas", "value":"false", "widget": "array", "title": "Remove Commas", "optionsArray": ["true","false"],
+      "description": "Removes commas", "datatypes":["boolean"]}
+    
+  ]
+}

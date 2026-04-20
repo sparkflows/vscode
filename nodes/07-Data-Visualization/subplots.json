@@ -1,0 +1,31 @@
+{
+  "id": "3",
+  "name": "Graph Subplots",
+  "type": "transform",
+  "iconImage": "assets/images/icons/node-icon/graph_subplot.svg",
+  "nodeClass": "fire.nodes.graph.NodeGraphSubPlots",
+  "fields" : [
+    {"name":"title", "value":"Graph Subplots", "widget": "textfield", "title": "Title"},
+    {"name":"titleColor", "value":"#2563EB", "widget": "textcolors", "title": "Title Color"},
+    {"name":"description", "value":"", "widget": "textareafield", "title": "Description"},
+    {"name":"descriptionColor", "value":"#6D6E70", "widget": "textcolors", "title": "Description Color"},
+    {"name":"maxValuesToDisplay", "value": "20", "widget": "textfield", "title": "Max Values To Display",
+      "description": "Maximum number of values to display in result.", "required": true},
+
+    {"name":"chartColors", "value":"", "widget": "colors", "title": "Chart Colors"},
+    {"name": "xCols", "value":"[]", "widget": "variables_list_select", "title": "X-Column", "description": "X axis Column","required": true},
+    {"name": "yCols", "value":"[]", "widget": "variables_list_options", "title": "Y-Column", "description": "Y axis Column","required": true},
+
+    {"name": "graphTypes", "value":"[]", "widget": "variables_list_array",
+      "optionsArray": ["LINECHART", "COLUMNCHART", "BARCHART", "PIE", "SCATTERCHART", "DUALLINECHART"],
+      "title": "GraphTypes", "description": "Graph Types", "required": true},
+
+
+    {"name":"xLabels", "value":"[]", "widget": "variables_list_textfield", "title": "X Label", "description": "X axis Label","required": true},
+
+    {"name":"yLabels", "value":"[]", "widget": "variables_list_textfield", "title": "Y Label", "description": "Y axis Label", "required": true},
+    {"name":"chartTitle", "value":"[]", "widget": "variables_list_textfield", "title": "Chart Title"},
+    {"name":"sortByYCol", "value":"[]", "widget": "variables_list_array",  "optionsArray": ["true", "false"],"title": "Sort by Y-Column", "required": false}
+
+  ]
+}

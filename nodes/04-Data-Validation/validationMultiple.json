@@ -1,0 +1,52 @@
+{
+  "id": "6",
+  "name": "Validate Fields Advanced",
+  "description": "Validation Multiple Node",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeValidationMultiple",
+  "outputAnchors": [{"name": "valid","title": "V"},{"name": "invalid","title": "I"}],
+
+  "fields" : [
+
+  {"name": "measureValue", "value":"80.0", "widget": "textfield", "title": "Validation Successful if Percent Good Records >= ", "description": "Condition for Validation Passing"},
+
+    {"name": "inputCols", "value":"[]", "widget": "variables_list_select", "title": "Columns", "description": "Columns"},
+
+
+    {"name": "functions1", "value":"[]", "widget": "variables_list_array",
+      "optionsArray": ["NONE", "LENGTH_LESS_THAN", "LENGTH_EQUALS", "LENGTH_GREATER_THAN",
+        "VALUE_LESS_THAN", "VALUE_EQUALS", "VALUE_GREATER_THAN",
+        "IS_NULL", "IS_NOT_NULL", "IS_VALID_EMAIL_ADDRESS", "IS_VALID_DATE_FORMAT"],
+      "title": "Function", "description": "Validation Function to apply"},
+
+    {"name": "values1", "value":"[]", "widget": "variables_list_textfield", "title": "Values", "description": "Values"},
+
+    {"name": "conditions1", "value":"[]", "widget": "variables_list_array",
+      "optionsArray": ["NONE", "AND", "OR"],
+      "title": "Condition", "description": "Validation Condition to apply"},
+
+
+    {"name": "functions2", "value":"[]", "widget": "variables_list_array",
+      "optionsArray": ["NONE", "LENGTH_LESS_THAN", "LENGTH_EQUALS", "LENGTH_GREATER_THAN",
+        "VALUE_LESS_THAN", "VALUE_EQUALS", "VALUE_GREATER_THAN",
+        "IS_NULL", "IS_NOT_NULL", "IS_VALID_EMAIL_ADDRESS", "IS_VALID_DATE_FORMAT"],
+      "title": "Function", "description": "Validation Function to apply"},
+
+    {"name": "values2", "value":"[]", "widget": "variables_list_textfield", "title": "Values", "description": "Values"},
+
+    {"name": "conditions2", "value":"[]", "widget": "variables_list_array",
+      "optionsArray": ["NONE", "AND", "OR"],
+      "title": "Condition", "description": "Validation Condition to apply"},
+
+
+
+    {"name": "functions3", "value":"[]", "widget": "variables_list_array",
+      "optionsArray": ["NONE", "LENGTH_LESS_THAN", "LENGTH_EQUALS", "LENGTH_GREATER_THAN",
+        "VALUE_LESS_THAN", "VALUE_EQUALS", "VALUE_GREATER_THAN",
+        "IS_NULL", "IS_NOT_NULL", "IS_VALID_EMAIL_ADDRESS", "IS_VALID_DATE_FORMAT"],
+      "title": "Function", "description": "Validation Function to apply"},
+
+    {"name": "values3", "value":"[]", "widget": "variables_list_textfield", "title": "Values", "description": "Values"}
+
+  ]
+}

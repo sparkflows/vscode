@@ -1,0 +1,19 @@
+{
+  "id": "4",
+  "name": "Split",
+  
+  "description": "This node splits the incoming DataFrame into 2. It takes in the fraction to use in splitting the data. For example, if the fraction is .7, it would split the data into 2 DataFrames, one containing 70% of the rows(passed from lower edge id to next node) and the other containing the remaining 30%(passed from higher edge id to next node).",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/split_column.svg",
+  "input": "It takes in a DataFrame as input",
+  "output": "The input DataFrame is split into 2 DataFrames and output",
+
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.ml.NodeSplit",
+  "outputAnchors": [{"name": "First","title": "F"},{"name": "Second","title": "S"}],
+  "fields" : [
+    {"name":"fraction1", "value":".8", "required":true, "widget": "textfield", "dataType": "double", "title": "Fraction 1",
+      "description": "Fraction to be used for Splitting the DataFrame into two. The first DataFrame would go to the lower edge output. The other would go to the higher edge output."},
+    {"name": "seed", "value":"", "widget": "textfield", "title": "Seed", "description": "Random number for Reproducibility", "datatypes":["Long"]}
+  ]
+}

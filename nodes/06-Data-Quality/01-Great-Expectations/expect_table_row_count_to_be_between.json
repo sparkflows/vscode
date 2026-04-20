@@ -1,0 +1,16 @@
+{
+  "id": "7",
+  "name": "ExpectTableRowCountToBeBetween",
+  "description": "",
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.ge.NodeExpectTableRowCountToBeBetween",
+  "fields" : [
+
+    {"name": "min", "value":"[]", "widget": "key_array",
+      "title": "Min Count", "description": ""},
+
+    {"name": "max", "value":"[]", "widget": "value_array",
+      "title": "Max Count", "description": ""}
+  ]
+}

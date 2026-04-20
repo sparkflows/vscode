@@ -1,0 +1,16 @@
+{
+  "id": "7",
+  "name": "HasDataSize",
+  "type": "transform",
+  "description": "Check the size of the dataset.",
+  "nodeClass": "fire.nodes.quality.NodeCheckHasDataSize",
+  "fields" : [
+  {"name": "inputCols", "value":"[]", "widget": "variables_list_select", "title": "Column Name", "description": "The column name."},
+    {"name": "checkTypes", "value":"[]", "widget": "variables_list_array", "title": "CheckTypes", "description": "",
+      "optionsArray": ["Greater than","Less than","Equals to"]},
+
+    {"name": "values", "value": "[]", "widget": "variables_list_textfield", "title": "Values", "description": ""},
+    {"name": "weightage", "value":"1", "widget": "textfield","title": "Weightage", "description": " Weightage"}
+
+  ]
+}

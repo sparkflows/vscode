@@ -1,0 +1,12 @@
+{
+"id": "11",
+"name": "Extract Probabilities",
+"description": "",
+"input": "",
+"output": "",
+"type": "transform",
+"nodeClass": "fire.nodes.h2o.NodeExtractProbabilities",
+"fields" : [
+  {"name":"probabilityCols", "value": "prob_0,prob_1", "widget": "textfield", "title": "Probability Column Names", "required": true, "description": "Output Probability Column Names.eg:prob_0,prob_1,prob_2...."}
+]
+}

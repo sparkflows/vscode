@@ -1,0 +1,53 @@
+{
+  "id": "11",
+  "name": "Read Excel Advanced",
+  "iconImage": "assets/images/icons/node-icon/excel.svg",
+  "description": "Advanced Excel Reader Node – Load one or more sheets, named ranges, or specific cell ranges from .xlsx/.xls files with full control over headers, data types, and metadata columns. Perfect for business reports, financial models, and mixed-format Excel sources.",
+  "input": "Reads data from Excel files (.xlsx, .xls) with support for sheets, ranges, and custom schemas.",
+  "output": "Returns a DataFrame containing the Excel data with proper column names and types.",
+  "hint": "Infer the schema when a new file/sheet is selected or the content has changed",
+  "type": "dataset",
+  "engine": "scala,polars",
+  "nodeClass": "fire.nodes.dataset.NodeDatasetExcelAdvanced",
+  "fields": [
+    { "name": "path", "display": true, "value": "", "widget": "textfield", "title": "Path", "description": "Full path to the Excel file or folder. Supports local paths, HDFS, S3, GCS, Azure, etc. Example: /data/sales.xlsx or s3a://my-bucket/reports/", "size":"100%" },
+    { "name": "boxConnection", "display": false, "value": "", "widget": "boxDropdown", "title": "Box Connection" },
+    { "name": "accessToken", "display": false, "value": "", "widget": "textfield", "title": "Access Token" },
+    { "name": "recdirectorysearch", "value": "false", "widget": "array", "title": "Read subdirectory recursively", "optionsArray": ["true","false"], "description": "If the path is a directory, recursively scan all subfolders for Excel files. Useful when processing many files at once.", "size":"50.0%" },
+    { "name": "readAllSheets", "value": "false", "widget": "array", "title": "Read All Sheets", "optionsArray": ["true","false"], "description": "Automatically read every sheet in the workbook and union them into one DataFrame. Great for files where each sheet has the same structure (e.g., monthly tabs).", "size":"50.0%" },
+    { "name": "selectedSheets", "value": "", "widget": "textfield", "title": "Select Sheets", "description": "Comma-separated list of sheet names or indices to import (e.g., Sheet1,Summary,2023 Data or 0,2,5). Leave empty if reading only one sheet or using Read All Sheets.", "wdgtCommon":"readAllSheets", "toggle":"false", "size":"100%"},
+    {
+      "name": "dataAddressMode",
+      "value": "FullSheet",
+      "widget": "array_single",
+      "optionsArray": ["FullSheet", "CellRange"],
+      "title": "Data Source Mode",
+      "description": "Choose how to specify which part of the sheet to read:\nFullSheet Read the entire sheet starting from the defined start line (default & fastest)\nCellRange - Import only a specific cell range (e.g., A5:Z1000). Ideal for very large sheets or when you only need a table inside the sheet\nNamedRange - Use a predefined named range from Excel (e.g., SalesData, ReportTable). Most reliable when the table position changes"
+    },
+    { "name": "startLine", "value": "1", "widget": "textfield", "title": "Start Data Import on Line", "description": "Row number (1 = first row) where actual data begins. Useful when Excel files have titles, logos, or blank rows at the top.", "wdgtCommon":"dataAddressMode", "toggle":"FullSheet" },
+    { "name": "range", "value": "", "widget": "textfield", "title": "Range", "description": "Excel-style cell range in A1 notation (e.g., A1:F1000, B5:Z500). Limits reading to only these cells - perfect for very large sheets.", "wdgtCommon":"dataAddressMode", "toggle":"CellRange" },
+    { "name": "header_option", "value": "FIRST_ROW", "widget": "array", "title": "Header Handling Mode", "description": "How to treat headers:\n• NO_HEADER - columns become _c0, _c1, etc.\n• FIRST_ROW - first row at Start Line becomes column names\n• PREVIOUS_ROW - row before Start Line is header\n• CUSTOM_ROW - specify exact header row(s)", "optionsArray": ["NO_HEADER","FIRST_ROW","PREVIOUS_ROW","CUSTOM_ROW"], "size":"50.0%" },
+    { "name": "customHeaderRow", "value": "", "widget": "textfield", "title": "Custom Header Row", "description": "Row number or range (e.g., 5 or 5:7 for multi-row headers) to use as header. Only active when Header Handling Mode = CUSTOM_ROW.", "wdgtCommon":"header_option", "toggle":"CUSTOM_ROW","size":"50.0%" },
+
+    { "name": "importSheetNamesOnly", "value": "false", "widget": "array", "title": "Import Only Sheet Names", "optionsArray": ["true","false"], "description": "Instead of data, output a simple list of all sheet names in the workbook. Ideal for discovery or dynamic sheet selection workflows.", "size":"50.0%", "datatypes": ["boolean"] },
+    { "name": "dropSpecialCharacterInColumnName", "value":"true", "widget": "array", "title": "Drop Special Character In Column Name", "optionsArray": ["true","false"], "description": "Automatically clean column names by replacing spaces, #, *, /, etc. with underscores and removing invalid characters. Recommended for downstream compatibility.", "size":"50.0%" },
+
+
+    { "name": "schema", "value": "", "widget": "tab", "title": "InferSchema"},
+    { "name": "outputFileName", "value": "no", "widget": "array", "title": "Output File Name as Field", "optionsArray": ["no","filename","fullpath"], "description": "Add source file info as a new column:\n• no - nothing added\n• filename - just the file name (e.g., report.xlsx)\n• fullpath - complete path (useful for traceability)", "size":"33.3%" },
+    { "name": "sheetNameDisplay", "value": "false", "widget": "array", "title": "Output Sheet Name as Field", "optionsArray": ["true","false"], "description": "Adds a new column sheet_name containing the source sheet for each row. Essential when reading multiple sheets together.", "size":"33.3%" },
+    { "name": "enforceSchema", "value": "false", "widget": "array", "title": "Enforce Schema", "optionsArray": ["false","true"], "description": "Forcefully apply the defined schema (column names & types). Ignores Excel headers completely and casts all data - use when Excel headers are unreliable or missing.","size":"33.3%" },
+    { "name": "outputColNames", "value": "[]", "widget": "schema_col_names", "title": "Column Names for the Excel", "description": "Explicitly define output column names. Overrides any header from Excel. Leave empty to use Excel headers (or auto-generated names)." },
+    { "name": "outputColTypes", "value": "[]", "widget": "schema_col_types", "title": "Column Types for the Excel", "description": "Force column data types (String, Integer, Long, Double, Boolean, Date, Timestamp). Critical for correct calculations and joins." },
+    { "name": "outputColFormats", "value": "[]", "widget": "schema_col_formats", "title": "Column Formats for the Excel", "description": "Date/timestamp format patterns (e.g., yyyy-MM-dd, dd/MM/yyyy HH:mm:ss). Only needed when Excel stores dates as text or custom formats." },
+
+    { "name": "interactiveRunConfiguration", "value": "", "widget": "tab", "title": "Interactive Run Configuration"},
+    {"name":"limitInputRecords", "value":"20", "widget": "numberfield", "title": "Limit Input Records","description":"Maximum rows to preview in interactive/design mode (default 20). Does not affect batch execution.", "min":"1", "step":"1", "max":"1000",
+      "size": "10.0%"},
+     {"name": "dataSampling", "value": "Random", "widget": "array_single", "optionsArray": ["Random", "Selective"], "title": "Data Sampling", "description": "How to sample data in interactive mode:\n• Random - picks random rows\n• Selective - use a filter expression to choose exactly which rows to preview"},
+    {"name":"selectiveSamplingExpression", "value":"", "widget": "textfield", "title": "Selective Filter Expression",
+      "description":"filter condition to pull specific rows in interactive mode (e.g., \"Region = 'North' AND Year = 2024\"). Only active when Data Sampling = Selective.", "wdgtCommon":"dataSampling", "toggle":"Selective",
+      "placeholder": "add the filter condition."
+    }
+  ]
+}

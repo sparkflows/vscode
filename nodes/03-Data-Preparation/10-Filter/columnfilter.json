@@ -1,0 +1,15 @@
+{
+  "id": "11",
+  "name": "Select Columns",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/select.svg",
+  "description": "This node creates a new DataFrame that contains only the selected columns",
+  "input": "This type of node takes in a DataFrame and transforms it to another DataFrame.",
+  "output": "This node filters the specified columns from the incoming DataFrame",
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.etl.NodeColumnFilter",
+  "fields" : [
+    {"name":"outputCols", "value": "[]", "widget": "variables", "title": "Columns",
+      "description": "Columns to be included in the output DataFrame", "required": true}
+  ]
+}

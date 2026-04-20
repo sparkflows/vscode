@@ -1,0 +1,18 @@
+{
+  "id": "7",
+  "name": "Tokenizer",
+  "description":"A tokenizer that converts the input string to lowercase and then splits it by white spaces.",
+
+  "input": "It takes in a DataFrame and transforms it to another DataFrame",
+  "output": "It adds a new column containing the results of tokenization of the input column, to the incoming DataFrame.",
+
+  "type": "ml-transformer",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.ml.NodeTokenizer",
+  "fields" : [
+    {"name":"inputCol", "value":"", "widget": "variable", "title": "Input Column",
+     "description": "Column containing text (such as sentence)", "datatypes":["string"] ,"required":"true"
+    },
+    {"name":"outputCol", "value":"tok", "widget": "textfield", "title": "Output Column", "required":"true", "description": "Output column name"}
+  ]
+}

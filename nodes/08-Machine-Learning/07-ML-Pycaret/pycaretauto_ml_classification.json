@@ -1,0 +1,79 @@
+{
+  "id": "5",
+  "name": "PyCaret AutoML Classification",
+  "description": "",
+  "input" : "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "transform",
+
+  "nodeClass": "fire.nodes.pycaret.NodePyCaretAutoMLClassification",
+  "fields" : [
+    {"name": "response_column", "value":"", "widget": "variable", "title": "Target Column", "description": "The label column for model fitting", "required": true},
+
+    {"name": "include_algos", "value":"", "widget": "textfield", "title": "Include Algos", "description": "This is the list of Algorithms to be used for training. By default all algos will be selected, 'lr','knn','nb','dt','svm','rbfsvm','gpc','mlp','ridge', 'rf', 'qda','ada', 'gbc' ,'lda','et' ,'xgboost','lightgbm','catboost'"},
+
+    {"name": "train_size","value":1, "widget": "textfield", "title": "Train size", "description":  "Percent of data to be used for training. The rest of the data will be used for validation of the model built."},
+
+    {"name": "top_n_model", "value":3, "widget": "textfield", "title": "Top N Models", "description": "Number of Top N models to select to show on leaderboard.", "datatypes":["integer"]},
+
+    {"name": "imputation_type", "value":"simple", "widget": "array","optionsArray": ["simple", "iterative"], "title": "Imputation Type", "description": "The type of imputation to use. Can be either 'simple' or 'iterative'."},
+
+    {"name": "iterative_imputation_iters", "value":5, "widget": "textfield", "title": "Iterative Imputation Iters", "description": "Number of iterations. Ignored when imputation_type is not ``iterative``.", "datatypes":["integer"]},
+
+    {"name": "categorical_features", "value":"[]", "widget": "variables", "title": "Categorical Features", "description": "It takes a list of strings with column names that are categorical."},
+
+    {"name": "categorical_imputation", "value":"constant", "widget": "array","optionsArray": ["constant", "mode"], "title": "Categorical Imputation", "description": "Missing values in categorical features are imputed with a constant ``not available`` value. The other available option is ``mode``."},
+
+    {"name": "categorical_iterative_imputer", "value":"lightgbm", "widget": "array","optionsArray": ["lightgbm"], "title": "Categorical Iterative Imputer", "description": "Estimator for iterative imputation of missing values in categorical features."},
+
+    {"name": "high_cardinality_features", "value":"[]", "widget": "variables", "title": "High Cardinality Features", "description": "When categorical features contains many levels, it can be compressed into fewer levels using this parameter. It takes a list of strings with column names that are categorical."},
+
+    {"name": "high_cardinality_method", "value":"frequency", "widget": "array", "optionsArray": ["frequency", "clustering"], "title": "High Cardinality Method", "description": "Categorical features with high cardinality are replaced with the frequency ofvalues in each level occurring in the training dataset. Other available method is clustering which trains the K-Means clustering algorithm on the statistical attribute of the training data and replaces the original value of feature with the cluster label"},
+
+    {"name": "numeric_features", "value":"[]", "widget": "variables", "title": "Numeric Features", "description": "If the inferred data types are not correct or the silent param is set to True, ``numeric features`` param can be used to overwrite or define the data types."},
+
+    {"name": "numeric_imputation", "value":"mean", "widget": "array","optionsArray": ["mean", "median", "zero"], "title": "Numeric Imputation", "description": "Missing values in numeric features are imputed with 'mean' value of the feature in the training dataset. The other available option is 'median' or 'zero'."},
+
+    {"name": "numeric_iterative_imputer", "value":"lightgbm", "widget": "array","optionsArray": ["lightgbm"], "title": "Numeric Iterative Imputer", "description": "Estimator for iterative imputation of missing values in numeric features."},
+
+    {"name": "date_features", "value":"[]", "widget": "variables", "title": "Date Features", "description": "If the inferred data types are not correct or the silent param is set to True, ``date features`` param can be used to overwrite or define the data types. It takes a list of strings with column names that are DateTime."},
+
+    {"name": "ignore_features", "value":"[]", "widget": "variables", "title": "Ignore Features", "description": "This param can be used to ignore features features during model training. It takes a list of strings with column names that are to be ignored."},
+
+    {"name": "normalize", "value":false, "widget": "array","optionsArray": [false,true], "title": "Normalize", "description": "When set to True, it transforms the numeric features by scaling them to a given range."},
+
+    {"name": "normalize_method", "value":"zscore", "widget": "array","optionsArray": ["zscore", "minmax", "maxabs", "robust"], "title": "Normalize Method", "description": "Defines the method for scaling."},
+
+    {"name": "transformation", "value":false, "widget": "array","optionsArray": [false,true], "title": "Transformation", "description": "When set to True, it transforms the numeric features by scaling them to a given range."},
+
+    {"name": "transformation_method", "value":"yeo-johnson", "widget": "array","optionsArray": ["yeo-johnson", "quantile"], "title": "Transformation Method", "description": "Defines the method for transformation."},
+
+    {"name": "handle_unknown_categorical", "value":true, "widget": "array","optionsArray": [false,true], "title": "Handle Unknown Categorical", "description": "When set to True, unknown categorical levels in unseen data are replaced by the most or least frequent level as learned in the training dataset. "},
+
+    {"name": "unknown_categorical_method", "value":"least_frequent", "widget": "array","optionsArray": ["least_frequent", "most_frequent"], "title": "Unknown Categorical Method", "description": "Method used to replace unknown categorical levels in unseen data."},
+
+    {"name": "pca", "value":false, "widget": "array","optionsArray": [false,true], "title": "PCA", "description": "When set to True, dimensionality reduction is applied to project the data into a lower dimensional space using the method defined in ``pca method`` parameter."},
+
+    {"name": "pca_method", "value":"linear", "widget": "array","optionsArray": ["linear", "kernel", "incremental"], "title": "PCA Method", "description": "Method used to replace unknown categorical levels in unseen data."},
+
+    {"name": "ignore_low_variance", "value":false, "widget": "array","optionsArray": [false,true], "title": "Ignore Low Variance", "description": "When set to True, all categorical features with insignificant variances are removed from the data."},
+
+    {"name": "combine_rare_levels", "value":false, "widget": "array","optionsArray": [false,true], "title": "Combine Rare Levels", "description": "When set to True, frequency percentile for levels in categorical features below a certain threshold is combined into a single level."},
+
+    {"name": "rare_level_threshold", "value":0.1, "widget": "textfield", "title": "Rare Level Threshold", "description": "Percentile distribution below which rare categories are combined. Ignored when ``combine rare levels`` is not True."},
+
+    {"name": "remove_outliers", "value":false, "widget": "array","optionsArray": [false,true], "title": "Remove Outliers", "description": "When set to True, outliers from the training data are removed using the Singular Value Decomposition."},
+
+    {"name": "outliers_threshold", "value":0.05, "widget": "textfield", "title": "Outliers Threshold", "description": "The percentage outliers to be removed from the training dataset. Ignored when  ``remove outliers`` is not True."},
+
+    {"name": "remove_multicollinearity", "value":false, "widget": "array","optionsArray": [false,true], "title": "Remove Multicollinearity", "description": "When set to True, features with the inter-correlations higher than the defined threshold are removed. When two features are highly correlated with each other,  the feature that is less correlated with the target variable is removed. Only considers numeric features."},
+
+    {"name": "multicollinearity_threshold", "value":0.9, "widget": "textfield", "title": "Multicollinearity Threshold", "description": "Threshold for correlated features. Ignored when ``remove multicollinearity`` is not True." },
+
+    {"name": "remove_perfect_collinearity", "value":false, "widget": "array","optionsArray": [false,true], "title": "Remove Perfect Collinearity", "description": "When set to True, perfect collinearity (features with correlation = 1) is removed from the dataset, when two features are 100% correlated, one of it is randomly removed from the dataset."},
+
+    {"name": "path", "value":"", "widget": "textfield", "required":"true","title": "Path", "description": "Model Save Path."}
+
+  ]
+}

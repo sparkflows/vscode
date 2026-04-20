@@ -1,0 +1,23 @@
+{
+  "id": "6",
+  "name": "Expressions",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/expression.svg",
+  "description": "The most powerful and intuitive column calculator - add unlimited new columns using full Spark SQL expressions. Perfect for feature engineering, business logic, cleaning, formatting, date manipulation, and creating report-ready fields without writing code.",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeExpressions",
+  "engine": "scala,pyspark,polars",
+  "fields" : [
+    {"name": "Expressions", "value":"", "widget": "tab", "title": "Expressions"},
+    {"name": "outputCols", "value":"[]", "widget": "key_array",
+      "title": "Column Name", "description": "Name of the new column you want to create (e.g., Revenue_Net, FullName, IsHighValue, OrderMonth).", "header":"Expressions", "type": "sparksql"},
+    {"name": "expressions", "value":"[]", "widget": "value_array",
+      "title": "Expression", "description": "Full Spark SQL expression to compute the column value. Supports 400+ functions: math, string, date, conditional, regex, JSON, arrays, etc.\n\nQuick Examples:\n• amount * quantity\n• concat(first_name, ' ', last_name)\n• date_format(order_date, 'yyyy-MM')\n• when(amount > 10000, 'VIP').otherwise('Regular')\n• coalesce(email, phone, 'unknown')", "type": "sparksql"},
+    {"name": "propagation", "value":"", "widget": "tab", "title": "ColumnPropagation"},
+    {"name":"inputColumnPropagation", "value":"true", "widget": "array_single", "title": "Input Column Propagation", "optionsArray": ["true","false"],
+      "description": "When true (default) To all original columns are automatically kept + your new ones. Set to false if you want only the newly created columns."},
+    {"name": "outputSchema", "value":"", "widget": "tab", "title": "InferSchema"},
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Output Column Name", "description": "Force exact output column names (useful with propagation = false)"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Output Column Type", "description": "Force data types for new columns"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Output Column Format", "description": "Display formats (dates, numbers)"}
+  ]
+}

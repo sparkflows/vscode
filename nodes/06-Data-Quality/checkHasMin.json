@@ -1,0 +1,12 @@
+{
+  "id": "2",
+  "name": "HasMin",
+  "description": "Check for min value in selected column.",
+  "type": "transform",
+  "nodeClass": "fire.nodes.quality.NodeCheckHasMin",
+  "fields" : [
+    {"name": "inputCols", "value":"[]", "widget": "variables_list_select", "title": "Column Name", "description": "The column name.","datatypes":["integer", "long", "double", "float"]},
+    {"name": "values", "value":"[]", "widget": "variables_list_textfield","title": "Values", "description": "A set of objects separated by spaces used for comparison.."},
+    {"name": "weightage", "value":"1", "widget": "textfield","title": "Weightage", "description": " Weightage"}
+  ]
+}

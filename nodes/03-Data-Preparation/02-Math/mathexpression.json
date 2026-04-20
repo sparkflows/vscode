@@ -1,0 +1,18 @@
+{
+  "id": "7",
+  "name": "Math Expression",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/expression.svg",
+  "description": "Creates new columns using the specified expressions",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeMathExpression",
+  "engine": "scala,pyspark",
+  "fields" : [
+  
+   {"name": "outputCols", "value":"[]", "widget": "key_array",
+      "title": "Output Column", "description": "Output Column Name", "type": "sparksql"},
+
+    {"name": "expressions", "value":"[]", "widget": "value_array",
+      "title": "Math Expression", "description": "Define math expression.", "type": "sparksql"}
+
+  ]
+}

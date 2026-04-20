@@ -1,0 +1,31 @@
+{
+  "id": "11",
+  "name": "Read JSON",
+  "iconImage": "assets/images/icons/node-icon/JSON.svg",
+  "description": "Dataset Node for Reading JSON Files",
+  "type": "dataset",
+  "engine": "scala,pyspark,polars",
+  "nodeClass": "fire.nodes.dataset.NodeDatasetJSON",
+  "fields" : [
+    {"name":"path", "display": true, "value":"", "required":true, "widget": "textfield", "title": "Path", "description": "Path of the JSON file/directory"},
+
+    {"name":"multiLine", "value":"false", "widget": "array", "title": "Multi Line", "optionsArray": ["false","true"], "description": "", "size": "50%"},
+
+    {"name": "addInputFileName", "value":"false", "widget": "array", "title": "Add Input File Name", "optionsArray": ["false","true"],
+      "description": "Add the new field:input_file_name", "size": "50%"},
+
+    {"name": "schema", "value": "", "widget": "tab", "title": "InferSchema"},
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Name", "description": "New Output Column Name"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Type", "description": "Data Type of the Output Column"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Format", "description": "Format of the Output Column"},
+
+    { "name": "interactiveRunConfiguration", "value": "", "widget": "tab", "title": "Interactive Run Configuration"},
+    {"name":"limitInputRecords", "value":"20", "widget": "numberfield", "title": "Limit Input Records","description":"Maximum rows to preview in interactive/design mode (default 20). Does not affect batch execution.", "min":"1", "step":"1", "max":"1000",
+      "size": "10.0%"},
+     {"name": "dataSampling", "value": "Random", "widget": "array_single", "optionsArray": ["Random", "Selective"], "title": "Data Sampling", "description": "How to sample data in interactive mode:\n• Random - picks random rows\n• Selective - use a filter expression to choose exactly which rows to preview"},
+    {"name":"selectiveSamplingExpression", "value":"", "widget": "textfield", "title": "Selective Filter Expression",
+      "description":"filter condition to pull specific rows in interactive mode (e.g., \"Region = 'North' AND Year = 2024\"). Only active when Data Sampling = Selective.", "wdgtCommon":"dataSampling", "toggle":"Selective",
+      "placeholder": "add the filter condition."}
+
+     ]
+}

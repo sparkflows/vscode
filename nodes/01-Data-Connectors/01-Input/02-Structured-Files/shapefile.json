@@ -1,0 +1,15 @@
+{
+  "id": "11",
+  "name": "Read Shape File",
+
+  "description": "It reads in Shape files and creates a DataFrame from it",
+  "input": "It reads in Shape Files",
+  "output": "It creates a DataFrame from the data read and sends it to its output",
+
+  "type": "dataset",
+  "nodeClass": "fire.nodes.dataset.NodeDatasetShapeFile",
+  "fields" : [
+    {"name":"path", "display":true,"value":"", "widget": "textfield", "title": "Path", "description": "Path of the input directory"}
+
+  ]
+}

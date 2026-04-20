@@ -1,0 +1,31 @@
+{
+  "id": "5",
+  "name": "Spark Predict",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/pyspark.svg",
+  "description": "Predict node takes in a DataFrame and Model and makes predictions",
+
+  "input": "It takes in a DataFrame and Model as input",
+  "output": "A new column containing the predictions is added to the input DataFrame",
+  "engine": "scala,pyspark",
+  "type": "ml-predict",
+  "inputAnchors": [{"name": "Data","title": "D"},{"name": "Model","title": "M"}],
+  "nodeClass": "fire.nodes.ml.NodePredict",
+  "fields" : [
+
+
+    {"name": "enablePredictionOverTimeMetrics", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"],
+      "title": "Enable Prediction Over Time Metrics", "description": "enable "},
+    {
+      "name": "useChampion",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": ["true", "false"],
+      "title": "Use Champion Model",
+      "description": "Uses Champion Model For Prediction."
+    },
+    {"name":"model_uuid", "display": true, "value":"", "widget": "textfield", "title": "Model UUID", "description": "Enter the model uuid","wdgtCommon": "useChampion", "toggle": "false"},
+
+    {"name":"modelCategory",  "value":"", "widget": "array","optionsArray": ["Regression", "Classification", "Clustering"], "title": "Model Category",
+      "description":"Select the category", "wdgtCommon":"enablePredictionOverTimeMetrics", "toggle":"true"}
+  ]
+}

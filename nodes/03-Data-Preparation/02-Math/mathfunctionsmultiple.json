@@ -1,0 +1,25 @@
+{
+  "id": "6",
+  "name": "Math Functions",
+  "description": "Create new columns or replaces the existing ones by using the specified function",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeMathFunctionsMultiple",
+  "engine": "scala,pyspark",
+  "fields" : [
+
+    {"name": "inputCols", "value":"[]", "widget": "variables_list_select", "title": "Columns", "datatypes":["double", "integer", "float", "long"],
+      "description": "Columns", "required": true},
+
+    {"name": "functions", "value":"[]", "widget": "variables_list_array",
+      "optionsArray": ["log", "sqrt", "pow", "exp", "round", "abs"],
+      "title": "Function", "description": "Math Function to apply", "required": true},
+
+    {"name": "replaceExistingCols", "value":"[]", "widget": "variables_list_array",
+     "optionsArray": ["true", "false"], "title": "Replace Existing Cols", 
+     "description": "Replace Existing Columns (true, false)", "required": true},
+
+    {"name": "scales", "value":"[]", "widget": "variables_list_textfield",
+      "title": "Scale", "description": "Scale to be used when applying the Math Function"}
+
+  ]
+}

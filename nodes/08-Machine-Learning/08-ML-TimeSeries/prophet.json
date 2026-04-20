@@ -1,0 +1,54 @@
+{
+  "id": "5",
+  "name": "Prophet",
+  "description": "",
+  "input" : "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "ml-estimator",
+
+  "nodeClass": "fire.nodes.ts.NodeProphet",
+  "fields" : [
+
+    {"name":"ds", "value": "", "widget": "variable", "title": "DS Column", "description": "Date or DateTime variable"},
+
+    {"name":"y", "value": "", "widget": "variable", "title": "Y", "description": "Target Variable"},
+
+    {"name": "growth", "value":"linear", "widget": "array", "title": "Growth", "optionsArray": ["linear","logistic"], "description": "linear or logistic to specify a linear or logistic trend"},
+
+    {"name": "yearly_seasonality", "value":"auto", "widget": "array", "title": "Yearly Seasonality", "optionsArray": ["auto","false","true"], "description": "Fit yearly seasonality."},
+
+    {"name": "weekly_seasonality", "value":"auto", "widget": "array", "title": "Weekly Seasonality", "optionsArray": ["auto","false","true"], "description": "Fit weekly seasonality."},
+
+    {"name": "daily_seasonality", "value":"auto", "widget": "array", "title": "Daily Seasonality", "optionsArray": ["auto","false","true"], "description": "Fit daily seasonality."},
+
+    {"name": "seasonality_mode", "value":"additive", "widget": "array", "title": "Seasonality Mode", "optionsArray": ["additive","multiplicative"], "description": "additive(default) or multiplicative"},
+
+    {"name": "interval_width", "value":"0.95", "widget": "textfield", "title": "Interval Width", "description": "Float, width of the uncertainty intervals provided for the forecast"},
+
+
+    {"name": "changepoints", "value":"", "widget": "textfield", "title": "Changepoints", "description": "List of dates at which to include potential changepoints. If not specified, potential changepoints are selected automatically."},
+
+    {"name": "changepoints_format", "value":"", "widget": "textfield", "title": "Changepoints Format", "description": "datetime format for the comma seperated Changepoint specified."},
+
+    {"name": "n_changepoints", "value":25, "widget": "textfield", "title": "N Changepoints", "description": "Number of potential changepoints to include. Not used if input `changepoints` is supplied. If `changepoints` is not supplied, then n_changepoints potential changepoints are selected uniformly from the first `changepoint_range` proportion of the history."},
+
+    {"name": "changepoint_range", "value":0.8, "widget": "textfield", "title": "Changepoint Range", "description": "Proportion of history in which trend changepoints will be estimated. Defaults to 0.8 for the first 80%. Not used if `changepoints` is specified."},
+
+    {"name": "seasonality_prior_scale", "value":10.0, "widget": "textfield", "title": "Seasonality Prior Scale", "description": "Parameter modulating the strength of the seasonality model. Larger values allow the model to fit larger seasonal fluctuations, smaller values dampen the seasonality."},
+
+    {"name": "holidays_prior_scale", "value":10.0, "widget": "textfield", "title": "Holidays Prior Scale", "description": "Parameter modulating the strength of the holiday components model, unless overridden in the holidays input. changepoint_prior_scale: Parameter modulating the flexibility of the automatic changepoint selection. Large values will allow many changepoints, small values will allow few changepoints."},
+
+    {"name": "changepoint_prior_scale", "value":0.05, "widget": "textfield", "title": "Changepoint Prior Scale", "description": "Parameter modulating the flexibility of the automatic changepoint selection. Large values will allow many changepoints, small values will allow few changepoints."},
+
+    {"name": "mcmc_samples", "value":0, "widget": "textfield", "title": "mcmc samples", "description": "Integer, if greater than 0, will do full Bayesian inference with the specified number of MCMC samples. If 0, will do MAP estimation."},
+
+    {"name": "uncertainty_samples", "value":1000, "widget": "textfield", "title": "Uncertainty Samples", "description": "Number of simulated draws used to estimate uncertainty intervals. Settings this value to 0 or False will disable uncertainty estimation and speed up the calculation."},
+
+    {"name": "custom_seasonality", "value":"", "widget": "textfield", "title": "Custom Seasonality", "description": "Add a seasonal component with specified period, number of Fourier components, and prior scale. Input will be of form name=monthly,period=30.5,fourier_order=5,prior_scale=0.9(optional),mode=additive(optional)."},
+
+    {"name": "regressor", "value":"", "widget": "textfield", "title": "Regressor", "description": "Add an additional regressor to be used for fitting and predicting. Input will be of form name=column_name1,prior_scale=30.5(optional),standardize=auto(optional),mode=additive(optional):name=column_name2,prior_scale=40.5(optional),standardize=auto(optional),mode=additive(optional)"},
+
+    {"name": "country_holidays", "value":"", "widget": "textfield", "title": "Country Holidays", "description": "Built-in country holidays can only be set for a single country. Takes country as input like US"}
+  ]
+}

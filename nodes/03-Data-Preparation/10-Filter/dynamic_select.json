@@ -1,0 +1,47 @@
+{
+  "id": "120",
+  "name": "Dynamic Select",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/select.svg",
+  "description": "Dynamically select or de-select columns using Spark expressions or column metadata.",
+  "input": "Takes a DataFrame as input.",
+  "output": "DataFrame with dynamically selected columns.",
+  "type": "transform",
+  "engine": "scala,pyspark,polars",
+  "nodeClass": "fire.nodes.etl.NodeDynamicSelect",
+  "fields": [
+
+    { "name": "general", "widget": "tab", "title": "General" },
+
+    {
+      "name": "selectionMode", "value": "expression", "widget": "array_single", "optionsArray": ["expression", "field_type"], "title": "Selection Mode", "description": "Choose how columns are selected"
+    },
+    {
+      "name": "fieldTypes", "value": "[]", "widget": "array_multiple", "optionsArray": [
+        "string",
+        "integer",
+        "long",
+        "double",
+        "decimal",
+        "date",
+        "timestamp",
+        "boolean",
+        "binary",
+        "spatial"
+      ], "title": "Select Field Types", "description": "Select all columns matching the chosen data types", "wdgtCommon": "selectionMode", "toggle": "field_type"
+    },
+    {
+      "name": "selectExpression", "value": "", "widget": "code_editor", "type": "sparksql", "title": "Column Selection Expression", "description": "Spark expression evaluated per column. Use column_name, column_type, column_number.", "wdgtCommon": "selectionMode", "toggle": "expression"
+    },
+
+    { "name": "options", "widget": "tab", "title": "Options" },
+
+    {
+      "name": "invertSelection", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Invert Selection", "description": "Exclude matched columns instead of selecting them"
+    },
+
+    {
+      "name": "preserveOrder", "value": "true", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Preserve Input Column Order", "description": "Maintain original column order in output"
+    }
+
+  ]
+}

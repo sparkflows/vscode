@@ -1,0 +1,12 @@
+{
+  "id": "11",
+  "name": "Prophet Predict",
+  "description": "",
+  "input": "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "ml-predict",
+  "nodeClass": "fire.nodes.ts.NodeProphetPredict",
+  "fields" : [
+  ]
+}

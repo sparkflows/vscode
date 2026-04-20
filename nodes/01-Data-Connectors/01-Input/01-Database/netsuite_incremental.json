@@ -1,0 +1,22 @@
+{
+  "id": "13",
+  "name": "Netsuite AutoIncrement",
+  "engine": "pyspark",
+  "description": "This node reads incremental data from Oracle Netsuite using token based authentication and creates a DataFrame from it",
+  "input": "It reads incremental data from Oracle Netsuite",
+  "output": "It creates a DataFrame from the data read and sends it to its output",
+
+  "type": "dataset",
+  "nodeClass": "fire.nodes.netsuite.ReadIncrementalNetSuite",
+  "fields" : [
+    {"name":"connection", "value":"", "widget": "object_array", "title": "Connection", "description": "The JDBC connection to connect" ,"required":"true"},
+    {"name":"tableName", "value":"", "widget": "textfield", "title": "Record Type", "description": "Filtering data based on record type" ,"required":"false"},
+    {"name":"keyColumn", "value":"", "widget": "textfield", "title": "KeyColumn", "description": "Key column used in incremental data extract" ,"required":"false"},
+
+    {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names of the Table", "description": "Output Columns Names of the Table"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types of the Table", "description": "Output Column Types of the Table"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats", "description": "Output Column Formats"}
+
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "4",
+  "name": "Split By Multiple Expressions",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/split_by_expression.svg",
+  "description" : "Splits the incoming DataFrame into multiple output DataFrames by applying the conditional logic",
+  "input" : "It accepts a DataFrame as input from the previous Node", 
+  "type": "transform",
+  "outputAnchors": [{"name": "First","title": "O1"},{"name": "Second","title": "O2"},{"name": "Third","title": "O3"},{"name": "Fourth","title": "O4"},{"name": "Fifth","title": "O5"}],
+
+  "nodeClass": "fire.nodes.etl.NodeSplitByMultipleExpressions",
+  "fields" : [
+    {"name":"conditionExpr1", "value":"", "widget": "textfield", "title": "Conditional Expression 1 to split the Data on",
+      "description": "Conditional Expression 1 to be used for Splitting the Dataset", "expandable":true},
+
+    {"name":"conditionExpr2", "value":"", "widget": "textfield", "title": "Conditional Expression 2 to split the Data on",
+      "description": "Conditional Expression 2 to be used for Splitting the Dataset", "expandable":true},
+
+    {"name":"conditionExpr3", "value":"", "widget": "textfield", "title": "Conditional Expression 3 to split the Data on",
+      "description": "Conditional Expression 3 to be used for Splitting the Dataset", "expandable":true},
+
+    {"name":"conditionExpr4", "value":"", "widget": "textfield", "title": "Conditional Expression 4 to split the Data on",
+      "description": "Conditional Expression 4 to be used for Splitting the Dataset", "expandable":true},
+
+    {"name":"conditionExpr5", "value":"", "widget": "textfield", "title": "Conditional Expression 5 to split the Data on",
+      "description": "Conditional Expression 5 to be used for Splitting the Dataset", "expandable":true}
+  ]
+}

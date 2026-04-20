@@ -1,0 +1,21 @@
+{
+  "id": "11",
+  "name": "Text Case Transformer",
+  "description": "This node converts the text of the selected column to upper or lower case",
+   "input": "It accepts a DataFrame as input from the previous Node", 
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.etl.NodeTextCaseTransformer",
+  "fields" : [
+
+    {"name":"inputCol", "value": "", "widget": "variable", "title": "Input Column Name", "datatypes":["string"],
+      "description": "input column name"},
+    {"name":"mode", "value":"upper", "widget": "array",
+        "optionsArray": ["upper", "lower"], "title": "Text Case Type",
+      "description": "Whether to convert the selected column to upper or lower case"},
+
+    {"name":"outputCol", "value": "", "widget": "textfield", "title": "Output Column", "description": "Output Column"}
+
+
+  ]
+}

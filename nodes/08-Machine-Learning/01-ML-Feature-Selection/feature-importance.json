@@ -1,0 +1,22 @@
+{
+  "id": "5",
+  "name": "Feature Selection With Importance",
+  "description": "",
+  "input" : "",
+  "output": "Pass the input DataFrame to output and in table format feature importance is displayed.",
+  "type": "transform",
+
+  "nodeClass": "fire.nodes.featureselection.NodeFeatureSelectionWithImportance",
+  "fields" : [
+
+    {"name":"targetCol", "value": "", "widget": "variable", "title": "TargetCol", "description": "Target column to be used when selecting the features", "required": true},
+
+    {"name": "featureCols", "value":"[]", "widget": "variables", "title": "Feature Columns", "description": "The list of columns for which to calculate the feature importance", "required": true, "datatypes":["integer", "long", "double", "float", "vectorudt"]},
+
+    {"name":"mlType", "value":"Regression", "widget": "array",
+    "optionsArray": ["Regression", "Classification"], "title": "MLType",
+    "description": "target column type, Regression or Classification", "required": true}
+
+
+  ]
+}

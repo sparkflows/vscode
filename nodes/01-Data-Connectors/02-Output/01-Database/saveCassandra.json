@@ -1,0 +1,19 @@
+{
+  "id": "6",
+  "name": "Save Cassandra",
+  "description": "Saves the rows of the incoming DataFrame into Apache Cassandra",
+  "type": "transform",
+  "nodeClass": "fire.nodes.cassandra.NodeSaveCassandra",
+  "fields" : [
+
+    {"name":"connection", "value":"", "widget": "object_array", "title": "Connection", "description": "The Cassandra connection to connect" ,"required":"true"},
+
+
+    {"name":"table", "value":"", "widget": "textfield", "title": "Cassandra Table Name", "required":"true",
+          "description": "Cassandra Table into which data gets loaded"},
+
+    {"name": "keyspace", "value":"", "widget": "textfield", "title": "Cassandra Keyspace Name", "required":"true",
+          "description": "The keyspace where table is looked for"}
+
+  ]
+}

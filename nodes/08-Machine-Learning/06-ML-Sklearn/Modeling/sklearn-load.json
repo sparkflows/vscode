@@ -1,0 +1,20 @@
+{
+  "id": "4",
+  "name": "Sklearn Model Load",
+  "type": "ml-modelload",
+  "description": "Load the Sklearn model stored in the pickel file.",
+  "nodeClass": "fire.nodes.sklearn.NodeModelLoad",
+  "engine": "pyspark",
+  "fields" : [
+    {
+      "name": "selectChampionModel",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": ["true", "false"],
+      "title": "Use Champion Model",
+      "description": "Uses Champion Model For Prediction."
+    },
+    {"name":"path", "value":"modelsavepath", "widget": "textfield", "title": "Path","wdgtCommon": "selectChampionModel", "toggle": "false"}
+  ]
+}
+

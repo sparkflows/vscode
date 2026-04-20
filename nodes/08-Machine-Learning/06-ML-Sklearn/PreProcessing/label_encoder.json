@@ -1,0 +1,16 @@
+{
+  "id": "5",
+  "name": "Sklearn Label Encoder",
+  "description": "Encode labels with value between 0 and n_classes-1.",
+
+  "input": "",
+  "output": "",
+
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.sklearn.preprocessing.NodeLabelEncoderFitTransform",
+  "fields" : [
+    {"name":"columnToEncode", "value":"", "widget": "variable", "title": "Column To Encode", "description": "column to encode.", "required": true}
+
+  ]
+}

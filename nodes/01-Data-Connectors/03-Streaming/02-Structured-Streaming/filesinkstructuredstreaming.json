@@ -1,0 +1,33 @@
+{
+  "id": "6",
+  "name": "Structured Streaming File Sink",
+  "description": "It writes the DataFrame to files with Structured Streaming",
+
+  "input": "It takes in DataFrame as input",
+  "output": "It writes the incoming DataFrame to files.",
+
+  "type": "transform",
+  "nodeClass": "fire.nodes.structuredstreaming.NodeStructuredStreamingFileSink",
+  "fields" : [
+  
+	{"name":"path", "display":true,"value":"", "widget": "textfield", "title": "Path", "description": "Path where to write the files"},
+
+    {"name": "outputMode", "value":"complete", "widget": "array", "title": "Output Mode", "optionsArray": ["append","complete", "update"],
+      "description": "Output Mode for saving to Files"},
+
+    {"name":"checkpointLocation", "value":"", "widget": "textfield",
+            "title": "Checkpoint Location", "description": "Checkpoint Location on HDFS compatible file system for Streaming"},
+
+    {"name": "format", "value":"csv", "widget": "array", "title": "Format", "optionsArray": ["csv","orc", "json", "parquet"],
+      "description": "File Format"},
+
+    {"name": "awaitTermination", "value":"false", "widget": "array", "title": "Await Termination", "optionsArray": ["true","false"],
+      "description": ""},
+
+    {"name": "triggerIntervalInSeconds", "value":"60", "widget": "textfield", "title": "Trigger Interval In Seconds", "description": ""},
+
+    {"name":"partitionBy", "value":"", "widget": "textfield",
+      "title": "Partition By Columns", "description":"Partition By Columns separated by space (can be empty in which case partitionBy would not be applied)"}
+
+  ]
+}

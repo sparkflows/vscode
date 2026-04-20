@@ -1,0 +1,16 @@
+{
+  "id": "5",
+  "name": "Feature Selection With Correlation",
+  "description": "",
+  "input" : "",
+  "output": "Pass the input DataFrame to output and in table format correlation value between target and feature columns displayed.",
+  "type": "transform",
+
+  "nodeClass": "fire.nodes.featureselection.FeatureSelectionWithCorrelation",
+  "fields" : [
+
+    {"name":"targetCol", "value": "", "widget": "variable", "title": "TargetCol", "description": "", "required": true},
+
+    {"name": "featureCols", "value":"[]", "widget": "variables", "title": "Feature Columns", "description": "", "datatypes":["integer", "long", "double", "float"], "required": true}
+  ]
+}

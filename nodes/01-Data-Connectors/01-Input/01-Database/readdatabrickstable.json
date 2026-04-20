@@ -1,0 +1,29 @@
+{
+  "id": "11",
+  "name": "Read Databricks Table",
+  "iconImage": "assets/images/icons/node-icon/databricks.svg",
+  "description": "This node reads a table from Databricks",
+  "input": "It reads data from the Databricks Table",
+  "output": "It creates a DataFrame from the data read and sends it to its output",
+  "hint": "Whenever the table is changed, go to the InferSchema tab and Infer the Schema",
+  "type": "dataset",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.databricks.NodeReadDatabricksTable",
+  "fields" : [
+
+    {"name":"db", "value":"default", "widget": "textfield", "title": "Databricks Database",
+      "description": "Databricks Database",  "required": true},
+
+    {"name":"table", "display":true, "value":"", "widget": "textfield", "title": "Databricks Table",
+      "description": "Databricks Table from which to read the data",  "required": true},
+
+    {"name":"query", "value":"", "widget": "textarea_medium", "title": "Databricks Query (Optional)",
+      "description": "If a separate Databricks query needs to be used for reading from the Databricks table, This field is optional."},
+
+    {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names of the Table", "description": "Output Column Names of the Table"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types of the Table", "description": "Output Column Types of the Table"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats", "description": "Output Column Formats"}
+  ]
+}

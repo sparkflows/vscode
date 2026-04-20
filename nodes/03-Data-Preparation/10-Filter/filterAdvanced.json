@@ -1,0 +1,47 @@
+{
+  "id": "1",
+  "name": "Filter Advanced",
+  "iconImage": "assets/images/icons/node-icon/filter.svg",
+  "description": "Advanced Filter Node - Split incoming data into two logical outputs based on flexible conditions. Supports simple column-based filters, powerful date-based filtering, and fully custom boolean expressions for precise row-level control.",
+  "input": "Accepts a DataFrame from the previous node as input.",
+  "output": "Produces filtered DataFrame outputs based on the defined conditions, separating rows that satisfy the filter logic from those that do not.",
+  "type": "transform",
+  "engine": "scala,pyspark,polars",
+  "outputAnchors": [{"name": "filtered","title": "F"},{"name": "remaining","title": "R"}],
+  "nodeClass": "fire.nodes.etl.NodeFilterAdvanced",
+  "fields" : [
+    {"name": "basic", "value":"", "widget": "tab", "title": "Basic Filter"},
+
+    {"name":"inputCol", "value": "", "widget": "variable", "title": "Input Column",
+      "description": "Select the column on which the basic filter condition will be applied. Supports string, numeric, and boolean data types.", "datatypes":["string","integer","double","boolean","long","float"]},
+
+    {"name":"operator", "value": "", "widget": "array", "optionsArray": [">","<","<=",">=","=","!=","isNull","isNotNull"],"title": "Expression",
+      "description": "Choose the comparison operator to apply on the input column (e.g., greater than, equals, not equals, is null, is not null). This defines how the column value is evaluated."},
+
+    {"name":"conditionValue", "value": "", "widget": "textfield", "title": " Condition Value",
+      "description": "Value to compare against the input column when using comparison operators. Not required for isNull or isNotNull operations.", "datatypes":["string"]},
+
+    {"name": "date", "value":"", "widget": "tab", "title": "Date Filter"},
+
+    {"name":"inputDateCol", "value":"", "widget": "variable", "title": "Input Date Column", "description": "Select the date or timestamp column on which date-based filtering will be applied.", "datatypes":["date"]},
+
+    {"name":"filterBy", "value": "", "widget": "array", "optionsArray": ["Range","Start Date and Period After","End Date and Period Before"],"title": "Filter By",
+      "description": "Choose how date filtering should be applied:\n• Range - filter rows between a start and end date\n• Start Date and Period After - include rows occurring after a start date for a defined period\n• End Date and Period Before - include rows occurring before an end date for a defined period"},
+
+    {"name":"startDate", "value":"1850-01-01", "widget": "datefield", "title": "Start Date", "datatypes":["date"], "description": "Start date for date-based filtering, formatted as yyyy-MM-dd. Used as the lower boundary in range or period-based filters."},
+
+    {"name":"endDate", "value":"2100-12-31", "widget": "datefield", "title": "End Date", "datatypes":["date"], "description": "End date for date-based filtering, formatted as yyyy-MM-dd. Used as the upper boundary in range or period-based filters."},
+
+    {"name":"periodType", "value": "", "widget": "array", "optionsArray": ["Days","Months","Years","Weeks"],"title": "Period Type",
+      "description": "Define the unit of time (days, weeks, months, or years) when using period-based date filtering."},
+
+    {"name":"numPeriods", "value": "", "widget": "textfield", "title": "Number of Periods",
+      "description": "Number of time units to include before or after the reference date when using period-based filtering.", "datatypes":["integer"]},
+
+    {"name": "custom", "value":"", "widget": "tab", "title": "Custom Filter"},
+
+    {"name":"conditionExpr", "value":"", "widget": "textarea_small", "title": "Conditional Expression",
+      "description": "Advanced boolean filter expression using SQL-style syntax. Supports AND/OR logic, parentheses, and multiple column conditions (e.g., usd_pledged_real > 0 AND (category = 1 OR category = 2) AND goal > 100). Rows not matching the expression are excluded."}
+
+  ]
+}

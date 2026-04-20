@@ -1,0 +1,21 @@
+{
+  "id": "6",
+  "name": "Validate Fields Simple",
+  "description": "Validation Node",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeValidation",
+  "outputAnchors": [{"name": "valid","title": "V"},{"name": "invalid","title": "I"}],
+
+  "fields" : [
+
+    {"name": "inputCols", "value":"[]", "widget": "variables_list_select", "title": "Columns", "description": "Columns"},
+
+    {"name": "functions", "value":"[]", "widget": "variables_list_array",
+      "optionsArray": ["LENGTH_LESS_THAN", "LENGTH_EQUALS", "LENGTH_GREATER_THAN",
+        "VALUE_LESS_THAN", "VALUE_EQUALS", "VALUE_GREATER_THAN",
+        "IS_NULL", "IS_NOT_NULL", "IS_VALID_EMAIL_ADDRESS", "IS_VALID_DATE_FORMAT"],
+                "title": "Function", "description": "Validation Function to apply"},
+
+    {"name": "values", "value":"[]", "widget": "variables_list_textfield", "title": "Values", "description": "Values"}
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": "11",
+  "name": "Notes",
+  "description": "Allows capturing Notes on the Workflow",
+  "type": "doc",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.doc.NodeDocLarge",
+  "fields" : [
+    {"name":"comment", "value":"", "widget": "textarea_rich", "title": "Comment", "description": "Comments for the Workflow"}
+  ]
+}

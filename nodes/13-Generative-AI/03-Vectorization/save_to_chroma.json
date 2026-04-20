@@ -1,0 +1,15 @@
+{
+  "id": "10",
+  "name": "Save Chroma DB",
+  "description": "Save Vector Embeddings to Chroma DB",
+  "input": "It takes in a DataFrame as input",
+  "output": "",
+  "type": "pyspark",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeSaveToChromaDB",
+  "fields" : [
+    {"name": "text", "value": "", "widget": "variable", "title": "Content Column", "description": "Column containing the original text or document content associated with each embedding for storage and retrieval."},
+    {"name": "embeddings", "value": "", "widget": "variable", "title": "Embeddings Column", "description": "Column containing vector embeddings to be persisted in the ChromaDB collection."},
+    {"name": "collection", "value": "", "widget": "textfield", "title": "Collection Name (case sensitive)", "description": "Name of the ChromaDB collection where embeddings will be stored. If the collection does not exist, it will be created automatically."}
+  ]
+}

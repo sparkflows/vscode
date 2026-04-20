@@ -1,0 +1,19 @@
+{
+  "id": "6",
+  "name": "Video Summarization",
+  "description": "This process involves creating text summary for the video.",
+  "input": "It takes in video file path as an input",
+  "output": "Summary in a text file",
+  "type": "pyspark",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeVideoSummarization",
+
+  "fields": [
+    {"name": "llmConnection", "value": "", "widget": "object_array", "title": "Select Connection", "description": "Select the configured LLM connection that provides authentication and model access for generating video summaries."},
+    {"name": "videoFilePath", "display": true, "value": "", "widget": "textfield", "title": "Select video path", "description": "Path to the input video file to be analyzed and summarized.","required":"true"},
+    {"name": "summaryLength", "value": "", "widget": "textfield", "title": "Select summary length", "description": "Target length of the generated summary, typically specified as an approximate number of words."},
+    {"name": "language", "value": "", "widget": "textfield", "title": "Select language", "description": "Language in which the summary should be generated. Leave empty to use the default or detected language."},
+    {"name": "saveOutputPath", "value": "", "widget": "textfield", "title": "Output path", "description": "Destination file path where the generated summary text will be saved."}
+  ]
+
+}

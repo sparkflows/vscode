@@ -1,0 +1,20 @@
+{
+  "id": "11",
+  "name": "EmailNotification",
+  "iconImage":  "assets/images/icons/node-icon/latest-nodes/email_node.svg",
+  "description": "This node sends notification to given email address with given content",
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.util.NodeEmailNotification",
+  "fields" : [
+
+    {"name":"emailAddress", "display": true, "value":"", "widget": "textfield", "title": "Email Address", "description": "Email Address (Add multiple email as comma separated)" ,"required":"true", "expandable":true},
+
+    {"name":"subject", "display": true, "value":"", "widget": "textfield", "title": "Subject", "description": "Subject" ,"required":"true", "expandable":true},
+
+    {"name":"content", "display": true, "value":"", "widget": "textareafield", "title": "Content", "description": "Content" ,"required":"true"},
+    {"name": "includeDataframe", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Include Dataframe", "description": "whether to append dataframe as a table to email content"},
+    {"name": "includeDataframeAsAttachment", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Include Dataframe As Attachment", "description": "whether to append dataframe as a attachment to email"},
+    {"name":"attachFileName",  "value":"", "widget": "textfield", "title": "Attachment File Name", "description":"Name of file when dataframe sent as an attachment", "wdgtCommon":"includeDataframeAsAttachment", "toggle":"true"}
+  ]
+}

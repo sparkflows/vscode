@@ -1,0 +1,16 @@
+{
+  "id": "11",
+  "name": "Find And Replace Using Regex Advanced",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/regex.svg",
+  "description": "This node finds and replaces text in a column containing string",
+  "input": "It accepts a DataFrame as input from the previous Node",
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.etl.NodeFindAndReplaceUsingRegexMultiple",
+  "fields" : [
+    {"name":"inputCols", "value": "[]", "widget": "variables_list_select", "title": "Input Columns", "datatypes":["string"], "required": true, "description": "Columns on which to apply Regex"},
+    {"name":"searchPatterns", "value": "[]", "widget": "variables_list_textfield", "title": "Find", "description": "Enter Search Pattern", "required": true, "expandable":true},
+    {"name":"replacePatterns", "value": "[]", "widget": "variables_list_textfield", "title": "Replace", "description": "Enter replacement Value", "required": true, "expandable":true}
+
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "7",
+  "name": "Count Null Values",
+  "description": "Counts null value in columns using the specified input",
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.etl.NodeNullCount",
+  "fields" : [
+
+    {"name": "inputCols", "value":"", "widget": "textfield",
+      "title": "Input Columns", "description": "Input Columns for which the number of nulls needs to be counted"}
+  ]
+}

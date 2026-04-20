@@ -1,0 +1,23 @@
+{
+  "id": "6",
+  "name": "H2O Word to Vec",
+  "description": "The Word2vec algorithm takes a text corpus as an input and produces the word vectors as output.",
+  "input": "It takes in a DataFrame as input",
+  "output": "",
+  "type": "ml-estimator",
+  "engine": "scala",
+  "nodeClass": "fire.nodes.h2o.NodeH2OWord2vec",
+  "fields" : [
+    {"name": "inputCol", "value":"", "widget": "variable", "title": "Input Column", "description": "Input column name."},
+    {"name": "columnsToCategorical", "value":"[]", "widget": "variables", "title": "Columns to Categorical", "description": "Columns to be Categorical encoded"},
+    {"name": "vecSize", "value":"100", "widget": "textfield","title": "Vec Size", "description": "Set size of word vectors.", "datatypes":["integer"],"size": "50%"},
+    {"name": "windowSize", "value":"5", "widget": "textfield","title": "Window Size", "description": "Set max skip length between words.", "datatypes":["integer"],"size": "50%"},
+    {"name": "sentSampleRate", "value":"0.001",  "widget": "textfield","title": "Sent Sample Rate", "description": "Set the threshold for the occurrence of words. Those words that appear with higher frequency in the training data will be randomly down-sampled. An ideal range for this option 0, 1e-5.","size": "50%"},
+    {"name": "normModel", "value":"HSM", "widget": "array", "title": "Normalization Model", "optionsArray": ["HSM"], "description": "Use Hierarchical Softmax." ,"datatypes":["string"],"size": "50%"},
+    {"name": "epochs", "value":"5", "widget": "textfield","title": "Epochs", "description": "Number of training iterations to run.", "datatypes":["integer"],"size": "50%"},
+    {"name": "minWordFreq", "value":"5", "widget": "textfield","title": "Min Word Frequency", "description": "SThis will discard words that appear less than <int> times.", "datatypes":["integer"],"size": "50%"},
+    {"name": "initLearningRate", "value":"0.025",  "widget": "textfield","title": "Init Learning Rate", "description": "Set the starting learning rate.","size": "50%"},
+    {"name": "wordModel", "value":"SkipGram", "widget": "array", "title": "Word Model", "optionsArray": ["SkipGram", "CBOW"], "description": "Uhe word model to use (SkipGram or CBOW)." ,"datatypes":["string"],"size": "50%"},
+    {"name": "maxRuntimeSecs","value":"0.0", "widget": "textfield", "title": "Max Runtime Secs", "description": "his argument specifies the maximum time that the AutoML process will run for. If both max_runtime_secs and max_models are specified, then the AutoML run will stop as soon as it hits either of these limits. If neither max_runtime_secs nor max_models are specified, then max_runtime_secs defaults to 3600 seconds (1 hour).", "datatypes":["double"],"size": "50%"}
+  ]
+}

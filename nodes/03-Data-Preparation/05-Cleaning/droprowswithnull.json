@@ -1,0 +1,11 @@
+{
+  "id": "11",
+  "name": "Drop Rows With Null",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/drop_rows.svg",
+  "description": "This node creates a new DataFrame by dropping rows containing null values",
+  "input": "It accepts DataFrame as input from the previous Node",
+  "output": "This node drops rows containing null values",
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.etl.NodeDropRowsWithNull"
+}

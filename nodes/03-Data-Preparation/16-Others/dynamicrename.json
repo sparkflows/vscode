@@ -1,0 +1,72 @@
+{
+  "id": "1",
+  "name": "Dynamic Rename",
+  "description": "This node creates a new DataFrame by renaming existing columns with the new name",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/rename.svg",
+  "input": "This type of node takes in a DataFrame and transforms it to another DataFrame.",
+  "output": "The specified columns are renamed to have the new names.",
+  "type": "pyspark2inputs",
+  "nodeClass": "fire.nodes.etl.NodeDynamicRename",
+  "engine": "scala,polars",
+  "inputAnchors": [{"name": "Left","title": "L"},{"name": "Right","title": "R"}],
+
+  "fields" : [
+
+    {"name": "currentColNames", "value":"[]", "widget": "variables_list_select", "title": "Current Column Names", "description": "Current Column Names"},
+
+    {"name": "newColNames", "value":"[]", "widget": "variables_list_textfield", "title": "Columns New Name", "description": "New name for existing columns"},
+
+    {"name": "bulkColumnRename", "value": "", "widget": "tab", "title": "BulkColumnRename"},
+
+    {"name":"bulkType", "value":"add_prefix", "widget": "array_single", "optionsArray": ["add_prefix","add_suffix", "remove_prefix", "remove_suffix","remove_extra_charcter", "regex", "replace",
+      "upper", "lower","first_row", "right_input_metadata", "right_input_rows"], "title": "Rename Mode", "description": "Select Type"},
+
+    {"name":"prefix",  "value":"", "widget": "textfield", "title": "Add Prefix",
+      "description":"Prefix Value", "wdgtCommon":"bulkType", "toggle":"add_prefix"},
+    {"name":"suffix",  "value":"", "widget": "textfield", "title": "Add Suffix",
+      "description":"Suffix Value", "wdgtCommon":"bulkType", "toggle":"add_suffix"},
+    {"name":"remove_prefix",  "value":"", "widget": "textfield", "title": "Remove Prefix",
+      "description":"Prefix Value", "wdgtCommon":"bulkType", "toggle":"remove_prefix"},
+    {"name":"remove_suffix",  "value":"", "widget": "textfield", "title": "Remove Suffix",
+      "description":"Suffix Value", "wdgtCommon":"bulkType", "toggle":"remove_suffix"},
+
+    {"name":"remove_extra_charcter",  "value":"", "widget": "textfield", "title": "Extra Charcter",
+      "description":"extra_charcter", "wdgtCommon":"bulkType", "toggle":"remove_extra_charcter"},
+
+    {"name":"replace_pattern",  "value":"", "widget": "textfield", "title": "Replace Pattern",
+      "description":"regex replace pattern to search", "wdgtCommon":"bulkType", "toggle":"regex"},
+
+    {"name":"with_pattern_replacement",  "value":"", "widget": "textfield", "title": "With Pattern Replacement",
+      "description":"regex replacement for matched pattern in Replace Pattern", "wdgtCommon":"bulkType", "toggle":"regex"},
+
+    {"name":"replace",  "value":"", "widget": "textfield", "title": "Replace",
+      "description":"replace pattern to search", "wdgtCommon":"bulkType", "toggle":"replace"},
+
+    {"name":"with_replacement",  "value":"", "widget": "textfield", "title": "Replacement",
+      "description":"replacement for matched replace", "wdgtCommon":"bulkType", "toggle":"replace"},
+
+    {"name": "inputMode", "value": "Positional", "widget": "array_single", "optionsArray": ["Positional", "Mapped"], "title": "Use Positional Rename", "description": "Reassign based on row position instead of mapping", "wdgtCommon": "bulkType", "toggle": "right_input_rows"},
+
+    {"name": "oldFieldNameCol", "value": "", "widget": "variable", "title": "Old Field Name from Column", "description": "Select from list of Right input field names . For Positional Rename, leave this empty if 'Use Positional Rename' is True.", "wdgtCommon": "bulkType", "toggle": "right_input_rows","schemaIndex": "1"},
+
+    {"name": "newFieldNameCol", "value": "", "widget": "variable", "title": "New Field Name from Column", "description": "Select from list of Right input field names", "wdgtCommon": "bulkType", "toggle": "right_input_rows","schemaIndex": "1"},
+
+    {"name":"inputCols", "value":"[]", "widget": "variables", "title": "Columns To Rename",
+      "description": "Columns To Rename"},
+
+    {
+      "name": "inputColumnPropagation",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": ["true", "false"],
+      "title": "Enable All Columns To Rename",
+      "description": "Enable All Columns To Rename"
+    },
+
+    {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names of the Table", "description": "Output Columns Names of the Table"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types of the Table", "description": "Output Column Types of the Table"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats", "description": "Output Column Formats"}
+  ]
+}

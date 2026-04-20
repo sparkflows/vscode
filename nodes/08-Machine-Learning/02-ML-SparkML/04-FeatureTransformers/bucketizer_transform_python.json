@@ -1,0 +1,13 @@
+{
+  "id": "7",
+  "name": "Bucketizer Transform",
+  "type": "ml-predict",
+  "description":"Bucketizer Transform",
+
+  "input": "It  takes in a DataFrame and transforms it to another DataFrame",
+  "output": "The output column contains the bucket index for each value in the input column.",
+
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.etl.NodeBucketizerTransform",
+  "fields" : []
+}

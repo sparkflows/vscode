@@ -1,0 +1,18 @@
+{
+  "id": "6",
+  "name": "Read Pinecone DB",
+  "description": "Read Vector Embeddings from Pinecone db",
+  "input": "It takes in a DataFrame as input",
+  "output": "",
+  "type": "pyspark",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeReadFromPineconeDB",
+  "fields" : [
+    {"name": "topK", "value": "3", "widget": "textfield", "title": "Top K", "description": "Number of nearest neighbor vectors to retrieve per query based on similarity score. Higher values return more results but may increase query latency."},
+    {"name": "pineconeConnection", "value": "", "widget": "object_array", "title": "Select Pinecone Connection", "description": "Select the configured Pinecone connection containing API credentials, environment, and access settings required to execute vector queries."},
+    {"name": "pineconeIndexName", "value": "", "widget": "textfield", "title": "Pinecone Index Name", "description": "Name of the Pinecone index to query. The index must exist and be compatible with the embedding dimensions used in the input data."},
+    {"name": "indexNameSpace", "value": "", "widget": "textfield", "title": "Index Namespace", "description": "Optional namespace within the Pinecone index used to logically partition vectors. Useful for isolating datasets such as environments, tenants, or domains."},
+    {"name": "userQueryCol", "value": "userQuery", "widget": "variable", "title": "User Query Column", "description": "Column containing the raw user query text. Typically used when embeddings are generated dynamically from text-based queries."},
+    {"name": "queryEmbeddingCol", "value": "embeddings", "widget": "variable", "title": "Query Embedding Column", "description": "Column containing precomputed vector embeddings used directly for similarity search against the Pinecone index."}
+  ]
+}

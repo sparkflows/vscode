@@ -1,0 +1,25 @@
+{
+  "id": "7",
+  "name": "Save Parquet",
+  "description": "Saves the DataFrame into the specified location in Parquet Format. When running on Hadoop, it is saved onto HDFS.",
+  "iconImage": "/assets/images/icons/node-icon/latest-nodes/parquet.svg",
+  "type": "transform",
+  "engine": "scala,pyspark,polars",
+  "nodeClass": "fire.nodes.save.NodeSaveParquet",
+  "fields" : [
+    {"name":"path", "display": true, "value":"", "widget": "textfield", "title": "Path",
+      "description":"Path where to save the Parquet files","required":"true"},
+
+    {"name":"saveMode", "value":"Append", "widget": "array","optionsArray": ["Append","Overwrite", "ErrorIfExists", "Ignore"],
+      "title": "Save Mode", "description":"Whether to Append, Overwrite or Error if the path Exists"},
+
+    {"name": "advanced", "value":"", "widget": "tab", "title": "Advanced"},
+
+    {"name":"partitionColNames", "value": "[]", "widget": "variables", "title": "Partition Column Names", "description": "Partition Column Names"},
+
+    {"name":"createDataset", "value":"false", "widget": "array_single", "optionsArray": ["true","false"], "title": "Auto create dataset", "description": "Select Models"},
+    {"name":"datasetName",  "value":"", "widget": "textfield", "title": "Dataset Name",
+      "description":"Dataset Name", "wdgtCommon":"createDataset", "toggle":"true"}
+
+  ]
+}

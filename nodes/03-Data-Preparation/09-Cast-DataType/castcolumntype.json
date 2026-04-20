@@ -1,0 +1,24 @@
+{
+  "id": "11",
+  "name": "Cast To Single Type",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/cast_nodes.svg",
+  "description": "This node creates a new DataFrame by casting the specified input columns to a new data type",
+  "input": "This type of node takes in a DataFrame and transforms it to another DataFrame",
+  "output": "This node casts the data type of selected columns to the specified data type",
+  "type": "transform",
+  "engine": "scala,pyspark,polars",
+  "nodeClass": "fire.nodes.etl.NodeCastColumnType",
+  "fields" : [
+    {"name":"inputCols", "value":"[]", "widget": "variables", "title": "Columns",
+      "description": "Columns to be cast to new data type", "required": true},
+    {"name":"outputColType", "value":"STRING",
+            "widget": "array",
+            "optionsArray": ["BOOLEAN", "BYTE", "DATE", "DECIMAL", "DOUBLE", "FLOAT", "INTEGER", "LONG", "SHORT", "STRING", "TIMESTAMP"],
+            "title": "New Data Type", "description": "New data type for the selected columns (INTEGER, DOUBLE, STRING, LONG, SHORT)", "required": true},
+
+    {"name": "replaceExistingCols", "value":"true", "widget": "array",
+      "optionsArray": ["true", "false"],
+      "title": "Replace Existing Cols?", "description": "Whether to replace existing columns or create new ones?", "required": true}
+
+  ]
+}

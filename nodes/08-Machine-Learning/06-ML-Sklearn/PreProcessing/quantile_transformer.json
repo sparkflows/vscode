@@ -1,0 +1,23 @@
+{
+  "id": "5",
+  "name": "Sklearn Quantile Fit Transform",
+  "description": "Transforms features using quantiles information.",
+
+  "input": "",
+  "output": "",
+
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.sklearn.preprocessing.NodeQuantileTransformerFitTransform",
+  "fields" : [
+
+    {"name": "n_estimators", "value": 1000, "widget": "textfield", "title": "N-Estimators", "description": ""},
+
+    {"name": "output_distribution", "value":"uniform", "widget": "array", "title": "Output Distribution", "optionsArray": ["uniform","normal"], "description": "" },
+
+    {"name": "ignore_implicit_zeros", "value":"false", "widget": "array", "title": "Ignore Implicit Zeros", "optionsArray": ["false","true"], "description": "" ,"datatypes":["boolean"]},
+
+    {"name": "subsample", "value": 100000, "widget": "textfield", "title": "Subsample", "datatypes":["integer"]}
+
+  ]
+}

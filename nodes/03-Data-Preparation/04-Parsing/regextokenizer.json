@@ -1,0 +1,15 @@
+{
+  "id": "1",
+  "name": "Regex Tokenizer",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/regex.svg",
+  "description": "This node creates a new DataFrame by the process of taking text (such as a sentence) and breaking it into individual terms (usually words) based on regular expression",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeRegexTokenizer",
+  "engine": "scala,pyspark",
+  "fields" : [
+    {"name":"inputCol", "value": "", "widget": "variable", "title": "Column", "description": "input column for tokenizing", "datatypes":["string"]},
+    {"name":"outputCol", "value":"", "widget": "textfield", "title": "Tokenized Column", "description": "New output column after tokenization"},
+    {"name":"pattern", "value":"", "widget": "textfield", "title": "Pattern", "description": "The regex pattern used to match delimiters","expandable": true},
+    {"name":"gaps", "value":"true", "widget": "array", "optionsArray": ["true", "false"], "title": "Gaps", "description": "Indicates whether the regex splits on gaps"}
+  ]
+}

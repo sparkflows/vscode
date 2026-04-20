@@ -1,0 +1,75 @@
+{
+  "id": "5",
+  "name": "Logistic Regression",
+  "description": "Logistic Regression is a statistical classification algorithm used to predict binary outcomes by estimating probabilities. It is widely used for interpretable, probability-based decision making.",
+
+  "input": "It takes in a DataFrame and performs Logistic Regression classification",
+  "output": "The trained Logistic Regression model is passed along to downstream nodes together with the original input DataFrame",
+
+  "type": "ml-estimator",
+  "engine": "scala",
+  "nodeClass": "fire.nodes.ml.NodeLogisticRegression",
+  "fields" : [
+
+    {"name": "featuresCol", "value":"", "required":true, "widget": "variable", "title": "Features Column", "description": "Vector column containing all input features used by the model to estimate outcome probabilities.", "datatypes":["vectorudt"], "size": "50%"},
+
+    {"name": "labelCol", "value":"", "required":true, "widget": "variable", "title": "Label Column", "description": "Target column representing the actual binary business outcome the model is trained to predict.", "datatypes":["double"], "size": "50%"},
+
+    {"name": "predictionCol", "value":"", "widget": "textfield", "title": "Prediction Column", "description": "Name of the column where predicted class labels are written after model scoring.", "size": "50%"},
+
+    {"name": "splitRatio", "value":1.0, "widget": "textfield", "title": "Split Ratio", "description": "Defines how the dataset is divided between training and validation to evaluate generalization.", "datatypes":["float"], "size": "50%"},
+
+    {"name":"path", "value":"", "widget": "textfield", "title": "Path", "description": "File system location where the confusion matrix output is stored for reporting or audit purposes.", "size": "50%"},
+
+    {"name": "maxIter", "value":100, "widget": "textfield", "title": "Maximum Iterations", "description": "Maximum number of optimization iterations used to converge on model parameters.", "datatypes":["integer"], "size": "50%"},
+
+    {"name": "fitIntercept", "value":"true", "widget": "array", "title": "Fit Intercept", "optionsArray": ["true","false"], "description": "Specifies whether an intercept term is included in the model.", "datatypes":["boolean"], "size": "50%"},
+
+    {"name": "regParam", "value":0.0, "widget": "textfield", "title": "Regularization Parameter", "description": "Controls the overall strength of regularization to prevent overfitting.", "datatypes":["double"], "size": "50%"},
+
+    {"name": "standardization", "value":"true", "widget": "array", "title": "Standardization","optionsArray": ["true","false"], "description": "Specifies whether features are standardized before training to improve convergence.", "datatypes":["boolean"], "size": "50%"},
+
+    {"name": "threshold", "value":0.5, "widget": "textfield", "title": "Threshold", "description": "Decision threshold used to convert predicted probabilities into class labels.", "datatypes":["double"], "size": "50%"},
+
+    {"name": "tol", "value":1E-6, "widget": "textfield", "title": "Tolerance", "description": "Convergence tolerance that determines when the optimization process should stop.", "datatypes":["double"], "size": "50%"},
+
+    {"name": "elasticNetParam", "value":0.0, "widget": "textfield", "title": "ElasticNet Parameter", "description": "Controls the balance between L1 and L2 regularization to manage sparsity and stability.", "datatypes":["double"], "size": "50%"},
+
+    {"name": "weightCol", "value":"", "widget": "variable", "title": "Weight Column", "description": "Optional column specifying the relative importance of records during model training.", "datatypes":["double"], "size": "50%"},
+
+    {"name": "aggregationDepth", "value":2, "widget": "textfield", "title": "Aggregation Depth", "description": "Controls tree aggregation depth to balance performance and memory usage during optimization.", "datatypes":["integer"], "size": "50%"},
+
+    {"name": "family", "value":"auto", "widget": "array","title": "Family", "optionsArray": ["auto", "binomial", "multinomial"], "description": "Specifies the probability distribution used for modeling the label.", "size": "50%"},
+
+    {"name": "gridSearch", "value":"", "widget": "tab", "title": "Grid Search"},
+
+    {"name": "regParamGrid", "value":"", "widget": "textfield", "title": "Regularization Param Grid Search", "description": "Candidate regularization values evaluated during hyperparameter tuning.", "size": "50%"},
+
+    {"name": "elasticNetGrid", "value":"", "widget": "textfield", "title": "ElasticNet Param Grid Search", "description": "Different ElasticNet parameter values tested to optimize model sparsity.", "size": "50%"},
+
+    {"name": "confusionMatrix", "value":"", "widget": "tab", "title": "Confusion Matrix"},
+    {"name": "output_confusion_matrix_chart", "value":"false", "widget": "array", "title": "Output Confusion Matrix Chart", "optionsArray": ["false","true"], "description": "Enables visualization of classification outcomes across predicted and actual classes.", "datatypes":["boolean"], "size": "50%"},
+
+    {"name": "cmChartTitle", "value":"Title", "widget": "textfield", "title": "Confusion Matrix Chart Title", "description": "Title displayed on the confusion matrix chart.", "size": "50%"},
+
+    {"name": "cmChartDescription", "value":"Visual Representation of Predicted vs. Actual Classes", "widget": "textfield", "title": "Confusion Matrix Chart Description", "description": "Business explanation describing correct predictions and misclassifications.", "size": "50%"},
+
+    {"name": "confusionMatrixTargetLegend", "value":"Target", "widget": "textfield", "title": "Confusion Matrix Target Legend", "description": "Legend label representing actual class values.", "size": "50%"},
+
+    {"name": "confusionMatrixPredictedLabelLegend", "value":"PredictedLabel", "widget": "textfield", "title": "Confusion Matrix Predicted Label Legend", "description": "Legend label representing predicted class values.", "size": "50%"},
+
+    {"name": "Description", "value":"", "widget": "tab", "title": "Confusion Matrix Description"},
+    {"name": "confusionMatrixRowDescription", "value":"", "widget": "textarea_rich", "title": "Confusion Matrix Outcome Description", "description": "Business interpretation of true positives, false positives, and false negatives.", "size": "50%"},
+
+    {"name": "ROC Curve", "value":"", "widget": "tab", "title": "ROC Curve"},
+    {"name": "output_roc_chart", "value":"false", "widget": "array", "title": "Output ROC Curve", "optionsArray": ["false","true"], "description": "Enables ROC curve visualization to assess classification performance.", "datatypes":["boolean"], "size": "50%"},
+
+    {"name": "roc_title", "value":"Title", "widget": "textfield", "title": "ROC Curve Chart Title", "description": "Title displayed on the ROC curve chart.", "size": "50%"},
+
+    {"name": "roc_description", "value":"Receiver operating characteristic (ROC) curve", "widget": "textfield", "title": "ROC Curve Chart Description", "description": "Explains how effectively the model separates positive and negative outcomes.", "size": "50%"},
+
+    {"name": "xlabel", "value":"False Positive Rate (specificity)", "widget": "textfield", "title": "X Label", "description": "X-axis representing the false positive rate.", "size": "50%"},
+
+    {"name": "ylabel", "value":"True Positive Rate (sensitivity)", "widget": "textfield", "title": "Y Label", "description": "Y-axis representing the true positive rate.", "size": "50%"}
+  ]
+}

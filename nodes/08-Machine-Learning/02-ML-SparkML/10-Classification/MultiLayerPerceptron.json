@@ -1,0 +1,52 @@
+{
+  "id": "6",
+  "name": "MultiLayer Perceptron",
+  "description": "The Multilayer Perceptron node enables training of fully connected neural networks for classification tasks using feedforward artificial neural networks.",
+
+  "type": "ml-estimator",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.ml.NodeMultilayerPerceptron",
+  "fields" : [
+
+    {"name": "featuresCol", "value":"", "widget": "variable", "title": "Features Column", "description": "Vector column containing numerical input features used by the neural network for learning patterns.", "datatypes":["vectorudt"], "size":"50%"},
+
+    {"name": "labelCol", "value":"", "widget": "variable", "title": "Label Column", "description": "Target column representing the class or category that the neural network is trained to predict.", "datatypes":["double"], "size":"50%"},
+
+    {"name": "predictionCol", "value":"", "widget": "textfield", "title": "Prediction Column", "description": "Name of the output column where predicted class labels are written after model execution.", "size":"50%"},
+
+    {"name": "splitRatio", "value":1.0, "widget": "textfield", "title": "Split Ratio", "description": "Controls how the dataset is divided between training and validation to assess model performance.", "datatypes":["float"], "size":"50%"},
+
+    {"name": "layers", "value":"", "widget": "textfield", "title": "Layers - comma separated list of integers", "description": "Defines the neural network architecture by specifying the number of neurons in each layer, including input, hidden, and output layers.", "size":"50%"},
+
+    {"name": "maxIter", "value":100, "widget": "textfield", "title": "Max number of iterations", "description": "Maximum number of training iterations used to optimize the neural network weights.", "datatypes":["integer"], "size":"50%"},
+
+    {"name": "blockSize", "value":128, "widget": "textfield", "title": "Block Size", "description": "Number of records processed together in each training block to improve computational efficiency.", "datatypes":["integer"], "size":"50%"},
+
+    {"name": "seed", "value":1234, "widget": "textfield", "title": "Seed", "description": "Seed value used to initialize the neural network and ensure reproducible training results.", "size":"50%"},
+
+    {"name": "tol", "value":1e-6, "widget": "textfield", "title": "Tol", "description": "Convergence tolerance used to determine when training should stop based on minimal improvement.", "size":"50%"},
+
+    {"name": "solver", "value":"l-bfgs", "widget": "textfield", "title": "Solver", "description": "Optimization algorithm used to train the neural network weights.", "size":"50%"},
+
+    {"name": "stepSize", "value":0.03, "widget": "textfield", "title": "Step Size", "description": "Learning rate that controls how much model weights are updated during each iteration.", "size":"50%"},
+
+    {"name": "confusionMatrix", "value":"", "widget": "tab", "title": "Confusion Matrix"},
+    {"name": "output_confusion_matrix_chart", "value":"false", "widget": "array", "title": "Output Confusion Matrix Chart", "optionsArray": ["false","true"], "description": "Enables visualization of prediction accuracy across different classes.", "datatypes":["boolean"], "size":"50%"},
+    {"name": "cm_chart_title", "value":"Confusion Matrix Chart", "widget": "textfield", "title": "Confusion Matrix Chart Title", "description": "Title displayed on the confusion matrix visualization.", "size":"50%"},
+    {"name": "cm_chart_description", "value":"Visual Representation of Predicted vs. Actual Classes", "widget": "textfield", "title": "Confusion Matrix Chart Description", "description": "Business-friendly explanation describing how predicted results compare with actual outcomes.", "size":"50%"},
+    {"name": "confusionMatrixTargetLegend", "value":"Target", "widget": "textfield", "title": "Confusion Matrix Target Legend", "description": "Legend label representing actual class values.", "size":"50%"},
+    {"name": "confusionMatrixPredictedLabelLegend", "value":"PredictedLabel", "widget": "textfield", "title": "Confusion Matrix PredictedLabel Legend", "description": "Legend label representing predicted class values.", "size":"50%"},
+    {"name": "confusionMatrixCountLegend", "value":"Count", "widget": "textfield", "title": "Confusion Matrix Count Legend", "description": "Legend label representing the number of records for each outcome.", "size":"50%"},
+
+    {"name": "Description", "value":"", "widget": "tab", "title": "Confusion Matrix Description"},
+    {"name": "confusionMatrixRowDescription", "value":"", "widget": "textarea_rich", "title": "Confusion Matrix Outcome description", "description": "Business interpretation of correct predictions, errors, and misclassifications.", "size":"50%"},
+
+    {"name": "ROC Curve", "value":"", "widget": "tab", "title": "ROC Curve"},
+    {"name": "output_roc_curve", "value":"false", "widget": "array", "title": "Output ROC Curve", "optionsArray": ["false","true"], "description": "Enables ROC curve visualization to evaluate classification performance.", "datatypes":["boolean"], "size":"50%"},
+    {"name": "roc_title", "value":"ROC Curve", "widget": "textfield", "title": "ROC Curve Chart Title", "description": "Title displayed on the ROC curve chart.", "size":"50%"},
+    {"name": "roc_description", "value":"Receiver operating characteristic (ROC) curve", "widget": "textfield", "title": "ROC Curve Chart Description", "description": "Explanation of how well the model distinguishes between different classes.", "size":"50%"},
+    {"name": "xlabel", "value":"False Positive Rate (specificity)", "widget": "textfield", "title": "X Label", "description": "X-axis representing the false positive rate.", "size":"50%"},
+    {"name": "ylabel", "value":"True Positive Rate (sensitivity)", "widget": "textfield", "title": "Y Label", "description": "Y-axis representing the true positive rate.", "size":"50%"}
+
+  ]
+}

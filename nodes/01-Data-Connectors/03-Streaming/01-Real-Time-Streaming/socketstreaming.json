@@ -1,0 +1,17 @@
+{
+  "id": "6",
+  "name": "Streaming Socket Text Stream",
+  "description": "Reads in streaming text from a socket",
+
+  "input": "It does not take any DataFrame as input",
+  "output": "It creates DataFrame from reading data from a socket. This DataFrame is passed to the output Nodes.",
+
+  "type": "sparkstreaming",
+  "nodeClass": "fire.nodes.streaming.NodeStreamingSocketTextStream",
+  "fields" : [
+    {"name": "batchDuration", "value":"30", "widget": "textfield", "title": "Batch Duration in Seconds", "description": "Batch Duration in Seconds"},
+
+    {"name":"hostname", "value":"localhost", "widget": "textfield", "title": "Hostname", "description": "Host to connect to for listening"},
+    {"name": "port", "value":"9999", "widget": "textfield", "title": "Port", "description": "Port to connect to "}
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "11",
+  "name": "SaveWaterMark",
+
+  "description": "This node saves the value in watermark variable in workflow to file.",
+  "input": "",
+  "output": "",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeSaveWatermark",
+  "fields" : [
+
+    {"name":"path", "display":true,"value":"", "widget": "textfield", "required":true, "title": "Path", "description": "Path of the watermark file."}
+  ]
+}

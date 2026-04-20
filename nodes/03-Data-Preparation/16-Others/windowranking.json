@@ -1,0 +1,18 @@
+{
+  "id": "11",
+  "name": "Window Ranking",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/window_function.svg",
+  "description": "",
+  "input": "",
+  "engine": "scala,pyspark",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeWindowRanking",
+  "fields" : [
+
+    {"name":"partitionByCols", "value": "", "widget": "textfield", "title": "PartitionBy", "description": "partition column names separated by comma(,) "},
+    {"name":"orderByCols", "value": "", "widget": "textfield", "title": "OrderBy", "description": "order by column names separated by comma(,)", "required": true},
+    {"name":"windowFunction", "value":"RANK", "widget": "array",
+      "optionsArray": ["RANK", "ROW_NUMBER", "DENSE_RANK"], "title": "Window Function",
+      "description": "Window Function Name", "required": true}
+  ]
+}

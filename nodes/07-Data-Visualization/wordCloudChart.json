@@ -1,0 +1,25 @@
+{
+  "id": "3",
+  "name": "Word Cloud Chart",
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "iconImage": "assets/images/icons/node-icon/word_cloud-chart.svg",
+  "nodeClass": "fire.nodes.graph.NodeWorldCloudChart",
+  "fields": [
+    {"name":"title","value":"Graph","widget":"textfield","title":"Title","size":"50%"},
+    {"name":"description","value":"","widget":"textfield","title":"Description","size":"50%"},
+
+    {"name":"descriptionColor","value":"#6D6E70","widget":"descriptioncolor","title":"Description Color","size":"50%"},
+    {"name":"topWordCount","value":"10","widget":"array","title":"Top Word Count",
+      "optionsArray":["10","20","50","100"],
+      "description":"Word count to display",
+      "size":"50%"},
+
+    {"name":"chartColors","value":"","widget":"colors","title":"Chart Colors","size":"50%"},
+
+    {"name":"isWordCloud","value":"true","widget":"array","title":"Word cloud",
+      "optionsArray":["true","false"],
+      "description":"Render graph as Word Cloud if true and Sentence cloud if false",
+      "size":"50%"}
+  ]
+}

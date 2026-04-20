@@ -1,0 +1,27 @@
+{
+  "id": "11",
+  "name": "H2O PCA",
+  "description": "Principal Component Analysis (PCA) is used for dimensionality reduction and identifying the primary patterns in high-dimensional data by transforming features into a set of uncorrelated components.",
+  "input": "It takes in a DataFrame as input",
+  "output": "",
+  "type": "ml-estimator",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.h2o.NodeH2OPCA",
+  "fields" : [
+    {"name": "transform", "value":"NONE", "widget": "array", "title": "Transform", "optionsArray": ["NONE","STANDARDIZE", "NORMALIZE", "DEMEAN", "DESCALE"], "description": "Transformation to apply to the data. STANDARDIZE is highly recommended so that all features contribute equally." ,"datatypes":["string"],"size": "50%"},
+    {"name": "pcaMethod", "value":"GramSVD", "widget": "array", "title": "PCA Method", "optionsArray": ["GramSVD","Power", "Randomized", "GLRM"], "description": "Algorithm used to compute principal components. 'GramSVD' is standard; 'GLRM' is effective for mixed data types." ,"datatypes":["string"],"size": "50%"},
+    {"name": "columnsToCategorical", "value":"[]", "widget": "variables", "title": "Columns to Categorical", "description": "Numeric columns that should be treated as categorical factors/enums."},
+    {"name": "inputCols", "value":"[]", "widget": "variables", "title": "Input Columns", "description": "Numeric and categorical columns to be used for the transformation."},
+    {"name": "pcaImpl", "value":"MTJ_EVD_SYMMMATRIX", "widget": "array", "title": "PCA Implementation", "optionsArray": ["MTJ_EVD_DENSEMATRIX","MTJ_EVD_SYMMMATRIX", "MTJ_SVD_DENSEMATRIX", "JAMA"], "description": "Mathematical implementation used for the decomposition (SVD or EVD)." ,"datatypes":["string"],"size": "50%"},
+    {"name": "k", "value":"1", "required":true, "widget": "textfield","title": "K", "description": "Number of principal components to compute (must be <= number of features).", "datatypes":["integer"],"size": "50%"},
+    {"name": "maxIterations", "value":"1000", "widget": "textfield", "title": "Max Iterations", "description": "Maximum training iterations for iterative solvers.", "datatypes":["integer"],"size": "50%"},
+    {"name": "splitRatio", "value":1.0, "widget": "textfield", "title": "Split Ratio", "description": "Fraction of data used for the PCA calculation.", "datatypes":["float"],"size": "50%"},
+    {"name": "seed", "value":"-1", "widget": "textfield", "title": "Seed", "description": "Seed for reproducibility. Use -1 for a random seed.", "datatypes":["Long"],"size": "50%"},
+    {"name": "useAllFactorLevels", "value":"false", "widget": "array", "title": "Use All Factor Levels", "optionsArray": ["false","true"], "description": "Whether to include all levels in categorical expansion (recommended for GLRM method)." ,"datatypes":["boolean"],"size": "50%"},
+    {"name": "computeMetrics", "value":"true", "widget": "array", "title": "Compute Metrics", "optionsArray": ["false","true"], "description": "Whether to calculate performance metrics (e.g., variance explained) on the data." ,"datatypes":["boolean"],"size": "50%"},
+    {"name": "imputeMissing", "value":"false", "widget": "array", "title": "Impute Missing", "optionsArray": ["false","true"], "description": "If true, fills missing entries with the column mean before processing." ,"datatypes":["boolean"],"size": "50%"},
+    {"name": "ignoreConstCols", "value":"true", "widget": "array", "title": "Ignore Const Columns", "optionsArray": ["false","true"], "description": "Whether to discard columns with only one unique value." ,"datatypes":["boolean"],"size": "50%"},
+    {"name": "scoreEachIteration", "value":"false", "widget": "array", "title": "Score Each Iteration", "optionsArray": ["false","true"], "description": "Enable to track convergence progress after every iteration." ,"datatypes":["boolean"],"size": "50%"},
+    {"name": "maxRuntimeSecs","value":"0.0", "widget": "textfield", "title": "Max Runtime Secs", "description": "Maximum time allowed for model training in seconds. 0 means no limit.", "datatypes":["double"],"size": "50%"}
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "11",
+  "name": "CountRecords",
+  "description": "This node counts the number of rows in a dataset in different ways.",
+  "input" : "It accepts a DataFrame as input from the previous Node",
+  "output": "Output DataFrame with Three columns: metric_type, column_name, value",
+  "type": "shellcommand",
+  "nodeClass": "fire.nodes.etl.NodeCountRecords",
+  "fields" : [
+
+
+    {"name": "selectColumnsToCount", "value": "[]", "widget": "variables", "title": "Select Columns To Count", "description": "Select the column names to analyze."},
+    {"name": "countOption", "value": "[]", "widget": "array_multiple",
+      "optionsArray": ["TOTAL_RECORDS", "NON_NULL_RECORDS", "DISTINCT_RECORDS", "SUM_VALUES"],
+      "title": "Count Option", "description": "Choose the different count and sum options."}
+
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "4",
+  "name": "Sarimax Model Load",
+  "type": "ml-modelload",
+  "description": "This node load the Sarimax model stored in the pickle file.",
+  "nodeClass": "fire.nodes.ts.NodeSarimaxLoad",
+  "engine": "pyspark",
+  "fields" : [
+    {"name":"path", "value":"modelsavepath", "widget": "textfield", "title": "Path", "required": true}
+  ]
+}
+

@@ -1,0 +1,39 @@
+{
+  "id": "11",
+  "name": "DB Incremental Ingestion",
+  "iconImage": "assets/images/icons/node-icon/incremental.svg",
+  "description": "This node incrementally fetches data from a database table based on a key column (DATE, ID, or TIMESTAMP). It handles both initial and subsequent data.",
+  "input": "It reads data from Relational Databases",
+  "output": "It creates a DataFrame from the data read and sends it to its output",
+
+  "type": "dataset",
+  "nodeClass": "fire.nodes.dataset.NodeDBIncrementalIngestion",
+  "fields" : [
+    {"name":"connection", "value":"", "widget": "object_array", "title": "Connection", "description": "The JDBC connection to connect" ,"required":"true"},
+
+    {"name":"database", "value":"", "widget": "textfield", "title": "Database Name", "required":"true",
+      "description": ""},
+
+    {"name":"table", "value":"", "widget": "textfield", "title": "Table Name", "required":"true",
+      "description": ""},
+    {"name":"maxIncrementSize", "value":"", "widget": "textfield", "title": "Max Increment Size", "description": " For date, specify the number of days. For index, specify the number of records. For timestamp, specific the number of hours.","required":"true"},
+
+
+    {"name":"startValue", "value":"", "widget": "textfield", "title": "Start Value", "description": "use start value instead of minimum value for first run"},
+    {"name":"keycolumnName", "value":"", "widget": "textfield", "title": "Key Column Name", "description": "key column name","required":"true"},
+    {"name":"keycolumntype", "value":"", "widget": "array", "optionsArray": ["index","timestamp","date"],  "title": "Key Column Type", "description": "index, timestamp or date type supported","required":"true"},
+    {"name":"keycolumnformat", "value":"", "widget": "textfield", "title": "Key Column Format", "description": "timestamp column format"},
+
+    {"name": "performance", "value":"", "widget": "tab", "title": "Performance"},
+    {"name":"partitionColumn", "value":"", "widget": "textfield", "title": "Partition Column", "description": "PartitionColumn must be a numeric, date, or timestamp column from the table" },
+    {"name":"numPartitions", "value":"", "widget": "textfield", "title": "Num Partitions", "description": "The maximum number of partitions that can be used for parallelism in table reading" },
+    {"name":"fetchsize", "value":"", "widget": "textfield", "title": "Fetch Size", "description": "The JDBC fetch size, which determines how many rows to fetch per round trip" },
+    {"name":"sessionInitStatement", "value":"", "widget": "textfield", "title": "Session Init Statement", "description": "After each database session is opened to the remote DB and before starting to read data, this parameter executes a custom SQL statement (or a PL/SQL block). Use this to implement session initialization code. Example: option(\"sessionInitStatement\", \"BEGIN execute immediate 'alter session set \"_serial_direct_read\"=true'; END;\").", "expandable": true},
+
+
+    {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names of the Table", "description": "Output Columns Names of the Table"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types of the Table", "description": "Output Column Types of the Table"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats", "description": "Output Column Formats"}
+  ]
+}

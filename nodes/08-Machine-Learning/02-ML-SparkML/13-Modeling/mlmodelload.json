@@ -1,0 +1,58 @@
+{
+  "id": "4",
+  "name": "Spark ML Model Load",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/pyspark.svg",
+  "type": "ml-modelload",
+  "nodeClass": "fire.nodes.ml.NodeModelLoad",
+  "engine": "scala",
+  "fields" : [
+    {
+      "name": "selectChampionModel",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": ["true", "false"],
+      "title": "Use Champion Model",
+      "description": "Uses Champion Model For Prediction."
+    },
+    {"name":"path", "value":"modelsavepath", "widget": "textfield", "title": "Path To Load SparkML model","wdgtCommon": "selectChampionModel", "toggle": "false","required": false},
+    {"name": "fixedPath", "value":"false", "widget": "array", "title": "Static path", "optionsArray": ["false","true"], "description": "Set this to true if you have saved the model to a static path(without UUID) while training the model." ,"datatypes":["boolean"],"wdgtCommon": "selectChampionModel", "toggle": "false"},
+    {"name":"modelType", "value":"KMEANS", "widget": "array", "title": "Model Type", "description" : "Type of ML model to load",
+     "optionsArray": [
+       "AFT_SURVIVAL_REGRESSION",
+        "ALS",
+        "CHI_SQ_SELECTOR",
+        "COUNT_VECTORIZER",
+        "CROSS_VALIDATOR",
+        "DISTRIBUTED_LDA",
+        "DECISION_TREE_CLASSIFICATION",
+        "DECISION_TREE_REGRESSION",
+        "GBT_CLASSIFICATION",
+        "GBT_REGRESSION",
+        "IDF",
+        "ISOTONIC_REGRESSION",
+        "KMEANS",
+        "LDA",
+        "LINEAR_REGRESSION",
+        "LOGISTIC_REGRESSION",
+        "MIN_MAX_SCALER",
+        "NAIVE_BAYES",
+        "PCA",
+        "PIPELINE",
+        "RANDOM_FOREST_CLASSIFICATION",
+        "RANDOM_FOREST_REGRESSION",
+        "STANDARD_SCALER",
+        "STRING_INDEXER",
+        "STRING_INDEXER_ADVANCED",
+        "ONE_HOT_ENCODER_ADVANCED",
+        "MAX_ABS_SCALER",
+        "ROBUST_SCALER",
+        "IMPUTER",
+        "ONE_HOT_ENCODER_ADVANCED",
+        "NORMALIZER",
+        "VECTOR_INDEXER",
+        "FP_GROWTH",
+        "WORD2VEC"
+     ]
+    }
+  ]
+}

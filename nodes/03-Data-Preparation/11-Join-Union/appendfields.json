@@ -1,0 +1,90 @@
+{
+  "id": "12",
+  "name": "Append Fields",
+  "description": "Append fields from a Source DataFrame to every row of a Target DataFrame (Cartesian-style append).",
+  "type": "join2inputs",
+  "nodeClass": "fire.nodes.etl.NodeAppendFields",
+  "engine": "scala,polars",
+
+  "inputAnchors": [{"name": "Source","title": "S"},{"name": "Target","title": "T"}],
+  "fields": [
+
+    {"name": "selectSourceFields", "value":"[]", "widget": "variables_list_select", "title": "Select Source Fields", "description": "selectSourceFields"},
+
+    {"name":"dataTypeSourceFields", "value":"[]",
+      "widget": "variables_list_array",
+      "optionsArray": ["BOOLEAN", "BYTE", "DATE", "DECIMAL", "DOUBLE", "FLOAT", "INTEGER", "LONG", "SHORT", "STRING", "TIMESTAMP"],
+      "title": "Data Type Source Fields", "description": "New data type(INTEGER, DOUBLE, STRING, LONG, SHORT)", "wdgtCommon":"selectSourceFields"},
+
+    {"name": "renameSourceFields", "value":"[]", "widget": "variables_list_textfield",
+      "title": "Rename Source Fields", "description": "rename column", "wdgtCommon":"selectSourceFields"},
+
+    {"name": "selectTargetFields", "value":"[]", "widget": "variables_list_select", "title": "Select Target Fields", "description": "Columns"},
+
+    {"name":"dataTypeTargetFields", "value":"[]",
+      "widget": "variables_list_array",
+      "optionsArray": ["BOOLEAN", "BYTE", "DATE", "DECIMAL", "DOUBLE", "FLOAT", "INTEGER", "LONG", "SHORT", "STRING", "TIMESTAMP"],
+      "title": "Data Type Target Fields", "description": "New data type(INTEGER, DOUBLE, STRING, LONG, SHORT)", "wdgtCommon":"selectTargetFields"},
+
+    {"name": "renameTargetFields", "value":"[]", "widget": "variables_list_textfield",
+      "title": "Rename Target Fields", "description": "rename column", "wdgtCommon":"selectTargetFields"},
+
+    {"name": "options", "value":"", "widget": "tab", "title": "Options"},
+    {
+      "name": "prefix",
+      "display": true,
+      "value": "",
+      "widget": "textfield",
+      "title": "Prefix",
+      "description": "Optional prefix to add to appended column names."
+    },
+    {
+      "name": "suffix",
+      "display": true,
+      "value": "",
+      "widget": "textfield",
+      "title": "Suffix",
+      "description": "Optional suffix to add to appended column names."
+    },
+    {
+      "name": "enforceThresholdMode",
+      "display": true,
+      "value": "none",
+      "widget": "array",
+      "optionsArray": ["none", "warn", "error"],
+      "title": "Threshold Behavior",
+      "description": "Behavior when Source row count exceeds threshold: none / warn / error  (default: warn)."
+    },
+    {
+      "name": "multiRowSourceBehavior",
+      "display": true,
+      "value": "cartesian",
+      "widget": "array",
+      "optionsArray": ["first_row", "cartesian"],
+      "title": "Join Type",
+      "description": ""
+    },
+
+    {"name": "drop", "value": "", "widget": "tab", "title": "Drop"},
+    {
+      "name": "inputPropagateSchema",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": ["true", "false"],
+      "title": "Propagate Input Schema",
+      "description": "propagate input schema "
+    },
+
+
+    {"name":"dropSourceFields", "value":"[]", "widget": "variables", "title": "Drop Source Fields", "description": "Drop  Source Fields", "schemaIndex": "0"},
+
+    {"name":"dropTargetFields", "value":"[]", "widget": "variables", "title": "Drop Target Fields", "description": "Drop Target Fields", "schemaIndex": "1"},
+
+
+    {"name": "schema", "value": "", "widget": "tab", "title": "InferSchema"},
+
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Output Column Names", "description": "Name of the Output Columns"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Output Column Types", "description": "Data Type of the Output Columns"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Output Column Formats", "description": "Format of the Output Columns"}
+  ]
+}

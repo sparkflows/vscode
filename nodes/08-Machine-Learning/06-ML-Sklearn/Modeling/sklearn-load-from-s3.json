@@ -1,0 +1,24 @@
+{
+  "id": "4",
+  "name": "Sklearn Model Load From S3",
+
+  "description": "Load the Sklearn model stored in the pickel format in S3.",
+
+  "input": "It takes in a Model and DataFrame as input.",
+  "output": "The incoming dataframe is passed to the output.",
+
+  "engine": "pyspark",
+  "type": "ml-modelload",
+  "nodeClass": "fire.nodes.sklearn.NodeSklearnModelLoadFromS3",
+  "fields" : [
+    {
+      "name": "selectChampionModel",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": ["true", "false"],
+      "title": "Use Champion Model",
+      "description": "Uses Champion Model For Prediction."
+    },
+    {"name":"path", "value":"", "widget": "textfield", "title": "Path","wdgtCommon": "selectChampionModel", "toggle": "false"}
+  ]
+}

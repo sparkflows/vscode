@@ -1,0 +1,20 @@
+{
+  "id": "11",
+  "name": "Read Avro",
+
+  "description": "Dataset Node for Reading Apache Avro Files",
+  "input": "It reads in Avro Files",
+  "output": "It creates a DataFrame from the data read and sends it to its output",
+  "type": "dataset",
+  "nodeClass": "fire.nodes.dataset.NodeDatasetAvro",
+  "fields" : [
+    {"name":"path", "display": true, "value":"", "widget": "textfield", "title": "Path", "description": "Path of the Avro file/directory"},
+    {"name": "addInputFileName", "value":"false", "widget": "array", "title": "Add Input File Name", "optionsArray": ["false","true"],
+      "description": "Add the new field:input_file_name"},
+    {"name": "schema", "value": "", "widget": "tab", "title": "InferSchema"},
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names for the Avro", "description": "Output Columns of the Avro"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types for the Avro", "description": "Data Type of the Output Columns"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats for the Avro", "description": "Format of the Output Columns"}
+
+  ]
+}

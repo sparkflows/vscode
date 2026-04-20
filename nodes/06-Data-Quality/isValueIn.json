@@ -1,0 +1,12 @@
+{
+  "id": "2",
+  "name": "Is Value In",
+  "description": "",
+  "type": "transform",
+  "nodeClass": "fire.nodes.quality.NodeCheckIsValueIn",
+  "fields" : [
+    {"name": "cols", "value":"[]", "widget": "variables_list_select", "title": "Column Name", "description": "The column name."},
+    {"name": "values", "value":"[]", "widget": "variables_list_textfield","title": "Values", "description": "A set of objects separated by spaces used for comparison.."},
+    {"name": "weightage", "value":"1", "widget": "textfield","title": "Weightage", "description": " Weightage"}
+  ]
+}

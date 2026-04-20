@@ -1,0 +1,19 @@
+{
+  "id": "11",
+  "name": "Read Salesforce",
+  "description": "This node reads data from Salesforce.",
+  "type": "dataset",
+  "nodeClass": "fire.nodes.salesforce.NodeReadSalesforce",
+  "fields" : [
+    {"name":"soql", "value":"", "widget": "textfield", "title": "SOQL", "description": "Sql for reading salesforce data ex: select id, name, amount from opportunity"},
+    {"name":"salesforceUsername", "value":"", "widget": "textfield", "title": "User Name", "description": "UserName of Salesforce"},
+    {"name":"salesforcePassword", "value":"", "widget": "textfield", "title": "Password", "description": "<password><token>, Append token to password."},
+
+    {"name": "readOption", "value":"DATA", "widget": "enum", "title": "Read Option", "optionsMap":{"DATA":"Data","OBJECT":"Object"},
+             "description": "Pulling data/Object from salesforce"},  
+
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names of the Table", "description": "Output Columns Names of the Table"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types of the Table", "description": "Output Column Types of the Table"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats", "description": "Output Column Formats"}
+  ]
+}

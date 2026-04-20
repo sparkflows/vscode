@@ -1,0 +1,23 @@
+{
+  "id": "5",
+  "name": "Sklearn Polynomial",
+  "description": "Polynomial regression is a special case of linear regression, which generates a new feature matrix consisting of all polynomial combinations of the features with degree less than or equal to the specified degree.",
+  "input" : "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "transform",
+
+  "nodeClass": "fire.nodes.sklearn.NodeSklearnPolynomial",
+  "fields" : [
+    {"name": "targetCol", "value":"", "widget": "variable", "title": "Target Column", "description": "The label column for model fitting", "required": true},
+
+    {"name": "degree", "value": 2, "widget": "textfield", "title": "Degree", "description": "The degree of the polynomial features. Default = 2."},
+
+    {"name": "interactiononly", "value":"true", "widget": "array", "title": "Interaction Only", "optionsArray": ["true", "false"],
+      "description": "If true, only interaction features are produced: features that are products of at most ``degree`` *distinct* input features (so not``x[1] ** 2``, ``x[0] * x[2] ** 3``, etc.)" },
+
+    {"name": "includebias", "value":"false", "widget": "array", "title": "Include Bias", "optionsArray": ["true", "false"],
+      "description": "True (default), then include a bias column, the feature in which all polynomial powers are zero." }
+
+  ]
+}

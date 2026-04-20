@@ -1,0 +1,20 @@
+{
+  "id": "7",
+  "name": "ExpectColumnValueLengthToBeInBetween",
+  "description": "",
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.ge.NodeExpectColumnValueLengthToBeInBetween",
+  "fields" : [
+
+    {"name": "cols", "value":"[]", "widget": "variables_list_select",
+      "title": "Column Name", "description": "The column name."},
+
+    {"name": "min", "value":"[]", "widget": "variables_list_textfield",
+      "title": "Min", "description": "The minimum value for a column entry length."},
+
+    {"name": "max", "value":"[]", "widget": "variables_list_textfield",
+      "title": "Max", "description": "The maximum value for a column entry length."}
+
+  ]
+}

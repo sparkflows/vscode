@@ -1,0 +1,14 @@
+{
+  "id": "1",
+  "name": "Node Schema Validation",
+  "description": "This node is used to do the defined schema validation.",
+  "type": "transform",
+  "nodeClass": "fire.nodes.validation.NodeSchemaValidation",
+  "fields" : [
+
+    {"name":"validation", "value":"", "widget": "textarea_large", "title": "Validation", "required": true,
+      "description": "Column Name, Column Type, Required & Default Value to check separated by ,"}
+
+
+  ]
+}

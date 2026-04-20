@@ -1,0 +1,16 @@
+{
+  "id": "1",
+  "name": "Row Filter",
+  "iconImage": "assets/images/icons/node-icon/filter.svg",
+  "description": "This node creates a new DataFrame containing the rows that satisfy the given condition",
+  "input": "It accepts DataFrame as input from the previous Node",
+  "output": "This node filters the rows based on the conditional expression to generate the output DataFrame",
+  "type": "transform",
+  "engine": "scala,pyspark,polars",
+  "nodeClass": "fire.nodes.etl.NodeRowFilter",
+  "fields" : [
+    {"name":"conditionExpr", "value":"", "widget": "code_editor", "type": "sparksql", "title": "Conditional Expression",
+      "description": "The filtering condition. Rows not satisfying given condition will be excluded from output DataFrame. eg: usd_pledged_real > 0 and (category = 1 or category == 2) and goal > 100"
+    , "required": true}
+  ]
+}

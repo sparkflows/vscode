@@ -1,0 +1,16 @@
+{
+  "id": "11",
+  "name": "Keras Preprocessor",
+  "description": "",
+  "input": "",
+  "output": "",
+  "type": "pyspark",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.dl.NodeKerasPreprocessor",
+  "fields" : [
+
+    {"name":"PreprocessorCode", "value":"", "widget": "tab", "title": "PreprocessorCode"},
+    {"name":"preprocessorCode", "value":"from pyspark.sql.types import * \nfrom pyspark.sql.functions import * \nfrom pyspark.sql import * \nfrom fire.workflowcontext import WorkflowContext \n\ndef myfn(spark: SparkSession, workflowContext: WorkflowContext, id: int, inDF: DataFrame):\n   outDF = inDF  #add custom logic\n   return outDF", "widget": "textarea_large", "type": "python", "title": "PreprocessorCode", "description": "PySpark code to be run. Input dataframe : \"inDF\", SparkContext : \"sc\", SQLContext : \"sqlContext\",  Output/Result dataframe should be registered as a temporary table - df.registerTempTable(\"outDF\")"}
+
+  ]
+}

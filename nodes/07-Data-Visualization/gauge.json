@@ -1,0 +1,36 @@
+{
+  "id": "3",
+  "name": "Gauge Chart",
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "iconImage": "assets/images/icons/node-icon/gauge_chart.svg",
+  "nodeClass": "fire.nodes.graph.NodeGauge",
+  "fields": [
+    {"name":"title","value":"Gauge Chart","widget":"textfield","title":"Title","size":"50%"},
+    {"name":"titleColor","value":"#2563EB","widget":"textcolors","title":"Title Color","size":"50%"},
+
+    {"name":"description","value":"","widget":"textareafield","title":"Description"},
+    {"name":"descriptionColor","value":"#6D6E70","widget":"textcolors","title":"Description Color","size":"50%"},
+
+    {"name":"keyCol","value":"","widget":"variable","datatypes":["string"],
+      "title":"Key Column","size":"50%"},
+
+    {"name":"valueCol","value":"","widget":"variable",
+      "datatypes":["integer","long","double","float"],
+      "title":"Value Column","size":"50%"},
+
+    {"name":"redfrom","value":90,"widget":"textfield","title":"RedFrom","size":"50%"},
+    {"name":"redTo","value":100,"widget":"textfield","title":"RedTo","size":"50%"},
+
+    {"name":"yellowfrom","value":75,"widget":"textfield","title":"YellowFrom","size":"50%"},
+    {"name":"yellowTo","value":90,"widget":"textfield","title":"YellowTo","size":"50%"},
+
+    {"name":"greenFrom","value":75,"widget":"textfield","title":"GreenFrom","size":"50%"},
+    {"name":"greenTo","value":90,"widget":"textfield","title":"GreenTo","size":"50%"},
+
+    {"name":"max","value":100,"widget":"textfield","title":"Max","size":"50%"},
+    {"name":"min","value":0,"widget":"textfield","title":"Min","size":"50%"},
+
+    {"name":"minorTicks","value":5,"widget":"textfield","title":"MinorTicks","size":"50%"}
+  ]
+}

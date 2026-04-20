@@ -1,0 +1,18 @@
+{
+  "id": "4",
+  "name": "Hashing TF",
+  "type": "ml-transformer",
+  "description":"Maps a sequence of terms to term frequencies using the hashing trick.",
+
+  "input": "It takes in a DataFrame as input and transforms it to another DataFrame",
+  "output": "A new column is added to the input DataFrame containing hashing of the bag of words into a feature vector",
+
+  "nodeClass": "fire.nodes.ml.NodeHashingTF",
+  "fields" : [
+    {"name":"inputCol", "value":"", "widget": "variable", "title": "Input Column",
+     "description": "Contains sets of terms. In text processing, a 'set of terms' might be a bag of words",
+     "datatypes":["array"] ,"required":"true"
+    },
+    {"name":"outputCol", "value":"ner", "widget": "textfield", "required":"true", "title": "Output Column", "description": "Output column name"}
+  ]
+}

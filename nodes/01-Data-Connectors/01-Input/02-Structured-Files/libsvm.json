@@ -1,0 +1,21 @@
+{
+  "id": "11",
+  "name": "Read LIBSVM",
+  
+  "description": "It reads in LIBSVM files and creates a DataFrame from it",
+  "input": "It reads in LIBSVM Text Files",
+  "output": "It creates a DataFrame from the data read and sends it to its output",
+  
+  "type": "dataset",
+  "nodeClass": "fire.nodes.dataset.NodeDatasetLibsvm",
+  "fields" : [
+    {"name":"path", "display": true, "value":"", "widget": "textfield", "title": "Path", "description": "Path of the Text file/directory"},
+    {"name":"numFeatures", "value":"", "widget": "textfield", "title": "NumFeatures", "description": "Number of features in feature column"},
+
+    {"name": "schema", "value": "", "widget": "tab", "title": "InferSchema"},
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names for the CSV", "description": "New Output Columns of the SQL"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types for the CSV", "description": "Data Type of the Output Columns"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats for the CSV", "description": "Format of the Output Columns"}
+
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "11",
+  "name": "Polars",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/pyspark.svg",
+  "description": "This node runs any given Polars code. The input dataframe is passed into the function myfn as a parameter.",
+  "input": "The input Polars dataframe is passed in the variable inDF to the function myfn.",
+  "output": "The output Polars dataframe is returned back from the function",
+  "type": "pyspark",
+  "engine": "polars",
+  "nodeClass": "fire.nodes.etl.NodePolars",
+  "fields" : [
+    {"name":"code", "value":"'''\nInput:\n  workflowContext: workflowcontext object \n  id: node number \n  inDF: input polars dataframe \n  cust_dict: Dictionary of the workflow variables passed from previous node \nOutput:\n  outDF: return polars dataframe i.e outDF \n'''\n\nimport polars as pl\nfrom firepython.workflowengine.workflowcontext import WorkflowContext\n\ndef myfn(workflowContext: WorkflowContext, id: int, inDF: pl.DataFrame, cust_dict: dict):\n    outDF = inDF  # add custom logic\n    return outDF", "widget": "textarea_large", "type": "python", "title": "Polars", "description": "Polars code to be run. Input dataframe : \"inDF\", Output/Result dataframe : \"outDF\""},
+
+    {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names", "description": "New Output Columns of the SQL"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types", "description": "Data Type of the Output Columns"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats", "description": "Format of the Output Columns"}
+
+  ]
+}

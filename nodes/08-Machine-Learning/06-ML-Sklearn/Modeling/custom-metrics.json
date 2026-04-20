@@ -1,0 +1,42 @@
+{
+  "id": "5",
+  "name": "Custom Metrics",
+  "description": "Custom Metrics to check on aggregated field, which expects prediction, label, aggregate column and metrics.",
+  "input" : "Takes Actual and Predicted Column as input",
+  "output": "Outputs Computed Metrics using Selected Metrics Type ",
+  "engine": "pyspark",
+  "type": "transform",
+
+  "nodeClass": "fire.nodes.sklearn.NodeCustomMetrics",
+  "fields" : [
+    {
+      "name": "useChampion",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": ["true", "false"],
+      "title": "Use Champion Model",
+      "description": "Uses Champion Model UUID to update metrics over time."
+    },
+
+    {
+      "name": "modelUUID",
+      "display": true,
+      "value": "",
+      "widget": "textfield",
+      "title": "Model UUID",
+      "description": "Enter the model UUID",
+      "wdgtCommon": "useChampion",
+      "toggle": "false"
+    },
+    {"name":"actualCol", "value": "", "widget": "variable", "title": "Actual Column", "description": "", "required": true},
+
+    {"name":"predictedCol", "value": "", "widget": "variable", "title": "Predicted Column", "description": "", "required": true},
+
+    {"name":"metricsType", "value":"rmse", "widget": "array",
+      "optionsArray": ["RMSE", "MeanAbsolutePercentError","R2","MeanAbsoluteError","MeanSquaredError","MedianAbsoluteError","ExplainedVariance","AllRegressionMetrics","F1","WeightedFMeasure","Accuracy","WeightedPrecision","WeightedRecall","FalsePositiveRate","TruePositiveRate","ConfusionMatrix","AllClassificationMetrics"], "title": "Metrics Type",
+      "description": "Select a Metric Type to Compute", "required": true},
+
+    {"name":"posLabel", "value": "", "widget": "textfield", "title": "Positive Label for computing F1", "description": "Positive Label for computing F1", "required": false}
+
+  ]
+}

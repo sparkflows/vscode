@@ -1,0 +1,39 @@
+{
+  "id": "12",
+  "name": "Read Iceberg",
+  "iconImage": "assets/images/icons/node-icon/column.svg",
+  "description": "It reads data from Iceberg table and creates a DataFrame from it",
+  "input": "It reads data from Iceberg table.",
+  "output": "It creates a DataFrame from the data read and sends it to its output",
+  "hint": "Whenever the file is changed, Infer the Schema",
+  "type": "dataset",
+  "nodeClass": "fire.nodes.iceberg.ReadIcebergTable",
+  "fields" : [
+    {"name":"catalogName", "display":true, "value":"", "widget": "textfield", "title": "Iceberg Catalog",
+      "description": "Catalog name",  "required": true},
+
+    {"name":"catalogType", "value":"hadoop", "widget": "array_single", "optionsArray": ["hadoop","hive"], "title": "Catalog Type", "description":"Choose Catalog type - hadoop or hive"},
+    {"name":"metastoreUri", "value":"", "widget": "textfield", "title": "Hive metastore uri", "description": "Hive metastore uri",
+      "wdgtCommon":"catalogType", "toggle":"hive"},
+
+    {"name":"warehousePath", "display":true,"value":"", "widget": "textfield",  "title": "Warehouse path", "description": "Warehouse path  for Hive or Hadoop catalog, Hadoop Catalog path is required and For Hive Catalog it's optional(by default warehouse path is used.)."},
+
+    {"name":"databaseName", "value":"default", "widget": "textfield", "title": "HIVE Database",
+      "description": "HIVE Database", "wdgtCommon":"catalogType", "toggle":"hive"},
+
+    {"name":"tableName", "display":true, "value":"", "widget": "textfield", "title": "HIVE Table",
+      "description": "HIVE Table from which to read the data", "wdgtCommon":"catalogType", "toggle":"hive"},
+
+    {"name":"icebergDatabaseName", "value":"default", "widget": "textfield", "title": "Iceberg Database",
+      "description": "Iceberg Database", "wdgtCommon":"catalogType", "toggle":"hadoop"},
+
+    {"name":"icebergTableName", "display":true, "value":"", "widget": "textfield", "title": "Iceberg Table",
+      "description": "Iceberg Table from which to read the data", "wdgtCommon":"catalogType", "toggle":"hadoop"},
+
+
+    {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names", "description": "New Output Columns of the SQL"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types", "description": "Data Type of the Output Columns"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats", "description": "Format of the Output Columns"}
+  ]
+}

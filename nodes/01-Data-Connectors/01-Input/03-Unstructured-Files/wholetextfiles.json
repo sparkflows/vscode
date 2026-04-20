@@ -1,0 +1,12 @@
+{
+  "id": "2",
+  "name": "Whole Text Files",
+  "description": "Reads Whole Text Files directory from a given path and loads each file as a separate Row with key (file name) and values (file content)",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/text.svg",
+  "type": "dataset",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.dataset.NodeDatasetWholeTextFiles",
+  "fields" : [
+    {"name":"path",  "display": true, "value":"", "widget": "textfield", "title": "Path", "description": "Path of the Text Files directory"}
+  ]
+}

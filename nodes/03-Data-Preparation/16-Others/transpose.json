@@ -1,0 +1,15 @@
+{
+  "id": "11",
+  "name": "Transpose",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/transpose_by_and_unpivot.svg",
+  "description": "This node transposes a dataframe without performing aggregation function by given column(transposeby). ALL INPUT COLUMNS TO THIS NODE HAVE TO BE OF THE SAME TYPE",
+  "input": "It accepts a DataFrame as input from the previous Node",
+  "output": "Output dataframe consisting of three columns transposeBy, column_name, column_value",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeTranspose",
+  "fields" : [
+
+    {"name":"transposeBy", "value": "", "widget": "variable", "title": "Transpose By Column Name", "description": "transposeBy column name"}
+
+  ]
+}

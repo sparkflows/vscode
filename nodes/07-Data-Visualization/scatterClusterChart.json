@@ -1,0 +1,28 @@
+{
+  "id": "3",
+  "name": "Scatter Cluster Chart",
+  "type": "transform",
+  "iconImage": "assets/images/icons/node-icon/cluster_chart.svg",
+  "nodeClass": "fire.nodes.graph.NodeScatterClusterChart",
+  "fields": [
+    {"name":"title","value":"Scatter Cluster Chart","widget":"textfield","title":"Title","size":"50%"},
+    {"name":"titleColor","value":"#2563EB","widget":"textcolors","title":"Title Color","size":"50%"},
+
+    {"name":"xCol","value":"","widget":"variable","title":"X Column","required":true,"size":"50%"},
+    {"name":"yCol","value":"","widget":"variable","title":"Y Column","required":true,"size":"50%"},
+
+    {"name":"clusterColumn","value":"","widget":"variable","title":"Cluster Column","required":true,"size":"50%"},
+    {"name":"centroid","value":"false","widget":"array",
+      "optionsArray":["false","true"],
+      "title":"Centroid",
+      "size":"50%"},
+
+    {"name":"chartColors","value":"","widget":"colors","title":"Chart Colors","size":"50%"},
+
+    {"name":"xlabel","value":"","widget":"textfield","title":"X Label","size":"50%"},
+    {"name":"ylabel","value":"","widget":"textfield","title":"Y Label","size":"50%"},
+
+    {"name":"description","value":"","widget":"textareafield","title":"Description"},
+    {"name":"descriptionColor","value":"#6D6E70","widget":"textcolors","title":"Description Color","size":"50%"}
+  ]
+}

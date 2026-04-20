@@ -1,0 +1,37 @@
+{
+  "id": "5",
+  "name": "Keras Predict",
+  "description": "",
+  "input" : "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "ml-predict",
+
+  "nodeClass": "fire.nodes.dl.NodePredict",
+  "fields" : [
+
+    {"name": "targetCol", "value":"", "widget": "variable", "title": "Target Column", "description": "The label column for model fitting"},
+
+    {"name": "batch_size", "value": -1, "widget": "textfield", "title": "Batch Size", "description": "Default value is None i.e -1"},
+
+    {"name": "verbose", "value": 1, "widget": "textfield", "title": "Verbose", "description": ""},
+
+    {"name": "steps", "value": -1, "widget": "textfield", "title": "Steps", "description": "Default value is None i.e -1"},
+
+
+    {"name": "callbacks", "value": -1, "widget": "textfield", "title": "Callbacks", "description": "Default value is None i.e -1"},
+
+    {"name": "max_queue_size", "value": 10, "widget": "textfield", "title": "Validation Frequency", "description": ""},
+
+    {"name": "workers", "value": 1, "widget": "textfield", "title": "Workers", "description": ""},
+
+    {"name": "use_multiprocessing", "value":"false", "widget": "array", "title": "Use Multiprocessing", "optionsArray": ["false","true"], "description": "" ,"datatypes":["boolean"]},
+
+    {"name": "unsupervised", "value":"false", "widget": "array", "title": "Unsupervised", "optionsArray": ["false","true"], "description": "" ,"datatypes":["boolean"]},
+
+    {"name": "threshold_loss_function", "value":"mse", "widget": "array", "title": "Threshold Loss Function", "optionsArray": ["mse","mae"], "description": "" }
+
+
+
+  ]
+}

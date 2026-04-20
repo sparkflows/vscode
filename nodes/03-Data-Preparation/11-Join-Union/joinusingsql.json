@@ -1,0 +1,24 @@
+{
+  "id": "1",
+  "name": "Join Using SQL",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/join_node_2more_input_1output.svg",
+  "description": "This node registers the incoming DataFrames as temporary tables and executes the SQL provided",
+  "input": "It takes in 2 or more DataFrames as input and produces one DataFrame as output by executing the provided SQL.",
+  "output": "The DataFrame created as a result of executing the join SQL",
+
+  "type": "join",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.etl.NodeJoinUsingSQL",
+  "inputAnchors": [{"name": "multiInput","title": "MI"}],
+  "fields" : [
+    {"name":"tempTables", "value":"[]", "widget": "array_of_values", "title": "Temp Table Names", "description": "Temp Table Name to be used"},
+
+    {"name":"sql", "value":"", "widget": "code_editor", "type": "sql_mysql", "title": "SQL", "description": "SQL to be run", "required": true},
+
+    {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+    
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names for the CSV", "description": "New Output Columns of the SQL"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types for the CSV", "description": "Data Type of the Output Columns"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats for the CSV", "description": "Format of the Output Columns"}
+  ]
+}

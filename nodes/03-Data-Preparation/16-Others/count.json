@@ -1,0 +1,16 @@
+{
+  "id": "11",
+  "name": "Count",
+  "description": "This node counts the number of records in the incoming Dataframe and puts the count into result page.",
+  "input" : "It accepts a DataFrame as input from the previous Node",
+  "output": "The incoming DataFrame is sent to the output",
+  "type": "shellcommand",
+  "engine": "scala,pyspark,polars",
+  "nodeClass": "fire.nodes.etl.NodeCount",
+  "fields" : [
+    {"name":"variable", "value": "count", "widget": "textfield", "title": "Variable Name", "description": "Name of the Variable in which the count is stored"},
+
+    {"name": "printCount", "value":"true", "widget": "array", "title": "PrintCount","optionsArray": ["true","false"], "description": "Print the count into result page.", "datatypes":["boolean"]}
+
+  ]
+}

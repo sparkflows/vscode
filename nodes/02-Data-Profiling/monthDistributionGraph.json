@@ -1,0 +1,16 @@
+{
+  "id": "3",
+  "name": "Graph Month Distribution",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/wekly_monthly_and_yearly_distribution.svg",
+  "description":"This node Finds the distribution of months from Date values" ,
+  "type": "transform",
+  "nodeClass": "fire.nodes.graph.NodeGraphMonthDistribution",
+  "fields" : [
+  	{"name":"title", "value":"Month Distribution", "widget": "textfield", "title": "Title"},
+    {"name":"graphType", "value":"1", "widget": "enum", "title": "Chart Type",
+      "optionsMap":{"LINECHART":"Line Chart","COLUMNCHART":"Side by Side Bar Chart",
+                    "BARCHART":"Stacked Bar Chart", "PIE":"Pie Chart"}, "description" : "input graph type"},
+    {"name":"yCols", "value":"[]", "widget": "variables", "title": "Y Columns",
+                    "datatypes":["string", "date", "timestamp"],"description":"input to y axis"}
+  ]
+}

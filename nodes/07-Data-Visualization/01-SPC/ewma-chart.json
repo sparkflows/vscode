@@ -1,0 +1,53 @@
+{
+  "id": "3",
+  "name": "EWMA Chart",
+  "type": "SPC-Chart",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.graph.NodeSpcEWMAChart",
+  "description": "This node outputs SPC EWMA Chart and performs control tests.",
+  "fields": [
+    {"name":"title","value":"","widget":"textfield","title":"Title","size":"50%"},
+    {"name":"titleColor","value":"#2563EB","widget":"textcolors","title":"Title Color","size":"50%"},
+
+    {"name":"description","value":"","widget":"textareafield","title":"Description"},
+    {"name":"descriptionColor","value":"#6D6E70","widget":"textcolors","title":"Description Color","size":"50%"},
+
+    {"name":"measurements","value":"[]","widget":"variables",
+      "title":"Measurements Columns",
+      "description":"Measurements column names",
+      "required":true},
+
+    {"name":"identifier","value":"","widget":"variable",
+      "title":"Identifier Columns",
+      "description":"Identifier column names",
+      "size":"50%"},
+
+    {"name":"weight","value":"0.2","widget":"textfield",
+      "title":"Weight",
+      "size":"50%"},
+
+    {"name":"test1","value":"false","widget":"boolean",
+      "title":"Point beyond the control limits",
+      "size":"50%"},
+
+    {"name":"test2","value":"9","widget":"textfield",
+      "title":"k or more consecutive points are one side of the centerline",
+      "size":"50%"},
+
+    {"name":"test3","value":"6","widget":"textfield",
+      "title":"k or more consecutive points are increasing or decreasing",
+      "size":"50%"},
+
+    {"name":"test4","value":"10","widget":"textfield",
+      "title":"k consecutive points alternate up or down",
+      "size":"50%"},
+
+    {"name":"test5","value":"14","widget":"textfield",
+      "title":"k out of k+1 consecutive points are one side of the centerline",
+      "size":"50%"},
+
+    {"name":"test6","value":"16,20","widget":"textfield",
+      "title":"k out of n consecutive points are one side of the centerline",
+      "size":"50%"}
+  ]
+}

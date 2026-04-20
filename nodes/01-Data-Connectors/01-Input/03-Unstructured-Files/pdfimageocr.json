@@ -1,0 +1,18 @@
+{
+  "id": "2",
+  "name": "PDF Image OCR",
+  "iconImage": "assets/images/icons/node-icon/PDF.svg",
+  "description": "Reads in PDF Files from a given path, extracts the images from them, and converts them to text with Tesseract",
+
+  "input": "It reads in a PDF file or a directory containing PDF files",
+  "output": "It creates a DataFrame from the data read and sends it to its output",
+  "engine": "pyspark",
+  "type": "dataset",
+  "nodeClass": "fire.nodes.dataset.NodeDatasetPDFImageOCR",
+  "fields" : [
+    {"name":"path", "value":"path", "widget": "textfield", "title": "Path of the PDF files", "description": "Path of the PDF file/directory"},
+    {"name":"fileNameCol", "value":"fileName", "widget": "textfield", "title": "File Name Column", "description": "File Name Column in the Output DataFrame"},
+    {"name":"outputCol", "value":"ocrCol", "widget": "textfield", "title": "Column Name which contains the result of OCR",
+            "description": "OCR output column in the Output DataFrame"}
+  ]
+}

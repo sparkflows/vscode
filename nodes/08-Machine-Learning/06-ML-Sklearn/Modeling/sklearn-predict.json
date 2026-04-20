@@ -1,0 +1,47 @@
+{
+  "id": "5",
+  "name": "Sklearn Predict",
+
+  "description": "Predict node takes in a dataframe and model and makes predictions",
+
+  "input": "It takes in a DataFrame and Model as input",
+  "output": "A new column containing the predictions is added to the input DataFrame",
+
+  "type": "ml-predict",
+  "engine": "pyspark",
+  "inputAnchors": [{"name": "Data","title": "D"},{"name": "Model","title": "M"}],
+
+  "nodeClass": "fire.nodes.sklearn.NodeSklearnPredict",
+  "fields" : [
+
+    {"name":"featureCols", "value":"[]", "widget": "variables", "title": "Feature Columns",
+      "description": "Features used while Training. Can be kept empty for Supervised Models", "datatypes":["integer", "long", "double", "float", "vectorudt","array"]},
+
+    {"name": "targetCol", "value":"", "widget": "variable", "title": "Target Column", "description": "The label column for model fitting",
+      "datatypes":["integer", "long", "double", "float", "int"]
+    },
+
+    {"name": "keyCol", "value":"", "widget": "variable", "title": "Key Column", "description": "The key column to identify the each row/data/sample."},
+
+    {"name": "predictionOverTime", "value":"", "widget": "tab", "title": "Prediction Over Time"},
+    {
+      "name": "useChampion",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": ["true", "false"],
+      "title": "Use Champion Model",
+      "description": "Uses Champion Model UUID For Prediction Over Time Graph."
+    },
+    {"name":"model_uuid", "display": true, "value":"", "widget": "textfield", "title": "Model UUID", "description": "Enter the model uuid","wdgtCommon": "useChampion", "toggle": "false"},
+
+    {"name": "enablePredictionOverTimeMetrics", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"],
+      "title": "Enable Prediction Over Time Metrics", "description": "enable "},
+
+    {"name":"modelCategory",  "value":"", "widget": "array","optionsArray": ["Regression", "Classification", "Clustering"], "title": "Model Category",
+      "description":"Select the category", "wdgtCommon":"enablePredictionOverTimeMetrics", "toggle":"true"}
+
+  ]
+}
+
+
+

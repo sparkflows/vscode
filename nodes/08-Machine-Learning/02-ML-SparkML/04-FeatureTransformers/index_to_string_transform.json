@@ -1,0 +1,9 @@
+{
+  "id": "4",
+  "name": "Index To String Transform",
+  "description": "Maps a column of indices back to a new column of corresponding string values. The index-string mapping is either from the ML attributes of the input column, or from user-supplied labels",
+  "type": "ml-predict",
+  "nodeClass": "fire.nodes.etl.NodeIndexToStringTransform",
+  "engine": "pyspark",
+  "fields" : []
+}

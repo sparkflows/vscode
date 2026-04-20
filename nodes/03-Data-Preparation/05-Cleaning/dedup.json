@@ -1,0 +1,19 @@
+{
+  "id": "6",
+  "name": "Dedup",
+  "description": "This node is used for problems like entity resolution or data matching. Entity resolution or Data matching is the problem of finding and linking different mentions of the same entity in a single data source or across multiple data sources.",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/Dedup_and_fuzzy_match.svg",
+  "input": "It takes in a DataFrame as input",
+  "output": "Dataframe with confidence score field and other selected scores for entities",
+  "type": "transform",
+  "nodeClass": "fire.nodes.ml.NodeDedup",
+  "fields" : [
+    {"name": "confidenceScore", "value":"confidenceScore", "widget": "textfield", "title": "Confidence Score", "required": true, "description": "Confidence Score"},
+    {"name": "lhsCols", "value":"[]", "widget": "variables_map", "title": "LHS Columns", "description": "LHS columns for matching"},
+    {"name": "rhsCols", "value":"[]", "widget": "variables_map_select", "title": "RHS Columns", "description": "RHS columns for matching"},
+    {"name": "matchingAlgorithms", "value":"[]", "widget": "variables_map_array", "optionsArray": ["fullmatch", "levenshtein", "jarowinkler", "jaccard(3 gram)", "longestCommonSubsequence","notionalDistance","dateDifference"], "title": "Algorithm to use", "description": "Algorithm to use for matching"},
+    {"name": "matchingWeights", "value":"[]", "widget": "variables_map_edit", "title": "Weights", "required": true, "description": "Weights to consider for confidence score caluclation and total wight should be less than 1."},
+    {"name": "outputCols", "value":"[]", "widget": "variables_map_edit", "title": "Output Column", "required": true, "description": "Output Column"}
+
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "7",
+  "name": "Bucketizer",
+  "type": "ml-estimator",
+  "description": "The Bucketizer transformer in PySpark is used to discretize continuous features into categorical ones by creating a fixed number of buckets.",
+
+  "input": "It  takes in a DataFrame and transforms it to another DataFrame",
+  "output": "The output column contains the bucket index for each value in the input column.",
+
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.etl.NodeBucketizer",
+  "fields" : [
+    {"name":"inputCol", "value":"text", "widget": "variable", "title": "Input Column","required": true, "datatypes":["double", "float"],"description": "The input column name"},
+
+    {"name":"outputCol", "value":"", "widget": "textfield", "title": "Output Column", "required": true, "datatypes":["string"], "description": "The output column name"},
+
+    {"name":"splits", "value":"", "widget": "textfield", "title": "splits","required": true,"description": "eg : [float(\"-inf\"), -0.5, 0.0, 0.5, float(\"inf\")]"}
+
+
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "7",
+  "name": "Save Delta",
+  "description": "Saves the DataFrame into the specified location in Delta Format.",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/delt.svg",
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.save.NodeSaveDelta",
+  "fields" : [
+    {"name":"path", "display": true, "value":"", "widget": "textfield", "title": "Path",
+      "description":"Path to save the delta files","required":"true"},
+
+    {"name":"saveMode", "value":"Append", "widget": "array","optionsArray": ["Append","Overwrite", "ErrorIfExists", "Ignore"],
+      "title": "Save Mode", "description":"Whether to Append, Overwrite or Error if the path Exists"},
+
+    {"name": "advanced", "value":"", "widget": "tab", "title": "Advanced"},
+
+    {"name":"partitionColNames", "value": "[]", "widget": "variables",
+      "title": "Partition Column Names", "description": "Partition Column Names"},
+
+    {"name":"mergeSchema", "value":"false", "widget": "array","optionsArray": ["false", "true"],
+      "title": "Merge Schema", "description":"If true, then any columns that are present in the DataFrame but not in the target table are automatically added on to the end of the schema as part of a write transaction"},
+
+    {"name":"overwriteSchema", "value":"false", "widget": "array","optionsArray": ["false","true"],
+      "title": "Overwrite Schema", "description":"If true, overwrites the schema of the Delta table with the schema of the incoming DataFrame"},
+
+    {"name":"optimizeWrite", "value":"false", "widget": "array","optionsArray": ["false","true"],
+      "title": "Optimize Write", "description":"If true, it optimizes Spark partition sizes based on the actual data"},
+
+    {"name":"overwritePartitionPredicate", "value":"", "widget": "textfield",
+      "title": "Overwrite Partition Predicate", "description":"If specified, then it selectively overwrites only the data that satisfies the given where clause expression."},
+
+    {"name": "properties", "value": "", "widget": "tab", "title": "Properties"},
+    {"name": "extraOptionsKeys", "value":"[]", "widget": "key_array", "title": "Properties Name", "description": "Extra options/properites available while executing in read delta."},
+    {"name": "extraOptionsValues", "value":"[]", "widget": "value_array", "title": "Properties Value", "description": "Config Values for the Corresponding properites name"}
+
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": "11",
+  "name": "Remove Unwanted Characters Advanced",
+  "description": "This node removes unwanted characters",
+  "input": "It accepts a DataFrame as input from the previous Node",
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.etl.NodeRemoveUnwantedCharactersMultiple",
+  "fields" : [
+    {"name":"inputCols", "value": "[]", "widget": "variables_list_select", "title": "Input Columns", "description": "Input columns"},
+
+    {"name": "removeWhitespaces", "value":"[]", "widget": "variables_list_array", "title": "Remove Whitespaces", "optionsArray": ["true","false"],
+            "description": "Removes white space"},
+
+    {"name": "removeLetters", "value":"[]", "widget": "variables_list_array", "title": "Remove Letters", "optionsArray": ["true","false"],
+            "description": "Removes letters"},
+
+    {"name": "removeDigits", "value":"[]", "widget": "variables_list_array", "title": "Remove Digits", "optionsArray": ["true","false"],
+            "description": "Removes digits"},
+
+    {"name": "removeSigns", "value":"[]", "widget": "variables_list_array", "title": "Remove Signs", "optionsArray": ["true","false"],
+            "description": "Removes signs"},
+
+    {"name": "removeCommas", "value":"[]", "widget": "variables_list_array", "title": "Remove Commas", "optionsArray": ["true","false"],
+      "description": "Removes commas"}
+
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "7",
+  "name": "Case When",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/CaseWhen_CaseWhenAdvance.svg",
+  "description": "This node creates a new Dataframe with a new column appended to it containing value based on the condition met",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeCaseWhen",
+  "engine": "scala,pyspark",
+  "fields" : [
+
+    {"name":"outputCol", "value": "", "widget": "textfield", "title": "Output Column Name",
+      "description": "output column name", "required": true, "size" : "30%"},
+
+    {"name": "whenConditions", "value":"[]", "widget": "key_array",
+      "title": "Case Condition", "description": "When Condition", "type": "sparksql"},
+
+    {"name": "values", "value":"[]", "widget": "value_array",
+      "title": "Value", "description": "Value when this condition is true", "type": "sparksql"},
+
+    {"name":"finallyElse", "value": "", "widget": "key_textfield", "title": "Else Value", "description": "else", "expandable":true}
+
+  ]
+}

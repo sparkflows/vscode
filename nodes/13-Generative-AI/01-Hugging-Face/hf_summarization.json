@@ -1,0 +1,16 @@
+{
+  "id": "6",
+  "name": "Hugging Face Summarization",
+  "description": "Summarization using models hosted in Hugging Face repository.",
+  "input": "It takes in a DataFrame as input",
+  "output": "",
+  "type": "ml-estimator",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeHFSummarization",
+  "fields" : [
+    {"name": "column_name", "value":"", "required":"true", "widget": "variable", "title": "Column to summarize", "description": "Column to summarize."},
+    {"name": "preloaded_model", "value":"", "widget": "array","optionsArray": ["sshleifer-distilbart-cnn-12-6"], "title": "Model to be used for Summarization", "description": "Summarizes the content using the model chosen."},
+    {"name": "preloaded_model_path", "value":"", "widget": "textfield", "title": "Path", "description": "Pre-loaded models parent directory.", "datatypes":["String"]},
+    {"name": "custom_model", "value":"", "widget": "textfield", "title": "Custom model name", "description": "Model name to pull model from Hugging Face repo.", "datatypes":["String"]}
+  ]
+}

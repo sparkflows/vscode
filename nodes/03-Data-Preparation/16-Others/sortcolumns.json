@@ -1,0 +1,13 @@
+{
+  "id": "6",
+  "name": "Sort Columns",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/sort_columns.svg",
+  "description": "It sorts the columns selection.",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeSortColumns",
+  "fields" : [
+
+    {"name": "sortColumnNames", "value":"[]", "widget": "sort_columns", "title": "Columns",
+      "description": "Sort the Column Name"}
+  ]
+}

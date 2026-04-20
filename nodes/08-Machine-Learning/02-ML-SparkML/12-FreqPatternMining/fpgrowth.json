@@ -1,0 +1,17 @@
+{
+  "id": "4",
+  "name": "FP Growth",
+  "description": "Does Pattern Mining using FPGrowth Algorithm",
+  "type": "transform",
+  "nodeClass": "fire.nodes.ml.NodeFPGrowth",
+  "engine": "scala,pyspark",
+  "fields" : [
+    {"name": "itemsCol", "value":"", "widget": "variable", "title": "Items Column", "description": "", "size":"50%"},
+    {"name": "outputType", "value":"freqItemsets", "widget": "array", "title": "OutputType", "optionsArray": ["freqItemsets","associationRules"], "description": "", "size":"50%" },
+
+    {"name": "minSupport", "value":0.2, "widget": "textfield", "title": "Min Support", "description": "The minimum support for an itemset to be identified as frequent", "size":"50%"},
+
+    {"name": "minConfidence", "value":0, "widget": "textfield", "title": "Min Confidence", "description": "", "size":"50%"}
+
+  ]
+}

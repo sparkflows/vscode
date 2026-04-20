@@ -1,0 +1,23 @@
+{
+  "id": "11",
+  "name": "SQL",
+  "description": "This node runs the given SQL on the incoming DataFrame",
+   "iconImage": "assets/images/icons/node-icon/latest-nodes/SQL.svg",
+  "input": "It takes in a DataFrame as input and transforms it to another DataFrame",
+  "output": "It runs the given SQL on the incoming DataFrame to generate the output DataFrame",
+  "hint": "Whenever the table is changed, go to InferSchema tab and Infer the Schema",
+  "type": "transform",
+  "engine": "scala,pyspark,polars",
+  "nodeClass": "fire.nodes.etl.NodeSQL",
+  "fields" : [
+    {"name":"tempTable", "value":"fire_temp_table", "widget": "textfield", "title": "Temp Table", "description": "Temp Table Name to be used"},
+    {"name":"sql", "value":"", "widget": "code_editor", "type": "sql_mysql", "title": "SQL",
+      "required": true, "description": "SQL to be run"},
+
+    {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Output Column Names", "description": "Name of the Output Columns"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Output Column Types", "description": "Data Type of the Output Columns"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Output Column Formats", "description": "Format of the Output Columns"}
+  ]
+}

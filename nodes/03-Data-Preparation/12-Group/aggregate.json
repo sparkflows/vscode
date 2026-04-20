@@ -1,0 +1,31 @@
+{
+  "id": "13",
+  "name": "Aggregate",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/group_by.svg",
+  "description": "The most powerful and flexible aggregation node - combines Group By, multiple aggregations, Pivot, conditional expressions, and column propagation in one easy-to-use interface. Perfect for business reporting, dashboards, KPIs, and analytics summaries.",
+  "input": "Accepts one or more DataFrames as input.",
+  "output": "Returns an aggregated DataFrame.",
+  "type": "transform",
+  "engine": "scala,pyspark,polars",
+  "nodeClass": "fire.nodes.etl.NodeAggregateColumns",
+  "fields": [
+    {"name": "Aggregate", "value":"", "widget": "tab", "title": "Aggregate Columns"},
+    {"name": "aggregatetargetColumns", "value":"[]", "widget": "key_array",
+      "title": "Target Column", "description": "Name of the new column that will hold the aggregated result (e.g., total_sales, order_count, avg_price). This is the column name users will see in reports.","header":"Aggregate", "type": "sparksql"},
+    {"name": "aggregateexpressions", "value":"[]", "widget": "value_array",
+      "title": "Expression", "description": "Spark SQL aggregation expression. Examples:\n• sum(amount)\n• count(*)\n• avg(price)\n• max(date)\n• min(temperature)\n• count(distinct customer_id)\n• sum(amount * quantity)\n• stddev(pop)\n• corr(price, volume)","type": "sparksql"},
+    { "name": "propagateAllInputColumns", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Propagate All Input Columns", "description": "When true To all non-grouped columns are automatically kept in the output using first() (or last() if you change it later). Great for keeping customer name, latest order date, etc., alongside totals." },
+    {"name": "GroupBy", "value":"", "widget": "tab", "title": "Group By Columns"},
+    {"name": "groupByTargetColumns", "value":"[]", "widget": "key_array",
+      "title": "Target Column", "description": "Output column name for the grouping key (e.g., region, department, year_month). Use this to rename or transform grouping columns (e.g., year(order_date) To order_year).","header":"GroupBy", "type": "sparksql" },
+    {"name": "groupByExpressions", "value":"[]", "widget": "value_array",
+      "title": "Expression", "description": "How to group the data. Usually just the column name, but can be complex:\n• region\n• year(order_date)\n• concat(year, '-', month)\n• substr(postal_code, 1, 3)\n• date_trunc('month', order_date)","type": "sparksql"},
+    {"name": "Pivot", "value":"", "widget": "tab", "title": "Pivot"},
+    { "name": "pivotCol", "value": "", "widget": "variable", "title": "Pivot Column", "description": "Column whose distinct values become new columns (e.g., product_category, region, status). Turns long data into wide crosstab format - ideal for Excel reports and dashboards."},
+    { "name": "uniqueValues", "value": "", "widget": "textfield", "title": "Unique Values", "description": "Comma-separated list of expected values (e.g., Electronics,Clothing,Food or Jan,Feb,Mar,Apr,...,Dec). Dramatically improves performance and guarantees column order. Leave empty to let Spark discover values (slower on big data)." },
+    {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names of the Table", "description": "Force exact output column names. Useful when downstream systems expect fixed headers."},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types of the Table", "description": "Force column data types (Integer, Double, String, Date, etc.). Critical for correct joins and visualizations."},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats", "description": "Date/number format strings (e.g., yyyy-MM-dd, #,##0.00). Used for display in reports."}
+  ]
+}

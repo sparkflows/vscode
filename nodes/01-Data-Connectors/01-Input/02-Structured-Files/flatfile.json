@@ -1,0 +1,24 @@
+{
+  "id": "11",
+  "name": "ReadFlatFile",
+  "iconImage": "/assets/images/icons/node-icon/latest-nodes/Flat.svg",
+  "description": "Creates a dataset with output schema from schema field with values extracted from fixedlength.",
+  "input": "It does not read data from any external source",
+  "output": "It creates a DataFrame with columns from schema field.",
+
+  "type": "dataset",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.dataset.NodeReadFlatFile",
+  "fields" : [
+    {"name":"inputDataPath", "display":true,"value":"", "widget": "textfield", "required":true, "title": "Input Data Path", "description": "Path of the file/directory"},
+    {"name":"schemaPath", "value":"", "widget": "textfield", "title": "SchemaPath", "required":true, "description": "Schema File Path with schema:fieldname,datatype,defaultValue,startindex,endindex. When filetype is fixed-length then startindex & endindex columns will be used."},
+    {"name": "fileType", "value":"fixed-length", "widget": "array", "title": "File Type", "required":true, "optionsArray": ["fixed-length", "comma(,)", "tsv(tab)", "pipe(|)", "semicolon(;)"],
+      "description": "different type of flat files"},
+    {"name": "addInputFileName", "value":"false", "widget": "array", "required":true, "title": "Add Input File Name", "optionsArray": ["false","true"],
+      "description": "Add the new field:input_file_name"},
+    {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names", "description": "Output Columns"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types", "description": "Data Type of the Output Columns"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats", "description": "Format of the Output Columns"}
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "6",
+  "name": "Structured Streaming CSV",
+  "iconImage": "assets/images/icons/node-icon/csv.svg",
+  "description": "It monitors a specified directory for new files. It keeps reading in any new files created in the directory.",
+
+  "input": "It does not take any DataFrame as input",
+  "output": "It reads the new files and creates DataFrame from the content of the text files. This DataFrame is passed to the output Nodes.",
+
+  "type": "sparkstreaming",
+  "nodeClass": "fire.nodes.structuredstreaming.NodeStructuredStreamingCSV",
+  "fields" : [
+
+    {"name":"path", "display":true,"value":"", "widget": "textfield", "title": "Path", "description": "Path of the Text file/directory"},
+    {"name":"separator", "value":",", "widget": "textfield", "title": "Separator", "description": "CSV Separator"},
+
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names for the CSV", "description": "Output Column Names"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types for the CSV", "description": "Output Column Types"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats for the CSV", "description": "Output Column Formats"}
+  ]
+}

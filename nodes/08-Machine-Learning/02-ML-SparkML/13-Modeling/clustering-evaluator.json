@@ -1,0 +1,27 @@
+{
+  "id": "7",
+  "name": "Clustering Evaluator",
+  "description": "Evaluator for Clustering, which expects two input columns: features and prediction.",
+
+  "output": "It outputs the score ",
+
+  "type": "ml-evaluator",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.ml.NodeClusteringEvaluator",
+  "fields" : [
+    {
+      "name": "useChampion",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": ["true", "false"],
+      "title": "Use Champion Model",
+      "description": "Uses Champion Model UUID to Update Metrics Over Time Graph under Models Page."
+    },
+    {"name":"modelUUID", "display": true, "value":"", "widget": "textfield", "title": "Model UUID", "description": "Enter the model uuid","wdgtCommon": "useChampion", "toggle": "false"},
+
+    {"name": "featuresCol", "value":"", "required":true, "widget": "variable", "title": "Features Column", "description": "Features column of type vectorUDT for model fitting.", "datatypes":["vectorudt"]},
+
+    {"name":"predictionCol", "value":"", "widget": "variable", "title": "Prediction Column", "description": "The prediction column.", "datatypes":["double"]}
+
+  ]
+}

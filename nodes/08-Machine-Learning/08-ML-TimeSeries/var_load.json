@@ -1,0 +1,12 @@
+{
+  "id": "4",
+  "name": "VAR Model Load",
+  "type": "ml-modelload",
+  "description": "This node load the VAR model stored in the pickle file.",
+  "nodeClass": "fire.nodes.ts.NodeVarLoad",
+  "engine": "pyspark",
+  "fields" : [
+    {"name":"path", "value":"modelsavepath", "widget": "textfield", "title": "Path", "required": true}
+  ]
+}
+

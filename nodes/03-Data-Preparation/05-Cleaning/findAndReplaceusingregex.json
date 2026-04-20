@@ -1,0 +1,15 @@
+{
+  "id": "11",
+  "name": "Find And Replace Using Regex",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/regex.svg",
+  "description": "This node finds and replaces text in a column with another",
+  "input": "It accepts a DataFrame as input from the previous Node", 
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeFindAndReplaceUsingRegex",
+  "fields" : [
+    {"name":"inputCols", "value": "[]", "widget": "variables", "title": "Input Columns", "datatypes":["string"], "required": true, "description": "Columns on which to apply Regex"},
+  	{"name":"searchPattern", "value": "", "widget": "textfield", "title": "Find", "description": "Enter Search Pattern", "expandable":true},
+  	{"name":"replacePattern", "value": "", "widget": "textfield", "title": "Replace", "description": "Enter replacement Value", "expandable":true}
+    
+  ]
+}

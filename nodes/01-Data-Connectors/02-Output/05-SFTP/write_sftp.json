@@ -1,0 +1,15 @@
+{
+  "id": "11",
+  "name": "SFTP Write",
+  "description": "This node save the data to sftp location with given format like csv, txt, json, avro and parquet",
+  "input": "",
+  "output": "Dataframe is saved to sftp location",
+  "type": "transform",
+  "nodeClass": "fire.nodes.sftp.NodeWriteSFTP",
+  "fields" : [
+    {"name":"connection", "value":"", "widget": "object_array", "title": "Connection", "description": "The SFTP connection to connect" ,"required":"true"},
+    {"name":"fileFormat", "value":"CSV", "widget": "textfield", "title": "Fileformat", "description": "Type like csv, txt, json, avro and parquet" ,"required":"true"},
+    {"name":"saveMode", "value":"overwrite", "widget": "array", "optionsArray": ["overwrite", "append"], "title": "SaveMode", "description": "",  "required": "true"},
+    {"name":"path", "value":"", "widget": "textfield", "title": "SFTP Location", "description": "SFTP Location",  "required": true}
+  ]
+}

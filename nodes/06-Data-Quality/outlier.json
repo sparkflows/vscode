@@ -1,0 +1,16 @@
+{
+  "id": "7",
+  "name": "CheckOutliers",
+  "type": "transform",
+  "description": "This checks if values fall between Inter Quartile Range.",
+  "nodeClass": "fire.nodes.quality.NodeCheckOutliers",
+  "fields" : [
+    {"name": "inputCols", "value":"[]", "widget": "variables_list_select", "title": "Input Column to flag the outlier", "description": "The Input Column to flag the outlier",
+      "datatypes":["double", "integer", "float"]},
+
+    {"name": "lowerQuantiles", "value": "[]", "widget": "variables_list_textfield", "title": "LowerQuartile", "description": ""},
+
+    {"name": "upperQuantiles", "value": "[]", "widget": "variables_list_textfield", "title": "UpperQuartile", "description": ""},
+    {"name": "weightage", "value":"1", "widget": "textfield","title": "Weightage", "description": " Weightage"}
+  ]
+}

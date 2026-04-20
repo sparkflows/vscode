@@ -1,0 +1,67 @@
+{
+  "id": "5",
+  "name": "GBT Regression",
+  "description": "Gradient-Boosted Tree Regression builds an ensemble of decision trees to predict continuous numerical values by minimizing a specified loss function.",
+
+  "input" : "This takes in a DataFrame and performs Logistic Regression",
+  "output": "It generates the GBTRegression and passes it to the next Predict and ModelSave Nodes. The input DataFrame is also passed along to the next nodes.",
+
+  "type": "ml-estimator",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.ml.NodeGBTRegression",
+  "fields" : [
+    {"name": "featuresCol", "value":"", "widget": "variable", "title": "Features Column", "description": "Vector column containing numerical and categorical features used for training the regression model.", "datatypes":["vectorudt"], "size":"50%"},
+
+    {"name": "labelCol", "value":"", "widget": "variable", "title": "Label Column", "description": "Target column representing the continuous numeric value that the model is trained to predict.", "datatypes":["double"], "size":"50%"},
+
+    {"name": "predictionCol", "value":"", "widget": "textfield", "title": "Prediction Column", "description": "Name of the output column where predicted numeric values are written after model scoring.", "size":"50%"},
+
+    {"name": "splitRatio", "value":1.0, "widget": "textfield", "title": "Split Ratio", "description": "Controls how the dataset is divided between training and validation for performance evaluation.", "datatypes":["float"], "size":"50%"},
+
+    {"name": "impurity", "value":"variance", "widget": "array", "title": "Impurity", "optionsArray": ["variance"], "description": "Defines how variance reduction is measured when creating tree splits.", "size":"50%"},
+
+    {"name": "lossType", "value":"squared", "widget": "array", "title": "Loss Function", "optionsArray": ["squared", "absolute"], "description": "Specifies the loss function minimized during boosting to improve prediction accuracy.", "size":"50%"},
+
+    {"name": "maxBins", "value":32, "widget": "textfield", "title": "Max Bins", "description": "Maximum number of bins used to discretize continuous feature values for split evaluation.", "datatypes":["integer"], "size":"50%"},
+
+    {"name": "maxDepth", "value":5, "widget": "textfield", "title": "Max Depth", "description": "Limits the depth of each decision tree to control model complexity.", "datatypes":["integer"], "size":"50%"},
+
+    {"name": "maxIter", "value":20, "widget": "textfield", "title": "Max Iterations", "description": "Number of boosting iterations, corresponding to the number of trees built sequentially.", "datatypes":["integer"], "size":"50%"},
+
+    {"name": "minInfoGain", "value":0.0, "widget": "textfield", "title": "Min Information Gain", "description": "Minimum variance reduction required for a split to be accepted.", "datatypes":["double"], "size":"50%"},
+
+    {"name": "minInstancesPerNode", "value":1, "widget": "textfield", "title": "Min Instances Per Node", "description": "Minimum number of records required in each leaf node to ensure stable predictions.", "datatypes":["integer"], "size":"50%"},
+
+    {"name": "subsamplingRate", "value":1.0, "widget": "textfield", "title": "Subsampling Rate", "description": "Fraction of training data used for each tree to improve generalization.", "datatypes":["double"], "size":"50%"},
+
+    {"name": "seed", "value":"", "widget": "textfield", "title": "Seed", "description": "Seed value used to control randomness and ensure reproducible training results.", "datatypes":["long"], "size":"50%"},
+
+    {"name": "stepSize", "value":0.1, "widget": "textfield", "title": "Step Size", "description": "Learning rate that controls the contribution of each tree to the final prediction.", "datatypes":["double"], "size":"50%"},
+
+    {"name": "cacheNodeIds", "value":"false", "widget": "array", "title": "Cache Node Ids", "optionsArray": ["false","true"], "description": "Caches intermediate tree nodes to improve performance for deep models.", "datatypes":["boolean"], "size":"50%"},
+
+    {"name": "checkpointInterval", "value":10, "widget": "textfield", "title": "Checkpoint Interval", "description": "Controls how often intermediate results are checkpointed to manage memory usage.", "datatypes":["integer"], "size":"50%"},
+
+    {"name": "maxMemoryInMB", "value":256, "widget": "textfield", "title": "Max memory", "description": "Maximum memory allocated for histogram-based computations during training.", "datatypes":["integer"], "size":"50%"},
+
+    {"name": "validationIndicatorCol", "value":"", "widget": "textfield", "title": "Validation Indicator Column", "description": "Column indicating whether a row is used for training or validation.", "size":"50%"},
+
+    {"name": "featureSubsetStrategy", "value":"auto", "widget": "array", "title": "Feature Subset Strategy", "optionsArray": ["auto","all","onethird","sqrt","log2","n"], "description": "Determines how many features are considered when selecting splits at each tree node.", "size":"50%"},
+
+    {"name": "minWeightFractionPerNode", "value":0.0, "widget": "textfield", "title": "Min Weight Fraction per Node", "description": "Ensures each split retains a minimum fraction of weighted data.", "datatypes":["double"], "size":"50%"},
+
+    {"name": "weightCol", "value":"", "widget": "variable", "title": "Weight Column", "description": "Optional column defining the relative importance of records during training.", "datatypes":["double"], "size":"50%"},
+
+
+    {"name": "gridSearch", "value":"", "widget": "tab", "title": "Grid Search"},
+
+    {"name": "minInfoGainGrid", "value":"", "widget": "textfield", "title": "Min Info Gain Grid Search", "description": "Candidate minimum information gain values evaluated during hyperparameter tuning.", "size":"50%"},
+
+    {"name": "maxBinsGrid", "value":"", "widget": "textfield", "title": "Max Bins Grid Search", "description": "Range of max bins values tested during grid search.", "size":"50%"},
+
+    {"name": "maxDepthGrid", "value":"", "widget": "textfield", "title": "Max Depth Grid Search", "description": "Tree depth values evaluated to balance accuracy and overfitting.", "size":"50%"},
+
+    {"name": "maxIterGrid", "value":"", "widget": "textfield", "title": "Max Iterations Grid Search", "description": "Different iteration counts evaluated during hyperparameter tuning.", "size":"50%"}
+
+  ]
+}

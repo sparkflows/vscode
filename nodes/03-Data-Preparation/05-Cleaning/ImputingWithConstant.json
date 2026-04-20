@@ -1,0 +1,16 @@
+{
+  "id": "11",
+  "name": "Imputing With Constant",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/impute_advanced.svg",
+  "description": "It imputes missing value with constant value. It fills missing values (None) in selected columns with given constant value for the corresponding column, in the incoming DataFrame.",
+  "type": "transform",
+  "engine":"scala,pyspark",
+  "nodeClass": "fire.nodes.ml.NodeReplaceMissingValueWithConstant",
+  "fields" : [
+    {"name": "colNames", "value":"[]", "widget": "variables_list_select", "title": "Columns", "description": "Columns to be processed for missing values"},
+
+    {"name": "constants", "value":"[]", "widget": "variables_list_textfield", "title": "Constants", "description": "Missing value will be replaced with constant"}
+
+
+  ]
+}

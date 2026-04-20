@@ -1,0 +1,11 @@
+{
+  "id": "7",
+  "name": "Cross Tab",
+  "type": "transform",
+  "description": "Categorical V.S. Categorical",
+  "nodeClass": "fire.nodes.ml.NodeCrosstab",
+  "fields" : [
+    {"name":"firstColumn", "value":"", "widget": "variable", "title": "First Column", "datatypes":["string"]},
+    {"name":"secondColumn", "value":"", "widget": "variable", "title": "Second Column", "datatypes":["string"]}
+  ]
+}

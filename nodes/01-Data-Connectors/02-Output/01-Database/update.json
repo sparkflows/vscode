@@ -1,0 +1,19 @@
+{
+  "id": "11",
+  "name": "Update JDBC",
+  "iconImage": "assets/images/icons/node-icon/JDBC.svg",
+  "description": "This node update the data to selected columns.",
+  "type": "transform",
+  "nodeClass": "fire.nodes.save.NodeUpdateJDBC",
+  "engine": "scala",
+  "fields" : [
+    {"name":"primaryKeyColumn", "value":"[]", "widget": "variables", "title": "Primary Key Column", "description": "Key column name in table", "required":"true"},
+
+    {"name":"updateColumn", "value":"[]", "widget": "variables", "title": "Update Column", "description": "Update column name in table", "required":"true"},
+
+    {"name":"table", "display": true, "value":"", "widget": "textfield", "title": "DB Table", "description": "The JDBC table to write to","required":"true"},
+
+    {"name":"connection", "value":"", "widget": "object_array", "title": "Connection", "description": "The JDBC connection to connect" ,"required":"true"}
+
+  ]
+}

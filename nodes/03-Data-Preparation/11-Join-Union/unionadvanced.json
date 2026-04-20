@@ -1,0 +1,39 @@
+{
+  "id": "3",
+  "name": "Union Advanced",
+  "description": "Smart Union node that combines multiple DataFrames with full control: union by column name or position, include all columns or only common ones, and automatically handle mismatched schemas with null padding. Perfect for merging monthly files, combining sources with evolving schemas, and building robust incremental pipelines.",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/UINON.svg",
+  "input": "It accepts two or more DataFrames as input from the previous nodes.",
+  "output": "This node outputs a single DataFrame resulting from the union operation based on the selected configuration.",
+  "type": "join",
+  "engine": "scala,polars",
+  "nodeClass": "fire.nodes.etl.NodeUnionAdvanced",
+
+  "inputAnchors": [{"name": "multiInput","title": "MI"}],
+  "fields": [
+    {
+      "name": "allowMissingColumns",
+      "value": "true",
+      "widget": "array_single",
+      "optionsArray": ["true", "false"],
+      "title": "Allow Missing Columns",
+      "description": "When true To DataFrames with different schemas are automatically aligned by filling missing columns with null values. When false To all input DataFrames must have exactly the same schema (fails otherwise). Recommended: true for real-world incremental loads."
+    },
+    {
+      "name": "configBy",
+      "value": "NAME",
+      "widget": "array",
+      "optionsArray": ["NAME", "POSITION"],
+      "title": "Configure By",
+      "description": "How columns are matched across DataFrames:\n• NAME To matches by column name (case-sensitive). Safest and most common choice.\n• POSITION To matches by column order (1st column of each DF lines up, 2nd column, etc.). Uses the column names from the first incoming DataFrame."
+    },
+    {
+      "name": "outputFields",
+      "value": "ALL",
+      "widget": "array",
+      "optionsArray": ["ALL", "COMMON"],
+      "title": "Output Fields",
+      "description": "Which columns appear in the final result:\n• ALL To includes every column that exists in any input (missing values become null). Best for full history and audit.\n• COMMON To keeps only columns that exist in ALL inputs. Great when you want a clean, consistent schema."
+    }
+  ]
+}

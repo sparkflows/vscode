@@ -1,0 +1,21 @@
+{
+  "id": "1",
+  "name": "Flatten",
+  "description": "",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/flatten_node.svg",
+  "input": "Flatten the nested structure in struct into given column.",
+  "output": "",
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.etl.NodeFlatten",
+  "fields" : [
+    
+    {"name": "ids", "value":"[]", "widget": "flatten_ids", "title": "Id", "description": ""},
+    
+    {"name": "values1", "value":"[]", "widget": "flatten_value1", "title": "Input Colums", "description": ""},
+
+    {"name": "values2", "value":"[]", "widget": "flatten_value2", "title": "OutputColumns", "description": ""},
+    
+     {"name": "values3", "value":"[]", "widget": "flatten_value3", "title": "OutputColumnsType", "description": ""}
+  ]
+}

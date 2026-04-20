@@ -1,0 +1,29 @@
+{
+  "id": "5",
+  "name": "Sklearn Regression Evaluator",
+  "description": "Evaluator for regression, which expects two input columns: prediction and label.",
+
+  "input": "It takes in a DataFrame as input",
+  "output": "The incoming DataFrame is passed to the output",
+
+  "type": "ml-evaluator",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.sklearn.NodeSklearnRegressionEvaluator",
+  "fields" : [
+    {
+      "name": "useChampion",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": ["true", "false"],
+      "title": "Use Champion Model",
+      "description": "Uses Champion Model UUID to Update Metrics Over Time Graph under Models Page."
+    },
+    {"name":"modelUUID", "display": true, "value":"", "widget": "textfield", "title": "Model UUID", "description": "Enter the model uuid","wdgtCommon": "useChampion", "toggle": "true"},
+
+    {"name":"targetCol", "value":"", "widget": "variable", "title": "Label Column", "description": "The label column for model fitting.", "datatypes":["double", "integer"], "required": true},
+
+    {"name":"predictCol", "value":"", "widget": "variable", "title": "Prediction Column", "description": "The prediction column.", "datatypes":["double", "integer"], "required": true},
+    {"name":"modelUUID", "display": true, "value":"", "widget": "textfield", "title": "Model UUID", "description": "Enter the model uuid"}
+
+  ]
+}

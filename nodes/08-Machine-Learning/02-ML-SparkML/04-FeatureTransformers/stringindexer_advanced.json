@@ -1,0 +1,23 @@
+{
+  "id": "7",
+  "name": "String Indexer Advanced",
+  "description" : "StringIndexer encodes a string column of labels to a column of label indices",
+
+  "input": "It takes in a DataFrame and transforms it to another DataFrame",
+  "output": "It adds a new column containing the encoding of the string column of labels to a column of label indices, to the incoming DataFrame.",
+
+  "type": "ml-estimator",
+  "nodeClass": "fire.nodes.ml.NodeStringIndexerAdvanced",
+  "fields" : [
+    {
+      "name": "handleInvalid", "value": "error", "widget": "array", "title": "Handle Invalid",
+      "optionsArray": ["skip","error"],
+      "description": "Invalid entries to be skipped or thrown error"
+    },
+
+    {"name": "inputCol", "value":"", "widget": "variable", "title": "Input Column","datatypes":["string"], "description": "Input column for encoding"},
+
+    {"name": "outputCol", "value":"", "widget": "textfield", "title": "Output Column", "description": "Output column"}
+
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "11",
+  "name": "Read JDBC",
+  "description": "This node writes data to databases using JDBC.",
+  "type": "dataset",
+  "engine": "pyspark,polars",
+  "nodeClass": "fire.nodes.save.NodeReadJDBC",
+  "fields" : [
+    {"name":"connection", "value":"", "widget": "object_array", "title": "Connection", "description": "The JDBC connection to connect" ,"required":"true"},
+
+    {"name":"jdbcDatabase", "value":"", "widget": "textfield", "title": "Database", "description": "Database for connecting to the JDBC" ,"required":"true"},
+    {"name":"jdbctable", "value":"", "widget": "textfield", "title": "Table", "description": "JDBC Table from which to read the data",  "required": "true"},
+
+    {"name": "performance", "value":"", "widget": "tab", "title": "Performance"},
+    {"name":"partitionColumn", "value":"", "widget": "variable_infer_schema", "title": "Partition Column", "description": "PartitionColumn must be a numeric, date, or timestamp column from the table" },
+    {"name":"lowerBound", "value":"", "widget": "textfield", "title": "Lower Bound", "description": " LowerBound and UpperBound are just used to decide the partition stride, not for filtering the rows in the table. All rows in the table will be partitioned and returned. This option applies only to reading" },
+    {"name":"upperBound", "value":"", "widget": "textfield", "title": "Upper Bound", "description": " LowerBound and UpperBound are just used to decide the partition stride, not for filtering the rows in the table. All rows in the table will be partitioned and returned. This option applies only to reading" },
+    {"name":"numPartitions", "value":"", "widget": "textfield", "title": "Num Partitions", "description": "The maximum number of partitions that can be used for parallelism in table reading" },
+    {"name":"fetchsize", "value":"", "widget": "textfield", "title": "Fetch Size", "description": "The JDBC fetch size, which determines how many rows to fetch per round trip" },
+
+    {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names of the Table", "description": "Output Columns Names of the Table"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types of the Table", "description": "Output Column Types of the Table"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats", "description": "Output Column Formats"},
+
+    {"name": "extraOptions", "value": "", "widget": "tab", "title": "ExtraOptions"},
+    {"name": "extraOptionsKeys", "value":"[]", "widget": "key_array", "title": "Extra Options Keys", "description": "Extra options available for JDBC connections. Examples:\n\n connectTimeout --> Integer value in milliseconds. Sets the maximum time to wait for a connection to be established.\nsocketTimeout --> Integer value in milliseconds. Specifies the timeout for socket reads.\n ssl --> 'true' or 'false'. Enables or disables SSL encryption for the connection.\nautoReconnect --> 'true' or 'false'. Automatically reconnects to the database if the connection fails.\n maxRows --> Integer value. Limits the number of rows returned by a query.\nuseUnicode --> 'true' or 'false'. Defines whether to use Unicode character encoding for the connection.\ncharacterEncoding --> Specifies the character encoding to use for the connection, e.g., 'UTF-8'.\nallowMultiQueries --> 'true' or 'false'. Allows multiple SQL statements to be executed in a single query.\nretries --> Integer value. Number of connection retries in case of failure.\nuseCursorFetch --> 'true' or 'false'. Enables cursor-based fetching for large result sets.\nrewriteBatchedStatements --> 'true' or 'false'. Optimizes batch processing by rewriting SQL statements for batch execution.\nfetchSize --> Integer value. Defines the number of rows to fetch in each database round trip.\nbatchsize --> Integer value. Sets the batch size for batch inserts or updates."},
+    {"name": "extraOptionsValues", "value":"[]", "widget": "value_array", "title": "Extra Options Values", "description": "Config Values for the Corresponding keys"}
+
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "11",
+  "name": "Read DynamoDB",
+  "iconImage": "assets/images/icons/node-icon/data_cleansing.svg",
+  "description": "This node reads data from DynamoDB and gets the credentials from the instance profile.",
+  "type": "dataset",
+  "nodeClass": "fire.nodes.dynamodb.NodeReadDynamoDB",
+  "fields" : [
+
+    {"name":"table", "display":true, "value":"", "widget": "textfield", "title": "DynamoDB Table",
+      "required":"true", "description": "DynamoDB Table from which to read the data."},
+
+    {"name":"roleArn", "display":true, "value":"", "widget": "textfield", "title": "RoleArn",
+      "required":"true", "description": "RoleArn used to access the table."},
+
+    {"name":"region", "display":true, "value":"", "widget": "textfield", "title": "Region",
+      "required":"true", "description": "AWS Region"},
+
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names", "description": "Column Names"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types", "description": "Data Types"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats", "description": "Formats"}
+  ]
+}

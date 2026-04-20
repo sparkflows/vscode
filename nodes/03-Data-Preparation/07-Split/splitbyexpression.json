@@ -1,0 +1,18 @@
+{
+  "id": "4",
+  "name": "Split By Expression",
+  "type": "transform",
+
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/split_by_expression.svg",
+  "description": "This node splits the incoming DataFrame into two output DataFrames by applying the conditional logic",
+  
+  "input" : "It accepts a DataFrame as input from the previous Node",
+  "engine": "scala,pyspark,polars",
+  "outputAnchors": [{"name":"True","title":"T"},{"name": "False","title": "F"}],
+  "nodeClass": "fire.nodes.etl.NodeSplitByExpression",
+  "fields" : [
+    {"name":"conditionExpr", "value":"", "widget": "code_editor", "type": "sparksql", "title": "Conditional Expression to split the Data on",
+      "required": false,
+     "description": "Conditional Expression to be used for Splitting the DataFrame into two. DataFrame which matches the condition will go to the lower edge output. The other would go to the higher edge output."}
+  ]
+}

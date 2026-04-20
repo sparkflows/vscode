@@ -1,0 +1,9 @@
+{
+  "id": "4",
+  "name": "MaxAbs Scaler Transform",
+  "description": "Rescale each feature individually to range [-1, 1] by dividing through the largest maximum absolute value in each feature.",
+  "type": "ml-predict",
+  "nodeClass": "fire.nodes.etl.NodeMaxAbsScalerTransform",
+  "engine": "pyspark",
+  "fields" : []
+}

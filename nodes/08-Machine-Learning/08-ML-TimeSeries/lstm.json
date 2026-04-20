@@ -1,0 +1,32 @@
+{
+  "id": "5",
+  "name": "LSTM",
+  "description": "",
+  "input" : "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "ml-estimator",
+
+  "nodeClass": "fire.nodes.ts.NodeLSTM",
+  "fields" : [
+    {"name": "y", "value":"", "widget": "variable", "title": "Target Column", "description": "The label column for model fitting", "required": true},
+
+    {"name": "nsteps", "value": 3, "widget": "textfield", "title": "N Steps", "description": "Number of time lag to make data supervised example=3."},
+
+    {"name": "layer_1", "value": 5, "widget": "textfield", "title": "Number Neurons In Layer1", "description": "Number of neurons for first layer."},
+
+    {"name": "layer_2", "value": 3, "widget": "textfield", "title": "Number Neurons In Layer2", "description": "Number of neurons for second layer."},
+
+    {"name": "activation", "value":"tanh", "widget": "textfield", "title": "Activation", "description": "" },
+
+    {"name": "optimizer", "value":"Adam", "widget": "textfield", "title": "Activation Function", "description": "" },
+
+    {"name": "loss", "value":"mse", "widget": "textfield", "title": "Loss", "description": "" },
+
+    {"name": "epochs", "value":20, "widget": "textfield", "title": "Epochs", "description": "" },
+
+    {"name": "future", "value":5, "widget": "textfield", "title": "Future Steps",
+      "description": "Number of future data want to predict example = 12 days, 12Months" }
+
+  ]
+}

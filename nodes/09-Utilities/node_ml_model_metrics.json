@@ -1,0 +1,26 @@
+{
+  "id": "11",
+  "name": "ML Data Metrics",
+  "iconImage":"/assets/images/icons/node-icon/latest-nodes/Data_Metrics.svg",
+  "description": "This node calculates and outputs feature statistics and data drift metrics-including PSI and drift flags-by comparing a baseline dataset with a new batch dataset",
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.util.NodeMLModelMetrics",
+  "fields" : [
+
+    {
+      "name": "useChampion",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": ["true", "false"],
+      "title": "Use Champion Model",
+      "description": "Uses Champion Model UUID to Update Monitoring Graphs on Models Page."
+    },
+    {"name":"model_uuid", "display": true, "value":"", "widget": "textfield", "title": "Model UUID", "description": "Enter the model uuid","wdgtCommon": "useChampion", "toggle": "false"},
+
+    {"name": "features", "value":"[]", "widget": "variables", "title": "Numeric Columns", "description": "Features to be used for computing metrics","datatypes":["integer", "long", "double", "float","decimal"]},
+
+    {"name": "categorical_features", "value":"[]", "widget": "variables", "title": "Categorical Columns", "description": " Categorical Features to be used for computing metrics","datatypes":["string", "long", "integer","double"]}
+
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "5",
+  "name": "Feature Selection",
+  "description": "Compute per-feature importance for classification, regression, or clustering. Supports linear/logistic (|coefficients|), RandomForest/GBT (impurity importances), and KMeans (CH-style score per feature) with optional scaling.",
+  "input": "Takes a Spark DataFrame as input.",
+  "output": "Spark DataFrame of feature rankings with columns: feature, model_importance, std_unscaled, ch_feature, scaling_used.",
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.fe.NodeFeatureImportance",
+  "fields": [
+    { "name": "modelType", "value": "classification", "widget": "array", "title": "Model Type", "optionsArray": ["classification", "regression", "clustering"], "description": "Choose task type. Label is required for classification/regression.", "datatypes": ["string"] },
+    { "name": "modelName", "value": "logistic_regression", "widget": "array", "title": "Model", "optionsArray": ["logistic_regression", "random_forest", "gbt", "linear_regression", "kmeans"], "description": "Estimator used to derive importances. For classification use logistic_regression/random_forest/gbt; for regression use linear_regression/random_forest/gbt; for clustering use kmeans.", "datatypes": ["string"] },
+
+    { "name": "label", "value": "", "widget": "variable", "title": "Label Column", "description": "Required for classification/regression.", "wdgtCommon": "modelType", "toggle": "classification,regression"  },
+
+    { "name": "features", "value": "[]", "widget": "variables", "title": "Feature Columns", "description": "Numeric feature columns used for importance computation." },
+
+    { "name": "nClusters", "value": 3, "widget": "textfield", "title": "Number of Clusters (k)", "description": "Used only when Model Type = clustering (k-means).", "wdgtCommon": "modelType", "toggle": "clustering","datatypes": ["integer"] },
+    { "name": "scaling", "value": "Standard", "widget": "array", "title": "Scaling", "optionsArray": ["Standard", "MinMax", "None"], "description": "Optional scaling applied before modeling. Unscaled stats are always computed from original columns.", "datatypes": ["string"] },
+
+    { "name": "topK", "value": 0, "widget": "textfield", "title": "Top K Rows", "description": "Limit output to top K rows (0 = no limit).","datatypes": ["integer"]}
+
+  ]
+}

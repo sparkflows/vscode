@@ -1,0 +1,12 @@
+{
+  "id": "2",
+  "name": "IsNonNegative",
+  "description": "Should not contain negative values",
+  "type": "transform",
+  "nodeClass": "fire.nodes.quality.NodeCheckIsNonNegative",
+  "fields" : [
+    {
+      "name": "cols", "value":"[]", "widget": "variables", "title": "Column Name", "description": "The column name."
+    },{"name": "weightage", "value":"1", "widget": "textfield","title": "Weightage", "description": " Weightage"}
+  ]
+}

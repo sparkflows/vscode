@@ -1,0 +1,13 @@
+{
+  "id": "5",
+  "name": "Sklearn Normalizer Transform",
+  "description": "Normalizes samples individually to unit norm.",
+
+  "input": "",
+  "output": "",
+
+  "type": "ml-predict",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.sklearn.preprocessing.NodeNormalizerFitTransformSklearn",
+  "fields" : []
+}

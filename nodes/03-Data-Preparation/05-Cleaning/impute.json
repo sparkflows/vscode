@@ -1,0 +1,15 @@
+{
+  "id": "11",
+  "name": "Impute Advanced",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/impute_advanced.svg",
+  "description": "Advanced Imputation Node - Handle missing or specified values in numeric columns using statistical strategies such as mean, median, mode, or a user-defined constant. Ideal for data cleaning, feature preparation, and building robust analytical pipelines.",
+  "type": "transform",
+  "engine":"scala,pyspark,polars",
+  "nodeClass": "fire.nodes.etl.NodeImputeAdvanced",
+  "fields" : [
+    {"name": "inputCols", "value":"[]", "widget": "variables_list_select", "title": "Columns","datatypes":["integer", "long", "double", "float"], "description": "Select one or more numeric columns where missing or target values should be imputed. These columns will be processed independently using the chosen strategy."},
+    {"name": "strategy", "value":"[]", "widget": "variables_list_array", "title": "Impute Strategy", "optionsArray": ["mean", "median", "mode", "constant"], "description": "Choose how missing values are filled:\n• mean - replace with the average of the column\n• median -  replace with the middle value (robust to outliers)\n• mode -  replace with the most frequent value\n• constant -  replace with a fixed user-defined value"},
+    {"name": "replaceValue", "value":"[]", "widget": "variables_list_textfield", "title": "Replace Value", "description": "Optional: specify a particular value to be treated as missing and replaced (e.g., 0 or -1). If left empty, only null or missing values are imputed."},
+    {"name": "constants", "value":"[]", "widget": "variables_list_textfield", "title": "Constant", "description": "Constant value used to replace missing or target values. This field is only applicable when Impute Strategy is set to constant."}
+  ]
+}

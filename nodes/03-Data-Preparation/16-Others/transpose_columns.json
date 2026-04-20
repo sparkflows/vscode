@@ -1,0 +1,24 @@
+{
+  "id": "123",
+  "name": "Unpivot",
+  "description": "Transpose Node",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/transpose_by_and_unpivot.svg",
+  "type": "transform",
+  "engine": "scala,polars",
+  "nodeClass": "fire.nodes.etl.NodeTransposeColumns",
+  "fields" : [
+
+    {"name": "transpose", "value":"", "widget": "tab", "title": "Transpose"},
+
+    {"name": "keyCols", "value":"[]", "widget": "variables", "title": "Key Columns", "description": "Columns to keep fixed (identifiers)"},
+    {"name": "dataCols", "value":"[]", "widget": "variables", "title": "Data Columns", "description": "Columns to unpivot (convert to rows)"},
+    {"name": "dropInputCols", "value": "[]", "widget": "variables", "title": "Drop Columns", "description": "Columns to exclude from the final output (selected=False)."},
+    {"name": "inputColumnPropagation", "value": false, "widget": "array_single", "optionsArray": ["true", "false"], "title": "Select all fields as Data Columns", "description": "When enabled, automatically include all unspecified input columns as data cols leaving selected key cols."},
+
+    {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names of the Table", "description": "Output Columns Names of the Table"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types of the Table", "description": "Output Column Types of the Table"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats", "description": "Output Column Formats"}
+
+  ]
+}

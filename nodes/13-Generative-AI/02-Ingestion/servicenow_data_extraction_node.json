@@ -1,0 +1,14 @@
+{
+    "id": "6",
+    "name": "Service Now Data Extraction",
+    "iconImage": "assets/images/icons/node-icon/Graph_group_by_column.svg",
+    "description": "",
+    "input": "It wont take any input, as this will be the 1st node in the workflow",
+    "output": "",
+    "type": "pyspark",
+    "engine": "pyspark",
+    "nodeClass": "fire.nodes.gai.NodeReadFromServiceNow",
+    "fields": [
+        {"name": "serviceNowConnection", "value": "", "widget": "object_array", "title": "Select ServiceNow Connection", "description": "Select the configured ServiceNow connection containing instance URL, authentication credentials, and access permissions required to extract records from ServiceNow."}
+    ]
+}

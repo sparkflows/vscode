@@ -1,0 +1,20 @@
+{
+  "id": "6",
+  "name": "Audio Diarization",
+  "description": "This node processes audio files to transcribe and diarize speech, identifying different speakers in the audio. It generates a structured output as a DataFrame with two columns: speaker and dialogue.\n",
+  "input": "It takes directory or path as an input",
+  "output": "Outputs a Dataframe with 2 columns speaker and dialouge",
+  "type": "pyspark",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeSpeechToText",
+  "fields" : [
+    {"name":"audioFilePath",  "display": true, "value":"", "widget": "textfield", "title": "Directory Or File Path", "description":"Path to an audio file or a directory containing audio files to be processed. Supports batch processing when a directory is provided.","required":"true"},
+    {"name": "numSpeakers", "value":"1", "widget": "textfield", "title": "Number of Speakers", "description": "Expected number of distinct speakers in the audio. Providing an accurate estimate improves diarization accuracy.", "datatypes":["integer"]},
+    {"name": "diarization", "value": "false", "widget": "array", "optionsArray": ["true", "false"], "title": "Diarization", "description": "Enable speaker diarization to segment the transcription by speaker identity. When disabled, the output contains plain transcription only."},
+    {"name":"saveOutputPath",  "display": true, "value":"", "widget": "textfield", "title": "Output Save Path", "description":"Destination path to save the generated transcription as a text file. Useful for archiving or downstream consumption."},
+    {"name": "context", "value":"", "widget": "textarea_small", "title": "Additional Context", "description": "Optional contextual information about the conversation (e.g., meeting type, participants, domain). Helps improve transcription and speaker attribution quality."},
+    {"name": "openai", "value": "", "widget": "tab", "title": "OpenAI"},
+    {"name": "llmConnection", "value": "", "widget": "object_array", "title": "Select Connection", "description": "Select the configured OpenAI connection containing API credentials and access settings."},
+    {"name": "openaiModel", "value": "whisper-1", "widget": "textfield", "title": "OpenAI Model", "description": "Speech-to-text model used for transcription and diarization. Choose a model optimized for audio quality and language support."}
+  ]
+}

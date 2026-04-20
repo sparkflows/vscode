@@ -1,0 +1,18 @@
+{
+  "id": "7",
+  "name": "Correlation",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/Correlation.svg",
+  "type": "transform",
+  "description": "calculates the correlation between two series of data.",
+
+  "input": "It takes in a DataFrame and transforms it to another DataFrame",
+  "output": "The input DataFrame is passed along to the next Processors",
+  "outputAnchors": [{"name": "correlation","title": "C"},{"name": "input","title": "I"}],
+
+  "nodeClass": "fire.nodes.ml.NodeCorrelation",
+  "engine": "scala",
+  "fields" : [
+  	{"name":"title", "value":"Correlation Matrix", "widget": "textfield", "title": "Title"},
+    {"name":"inputCols", "value":"[]", "widget": "variables", "title": "Input Column for Correlation","description": "Column Names to check correlation ", "datatypes":["integer", "long", "double", "float","decimal"]}
+  ]
+}

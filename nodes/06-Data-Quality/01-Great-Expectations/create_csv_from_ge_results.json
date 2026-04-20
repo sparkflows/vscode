@@ -1,0 +1,24 @@
+{
+  "id": "7",
+  "name": "Create CSV from GE Results",
+  "iconImage": "assets/images/icons/node-icon/csv.svg",
+  "description": "",
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.ge.NodeCreateCsvFromGeResults",
+  "fields" : [
+
+    {"name":"csvPath", "display":true,"value":"", "widget": "textfield", "required":true, "title": "Path", "description": "Path to save consolidated Great Expectation results as a CSV"},
+    {"name":"saveMode", "value":"Append", "widget": "array","optionsArray": ["Append","Overwrite", "ErrorIfExists", "Ignore"],
+      "title": "Save Mode", "description":"Whether to Append, Overwrite or Error if the path Exists"},
+
+    {"name": "header", "value":"false", "widget": "array", "title": "Header", "optionsArray": ["true","false"],
+      "description": "Should a Header Row be saved with each File?"},
+
+    {"name": "advanced", "value":"", "widget": "tab", "title": "Advanced"},
+
+    {"name":"partitionColNames", "value": "[]", "widget": "variables", "title": "Partition Column Names", "description": "Partition Column Names"}
+
+
+  ]
+}

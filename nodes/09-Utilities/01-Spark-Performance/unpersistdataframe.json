@@ -1,0 +1,14 @@
+{
+  "id": "10",
+  "name": "Unpersist DataFrame",
+  "description": "Unpersists the output DataFrames of the given Nodes",
+  "input": "It takes in a DataFrame as input",
+  "output": "The outputs the incoming DataFrame",
+  "type": "transform",
+  "nodeClass": "fire.nodes.util.NodeUnpersistDataFrame",
+  "fields" : [
+    {"name":"nodeIdsToUnpersist", "value":"", "widget": "textfield", "title": "Node ID to Unpersist", "description": "Output of node to unpersist"}
+
+
+  ]
+}

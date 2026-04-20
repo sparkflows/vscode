@@ -1,0 +1,127 @@
+
+{
+  "id": "11",
+  "name": "Sklearn K-Means",
+  "description": "K-Means clustering algorithm using scikit-learn. K-Means is an unsupervised learning algorithm that partitions observations into K distinct clusters based on feature similarity, without using labeled data.",
+  "input": "It takes in a DataFrame as input",
+  "output": "Outputs cluster assignments, cluster centers, and evaluation metrics such as inertia and silhouette score",
+  "type": "ml-estimator",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.sklearn.NodeSklearnKMeans",
+  "fields": [
+    {
+      "name": "n_clusters",
+      "value": "3",
+      "required": true,
+      "widget": "textfield",
+      "title": "Number of Clusters",
+      "description": "Specifies the number of clusters (K) to form. Each cluster represents a group of similar data points. If 'Estimate K' is enabled, this value is ignored and automatically determined.",
+      "datatypes": ["integer"],
+      "size":"50%"
+    },
+
+    {
+      "name": "estimate_k",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": ["true", "false"],
+      "title": "Estimate K",
+      "description": "Enables automatic estimation of the optimal number of clusters by evaluating multiple K values over a specified search range.",
+      "size":"50%"
+    },
+    {
+      "name": "k_search_range",
+      "value": "2,10",
+      "widget": "textfield",
+      "title": "K Search Range",
+      "description": "Defines the inclusive range of K values (for example, '2,15') to be evaluated when estimating the optimal number of clusters.",
+      "datatypes": ["string"],
+      "wdgtCommon": "estimate_k", "toggle": "true",
+      "size":"50%"
+    },
+    {
+      "name": "optimization_metric",
+      "value": "Silhouette Score",
+      "widget": "array",
+      "optionsArray": ["Silhouette Score", "Inertia"],
+      "title": "Optimization Metric",
+      "description": "Metric used to select the best K. Silhouette Score maximizes cluster separation, while Inertia minimizes within-cluster variance.",
+      "datatypes": ["string"],
+      "wdgtCommon": "estimate_k", "toggle": "true",
+      "size":"50%"
+    },
+    {
+      "name": "featureCols",
+      "value": "[]",
+      "widget": "variables",
+      "title": "Feature Columns",
+      "description": "Specifies the input feature columns used for clustering. All selected columns must be numeric or vector-compatible. If empty, all eligible columns are used.",
+      "datatypes":["integer", "long", "double", "float", "vectorudt","array"],
+      "size":"100%"
+    },
+    {
+      "name": "init",
+      "value": "k-means++",
+      "widget": "array",
+      "optionsArray": ["k-means++", "random"],
+      "title": "Initialization Mode",
+      "description": "Determines how initial cluster centroids are selected. 'k-means++' spreads out initial centers to speed up convergence, while 'random' selects centers randomly.",
+      "datatypes": ["string"],
+      "size":"50%"
+    },
+    {
+      "name": "n_init",
+      "value": "10",
+      "widget": "textfield",
+      "title": "Number of Initializations",
+      "description": "Number of times the K-Means algorithm is run with different centroid seeds. The final model is chosen based on the best inertia score.",
+      "datatypes": ["integer"],
+      "size":"50%"
+    },
+    {
+      "name": "max_iter",
+      "value": "300",
+      "widget": "textfield",
+      "title": "Max Iterations",
+      "description": "Maximum number of iterations allowed for a single run of the K-Means algorithm before stopping.",
+      "datatypes": ["integer"],
+      "size":"50%"
+    },
+    {
+      "name": "tol",
+      "value": "1e-4",
+      "widget": "textfield",
+      "title": "Tolerance",
+      "description": "Relative tolerance for declaring convergence based on changes in cluster center positions.",
+      "datatypes": ["float"],
+      "size":"50%"
+    },
+    {
+      "name": "random_state",
+      "value": 42,
+      "widget": "textfield",
+      "title": "Random State",
+      "description": "Seed value used to control random number generation for reproducible clustering results.",
+      "datatypes": ["integer"],
+      "size":"50%"
+    },
+    {
+      "name": "algorithm",
+      "value": "lloyd",
+      "widget": "array",
+      "optionsArray": ["lloyd", "elkan"],
+      "title": "Algorithm",
+      "description": "Algorithm used to compute K-Means. 'lloyd' is the classical approach, while 'elkan' is faster for datasets with well-separated clusters.",
+      "datatypes": ["string"],
+      "size":"50%"
+    },
+    {
+      "name": "saveCentroidsPath",
+      "value":"",
+      "widget": "textfield",
+      "title": "Save Centroids Path",
+      "description": "Filesystem path where the computed cluster centroids are saved in CSV format for downstream analysis or reuse.",
+      "size":"50%"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "7",
+  "name": "Flag Outlier",
+  "type": "transform",
+  "description": "Flag the outlier based on the selected column using Box-and-Whisker technique.",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/flag_outlier.svg",
+  "nodeClass": "fire.nodes.ml.NodeFlagOutlier",
+  "engine": "scala,pyspark",
+  "fields" : [
+     {"name": "inputCol", "value":"", "widget": "variable", "title": "Input Column to flag the outlier", "description": "The Input Column to flag the outlier",
+       "datatypes":["double", "integer", "float"],  "required": true},
+
+    {"name": "lowerQuantile", "value": 0.25, "widget": "textfield", "title": "Lower Quantile", "description": "",  "required": true},
+
+    {"name": "upperQuantile", "value": 0.75, "widget": "textfield", "title": "Upper Quantile", "description": "",  "required": true}
+  ]
+}

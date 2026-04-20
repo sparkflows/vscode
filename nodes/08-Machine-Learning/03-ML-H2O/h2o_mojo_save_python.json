@@ -1,0 +1,18 @@
+{
+  "id": "4",
+  "name": "H2O ML Model Save",
+
+  "description": "Saves an H2O MOJO ML model at the specified path",
+
+  "input": "It takes in a Model and DataFrame as input.",
+  "output": "The incoming dataframe is passed to the output.",
+
+  "engine": "pyspark",
+  "type": "ml-modelsave",
+  "nodeClass": "fire.nodes.h2o.NodeH2OModelSave",
+  "fields" : [
+    {"name":"path", "value":"modelsavepath", "widget": "textfield", "title": "Path", "required": true,"size": "50%"},
+    {"name": "fixedPath", "value":"false", "widget": "array", "title": "Static path", "optionsArray": ["false","true"], "description": "Set this to true if you want model to be saved in a static path. It will overwrite the model in the directory specified." ,"datatypes":["boolean"],"size": "50%"}
+
+  ]
+}

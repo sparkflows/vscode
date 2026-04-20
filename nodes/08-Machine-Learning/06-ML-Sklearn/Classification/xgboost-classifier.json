@@ -1,0 +1,62 @@
+{
+  "id": "6",
+  "name": "Sklearn XGBoost Classifier",
+  "description": "XGBoost Classifier is an optimized gradient boosting algorithm that uses ensemble of decision trees. It is designed for efficiency, flexibility, and portability. Provides parallel tree boosting and is widely used for supervised learning tasks like classification.",
+  "input": "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "ml-estimator",
+
+  "nodeClass": "fire.nodes.sklearn.NodeXGBoostClassifier",
+  "fields": [
+    {"name": "targetCol", "value": "", "widget": "variable", "title": "Target Column", "description": "The label column for model fitting", "datatypes": ["integer", "long", "double", "float", "int"], "required": true, "size":"100%"},
+
+    {"name": "featureCols", "value": "[]", "widget": "variables", "title": "Feature Columns", "description": "Feature columns of type - all numeric, boolean and vector", "datatypes": ["integer", "long", "double", "float", "int"], "required": true, "size":"100%"},
+    {"name": "splitRatio", "value":1.0, "widget": "textfield", "title": "Split Ratio", "description": "Split Ratio", "datatypes":["float"], "size":"50%"},
+
+    {"name": "n_estimators", "value": 100, "widget": "textfield", "title": "NEstimators", "description": "Number of boosting rounds (trees) to fit.", "size":"50%"},
+
+    {"name": "max_depth", "value": 6, "widget": "textfield", "title": "MaxDepth", "description": "Maximum depth of a tree. Increasing depth makes the model more complex and likely to overfit.", "size":"50%"},
+
+    {"name": "learning_rate", "value": 0.1, "widget": "textfield", "title": "LearningRate", "description": "Step size shrinkage used to prevent overfitting. Also called eta.", "size":"50%"},
+
+    {"name": "subsample", "value": 1.0, "widget": "textfield", "title": "Subsample", "description": "The fraction of samples used for fitting the individual base learners. Lower values help prevent overfitting.", "size":"50%"},
+
+    {"name": "colsample_bytree", "value": 1.0, "widget": "textfield", "title": "ColsampleByTree", "description": "Subsample ratio of columns when constructing each tree.", "size":"50%"},
+
+    {"name": "gamma", "value": 0.0, "widget": "textfield", "title": "Gamma", "description": "Minimum loss reduction required to make a further partition on a leaf node.", "size":"50%"},
+
+    {"name": "min_child_weight", "value": 1, "widget": "textfield", "title": "MinChildWeight", "description": "Minimum sum of instance weight (hessian) needed in a child.", "size":"50%"},
+
+    {"name": "objective", "value": "binary:logistic", "widget": "array", "title": "Objective", "optionsArray": ["binary:logistic", "multi:softmax", "multi:softprob"], "description": "Specifies the learning task and objective function.", "size":"50%"},
+
+    {"name": "eval_metric", "value": "error", "widget": "array", "title": "EvalMetric", "optionsArray": ["error", "logloss", "auc", "aucpr"], "description": "Evaluation metric for validation data.", "size":"50%"},
+
+    {"name": "reg_alpha", "value": 0.0, "widget": "textfield", "title": "RegAlpha (L1)", "description": "L1 regularization term on weights.", "size":"50%"},
+
+    {"name": "reg_lambda", "value": 1.0, "widget": "textfield", "title": "RegLambda (L2)", "description": "L2 regularization term on weights.", "size":"50%"},
+
+    {"name": "random_state", "value": 42, "widget": "textfield", "title": "RandomState", "description": "Random seed for reproducibility.", "size":"50%"},
+
+    {"name": "n_jobs", "value": -1, "widget": "textfield", "title": "NJobs", "description": "Number of parallel threads used to run xgboost.", "size":"50%"},
+
+    {"name": "confusionMatrix", "value": "", "widget": "tab", "title": "Confusion Matrix"},
+    {"name": "output_confusion_matrix_chart", "value": "false", "widget": "array", "title": "Output Confusion Matrix Chart", "optionsArray": ["false","true"], "description": "Whether to display confusion matrix chart.", "datatypes": ["boolean"], "size":"50%"},
+    {"name": "cm_chart_title", "value": "Confusion Matrix Chart", "widget": "textfield", "title": "Confusion Matrix Chart Title", "description": "Title name to display in Confusion Matrix Chart", "size":"50%"},
+    {"name": "cm_chart_description", "value": "Visual Representation of Predicted vs. Actual Classes", "widget": "textfield", "title": "Confusion Matrix Chart Description", "description": "Description to display in Confusion Matrix Chart", "size":"50%"},
+    {"name": "confusionMatrixTargetLegend", "value": "Target", "widget": "textfield", "title": "Confusion Matrix Target Legend", "description": "Legend name to display for Target in Confusion Matrix", "size":"50%"},
+    {"name": "confusionMatrixPredictedLabelLegend", "value": "PredictedLabel", "widget": "textfield", "title": "Confusion Matrix PredictedLabel Legend", "description": "Legend name to display for Predicted Label in Confusion Matrix", "size":"50%"},
+    {"name": "confusionMatrixCountLegend", "value": "Count", "widget": "textfield", "title": "Confusion Matrix Count Legend", "description": "Legend name to display for Count in Confusion Matrix", "size":"50%"},
+    {"name": "path", "value":"", "widget": "textfield", "title": "Save Confusion Matrix Path", "description": "Save Confusion Matrix","wdgtCommon": "output_confusion_matrix_chart", "toggle": "true", "size":"50%"},
+
+    {"name": "Description", "value": "", "widget": "tab", "title": "Confusion Matrix Description"},
+    {"name": "confusionMatrixRowDescription", "value": "", "widget": "textarea_rich", "title": "Confusion Matrix Outcome description", "description": "One can provide the business details of the outcome of the confusion matrix rows", "size":"50%"},
+
+    {"name": "ROC Curve", "value": "", "widget": "tab", "title": "ROC Curve"},
+    {"name": "output_roc_curve", "value": "false", "widget": "array", "title": "Output ROC Curve", "optionsArray": ["false","true"], "description": "Whether to display ROC Curve chart.", "datatypes": ["boolean"], "size":"50%"},
+    {"name": "roc_title", "value": "ROC Curve", "widget": "textfield", "title": "ROC Curve Chart Title", "description": "Title name to display in ROC Curve Chart", "size":"50%"},
+    {"name": "roc_description", "value": "Receiver operating characteristic (ROC) curve", "widget": "textfield", "title": "ROC Curve Chart Description", "description": "Add Description for ROC Curve Chart", "size":"50%"},
+    {"name": "xlabel", "value": "False Positive Rate (specificity)", "widget": "textfield", "title": "X Label", "description": "X label", "size":"50%"},
+    {"name": "ylabel", "value": "True Positive Rate (sensitivity)", "widget": "textfield", "title": "Y Label", "description": "Y label", "size":"50%"}
+  ]
+}

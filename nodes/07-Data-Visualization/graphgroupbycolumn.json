@@ -1,0 +1,27 @@
+{
+  "id": "3",
+  "name": "Graph Group By Column",
+  "description": "Groups the data by the given column and plots the number of records in each group",
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "iconImage": "assets/images/icons/node-icon/Graph_group_by_column.svg",
+  "outputAnchors": [{"name": "output", "title": "O"}, {"name": "input", "title": "I"}],
+  "nodeClass": "fire.nodes.graph.NodeGraphGroupByColumn",
+  "fields" : [
+    {"name":"title", "value":"Graph of counts Grouped By Column", "widget": "textfield", "title": "Title"},
+    {"name":"titleColor", "value":"#2563EB", "widget": "textcolors", "title": "Title Color"},
+    {"name":"description", "value":"", "widget": "textareafield", "title": "Description"},
+    {"name":"descriptionColor", "value":"#6D6E70", "widget": "textcolors", "title": "Description Color"},
+    {"name":"xlabel", "value":"", "widget": "textfield", "title": "X Label"},
+    {"name":"ylabel", "value":"", "widget": "textfield", "title": "Y Label"},
+
+    {"name":"maxValuesToDisplay", "value": "20", "widget": "textfield", "title": "Max Values To Display",
+      "description": "Maximum number of values to display in result.", "required": true},
+    {"name":"chartColors", "value":"", "widget": "colors", "title": "Chart Colors"},
+    {"name":"groupByColumn", "value":"col1", "widget": "variable", "title": "Group By Column", "required":true},
+    {"name":"graphType", "value":"COLUMNCHART", "widget": "enum", "title": "Chart Type",
+     "optionsMap":{"COLUMNCHART":"Column Chart","BARCHART":"Bar Chart",
+                  "LINECHART":"Line Chart"}}
+    
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "id": "5",
+  "name": "Sklearn Logistic Regression",
+  "description": "Logistic Regression is a linear classification algorithm that supports binary, One-vs-Rest, and multinomial classification with L1, L2, or Elastic-Net regularization.",
+  "input" : "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "ml-estimator",
+
+  "nodeClass": "fire.nodes.sklearn.NodeSklearnLogisticRegression",
+  "fields": [
+
+    {"name": "targetCol", "value": "", "widget": "variable", "title": "Target Column",
+      "description": "Target label column used for training the logistic regression model.",
+      "datatypes": ["integer", "long", "double", "float", "int"], "required": true, "size":"100%"},
+
+    {"name": "featureCols", "value": "[]", "widget": "variables", "title": "Feature Columns",
+      "description": "List of input feature columns containing numeric, boolean, or vector values.",
+      "datatypes": ["integer", "long", "double", "float", "int"], "required": true, "size":"100%"},
+
+    {"name": "splitRatio", "value":1.0, "widget": "textfield", "title": "Split Ratio",
+      "description": "Ratio used to split data into training and testing datasets.",
+      "datatypes":["float"], "size":"50%"},
+
+    {"name": "penalty", "value": "l2", "widget": "array", "title": "Penalty",
+      "optionsArray": ["l1", "l2", "elasticnet"],
+      "description": "Type of regularization applied to the model coefficients.",
+      "size":"50%"},
+
+    {"name": "dual", "value": "false", "widget": "array", "title": "Dual",
+      "optionsArray": ["false", "true"],
+      "description": "Selects between primal or dual optimization formulation.",
+      "datatypes": ["boolean"], "size":"50%"},
+
+    {"name": "tol", "value": 0.0001, "widget": "textfield", "title": "Tol",
+      "description": "Tolerance threshold used to decide convergence.",
+      "size":"50%"},
+
+    {"name": "C", "value": 1.0, "widget": "textfield", "title": "C",
+      "description": "Inverse of regularization strength. Smaller values imply stronger regularization.",
+      "size":"50%"},
+
+    {"name": "fit_intercept", "value": "true", "widget": "array", "title": "FitIntercept",
+      "optionsArray": ["false", "true"],
+      "description": "Specifies whether an intercept term should be added to the model.",
+      "datatypes": ["boolean"], "size":"50%"},
+
+    {"name": "intercept_scaling", "value": 1, "widget": "textfield", "title": "InterceptScaling",
+      "description": "Scaling factor for the intercept when using the liblinear solver.",
+      "size":"50%"},
+
+    {"name": "class_weight", "value": "", "widget": "textfield", "title": "ClassWeight",
+      "description": "Dictionary mapping class labels to weights for handling class imbalance.",
+      "size":"50%"},
+
+    {"name": "random_state", "value": "", "widget": "textfield", "title": "RandomState",
+      "description": "Seed used by the random number generator for reproducibility.",
+      "size":"50%"},
+
+    {"name": "solver", "value": "liblinear", "widget": "array", "title": "Solver",
+      "optionsArray": ["liblinear", "newton-cg", "lbfgs", "liblinear", "sag", "saga"],
+      "description": "Optimization algorithm used to train the logistic regression model.",
+      "size":"50%"},
+
+    {"name": "max_iter", "value": 100, "widget": "textfield", "title": "MaxIter",
+      "description": "Maximum number of iterations allowed for solver convergence.",
+      "size":"50%"},
+
+    {"name": "multi_class", "value": "ovr", "widget": "array", "title": "MultiClass",
+      "optionsArray": ["ovr", "multinomial", "auto"],
+      "description": "Strategy for multiclass classification.",
+      "size":"50%"},
+
+    {"name": "verbose", "value": 0, "widget": "textfield", "title": "Verbose",
+      "description": "Controls verbosity level of the solver output.",
+      "size":"50%"},
+
+    {"name": "warm_start", "value": "false", "widget": "array", "title": "WarmStart",
+      "optionsArray": ["false", "true"],
+      "description": "Reuses solution from previous fit as initialization.",
+      "datatypes": ["boolean"], "size":"50%"},
+
+
+    {"name": "confusionMatrix", "value":"", "widget": "tab", "title": "Confusion Matrix"},
+
+    {"name": "output_confusion_matrix_chart", "value":"false", "widget": "array",
+      "title": "Output Confusion Matrix Chart",
+      "optionsArray": ["false","true"],
+      "description": "Whether to display confusion matrix visualization.",
+      "datatypes":["boolean"], "size":"50%"},
+
+    {"name": "cm_chart_title", "value":"Confusion Matrix Chart", "widget": "textfield",
+      "title": "Confusion Matrix Chart Title",
+      "description": "Title displayed above the confusion matrix chart.",
+      "size":"50%"},
+
+    {"name": "cm_chart_description", "value":"Visual Representation of Predicted vs. Actual Classes",
+      "widget": "textfield",
+      "title": "Confusion Matrix Chart Description",
+      "description": "Description displayed with the confusion matrix chart.",
+      "size":"50%"},
+
+    {"name": "confusionMatrixTargetLegend", "value":"Target", "widget": "textfield",
+      "title": "Confusion Matrix Target Legend",
+      "description": "Legend label for actual class values.",
+      "size":"50%"},
+
+    {"name": "confusionMatrixPredictedLabelLegend", "value":"PredictedLabel",
+      "widget": "textfield",
+      "title": "Confusion Matrix PredictedLabel Legend",
+      "description": "Legend label for predicted class values.",
+      "size":"50%"},
+
+    {"name": "confusionMatrixCountLegend", "value":"Count", "widget": "textfield",
+      "title": "Confusion Matrix Count Legend",
+      "description": "Legend label for instance counts.",
+      "size":"50%"},
+
+    {"name": "path", "value":"", "widget": "textfield",
+      "title": "Save Confusion Matrix Path",
+      "description": "Filesystem path used to save the confusion matrix.",
+      "wdgtCommon": "output_confusion_matrix_chart", "toggle": "true",
+      "size":"50%"},
+
+
+    {"name": "Description", "value":"", "widget": "tab",
+      "title": "Confusion Matrix Description"},
+
+    {"name": "confusionMatrixRowDescription", "value":"", "widget": "textarea_rich",
+      "title": "Confusion Matrix Outcome description",
+      "description": "Business interpretation of confusion matrix rows.",
+      "size":"50%"},
+
+
+    {"name": "ROC Curve", "value":"", "widget": "tab", "title": "ROC Curve"},
+
+    {"name": "output_roc_curve", "value":"false", "widget": "array",
+      "title": "Output ROC Curve",
+      "optionsArray": ["false","true"],
+      "description": "Whether to display ROC curve visualization.",
+      "datatypes":["boolean"], "size":"50%"},
+
+    {"name": "roc_title", "value":"ROC Curve", "widget": "textfield",
+      "title": "ROC Curve Chart Title",
+      "description": "Title displayed above the ROC curve chart.",
+      "size":"50%"},
+
+    {"name": "roc_description", "value":"Receiver operating characteristic (ROC) curve",
+      "widget": "textfield",
+      "title": "ROC Curve Chart Description",
+      "description": "Description displayed along with the ROC curve.",
+      "size":"50%"},
+
+    {"name": "xlabel", "value":"False Positive Rate (specificity)", "widget": "textfield",
+      "title": "X Label",
+      "description": "Label for the X-axis of the ROC curve.",
+      "size":"50%"},
+
+    {"name": "ylabel", "value":"True Positive Rate (sensitivity)", "widget": "textfield",
+      "title": "Y Label",
+      "description": "Label for the Y-axis of the ROC curve.",
+      "size":"50%"}
+  ]
+}

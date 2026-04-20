@@ -1,0 +1,45 @@
+{
+  "id": "3",
+  "name": "Run Chart",
+  "type": "SPC-Chart",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.graph.NodeSpcRunChart",
+  "description": "This node outputs Run Chart.",
+  "fields": [
+    {"name":"title","value":"","widget":"textfield","title":"Title","size":"50%"},
+    {"name":"titleColor","value":"#2563EB","widget":"textcolors","title":"Title Color","size":"50%"},
+
+    {"name":"description","value":"","widget":"textareafield","title":"Description"},
+    {"name":"descriptionColor","value":"#6D6E70","widget":"textcolors","title":"Description Color","size":"50%"},
+
+    {"name":"values","value":"[]","widget":"variables",
+      "title":"Values",
+      "description":"Select Values in desired Order",
+      "required":true},
+
+    {"name":"lcl","value":"","widget":"textfield",
+      "title":"LCL",
+      "description":"Lower Control Limit",
+      "required":true,
+      "datatypes":["double"],
+      "size":"50%"},
+
+    {"name":"center","value":"","widget":"textfield",
+      "title":"Center",
+      "description":"Center line",
+      "datatypes":["double"],
+      "size":"50%"},
+
+    {"name":"ucl","value":"","widget":"textfield",
+      "title":"UCL",
+      "description":"Upper Control Limit",
+      "required":true,
+      "datatypes":["double"],
+      "size":"50%"},
+
+    {"name":"identifier","value":"","widget":"variable",
+      "title":"Identifier Columns",
+      "description":"Identifier column names",
+      "size":"50%"}
+  ]
+}

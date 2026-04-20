@@ -1,0 +1,52 @@
+{
+  "id": "1",
+  "name": "Columns Rename",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/rename.svg",
+  "description": "This node creates a new DataFrame by renaming existing columns with the new name",
+  "input": "This type of node takes in a DataFrame and transforms it to another DataFrame.",
+  "output": "The specified columns are renamed to have the new names.",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeColumnsRename",
+  "engine": "scala,pyspark",
+  "fields" : [
+
+    {"name": "currentColNames", "value":"[]", "widget": "variables_list_select", "title": "Current Column Names", "description": "Current Column Names"},
+
+    {"name": "newColNames", "value":"[]", "widget": "variables_list_textfield", "title": "Columns New Name", "description": "New name for existing columns"},
+
+    {"name": "bulkColumnRename", "value": "", "widget": "tab", "title": "BulkColumnRename"},
+
+    {"name":"bulkType", "value":"", "widget": "array_single", "optionsArray": ["add_prefix","add_suffix", "remove_extra_charcter", "regex", "replace",
+    "upper", "lower"], "title": "Type", "description": "Select Type"},
+    {"name":"prefix",  "value":"", "widget": "textfield", "title": "Prefix",
+      "description":"Prefix Value", "wdgtCommon":"bulkType", "toggle":"add_prefix"},
+    {"name":"suffix",  "value":"", "widget": "textfield", "title": "Suffix",
+      "description":"Suffix Value", "wdgtCommon":"bulkType", "toggle":"add_suffix"},
+    {"name":"remove_extra_charcter",  "value":"", "widget": "textfield", "title": "Extra Charcter",
+      "description":"extra_charcter", "wdgtCommon":"bulkType", "toggle":"remove_extra_charcter"},
+
+    {"name":"replace_pattern",  "value":"", "widget": "textfield", "title": "Replace Pattern",
+      "description":"regex replace pattern to search", "wdgtCommon":"bulkType", "toggle":"regex"},
+
+    {"name":"with_pattern_replacement",  "value":"", "widget": "textfield", "title": "With Pattern Replacement",
+      "description":"regex replacement for matched pattern in Replace Pattern", "wdgtCommon":"bulkType", "toggle":"regex"},
+
+    {"name":"replace",  "value":"", "widget": "textfield", "title": "Replace",
+      "description":"replace pattern to search", "wdgtCommon":"bulkType", "toggle":"replace"},
+
+    {"name":"with_replacement",  "value":"", "widget": "textfield", "title": "Replacement",
+      "description":"replacement for matched replace", "wdgtCommon":"bulkType", "toggle":"replace"},
+
+    {"name":"inputCols", "value":"[]", "widget": "variables", "title": "Current Column Names",
+      "description": "Current Column Names"},
+
+    {
+      "name": "inputColumnPropagation",
+      "value": false,
+      "widget": "array_single",
+      "optionsArray": ["true", "false"],
+      "title": "Enable Input Column Propagation",
+      "description": "When enabled, automatically include all unspecified input columns."
+    }
+  ]
+}

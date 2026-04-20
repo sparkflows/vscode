@@ -1,0 +1,15 @@
+{
+  "id": "11",
+  "name": "Read Parameters",
+
+  "description": "Reads in the parameters from the given file.",
+  "input": "Input file has records in the following form on each line : name=value",
+  "output": "It adds the input parameters into the JobContext",
+
+  "type": "shellcommand",
+  "nodeClass": "fire.nodes.util.NodeReadParameters",
+  "fields" : [
+    {"name":"path", "display":true,"value":"", "widget": "textfield", "required":true,
+        "title": "Path", "description": "Path of the parameters file containing the parameter name and value in each line"}
+  ]
+}

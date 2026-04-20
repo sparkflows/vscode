@@ -1,0 +1,12 @@
+{
+  "id": "4",
+  "name": "Signal Processing",
+  "description": "Expects a signal as column input and performs transformations",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeSignalProcessing",
+  "engine": "pyspark",
+  "fields" : [
+    {"name":"inputCols", "value":"", "widget": "variables", "title": "Input Columns", "required":"true", "description": "Select Input Columns"},
+    {"name": "transformationType", "value":"", "widget": "array", "optionsArray": ["Fourier Transform","Log Transform","Anti Log Transform"],"title": "Transformation Type", "required":"true", "description": "Imputer strategy"}
+  ]
+}

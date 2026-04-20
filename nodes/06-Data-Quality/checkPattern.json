@@ -1,0 +1,12 @@
+{
+  "id": "2",
+  "name": "PatternMatch",
+  "description": "",
+  "type": "transform",
+  "nodeClass": "fire.nodes.quality.NodeCheckPattern",
+  "fields" : [
+    {"name": "inputCols", "value":"[]", "widget": "variables_list_select", "title": "Column Name", "description": "The column name."},
+    {"name": "patterns", "value":"[]", "widget": "variables_list_textfield","title": "Patterns", "description": "Define matching patterns for column values.", "expandable":true},
+    {"name": "weightage", "value":"1", "widget": "textfield","title": "Weightage", "description": " Weightage"}
+  ]
+}

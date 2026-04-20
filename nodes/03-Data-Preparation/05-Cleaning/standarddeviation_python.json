@@ -1,0 +1,13 @@
+{
+  "id": "7",
+  "name": "Standard Deviation",
+  "description": "Creates new columns using the specified input columns",
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.etl.NodeStandardDeviation",
+  "fields" : [
+
+    {"name": "inputCols", "value":"[]", "widget": "variables",
+      "title": "Input Columns", "description": "columns for computing standard deviation", "datatypes":["integer", "long", "double", "float"]}
+  ]
+}

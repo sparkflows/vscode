@@ -1,0 +1,46 @@
+{
+  "id": "11",
+  "name": "Data Cleansing",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/data_cleaning.svg",
+  "description": "One-stop data quality powerhouse – instantly clean dozens of common messy data issues: null handling, whitespace, unwanted characters, case standardization, and more. Perfect for preparing raw source data (CSV, Excel, APIs, logs) before analytics, modeling, or reporting.",
+  "input": "It accepts DataFrame as input from the previous Node",
+  "output": "This node output cleansed data",
+  "type": "transform",
+  "engine": "scala,pyspark,polars",
+  "nodeClass": "fire.nodes.etl.NodeDataCleansing",
+  "fields" : [
+    {"name": "Columns", "value":"", "widget": "tab", "title": "Columns"},
+    {"name": "inputCols", "value":"[]", "widget": "variables", "title": "Select Columns",
+      "description": "Columns you want to clean. Leave empty to apply settings globally where it makes sense (e.g., trim whitespace on all string columns)."},
+
+    {"name": "Remove Nulls", "value":"", "widget": "tab", "title": "Remove Nulls"},
+    {"name": "removeNullRows", "value":"false", "widget": "array","optionsArray": ["false","true"], "title": "Remove Null Rows",
+      "description": "Drop entire rows that contain nulls in the selected columns (or any column if none selected). Great for strict data quality requirements.","datatypes":["boolean"]},
+    {"name": "removeNullColumns", "value":"false", "widget": "array","optionsArray": ["false","true"], "title": "Remove Null Columns",
+      "description": "Drop entire columns that are completely null/empty. Useful after Union when some sources don’t have certain fields.","datatypes":["boolean"]},
+
+    {"name": "Replace Nulls", "value":"", "widget": "tab", "title": "Replace Nulls"},
+    {"name": "replaceWithBlanks", "value":"false", "widget": "array","optionsArray": ["false","true"], "title": "Replace Nulls To Blank (String fields)",
+      "description": "Replace nulls in string columns with empty string '' instead of literal 'null'. Makes downstream joins and reports look clean.","datatypes":["boolean"]},
+    {"name": "replaceWithZero", "value":"false", "widget": "array","optionsArray": ["false","true"], "title": "Replace Nulls To 0 (Numeric fields)",
+      "description": "Replace nulls in numeric columns with 0. Essential for aggregations (sum, avg) so nulls don’t skew results.","datatypes":["boolean"]},
+
+    {"name": "Remove Unwanted Characters", "value":"", "widget": "tab", "title": "Remove Unwanted Characters"},
+    {"name": "trimWhitespace", "value": "false", "widget": "array", "optionsArray": ["false", "true"], "title": "Trim Leading/Trailing Whitespace",
+      "description": "Remove spaces before/after text (e.g., ' John ' To 'John'). The #1 most common data issue!","datatypes": ["boolean"]},
+    {"name": "removeTabsLineBreaks", "value": "false", "widget": "array", "optionsArray": ["false", "true"], "title": "Remove Tabs, Line Breaks & Duplicate Spaces",
+      "description": "Clean up copy-paste mess: replaces \\t, \\n, \\r and multiple spaces with single space.","datatypes": ["boolean"]},
+    {"name": "allWhiteSpace", "value":"false", "widget": "array","optionsArray": ["false","true"], "title": "All Whitespace Characters", "description": "Remove every kind of whitespace (including non-breaking spaces).","datatypes":["boolean"]},
+    {"name": "letters", "value":"false", "widget": "array","optionsArray": ["false","true"], "title": "Letters (A-Z, a-z)", "description": "Strip all letters - useful for extracting numbers from mixed fields.","datatypes":["boolean"]},
+    {"name": "lettersExceptions", "value":"", "widget": "textfield", "title": "Letters Exceptions", "description": "Comma-separated letters to KEEP (e.g., 'A,E,I,O,U' to keep vowels).","wdgtCommon": "letters", "toggle": "true"},
+    {"name": "numbers", "value":"false", "widget": "array","optionsArray": ["false","true"], "title": "Numbers (0-9)", "description": "Strip all digits - perfect for cleaning names that contain numbers.","datatypes":["boolean"]},
+    {"name": "numbersExceptions", "value":"", "widget": "textfield", "title": "Numbers Exceptions", "description": "Digits to KEEP (e.g., '123' to preserve house numbers).","wdgtCommon": "numbers", "toggle": "true"},
+    {"name": "punctuation", "value":"false", "widget": "array","optionsArray": ["false","true"], "title": "Punctuation & Symbols", "description": "Remove !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ etc.","datatypes":["boolean"]},
+    {"name": "punctuationExceptions", "value":"", "widget": "textfield", "title": "Punctuation Exceptions", "description": "Symbols to KEEP (e.g., '.,-' for decimal numbers and names like O'Connor).","wdgtCommon": "punctuation", "toggle": "true"},
+
+    {"name": "Modify Case", "value":"", "widget": "tab", "title": "Modify Case"},
+    {"name": "modifyCase", "value":"Default", "widget": "array", "title": "Modify Case",
+      "optionsArray": ["Upper case", "Lower Case", "Title Case","Default"],
+      "description": "Standardize text case:\n• Upper case To JOHN DOE\n• Lower Case To john doe\n• Title Case To John Doe\n• Default To no change"}
+  ]
+}

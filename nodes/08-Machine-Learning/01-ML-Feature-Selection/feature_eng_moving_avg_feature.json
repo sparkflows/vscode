@@ -1,0 +1,30 @@
+{
+  "id": "node_moving_average_features",
+  "name": "Moving Average Features",
+  "description": "This node computes various global moving average features from a DataFrame containing transactional data.",
+  "input": "It takes a DataFrame with date, and optionally user, amount, quantity columns.",
+  "output": "Returns the original DataFrame with new global moving average feature columns appended.",
+  "type": "pyspark",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.fe.NodeMovingAverageFeatures",
+  "fields": [
+    {"name": "dateCol", "value": "", "widget": "variable", "title": "Date/Timestamp Column", "description": "Column representing the transaction date or timestamp.", "required": true, "size": "50%"},
+    {"name": "userCol", "value": "", "widget": "variable", "title": "User ID Column", "description": "Column representing the user or entity ID.", "size": "50%"},
+    {"name": "amountCol", "value": "", "widget": "variable", "title": "Amount Column", "description": "Column representing the transaction amount.", "size": "50%"},
+    {"name": "quantityCol", "value": "", "widget": "variable", "title": "Quantity Column", "description": "Column representing the quantity.", "size": "50%"},
+    {"name": "enable_global_moving_avg_txn_count_per_day", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Global Moving Avg Txn Count Per Day", "description": "Global average transaction count per day over the window.", "size": "50%"},
+    {"name": "global_moving_avg_txn_count_per_day_window", "value": "7", "widget": "textfield", "title": "Window Size (days)", "size": "50%", "wdgtCommon": "enable_global_moving_avg_txn_count_per_day", "toggle": "true"},
+    {"name": "enable_global_moving_avg_gap_days", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Global Moving Avg Gap Days", "description": "Global average gap days between transactions over the window.", "size": "50%"},
+    {"name": "global_moving_avg_gap_days_window", "value": "7", "widget": "textfield", "title": "Window Size (days)", "size": "50%", "wdgtCommon": "enable_global_moving_avg_gap_days", "toggle": "true"},
+    {"name": "enable_global_hourly_avg_txn_count", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Global Hourly Avg Txn Count", "description": "Global average transaction count per hour over the window.", "size": "50%"},
+    {"name": "global_hourly_avg_txn_count_window_hours", "value": "24", "widget": "textfield", "title": "Window Size (hours)", "size": "50%", "wdgtCommon": "enable_global_hourly_avg_txn_count", "toggle": "true"},
+    {"name": "enable_global_daily_avg_amount", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Global Daily Avg Amount (Required: Amount)", "description": "Global average amount per day over the window.", "size": "50%"},
+    {"name": "global_daily_avg_amount_window", "value": "7", "widget": "textfield", "title": "Window Size (days)", "size": "50%", "wdgtCommon": "enable_global_daily_avg_amount", "toggle": "true"},
+    {"name": "enable_global_moving_avg_amount", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Global Moving Avg Amount (Required: Amount)", "description": "Global average transaction amount over the window.", "size": "50%"},
+    {"name": "global_moving_avg_amount_window", "value": "7", "widget": "textfield", "title": "Window Size (days)", "size": "50%", "wdgtCommon": "enable_global_moving_avg_amount", "toggle": "true"},
+    {"name": "enable_global_moving_avg_sales_per_day", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Global Moving Avg Sales Per Day (Required: Quantity)", "description": "Global average sales (quantity) per day over the window.", "size": "50%"},
+    {"name": "global_moving_avg_sales_per_day_window", "value": "7", "widget": "textfield", "title": "Window Size (days)", "size": "50%", "wdgtCommon": "enable_global_moving_avg_sales_per_day", "toggle": "true"},
+    {"name": "enable_global_moving_avg_unique_users_per_day", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Global Moving Avg Unique Users Per Day (Required: User)", "description": "Global average unique users per day over the window.", "size": "50%"},
+    {"name": "global_moving_avg_unique_users_per_day_window", "value": "7", "widget": "textfield", "title": "Window Size (days)", "size": "50%", "wdgtCommon": "enable_global_moving_avg_unique_users_per_day", "toggle": "true"}
+  ]
+}

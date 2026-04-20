@@ -1,0 +1,20 @@
+{
+  "id": "11",
+  "name": "Filter By String Length",
+  "iconImage": "assets/images/icons/node-icon/filter.svg",
+  "description": "This node filters the Rows within the given string length. The column to be used for determining the string length is specified.",
+  "input": "It accepts a DataFrame as input from the previous Node", 
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.etl.NodeFilterByStringLength",
+  "fields" : [
+
+    {"name":"inputCol", "value": "", "widget": "variable", "title": "Input Column Name",
+          "description": "input column name", "datatypes":["string"],  "required": true},
+    {"name":"minLength", "value": "0", "widget": "textfield", "title": "Minimum length", "datatypes":["int"],
+           "description": "Minimum length of String",  "required": true},
+	{"name":"maxLength", "value": "0", "widget": "textfield", "title": "Maximum length", "datatypes":["int"],
+           "description": "Maximum length of String",  "required": true}
+
+	]
+}

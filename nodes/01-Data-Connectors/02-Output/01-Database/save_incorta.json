@@ -1,0 +1,37 @@
+{
+  "id": "7",
+  "name": "Save Incorta",
+  "description": "",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/incorta.svg",
+  "type": "transform",
+  "engine": "scala,pyspark,polars",
+  "nodeClass": "fire.nodes.incorta.SaveIncortaMV",
+  "fields" : [
+    {"name":"connection", "value":"", "widget": "object_array", "title": "Chidori Connection",
+      "description": "The Chidori connection to connect to call create MV." ,"required":"true"},
+    {"name": "incortaConnection", "value":"", "widget": "object_array", "title": "Incorta Connection", "description": "The Incorta connection to connect to call schema load."},
+    
+    {"name":"table", "value":"", "widget": "textfield", "title": "Table", "description": "Incorta Table from which to read or write the data",  "required": "true"},
+    {"name":"saveMode", "value":"Append", "widget": "array","optionsArray": ["Append","Overwrite", "ErrorIfExists", "Ignore"],
+      "title": "Save Mode", "description":"Whether to Append, Overwrite or Error if the path Exists"},
+
+    {
+      "name": "createMV",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": ["true", "false"],
+      "title": "Create MV",
+      "description": "Create Python MV in given schema with name in table field."
+    },
+
+    {
+      "name": "fullLoadSchema",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": ["true", "false"],
+      "wdgtCommon":"createMV", "toggle":"true",
+      "title": "Full Load Schema",
+      "description": "Enable the full load schema to load the data to tables/mv in the schema(Refresh)."
+    }
+  ]
+}

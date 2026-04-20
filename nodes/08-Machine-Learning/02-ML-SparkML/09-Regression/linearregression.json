@@ -1,0 +1,55 @@
+{
+  "id": "5",
+  "name": "Linear Regression",
+  "description": "Linear Regression models the relationship between a continuous target variable and one or more input features by fitting a linear equation.",
+
+  "input" : "This takes in a DataFrame and performs Logistic Regression",
+  "output": "It generates the LinearRegressionModel and passes it to the next Predict and ModelSave Nodes. The input DataFrame is also passed along to the next nodes.",
+
+  "type": "ml-estimator",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.ml.NodeLinearRegression",
+  "fields" : [
+    {"name": "modelIdentifier", "value":"", "required":false, "widget": "textfield", "title": "Model Identifier", "description": "Identifier used when training multiple models in loop execution. Begins with $loop followed by column names separated by underscores.", "size":"50%"},
+    {"name": "splitRatio", "value":1.0, "widget": "textfield", "title": "Split Ratio", "description": "Controls the proportion of data used for training versus validation.", "datatypes":["float"], "size":"50%"},
+
+    {"name": "featuresCol", "value":"", "required":true, "widget": "variable", "title": "Features Column", "description": "Vector column containing all independent variables used to train the regression model.", "datatypes":["vectorudt"], "size":"50%"},
+
+    {"name": "labelCol", "value":"", "required":true, "widget": "variable", "title": "Label Column", "description": "Target column containing the continuous numeric value the model is trained to predict.", "datatypes":["double"], "size":"50%"},
+
+    {"name": "predictionCol", "value":"", "widget": "textfield", "title": "Prediction Column", "description": "Output column where predicted numeric values are stored after scoring.", "size":"50%"},
+
+    {"name": "fitIntercept", "value":"true", "widget": "array", "title": "Fit Intercept", "optionsArray": ["true","false"], "description": "Determines whether the regression model includes an intercept term.", "datatypes":["boolean"], "size":"50%"},
+
+    {"name": "maxIter", "value":100, "widget": "textfield", "title": "Maximum Iterations", "description": "Maximum number of optimization iterations performed during model training.", "datatypes":["integer"], "size":"50%"},
+
+    {"name": "regParam", "value":0.0, "widget": "textfield", "title": "Regularization Param", "description": "Controls the strength of regularization to prevent overfitting.", "datatypes":["double"], "size":"50%"},
+
+    {"name": "elasticNetParam", "value":0.0, "widget": "textfield", "title": "ElasticNet Param", "description": "Balances L1 and L2 regularization. A value of 0 applies pure L2, while 1 applies pure L1.", "datatypes":["double"], "size":"50%"},
+
+    {"name": "solver", "value":"auto", "widget": "array", "title": "Solver", "optionsArray": ["auto", "l-bfgs", "normal"], "description": "Optimization algorithm used to fit the linear regression model.", "size":"50%"},
+
+    {"name": "standardization", "value":"true", "widget": "array", "title": "Standardization","optionsArray": ["true","false"], "description": "Whether input features are standardized before model training.", "datatypes":["boolean"], "size":"50%"},
+
+    {"name": "tol", "value":1E-6, "widget": "textfield", "title": "Tolerance", "description": "Convergence threshold that determines when the optimization process stops.", "datatypes":["double"], "size":"50%"},
+
+    {"name": "weightCol", "value":"", "widget": "textfield", "title": "Weight Column", "description": "Optional column specifying the relative importance of each training record.", "size":"50%"},
+
+    {"name": "aggregationDepth", "value":2, "widget": "textfield", "title": "Aggregation Depth", "description": "Controls the depth used for distributed aggregation during optimization.", "datatypes":["integer"], "size":"50%"},
+
+    {"name": "epsilon", "value":1.35, "widget": "textfield", "title": "Epsilon", "description": "Controls robustness of the Huber loss function when selected.", "datatypes":["double"], "size":"50%"},
+
+    {"name": "loss", "value":"squaredError", "widget": "array", "title": "Loss", "optionsArray": ["squaredError", "huber"], "description": "Specifies the loss function optimized during training.", "size":"50%"},
+    {"name":"saveCoefficientsPath", "display":true,"value":"", "widget": "textfield", "title": "Path to Save Coefficients", "description": "Filesystem path where model coefficients and intercept are saved as CSV.", "size":"50%"},
+
+
+    {"name": "gridSearch", "value":"", "widget": "tab", "title": "Grid Search"},
+
+    {"name": "regParamGrid", "value":"", "widget": "textfield", "title": "Regularization Param Grid Search", "description": "Set of regularization values evaluated during hyperparameter tuning.", "size":"50%"},
+
+    {"name": "elasticNetGrid", "value":"", "widget": "textfield", "title": "ElasticNet Param Grid Search", "description": "ElasticNet mixing values tested during grid search.", "size":"50%"},
+
+    {"name": "maxIterGrid", "value":"", "widget": "textfield", "title": "MaxIter Param Grid Search", "description": "Different iteration limits evaluated to optimize convergence.", "size":"50%"}
+
+  ]
+}

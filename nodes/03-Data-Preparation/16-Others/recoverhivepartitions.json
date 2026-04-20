@@ -1,0 +1,15 @@
+{
+  "id": "7",
+  "name": "Recover Hive Partitions",
+  "iconImage": "assets/images/icons/node-icon/hive.svg",
+  "description": "Node to recover the partitions of external hive table.",
+  "type": "doc",
+  "nodeClass": "fire.nodes.etl.NodeRecoverHivePartitions",
+  "fields" : [
+
+    {"name":"databaseName", "value":"", "widget": "textfield", "title": "HIVE Database",
+      "description":"Name of the HIVE Database"},
+    {"name":"tableName", "display": true, "value":"", "widget": "textfield", "title": "HIVE Table",
+      "description":"Name of the HIVE table"}    
+  ]
+}

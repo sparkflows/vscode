@@ -1,0 +1,15 @@
+{
+  "id": "7",
+  "name": "Melt",
+  "description": "Melt Node",
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.etl.NodeMelt",
+  "fields" : [
+    {"name": "id_vars", "value":"[]", "widget": "variables", "title": "id_vars Columns", "description": "Column(s) to use as identifier variables."},
+    {"name": "value_vars", "value":"[]", "widget": "variables", "title": "Unpivot Column(s)", "description": "Column(s) to unpivot"},
+    {"name": "value_name", "value":"", "widget": "textfield","title":"Value Name","description": "Name to use for the 'variable' column"},
+    {"name": "var_name", "value":"", "widget": "textfield","title":"Variable Name","description": "Name to use for the 'value' column"}
+  ]
+}
+

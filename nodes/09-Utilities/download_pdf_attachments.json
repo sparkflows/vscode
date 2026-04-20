@@ -1,0 +1,21 @@
+{
+  "id": "11",
+  "name": "Pdf Attachments from Emails",
+  "iconImage": "assets/images/icons/node-icon/email.svg",
+  "description": "This node reads emails and download Pdf Attachments from all provided email addresses",
+  "type": "pyspark",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.util.NodeDownloadMailAttachments",
+  "fields" : [
+
+    {"name": "subjectFilter", "display": true, "value": "", "widget": "textfield", "title": "Filter By Subject", "description": "Filter emails with attachments based on the subject.(Optional)"},
+    {"name": "attachmentsDir", "value": "", "widget": "textfield", "title": "Save Attachments To Path", "description": "Directory path to save the downloaded attachments.", "required": "true"},
+    {"name": "top", "value": "", "widget": "textfield", "title": "Top", "description": "Number of most recent Emails to Fetch"},
+    {"name": "emailAddressList", "value": "", "widget": "textarea_small", "title": "Email Address List", "description": "List of email addresses separated by commas or semicolon. Attachments will be fetched from these emails.", "required": "true"},
+
+    {"name": "Microsoft", "value": "", "widget": "tab", "title": "Microsoft Graph API Configuration", "description": "Configuration for Microsoft Graph API."},
+    {"name": "clientId", "value": "", "widget": "textfield", "title": "Client Id", "description": "Client ID for Microsoft authentication.", "required": "true"},
+    {"name": "clientSecret", "value": "", "widget": "textfield", "title": "Client Secret", "description": "Client secret for Microsoft authentication.", "required": "true"},
+    {"name": "tenantId", "value": "", "widget": "textfield", "title": "Tenant Id", "description": "Tenant ID for Microsoft authentication.", "required": "true"}
+  ]
+}

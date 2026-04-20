@@ -1,0 +1,11 @@
+{
+  "id": "11",
+  "name": "Generate Pipeline Parameters",
+  "description": "This node create pipeline parameters for each column and value. ParameterName is ColumnName and Parameter Value in value from first row.",
+  "type": "shellcommand",
+  "nodeClass": "fire.nodes.util.NodeGeneratePipelineParameter",
+  "fields" : [
+    {"name":"inputCols", "value":"[]", "widget": "variables", "title": "Input Columns",
+      "description": "Column Name to generate dynamic parameters"}
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": "11",
+  "name": "InlineDQ_Validation",
+  "description": "Node to perform InlineDQ validation and generate pass/fail result",
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.ge.InlineDQ_Validation",
+  "fields": [
+    {"name": "env","value": "development","widget": "textfield","title": "Environment","description": "Environment ex. development, qa, preprod, production","required": true},
+    {"name": "input_data_path","value": "s3://cobalt-chc-dev-dataplatform/data-quality/data/mose/raw/mcmd/client=johnshopkins/","widget": "textfield","title": "Input Data Path","description": "S3 location of input data. Either folder or a single file","required": true},
+    {"name": "output_data_path","value": "s3://cobalt-chc-dev-dataplatform/data-quality/data/temp_gx/sparkflows-inline-dq-output/great-expectation-reports","widget": "textfield","title": "Output Data Path","description": "S3 location of great expectation output","required": true},
+    {"name": "dq_config_path","value": "s3://cobalt-chc-dev-dataplatform/data-quality/inline-dq/deployments/configs/mose/mcmd/mose_mcmd_dq_config.yaml","widget": "textfield","title": "DQ Config Path","description": "S3 location of DQ Config YAML file for a specific file type which we are processing","required": true},
+    {"name": "report-parameters","value": "","widget": "tab","title": "Report Parameters"},
+    {"name": "report_type","value": "file-level","widget": "textfield","title": "Report Type","description": "Report Type ex. file-level, detail","required": true},
+    {"name": "report_version","value": "1.0.0","widget": "textfield","title": "Report Version","description": "Report Version ex. 1.0.0, 1.0.1","required": true},
+    {"name": "report_format","value": "json","widget": "textfield","title": "Report Format","description": "Report Format ex. json, csv","required": true},
+    {"name": "report_location","value": "s3://cobalt-chc-dev-dataplatform/data-quality/data/temp_gx/sparkflows-inline-dq-output/validation-reports","widget": "textfield","title": "Report Location","description": "S3 location of pass/fail report","required": true},
+    {"name": "report_email_list","value": "","widget": "textfield","title": "Report Email Recipients","description": "Comma separated email list to whom the validation report needs to be sent","required": true,"expandable": true},
+    {"name": "readonly-parameters","value": "","widget": "tab","title": "Read-Only Parameters"},
+    {"name": "year","value": "{year}","widget": "textfield","title": "Year","description": "Current Year","required": true},
+    {"name": "month","value": "{month}","widget": "textfield","title": "Month","description": "Current Month","required": true},
+    {"name": "day","value": "{day}","widget": "textfield","title": "Day","description": "Current Day","required": true},
+    {"name": "hour","value": "{hour}","widget": "textfield","title": "Hour","description": "Current Hour","required": true},
+    {"name": "log_level","value": "INFO","widget": "textfield","title": "Log Level","description": "Logging level"},
+    {"name": "correlation_id", "value":"", "widget": "textfield", "title": "Correlation Id", "description": "","required": true},
+    {"name": "parent_activity_id", "value":"", "widget": "textfield", "title": "Activity Id", "description": ""}
+  ]
+}

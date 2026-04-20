@@ -1,0 +1,34 @@
+{
+  "id": "5",
+  "name": "Data Drift",
+  "description": "This node calculates the Population Stability Index (PSI) for a set of features by comparing a reference dataset to a test dataset. It is designed to identify potential data drift in both continuous and categorical features.",
+  "input": "A reference dataset and a test dataset provided as DataFrames. The reference dataset serves as the baseline distribution, while the test dataset is used to detect any drift.",
+  "output": "A Spark DataFrame with two columns: 'feature_name' and 'psi_value'. Each row represents a feature and its corresponding PSI value, indicating the level of drift.",
+  "engine": "pyspark",
+  "type": "ml-estimator",
+  "nodeClass": "fire.nodes.ml.NodeDataDrift",
+  "fields": [
+    {
+      "name": "inputCols",
+      "value": "[]",
+      "widget": "variables",
+      "title": "Input Columns",
+      "description": "A list of feature names on which the PSI will be calculated."
+    },
+    {
+      "name": "categoricalCols",
+      "value": "[]",
+      "widget": "variables",
+      "title": "Categorical Columns",
+      "description": "A list of features that are categorical. All other features are treated as continuous."
+    },
+    {
+      "name": "numBins",
+      "value": 10,
+      "widget": "textfield",
+      "title": "Num Bins",
+      "description": "The number of bins to use when binning continuous features for PSI calculation.",
+      "datatypes": ["integer"]
+    }
+  ]
+}

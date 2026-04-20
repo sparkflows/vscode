@@ -1,0 +1,14 @@
+{
+  "id": "15",
+  "name": "Drop Columns",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/drop_column.svg",
+  "description": "This node creates a new DataFrame by dropping the specified columns",
+  "input": "It takes in a DataFrame as input",
+  "output": "The specified columns are dropped from the incoming DataFrame to generate the output DataFrame",
+  "type": "transform",
+  "engine": "scala,pyspark",
+  "nodeClass": "fire.nodes.etl.NodeDropColumns",
+  "fields" : [
+    {"name":"dropCols", "value": "[]", "widget": "variables", "title": "Columns", "description": "The columns to be excluded from the output DataFrame"}
+  ]
+}

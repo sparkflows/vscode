@@ -1,0 +1,77 @@
+{
+  "id": "43",
+  "name": "Pie Chart",
+  "type": "transform",
+  "engine": "scala",
+  "iconImage": "assets/images/icons/node-icon/graph_values.svg",
+  "nodeClass": "fire.nodes.graph.NodePieChart",
+  "fields": [
+    {"name":"title","value":"Pie Chart","widget":"textfield","title":"Title","size":"50%"},
+    {"name":"titleColor","value":"#27A588","widget":"textcolors","title":"Title Color","size":"50%"},
+
+    {"name":"description","value":"","widget":"textareafield","title":"Description"},
+    {"name":"descriptionColor","value":"#6D6E70","widget":"textcolors","title":"Description Color","size":"50%"},
+
+    {"name":"chartColors","value":"","widget":"colors","title":"Chart Colors","size":"50%"},
+
+    {"name":"xlabel","value":"","widget":"textfield","title":"X Label","size":"50%"},
+    {"name":"ylabel","value":"","widget":"textfield","title":"Y Label","size":"50%"},
+
+    {"name":"library","value":"google","widget":"array","title":"Library",
+      "optionsArray":["google","chartjs"],
+      "description":"Select Chart Library",
+      "size":"50%"},
+
+    {"name":"maxValuesToDisplay","value":"20","widget":"textfield","title":"Max Values To Display",
+      "description":"Maximum number of values to display in result.",
+      "required":true,
+      "size":"50%"},
+
+    {"name":"graphType","value":"PIE","widget":"enum","title":"Chart Type",
+      "optionsMap":{"PIE":"Pie Chart","DONUT":"Donut Chart"},
+      "size":"50%"},
+
+    {"name":"is3D","value":"false","widget":"array","title":"Is 3D",
+      "optionsArray":["true","false"],
+      "description":"Whether the Graph is a 3D Graph or not",
+      "datatypes":["boolean"],
+      "size":"50%"},
+
+    {"name":"legend","value":"top","widget":"array","title":"Legend",
+      "optionsArray":["top","left","right"],
+      "description":"Position of the Legend",
+      "size":"50%"},
+
+    {"name":"tooltip","value":"value","widget":"array","title":"Tooltip",
+      "optionsArray":["value","percentage","both"],
+      "description":"Tooltip Format",
+      "size":"50%"},
+
+    {"name":"datalabels","value":"false","widget":"array","title":"Data Label",
+      "optionsArray":["true","false"],
+      "description":"Whether the datalabels will show or not",
+      "datatypes":["boolean"],
+      "size":"50%"},
+
+    {"name":"total","value":"false","widget":"array","title":"Total",
+      "optionsArray":["true","false"],
+      "description":"Whether the total will show or not",
+      "datatypes":["boolean"],
+      "size":"50%"},
+
+    {"name":"fontSize","value":"14px","widget":"textfield","title":"Font Size","size":"50%"},
+
+    {"name":"formatter","value":"value","widget":"array","title":"Formatter",
+      "optionsArray":["value","percentage","both"],
+      "description":"Data label Format",
+      "size":"50%"},
+
+    {"name":"xCol","value":"","widget":"variable","title":"X Column","required":true,"size":"50%"},
+
+    {"name":"yCols","value":"[]","widget":"variables",
+      "title":"Y Columns",
+      "required":true,
+      "datatypes":["integer","long","double","float"],
+      "size":"50%"}
+  ]
+}

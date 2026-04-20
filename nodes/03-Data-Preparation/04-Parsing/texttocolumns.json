@@ -1,0 +1,26 @@
+{
+  "id": "18",
+  "name": "Text To Columns",
+  "iconImage": "assets/images/icons/node-icon/latest-nodes/field_splitter.svg",
+  "description": "Use Text To Columns to take the text in one column and split the string value into separate, multiple columns (or rows), based on a single or multiple delimiters.",
+  "type": "transform",
+  "engine": "scala,pyspark,polars",
+  "nodeClass": "fire.nodes.etl.NodeTextToColumns",
+  "fields": [
+    { "name": "columnsToSplit", "value": "[]", "widget": "variables", "title": "Columns to split", "description": "Select one or more text columns whose values you want to break into parts. Each selected column will be split independently.", "required": "true", "size": "50%" },
+    { "name": "delimiters", "value": ",", "widget": "textfield", "title": "Delimiters", "description": "Characters used to split the text. Each character works as a separator (e.g., ',', '|', or '\\\\t' for tab). Use multiple characters to split by any of them.", "required": "true", "size": "50%" },
+    { "name": "splitMethod", "value": "Split to columns", "widget": "array", "optionsArray": ["Split to columns","Split to rows"], "title": "Split to", "description": "Choose how to output the split values: create multiple new columns, or generate multiple rows per value." },
+    { "name": "numColumns", "value": "3", "widget": "textfield", "title": "Number of columns", "description": "Specify how many new columns should be created when splitting. Extra or missing pieces are handled based on the selected extra-character rule.", "wdgtCommon": "splitMethod", "toggle": "Split to columns" },
+    { "name": "extraCharacters", "value": "Leave extra in last column", "widget": "array", "optionsArray": ["Leave extra in last column","Drop extra with warning","Drop extra without warning","Error"], "title": "Extra characters", "description": "Controls what happens when the input contains more pieces than the number of output columns. Choose whether to keep, drop, or error on extra values.", "wdgtCommon": "splitMethod", "toggle": "Split to columns" },
+    { "name": "outputRootName", "value": "", "widget": "textfield", "title": "Output root name", "description": "Base name for generating new columns (e.g., 'part' To part_1, part_2…). Leave empty to auto-generate names.", "wdgtCommon": "splitMethod", "toggle": "Split to columns" },
+
+    { "name": "Advanced Options", "value": "", "widget": "tab", "title": "Advanced Options" },
+    { "name": "advancedOptions", "value": "[]", "widget": "array_multiple", "optionsArray": ["Ignore Delimiters in Quotes","Ignore Delimiters in Single Quotes","Ignore Delimiters in Parentheses","Ignore Delimiters in Brackets","Skip Empty Columns"], "title": "Advanced Options",
+      "description": "Choose additional rules to control how splitting behaves in complex text. These options prevent unwanted splits when delimiters appear inside quotes, brackets, or parentheses, and help clean up empty values.\\n\\n• Ignore Delimiters in Quotes - Delimiters inside \\\"double quotes\\\" are ignored.\\n• Ignore Delimiters in Single Quotes - Same behavior for 'single quotes'.\\n• Ignore Delimiters in Parentheses - Text like (A,B,C) stays together.\\n• Ignore Delimiters in Brackets - Useful for codes such as [NY,USA].\\n• Skip Empty Columns - Removes empty pieces created by consecutive delimiters (e.g., A,,C To A | C)." },
+
+    {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names of the Table", "description": "Output Columns Names of the Table"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types of the Table", "description": "Output Column Types of the Table"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats", "description": "Output Column Formats"}
+  ]
+}

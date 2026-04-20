@@ -1,0 +1,18 @@
+{
+  "id": "6",
+  "name": "Structured Streaming Kinesis",
+  "description": "Reads in streaming text from Kinesis stream",
+
+  "input": "It does not take any DataFrame as input",
+  "output": "It reads events from Kinesis and creates DataFrame from the resulting rows. This DataFrame is passed to the output Nodes.",
+
+  "type": "sparkstreaming",
+  "nodeClass": "fire.nodes.structuredstreaming.NodeStructuredStreamingKinesis",
+  "fields" : [
+    {"name": "streamName", "value":"spark-streaming-example", "widget": "textfield", "title": "Stream Name", "description": "Kinesis Stream Name"},
+    {"name": "endpointUrl", "value":"https://kinesis.us-east-1.amazonaws.com", "widget": "textfield", "title": "Endpoint Url", "description": "Kinesis Endpoint Url"},
+    {"name": "awsAccessKeyId", "value":"", "widget": "textfield", "title": "AwsAccessKeyId", "description": ""},
+    {"name": "awsSecretKey", "value":"", "widget": "textfield", "title": "AwsSecretKey", "description": ""},
+    {"name": "startingPosition", "value":"latest", "widget": "textfield", "title": "StartingPosition", "description": "Starting Position in Kinesis to fetch data from. Possible values are latest, trim_horizon, earliest"}
+  ]
+}
