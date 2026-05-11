@@ -1,3 +1,10 @@
+---
+name: workflow-infer-schema
+description: >
+  Infers the schema for nodes in a workflow JSON file. Use this skill whenever
+  a user wants to infer the schema for nodes in a workflow. It is **always called after** a Create Workflow or Update Workflow skill completes (i.e., once the workflow JSON has been generated or updated). It is never called in isolation — it is the final step of any create or update workflow operation.
+---
+
 # Infer Schema Skill
 
 ## Overview
