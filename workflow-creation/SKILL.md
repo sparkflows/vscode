@@ -88,15 +88,15 @@ Nodes are organized into the following category hierarchy. When searching for a 
 ├── 11-Custom-Processors/
 │   └── pyspark/
 └── 13-Generative-AI/
-├── 01-Hugging-Face/
-├── 02-Ingestion/
-├── 03-Vectorization/
-├── 04-Retrieval/
-└── 05-LLM-Inference/
+    ├── 01-Hugging-Face/
+    ├── 02-Ingestion/
+    ├── 03-Vectorization/
+    ├── 04-Retrieval/
+    └── 05-LLM-Inference/
 
 ## Step-by-step process
 
-**IMPORTANT** You MUST follow all the steps in order every time you generate a workflow. Do not skip steps or rearrange them. Each step builds on the previous ones to ensure the final output is correct and import-ready. For your internal reasoning, the generate an initial plan from the step.
+**IMPORTANT** You MUST follow all the steps in order every time you generate a workflow. Do not skip steps or rearrange them. Each step builds on the previous ones to ensure the final output is correct and import-ready. For your internal reasoning, generate an initial plan from the steps.
 
 The steps are:
 1. Parse the request
@@ -112,6 +112,7 @@ The steps are:
 11. Assemble the workflow JSON
 12. Save and present
 13. Import the workflow
+14. Infer schema
 
 Their detailed description are below:
 
@@ -121,6 +122,7 @@ Read the user's workflow description carefully. Identify:
 - The sequence of operations (e.g., "read → filter → print")
 - Any explicit parameters (file paths, column names, conditions, thresholds)
 - Any **unspecified parameters** — note these now, you will handle them in step 4
+- Any mention of specific nodes the user wants schema inferred for — note these now, they will be passed to the Infer Schema skill in step 14
 
 ### 2. Confirm the engine type
 
@@ -246,11 +248,34 @@ python .github/skills/workflow-creation/scripts/import_workflow.py \
   --uuid_option="<uuid_option>"
 ```
 
-Report success by saying ONLY "Workflow imported successfully." or the exact error message back to the user.
+This will return either a success message with the **imported workflow ID** or an error message with details.
+
+Report success by saying ONLY "Workflow with ID `<ID>` imported successfully." or the exact error message back to the user.
+
+Record the returned workflow ID — it is required by the Infer Schema skill in step 14.
 
 > `uuid_option` accepts two values:
 > - `createNewUUID` — always generate a fresh UUID on import (default, safe for new workflows)
 > - `createNewUUIDIfExist` — only generate a new UUID if a workflow with that UUID already exists
+
+### 14. Infer schema (required)
+
+Always do this step — do not end your response after step 13.
+
+Immediately after a successful import, invoke the [**Infer Schema skill**](../workflow-infer-schema/SKILL.md). All arguments needed by that skill are already available from earlier steps in this workflow — do not ask the user for any argument that can be sourced from context:
+
+| `inferSchema.py` argument | Source                                                                 |
+|---------------------------|------------------------------------------------------------------------|
+| `--workflow_json_path`    | The file path saved in step 12                                         |
+| `--host_url`              | `fire_host_url` collected in step 13                                   |
+| `--project_id`            | `project_id` collected in step 13                                      |
+| `--token`                 | `access_token` collected in step 13                                    |
+| `--workflow_id`           | The workflow ID returned by the import script in step 13               |
+| `--node_ids`              | Node IDs the user mentioned in their original request (if any); otherwise omitted |
+
+Hand off to the Infer Schema skill and follow its behavior exactly as defined in its own SKILL.md — including the user confirmation step for specific nodes (Case 1) and the auto-detect prompt (Case 2).
+
+**If the import in step 13 failed**, skip step 14 entirely and inform the user that schema inference cannot run until the workflow is successfully imported.
 
 ---
 
@@ -263,7 +288,7 @@ Report success by saying ONLY "Workflow imported successfully." or the exact err
 > 3. Prints the first 10 rows from step 2
 
 **How to handle it:**
-Ask the user for their engine (Scala or PySpark) → load the node index → identify Data Connectors and Data Preparation as relevant categories → load those two catalogs → match to `Read CSV`, `RowFilter`, and `PrintNRows` → load their three JSON files and verify each is compatible with the user's engine → skip or substitute any incompatible node → load the schema → check an example → assemble → save → offer import → run import script with collected parameters → report success or failure.
+Ask the user for their engine (Scala or PySpark) → load the node index → identify Data Connectors and Data Preparation as relevant categories → load those two catalogs → match to `Read CSV`, `RowFilter`, and `PrintNRows` → load their three JSON files and verify each is compatible with the user's engine → skip or substitute any incompatible node → load the schema → check an example → assemble → save → offer import → run import script with collected parameters → report success or failure → invoke Infer Schema skill using all arguments already in context.
 
 **Expected response:**
 > "Which engine does your Sparkflows environment use — Scala or PySpark?"
@@ -274,7 +299,10 @@ Ask the user for their engine (Scala or PySpark) → load the node index → ide
 - `access_token`: Your API access token
 - `project_id`: The project ID to import into
 - `uuid_option`: How to handle UUID conflicts (`createNewUUID` or `createNewUUIDIfExist`)
-> Workflow imported successfully.
+> Workflow with ID `42` imported successfully.
+> "Would you like me to automatically infer the schema for relevant nodes in your workflow?"
+> *(user confirms)*
+> Schema inference and workflow update completed successfully.
 
 ---
 
@@ -286,5 +314,7 @@ Ask the user for their engine (Scala or PySpark) → load the node index → ide
 - **Never block on missing parameters.** If the user doesn't specify a parameter, that's fine — just generate the workflow.
 - **Output must be a single valid JSON file** with no markdown fences or commentary embedded within it.
 - **Never store or log access tokens.** Use them only as arguments to the import script and do not echo them back in conversation after the import runs.
-- **Always offer import after saving.** Never end a workflow creation response without completing step 12. Saving the JSON is not the final step.
+- **Always offer import after saving.** Never end a workflow creation response without completing step 13. Saving the JSON is not the final step.
+- **Always run Infer Schema after a successful import.** Step 14 is mandatory. Do not end the workflow creation flow after step 13.
+- **Never re-ask for arguments already in context.** All `inferSchema.py` arguments are available from steps 12 and 13 — pass them directly to the Infer Schema skill without prompting the user again.
 - **Never reformat field values.** Node `fields` entries store all values as strings — including arrays (`"[]"`) and booleans (`"true"`). When filling in user-specified values, serialize them into the same string format found in the node file. Never convert a string value to a native JSON array, number, or boolean.

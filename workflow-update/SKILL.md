@@ -95,17 +95,17 @@ Nodes are organized into the following category hierarchy. When searching for a 
 ├── 11-Custom-Processors/
 │   └── pyspark/
 └── 13-Generative-AI/
-├── 01-Hugging-Face/
-├── 02-Ingestion/
-├── 03-Vectorization/
-├── 04-Retrieval/
-└── 05-LLM-Inference/
+    ├── 01-Hugging-Face/
+    ├── 02-Ingestion/
+    ├── 03-Vectorization/
+    ├── 04-Retrieval/
+    └── 05-LLM-Inference/
 
 ---
 
 ## Step-by-step process
 
-**IMPORTANT** You MUST follow all the steps in order every time to update a workflow. Do not skip steps or rearrange them. Each step builds on the previous ones to ensure the final output is correct and import-ready. For your internal reasoning, the generate an initial plan from the step.
+**IMPORTANT** You MUST follow all the steps in order every time to update a workflow. Do not skip steps or rearrange them. Each step builds on the previous ones to ensure the final output is correct and import-ready. For your internal reasoning, generate an initial plan from the steps.
 
 The steps are:
 1. Identify the workflow ID
@@ -117,6 +117,7 @@ The steps are:
 6. Validate the updated workflow
 7. Save the updated workflow
 8. Import the updated workflow (required)
+9. Infer schema (required)
 
 Their detailed description are below:
 
@@ -180,6 +181,8 @@ Categorize each requested change into one or more of:
 - **Edge additions** — connect nodes (new or existing)
 - **Node parameter updates** — change a field value on an existing node
 
+Also note at this step: if the user's request mentions specific nodes they want schema inferred for, record those node IDs now. They will be passed to the Infer Schema skill in step 9.
+
 ### 4. Load node resources (only if adding nodes)
 
 Skip this step entirely if no new nodes are being added.
@@ -240,7 +243,7 @@ Tell the user: `Workflow <id> updated and saved to .github/skills/workflow-updat
 
 Always do this step — do not end your response after step 7.
 
-Ask the user if they want to push the updated workflow to the Sparkflows server. Collect all five parameters in a single message. You should already have `fire_host_url`, `access_token`, `workflow_json_path`, and `project_id` from the previous steps, so just ask for the missing ones:
+Ask the user if they want to push the updated workflow to the Sparkflows server. You should already have `fire_host_url` and `access_token` from step 2, and `workflow_id` from step 1, so only ask for what is still missing:
 
 | Parameter | Description | Default |
 |---|---|---|
@@ -259,6 +262,27 @@ python .github/skills/workflow-update/scripts/update_workflow.py \
 
 Report success by saying ONLY "Workflow updated successfully." or the exact error message.
 
+Record `project_id` — it is required by the Infer Schema skill in step 9.
+
+### 9. Infer schema (required)
+
+Always do this step — do not end your response after step 8.
+
+Immediately after a successful import, invoke the **Infer Schema skill**. All arguments needed by that skill are already available from earlier steps in this workflow — do not ask the user for any argument that can be sourced from context:
+
+| `inferSchema.py` argument | Source                                                                                      |
+|---------------------------|---------------------------------------------------------------------------------------------|
+| `--workflow_json_path`    | The saved file path from step 7                                                             |
+| `--host_url`              | `fire_host_url` collected in step 2                                                         |
+| `--project_id`            | `project_id` collected in step 8                                                            |
+| `--token`                 | `access_token` collected in step 2                                                          |
+| `--workflow_id`           | The workflow ID identified in step 1                                                        |
+| `--node_ids`              | Node IDs the user mentioned in their update request (step 3), if any; otherwise omitted    |
+
+Hand off to the Infer Schema skill and follow its behavior exactly as defined in its own SKILL.md — including the user confirmation step for specific nodes (Case 1) and the auto-detect prompt (Case 2).
+
+**If the import in step 8 failed**, skip step 9 entirely and inform the user that schema inference cannot run until the workflow is successfully imported.
+
 ---
 
 ## Example
@@ -271,17 +295,19 @@ Report success by saying ONLY "Workflow updated successfully." or the exact erro
 > 4. Remove node 2
 
 **How to handle it:**
-ID is `1234` → request parameters for fetch → fetch → read `engine` from workflow root (e.g. `"pyspark"` → engine set = `{pyspark}`) → parse changes → remove edges connected to nodes 2 and 3 → remove nodes 2 and 3 → find PrintNRows node in catalog, confirm its engine is compatible with `{pyspark}` → add PrintNRows node → update node 1's `path` field to `"s3a://test"` → add edges (node 1→4, node 4→PrintNRows) → validate → save → offer import.
+ID is `1234` → request parameters for fetch → fetch → read `engine` from workflow root (e.g. `"pyspark"` → engine set = `{pyspark}`) → parse changes (no infer schema nodes mentioned) → remove edges connected to nodes 2 and 3 → remove nodes 2 and 3 → find PrintNRows node in catalog, confirm its engine is compatible with `{pyspark}` → add PrintNRows node → update node 1's `path` field to `"s3a://test"` → add edges (node 1→4, node 4→PrintNRows) → validate → save → offer import → run import script → report success → invoke Infer Schema skill using all arguments already in context.
 
 **Expected response:**
 > Workflow 1234 updated and saved to .github/skills/workflow-update/fetched-workflows/1234.json
 >
-> Would you like to push this update to your Sparkflows server? If so, please provide in a single message:
-> - `fire_host_url`
-> - `access_token`
+> Would you like to push this update to your Sparkflows server? If so, please provide:
 > - `project_id`
-> - `workflow_id`
-> - `workflow_json`
+>
+> Workflow updated successfully.
+>
+> "Would you like me to automatically infer the schema for relevant nodes in your workflow?"
+> *(user confirms)*
+> Schema inference and workflow update completed successfully.
 
 ---
 
@@ -295,6 +321,7 @@ ID is `1234` → request parameters for fetch → fetch → read `engine` from w
 - **Never modify node JSON structure.** Inject new node file contents verbatim. Only set `id`, `x`, and `y`.
 - **Never reformat field values.** All `fields[].value` entries must remain strings. Never convert to a native JSON array, number, or boolean.
 - **Always offer import after saving.** Step 8 is mandatory. Never end a response after step 7.
+- **Always run Infer Schema after a successful import.** Step 9 is mandatory. Never end a response after step 8.
+- **Never re-ask for arguments already in context.** All `inferSchema.py` arguments are available from steps 1, 2, 7, and 8 — pass them directly to the Infer Schema skill without prompting the user again.
 - **Never store or log access tokens.** Use them only as script arguments.
-- **Always fetch fresh.** Never skip the fetch script because a file already exists in
-  [fetched-workflows](./fetched-workflows/) folder. Cached files may be stale. Step 2 is mandatory every time.
+- **Always fetch fresh.** Never skip the fetch script because a file already exists in [fetched-workflows](./fetched-workflows/) folder. Cached files may be stale. Step 2 is mandatory every time.

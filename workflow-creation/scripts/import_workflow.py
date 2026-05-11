@@ -23,7 +23,8 @@ def import_workflow(token: str, fire_host: str, file_path: str, proj_id: str, uu
     import_wf_api_call_response = requests.post(import_wf_api_url, headers=api_call_headers, files=files, verify=False)
 
     if import_wf_api_call_response.status_code == 200:
-        print("imported workflow successfuly ")
+        workflow_id = import_wf_api_call_response.text.strip()
+        print(f"Workflow with ID: {workflow_id} successfully created")
         
     else:
         if import_wf_api_call_response.text.find("JWT signature does not match locally computed signature") != -1 or import_wf_api_call_response.text.find("Access Denied") != -1:
