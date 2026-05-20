@@ -1,0 +1,17 @@
+{
+  "id": "1",
+  "name": "Run Workflow",
+  "description": "This node adds the workflow in the project as an databricks step and executes it.",
+  "type": "databricks",
+  "nodeClass": "fire.pipelineNodes.DatabricksWorkflow",
+  "fields" : [
+    {"name": "Name", "value":"", "required":true, "widget": "textfield", "title": "Task Name", "description": "Unique name of the task in Airflow DAG"},
+    {"name": "ClusterId", "value":"", "required":false, "widget": "textfield", "title": "Cluster ID", "description": "If Cluster ID is empty, the step tries to pick the cluster ID from previous create cluster node(task)." },
+    {"name": "workflowUUID", "value":"", "required":true, "widget": "workflow", "title": "Workflow ID", "description": "Select the appropriate workflow" },
+    {"name": "SparkConf", "value":"", "required":false, "widget": "textfield", "title": "Spark Conf", "description": "Add spark conf values in comma separated as key=value" , "expandable": true},
+    {"name": "parameters", "value":"[]",  "widget": "variablesList", "optionsArray": ["Key","Value"], "title": "Parameters", "description": "List of parameters to be passed to the workflow", "expandable":true},
+    {"name": "timeout", "value":"120", "required":true, "widget": "textfield", "title": "Timeout", "description": "Timeout for your Databricks task in Airflow to give it more time to complete, especially if it's waiting for the cluster to reach the RUNNING state(In seconds)." },
+    {"name": "DatabricksConnectionId", "value":"", "required":true, "widget": "connections", "title": "Databricks Connection", "description": "Databricks Connection" },
+    {"name": "trigger_rule", "value":"all_success", "required":true, "widget": "array", "optionsArray": ["all_success","all_failed","all_done","all_skipped","one_failed","one_success","none_failed","none_failed_min_one_success","none_skipped","always"], "title": "Trigger Rule", "description": "Trigger Rule to be used" }
+  ]
+}

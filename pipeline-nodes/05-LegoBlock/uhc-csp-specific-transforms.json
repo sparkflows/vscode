@@ -1,0 +1,26 @@
+{
+  "id": "3",
+  "name": "uhc_csp_specific_transforms",
+  "description": "Lego Block: uhc-csp-specific-transforms",
+  "type": "legoblock",
+  "nodeClass": "fire.pipelineNodes.uhc_csp_specific_transforms",
+  "fields" : [
+    {"name": "Name", "value":"", "required":true, "widget": "textfield", "title": "Task Name", "description": "Name of the task in airflow dag and it should be unique in the dag."},
+    {"name": "StepName", "value":"uhc_csp_custom_transforms", "required":true, "widget": "textfield", "title": "Step Name", "description": "Name of emr step" },
+    {"name": "ClusterId", "value":"", "required":false, "widget": "textfield", "title": "Cluster Id", "description": "If Cluster Id is empty, step try to pick the cluster id from previous create emr node(task)." },
+    {"name": "ActionOnFailure", "value":"CONTINUE", "required":true, "widget": "array", "optionsArray": ["CANCEL_AND_WAIT", "CONTINUE", "TERMINATE_JOB_FLOW", "TERMINATE_CLUSTER"], "title": "Action On Failure", "description": "Action On Failure" },
+
+    {"name": "deploy-mode", "value":"client", "widget": "array", "optionsArray": ["client","cluster"], "title": "Deploy Mode", "description": "Whether to deploy your driver on the worker nodes (cluster) or locally as an external client (client)", "required": true},
+    {"name": "packages", "value":"ch.cern.sparkmeasure:spark-measure_2.12:0.17", "widget": "textfield", "title": "Packages", "description": "Comma separted files in the Package", "required": true},
+    {"name": "conf",
+      "value":"spark.executorEnv.YARN_CONTAINER_RUNTIME_TYPE=docker,spark.executorEnv.YARN_CONTAINER_RUNTIME_DOCKER_IMAGE=232642733919.dkr.ecr.us-east-1.amazonaws.com/paymentintegrity-qa-data-pipelines-cob-aip-pyspark:1423415-3ccde327-v0.0.0-SNAPSHOT-20220519204643-RC,spark.executorEnv.YARN_CONTAINER_RUNTIME_DOCKER_CLIENT_CONFIG=hdfs:///user/hadoop/config.json,spark.appMasterEnv.YARN_CONTAINER_RUNTIME_DOCKER_CLIENT_CONFIG=hdfs:///user/hadoop/config.json",
+      "widget": "textfield", "title": "Configuration", "description": "Arbitrary Spark configuration property in key=value format. Multiple configurations should be passed with comma separation. (e.g. <key>=<value>,<key2>=<value2>)", "expandable": true},
+
+    {"name": "py-files", "value":"s3://paymentintegrity-chc-qatemp-dataplatform-us-east-1/AirflowConfigs/cob/PysparkScripts/paymentintegrity-emr-steps-v1.19.0.zip", "widget": "textfield", "title": "Py files", "description": "", "required": true, "expandable": true},
+
+    {"name": "python-script", "value": "s3://paymentintegrity-chc-qatemp-dataplatform-us-east-1/AirflowConfigs/cob/PysparkScripts/emr_step_runner-v1.19.0.py", "widget": "textfield", "title": "Python Script", "description": "Main python script", "required": true, "expandable": true},
+
+    {"name":  "json-parameter", "value": "{\\\"step_module\\\":\\\"framer_driver\\\",\\\"job_conf_name\\\":\\\"framer_cfg\\\",\\\"step_params\\\":{\\\"client_id\\\":\\\"uhc-csp\\\",\\\"env\\\":\\\"qatemp\\\",\\\"input_names\\\":[\\\"input\\\"],\\\"input_key_prefixes\\\":[\\\"data/raw/cob/uhc/csp/eligibility/client_id=uhc-csp/dataset_version=2022-09-30-15-00-00-000000\\\"],\\\"output_names\\\":[\\\"output\\\"],\\\"output_key_prefixes\\\":[\\\"data/cob/client/standard_client/client_id=uhc-csp/dataset_version=2022-09-30-15-00-00-000000/\\\"],\\\"rules_key\\\":\\\"AirflowConfigs/cob/PysparkConfigs/pre-match/client_id=uhc-csp/uhc-csp.yml\\\",\\\"max_records_per_batch\\\":\\\"10000\\\",\\\"client_name\\\":\\\"uhc-csp\\\"},\\\"run_args\\\":{\\\"debug\\\":true},\\\"app_name\\\":\\\"framer-driver\\\"}", "widget": "textfield", "title": "Parameter", "description": "parameter for python script in json format", "required": true, "expandable": true}
+
+  ]
+}

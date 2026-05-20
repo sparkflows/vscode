@@ -1,0 +1,18 @@
+{
+  "id": "20",
+  "name": "EMR Serverless Job Sensor",
+  "description": "This node will periodically check if the state of the EMR Serverless Job run reaches any of the target states.",
+  "type": "emrServerlessJobSensor",
+  "nodeClass": "fire.pipelineNodes.EmrServerlessJobSensor",
+  "fields" : [
+    {"name": "Name", "value":"JobSensor", "required":true, "widget": "textfield", "title": "Task Name", "description": "Unique name of the task in Airflow DAG."},
+    {"name": "ApplicationId", "value":"", "required":false, "widget": "textfield", "title": "Application ID", "description": "If Application ID is empty, the step tries to pick the Application ID from previous create EMRServerless application node(task)" },
+    {"name": "targetStates", "value":"RUNNING", "required":false, "widget": "textfield", "title": "Target States", "description": "The target states, sensor waits until job reaches any of these states added in comma separated." },
+    {"name": "failedStates", "value":"", "required":false, "widget": "textfield", "title": "Failed States", "description": "The failure states, sensor fails when job reaches any of these states added in comma separated." },
+    {"name": "retries", "value":"", "required":false, "widget": "textfield", "title": "Retries", "description": "Retries" },
+    {"name": "retry_delay", "value":"", "required":false, "widget": "textfield", "title": "Retry Delay", "description": "Retry Delay(seconds)" },
+    {"name": "max_retry_delay", "value":"", "required":false, "widget": "textfield", "title": "Max Retry Delay", "description": "Maximum delay interval between retries(seconds)" },
+    {"name": "retry_exponential_backoff", "value":"", "required":false, "widget": "array", "optionsArray": ["True","False"], "title": "Retry Exponential Backoff", "description": "Allow progressive longer waits between retries by using exponential backoff algorithm on retry delay" },
+    {"name": "aws_conn_id", "value":"", "required":false, "widget": "textfield", "title": "AWS Connection ID", "description": "AWS Connection ID" }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "1",
+  "name": "Workflow",
+  "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+  "type": "workflow",
+  "nodeClass": "fire.pipelineNodes.Workflow",
+  "fields" : [
+
+    {"name": "workflowUUID", "value":"", "required":true, "widget": "workflow", "title": "Workflow", "description": "List of Workflows" },
+    {"name": "sparkConf", "value":"", "required":false, "widget": "textfield", "title": "Spark Conf", "description": "Add spark conf", "expandable": true },
+    {"name": "trigger_rule", "value":"all_success", "required":true, "widget": "array", "optionsArray": ["all_success","always"], "title": "Trigger Rule", "description": "Trigger Rule to be used" },
+    {"name": "notes", "value":"", "widget": "textfield", "title": "Notes", "description": "Notes"},
+	{"name": "wf_parameters", "value":"[]",  "widget": "variablesList", "optionsArray": ["Key","Value"], "title": "Parameters", "description": "List of parameters from selected workflow", "editable": false }
+    
+  ]
+}

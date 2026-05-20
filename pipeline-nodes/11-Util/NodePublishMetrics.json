@@ -1,0 +1,11 @@
+{
+  "id": "6",
+  "name": "Publish Metrics",
+  "description": "This node publish metrics.",
+  "type": "publishMetrics",
+  "nodeClass": "fire.pipelineNodes.PublishMetrics",
+  "fields" : [
+    {"name": "Name", "value":"", "required":true, "widget": "textfield", "title": "Task Name", "description": "Unique name of the task in Airflow DAG" },
+    {"name": "parameters", "value":"[]",  "required":true, "widget": "variablesList", "optionsArray": ["Key","Value"], "title": "Parameters", "description": "List of parameters to be passed as metrics", "expandable":true  }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "6",
+  "name": "Bash Operator",
+  "description": "This node executes a Bash script, command or set of commands.",
+  "type": "bashOperator",
+  "nodeClass": "fire.pipelineNodes.bashOperator",
+  "fields" : [
+    {"name": "Name", "value":"", "required":true, "widget": "textfield", "title": "Task Name", "description": "Unique name of the task in Airflow DAG"},
+    {"name": "trigger_rule", "value":"all_success", "required":true, "widget": "array", "optionsArray": ["all_success","all_failed","all_done","all_skipped","one_failed","one_success","none_failed","none_failed_min_one_success","none_skipped","always"], "title": "Trigger Rule", "description": "Trigger Rule to be used" },
+    {"name": "shellCommand", "widget": "shellcommand","required":true, "title": "Shell Command", "description": "Shell command to be executed"}
+  ]
+}

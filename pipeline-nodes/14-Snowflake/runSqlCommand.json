@@ -1,0 +1,21 @@
+{
+  "id": "6",
+  "name": "Run Snowflake Command",
+  "description": "This node use to run SQL command in snowflake by using details in configuration",
+  "type": "snowflake",
+  "nodeClass": "fire.pipelineNodes.SnowflakeRunSQLCommand",
+  "fields" : [
+    {"name": "Name", "value":"", "required":true, "widget": "textfield", "title": "Task Name", "description": "Unique name of the task in airflow DAG." },
+	{"name": "sql", "value":"","required":true, "widget": "shellcommand", "title": "SQL Query", "description": "SQL Statements to execute" },
+    {"name": "SnowflakeConnectionId", "value":"", "required":true, "widget": "connections", "title": "Select Snowflake Connection", "description": "Select Snowflake Connection" },
+    {"name": "XComPushEnabled", "value":"False", "required":true, "widget": "array", "optionsArray": ["True","False"] ,"title": "Enable XCom Push", "description": "If enabled, the task output will be pushed to XCom for use by downstream tasks. Disable it if passing data between tasks is not required."},
+    {"name": "autoCommit", "value":"True", "required":true, "widget": "array", "optionsArray": ["True","False"] ,"title": "Enable Auto Commit", "description": "If enabled, each command is automatically committed."},
+    {"name": "trigger_rule", "value":"all_success", "required":true, "widget": "array", "optionsArray": ["all_success","all_failed","all_done","all_skipped","one_failed","one_success","none_failed","none_failed_min_one_success","none_skipped","always"], "title": "Trigger Rule", "description": "Trigger Rule to be used" },
+    {"name": "ConnectionSettings", "value":"", "widget": "tab", "title": "Connection Settings"},
+    {"name": "overwriteDetails", "value":"False", "widget": "array", "optionsArray": ["True","False"] ,"title": "Enable To Override details", "description": "Enable this to manually override connection-derived settings such as warehouse, database, schema, and role. When disabled, values will be auto-filled from the selected connection."},
+    {"name": "warehouse", "value":"","wdgtCommon":"overwriteDetails", "toggle":"True", "widget": "textfield", "title": "Warehouse", "description": "Specify the warehouse to use for this operation. This will override the warehouse from the selected connection." },
+    {"name": "database", "value":"", "wdgtCommon":"overwriteDetails", "toggle":"True","widget": "textfield", "title": "Database", "description": "Enter the target database name. This value will replace the database provided by the connection configuration." },
+    {"name": "schema", "value":"", "wdgtCommon":"overwriteDetails", "toggle":"True","widget": "textfield", "title": "Schema", "description": "Define the schema to operate in. This will override the schema from the selected connection." },
+    {"name": "role", "value":"","wdgtCommon":"overwriteDetails", "toggle":"True", "widget": "textfield", "title": "Role", "description": "Specify the role to assume for this operation. This will override the role configured in the connection." }
+  ]
+}

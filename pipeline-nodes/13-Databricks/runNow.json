@@ -1,0 +1,14 @@
+{
+  "id": "6",
+  "name": "Run Job",
+  "description": "This node use to trigger a run of an existing Databricks job to Cluster by using details in configuration",
+  "type": "databricks",
+  "nodeClass": "fire.pipelineNodes.DatabricksRunNow",
+  "fields" : [
+    {"name": "Name", "value":"", "required":true, "widget": "textfield", "title": "Task Name", "description": "Unique name of the task in airflow DAG." },
+    {"name": "JobId", "value":"", "widget": "textfield", "title": "Job   Id", "description": "Job Id of existing Databricks job." },
+    {"name": "JobName", "value":"", "widget": "array", "optionsArray": [], "title": "Job Name", "description": "Name of the existing Databricks job. It will throw exception if job isn’t found, of if there are multiple jobs with the same name." },
+    {"name": "DatabricksConnectionId", "value":"", "required":true, "widget": "connections", "title": "Databricks Connection", "description": "Databricks Connection" },
+    {"name": "trigger_rule", "value":"all_success", "required":true, "widget": "array", "optionsArray": ["all_success","all_failed","all_done","all_skipped","one_failed","one_success","none_failed","none_failed_min_one_success","none_skipped","always"], "title": "Trigger Rule", "description": "Trigger Rule to be used" }
+  ]
+}

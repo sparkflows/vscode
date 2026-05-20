@@ -1,0 +1,14 @@
+{
+  "id": "12",
+  "name": "Add YAML Configuration",
+  "description": "Add YAML Configuration files. Can add multiple YAML configuration files.",
+  "type": "configuration",
+  "nodeClass": "fire.pipelineNodes.addConfiguration",
+  "engine": "all",
+  "fields" : [
+    {"name": "configFilePath", "value":"", "required":false, "widget": "multiTextfield", "title": "Config File Path", "description": "Path of configuration files" },
+    {"name": "airflowConfigKey", "value":"", "required":false, "widget": "multiTextfield", "title": "Airflow Config Key", "description": "Airflow Config key in JSON format" },
+    {"name": "userDefinedVariables", "value":"[]", "required":true, "widget": "variablesList", "optionsArray": ["Variable Name","Variable Value"], "title": "Variables", "description": "Add Variable Names and Values" }
+
+  ]
+}

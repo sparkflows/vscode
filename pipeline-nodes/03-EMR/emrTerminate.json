@@ -1,0 +1,13 @@
+{
+  "id": "20",
+  "name": "Terminate EMR JobFlow",
+  "description": "This node terminates the EMR JobFlow.",
+  "type": "emr",
+  "nodeClass": "fire.pipelineNodes.EMRTerminate",
+  "fields" : [
+    {"name": "Name", "value":"TerminateCluster",  "required":true, "widget": "textfield", "title": "Task Name", "description": "Unique name of the task in Airflow DAG" },
+    {"name": "ClusterId", "value":"", "required":false, "widget": "textfield", "title": "Cluster ID", "description": "If Cluster ID is empty, the step tries to pick the cluster ID from previous create EMR node(task)" },
+    {"name": "aws_conn_id", "value":"", "required":false, "widget": "textfield", "title": "AWS Connection ID", "description": "AWS Connection ID" },
+    {"name": "trigger_rule", "value":"all_success", "required":true, "widget": "array", "optionsArray": ["all_success","all_failed","all_done","all_skipped","one_failed","one_success","none_failed","none_failed_min_one_success","none_skipped","always"], "title": "Trigger Rule", "description": "Trigger Rule to be used" }
+  ]
+}

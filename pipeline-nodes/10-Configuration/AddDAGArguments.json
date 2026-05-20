@@ -1,0 +1,16 @@
+{
+  "id": "7",
+  "name": "Add DAG Arguments",
+  "description": "This node is used to add DAG arguments.",
+  "type": "DAGArguments",
+  "nodeClass": "fire.pipelineNodes.addDAGArguments",
+  "fields" : [
+    {"name": "email", "value":"", "required":false, "widget": "textfield", "title": "Email", "description": "Add email where notification of failure or retry will be send depending upon email of failure or retry boolean value"},
+    {"name": "email_on_failure", "value":"False", "required":false, "widget": "array", "optionsArray": ["True","False"] ,"title": "Email on failure", "description": "Set True if notification needs to be send to specified email when airflow DAG fails"},
+    {"name": "email_on_retry", "value":"False", "required":false, "widget": "array", "optionsArray": ["True","False"], "title": "Email on retry", "description": "Set True if notification needs to be send to specified email when airflow DAG retry"},
+    {"name": "retries", "value":"1", "required":true, "widget": "textfield", "title": "Retries", "description": "Add number of retries count"},
+    {"name": "retry_delay", "value":"5", "required":true, "widget": "textfield", "title": "Retry delay time in minutes", "description": "Add retry delay time in minutes"},
+    {"name": "dagrun_timeout", "value":"", "required":false, "widget": "textfield", "title": "DAG Run Timeout", "description": "Add DAG run timeout in minutes"},
+    {"name": "tags", "value":"", "required":false, "widget": "textfield","title": "Tags", "description": "Add tags of airflow DAG in comma separated" }
+  ]
+}

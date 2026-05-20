@@ -1,0 +1,25 @@
+{
+  "id": "1",
+  "name": "EMR Serverless Workflow",
+  "description": "This node adds the workflow in the project as an EMR Serverless application step and executes it.",
+  "type": "emrServerless",
+  "nodeClass": "fire.pipelineNodes.EMRServerlessWorkflow",
+  "fields" : [
+    {"name": "Name", "value":"", "required":true, "widget": "textfield", "title": "Task Name", "description": "Unique name of the task in Airflow DAG"},
+    {"name": "ApplicationId", "value":"", "required":false, "widget": "textfield", "title": "Application ID", "description": "If Application ID is empty, the step tries to pick the Application ID from previous create EMRServerless application node(task)" },
+    {"name": "ExecutionRoleArn", "value":"", "required":true, "widget": "textfield", "title": "Execution Role ARN", "description": "Execution Role ARN" },
+    {"name": "SparkConf", "value":"", "required":false, "widget": "textfield", "title": "Spark Conf", "description": "Add spark conf values in comma separated as key:value" , "expandable": true},
+    {"name": "workflowUUID", "value":"", "required":true, "widget": "workflow", "title": "Workflow ID", "description": "Select the appropriate workflow" },
+    {"name": "retries", "value":"", "required":false, "widget": "textfield", "title": "Retries", "description": "Retries" },
+    {"name": "retry_delay", "value":"", "required":false, "widget": "textfield", "title": "Retry Delay", "description": "Retry Delay(seconds)" },
+    {"name": "max_retry_delay", "value":"", "required":false, "widget": "textfield", "title": "Max Retry Delay", "description": "Maximum delay interval between retries(seconds)" },
+    {"name": "retry_exponential_backoff", "value":"", "required":false, "widget": "array", "optionsArray": ["True","False"], "title": "Retry Exponential Backoff", "description": "Allow progressive longer waits between retries by using exponential backoff algorithm on retry delay" },
+    {"name": "aws_conn_id", "value":"", "required":false, "widget": "textfield", "title": "AWS Connection ID", "description": "AWS Connection ID" },
+    {"name": "deferrable", "value":"", "required":false, "widget": "array", "optionsArray": ["True","False"], "title": "Deferrable", "description": "When set to True, the task enters deferred mode during long waits. This frees the Apache Airflow worker slot and lets the Triggerer monitor the job asynchronously until completion." },
+    {"name": "wait_for_completion", "value":"", "required":false, "widget": "array", "optionsArray": ["True","False"], "title": "Wait For Completion", "description": "When set to True, the task does not finish immediately after submitting the job. It waits until the Amazon EMR Serverless job reaches a success or failure state before continuing downstream tasks." },
+    {"name": "waiter_max_attempts", "value":"", "required":false, "widget": "textfield", "title": "Waiter Max attempts", "description": "Sets the total number of polling attempts before timing out.A value of 50 allows up to 50 checks. Combined with waiter_delay=60, this gives a maximum wait time of about 50 minutes." },
+    {"name": "waiter_delay", "value":"", "required":false, "widget": "textfield", "title": "Waiter Delay", "description": "Defines how many seconds the operator waits between each job status poll. A value of 60 means the EMR Serverless job state is checked once every minute." },
+    {"name": "parameters", "value":"[]",  "widget": "variablesList", "optionsArray": ["Key","Value"], "title": "Parameters", "description": "List of parameters to be passed to the workflow", "expandable":true  },
+    {"name": "trigger_rule", "value":"all_success", "required":true, "widget": "array", "optionsArray": ["all_success","all_failed","all_done","all_skipped","one_failed","one_success","none_failed","none_failed_min_one_success","none_skipped","always"], "title": "Trigger Rule", "description": "Trigger Rule to be used" }
+  ]
+}

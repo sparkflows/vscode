@@ -1,0 +1,16 @@
+{
+  "id": "6",
+  "name": "Run Notebook",
+  "description": "This node use to submit a new Databricks job to Cluster by using details in configuration",
+  "type": "databricks",
+  "nodeClass": "fire.pipelineNodes.DatabricksSubmitRun",
+  "fields" : [
+    {"name": "Name", "value":"", "required":true, "widget": "textfield", "title": "Task Name", "description": "Unique name of the task in airflow DAG." },
+    {"name": "ClusterId", "value":"", "widget": "textfield", "title": "Cluster Id", "description": "If Cluster ID is empty, the step tries to pick the cluster ID from previous create cluster node(task)." },
+    {"name": "NotebookPath", "value":"", "required":true, "widget": "textfield", "title": "Notebook Path", "description": "Notebook Path" },
+    {"name": "BaseParameters", "value":"[]",  "widget": "variablesList", "optionsArray": ["Key","Value"], "title": "Base Parameters", "description": "Base Parameters" },
+    {"name": "timeout", "value":"120", "required":true, "widget": "textfield", "title": "Timeout", "description": "Timeout for your Databricks task in Airflow to give it more time to complete, especially if it's waiting for the cluster to reach the RUNNING state(In seconds)." },
+    {"name": "DatabricksConnectionId", "value":"", "required":true, "widget": "connections", "title": "Databricks Connection", "description": "Databricks Connection" },
+    {"name": "trigger_rule", "value":"all_success", "required":true, "widget": "array", "optionsArray": ["all_success","all_failed","all_done","all_skipped","one_failed","one_success","none_failed","none_failed_min_one_success","none_skipped","always"], "title": "Trigger Rule", "description": "Trigger Rule to be used" }
+  ]
+}

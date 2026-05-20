@@ -1,0 +1,15 @@
+{
+  "id": "11",
+  "name": "Sticky Note",
+  "description": "Allows capturing Notes",
+  "type": "sticky",
+  "nodeClass": "fire.pipelineNodes.doc.NodeStickyNote",
+  "engine": "all",
+  "fields" : [
+    {"name": "bgColor", "value": "gray", "widget": "textfield", "title": "Bg Color", "description": "Background of the Note"},
+    {"name": "width", "value": "300px", "widget": "textfield", "title": "Width", "description": "Width of the Note"},
+    {"name": "height", "value": "110px", "widget": "textfield", "title": "Height", "description": "Height of the note"},
+    {"name":"comment", "value":"", "widget": "textarea_rich", "title": "Comment", "description": "Comments for the Pipeline"}
+
+  ]
+}

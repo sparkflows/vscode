@@ -1,0 +1,14 @@
+{
+  "id": "7",
+  "name": "Add DAG Variables",
+  "description": "This node executes Python code to add DAG variables using the Python operator",
+  "type": "DAGVariable",
+  "nodeClass": "fire.pipelineNodes.addDAGVariables",
+  "fields" : [
+    {"name": "python", "widget": "shellcommand","display": false, "title": "Python", "description": "Write Python Code here","value": "import time\nimport os\nimport binascii\n\n\ndef generateVariable(task_instance, **kwargs):\n    START_TIME = time.time()\n    HEX = hex(int(START_TIME))[2:]\n    CORRELATION_ID = kwargs['dag_run'].conf.get('correlation_id')\n    if CORRELATION_ID:\n        CORRELATION_ID = CORRELATION_ID\n        print('Inside if')\n    else:\n        CORRELATION_ID = \"1-{}-{}\".format(HEX, binascii.hexlify(os.urandom(12)).decode('utf-8'))\n        print('Inside else')\n    task_instance.xcom_push(key=\"correlation_id\", value=CORRELATION_ID)\n    CONFIG = {\"command\": {\"sub-command\": \"pwd\"}}\n    task_instance.xcom_push(key=\"CONFIG\", value=CONFIG)"},
+
+    {"name": "Name", "value":"", "required":true, "widget": "textfield", "title": "Task Name", "description": "Unique name of the task in Airflow DAG"},
+    {"name": "python_callable", "value":"generateVariable", "display": false, "required":true, "widget": "textfield", "title": "Python Callable", "description": "Input name of user defined function name in the Python code." },
+    {"name": "Variables", "value":"correlation_id","widget": "textfield","editable":false, "title": "XCOM Key Variables", "description": "Key variables to used to pull value from XCOM"}
+  ]
+}

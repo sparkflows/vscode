@@ -1,0 +1,14 @@
+{
+  "id": "6",
+  "name": "Trigger Next DAG",
+  "description": "This node triggers the next pipeline to run.",
+  "type": "TriggerDagRun",
+  "nodeClass": "fire.pipelineNodes.TriggerDagRun",
+  "fields" : [
+    {"name": "Name", "value":"", "required":true, "widget": "textfield", "title": "Task Name", "description": "Unique name of the task in Airflow DAG" },
+    {"name": "Select Pipeline", "value":"", "required":true, "widget": "pipeline", "title": "Select Pipeline", "description": "Select pipeline to trigger next" },
+    {"name": "wait_for_completion", "value":"False", "required":false, "widget": "array", "optionsArray": ["True","False"], "title": "Wait for completion", "description": "Waits for triggered DAG to finish" },
+    {"name": "poke_interval", "value":"", "required":false, "widget": "textfield", "title": "Poke Interval", "description": "Poke Interval in seconds" },
+    {"name": "parameters", "value":"[]",  "widget": "variablesList", "optionsArray": ["Key","Value"], "title": "Parameters", "description": "List of parameters to be passed to the next pipeline", "expandable":true  }
+  ]
+}

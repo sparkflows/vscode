@@ -1,0 +1,63 @@
+import requests
+import json
+import sys
+import argparse
+from urllib.parse import urljoin
+
+
+# import pipeline
+#**********COMMAND******************
+#python import_pipeline.py --fire_host_url="https://localhost:8080" --access_token="token123" --pipeline_json_path="Pipeline_123.json" --project_id="456" --uuid_option="createNewUUID"
+#***********************************
+def import_pipeline(token: str, fire_host: str, file_path: str, proj_id: str, uuid_option: str):
+    base = fire_host.rstrip('/') + '/'  # normalize once
+    path = f"api/v1/pipelines/import?projectId={proj_id}&uuidOption={uuid_option}"
+    import_pipeline_api_url = urljoin(base, path)
+
+    api_call_headers = {'token': token}
+
+    files = {
+        'file': (file_path, open(file_path, 'rb'))
+    }
+
+    import_pipeline_api_call_response = requests.post(import_pipeline_api_url, headers=api_call_headers, files=files, verify=False)
+
+    if import_pipeline_api_call_response.status_code == 200:
+        pipeline_id = import_pipeline_api_call_response.text.strip()
+        print(f"Pipeline with ID: {pipeline_id} successfully created")
+
+    else:
+        if import_pipeline_api_call_response.text.find("JWT signature does not match locally computed signature") != -1 or import_pipeline_api_call_response.text.find("Access Denied") != -1:
+            print("Access Token added is not valid.")
+        else:
+            print("Error in import pipeline api: " + import_pipeline_api_call_response.text)
+
+
+if __name__ == '__main__':
+    my_parser = argparse.ArgumentParser(allow_abbrev=False)
+    my_parser.add_argument('--fire_host_url', help='Host URL is required', type=str, required=True)
+    my_parser.add_argument('--access_token', help='Access Token is required', type=str, required=True)
+    my_parser.add_argument('--pipeline_json_path', help='Pipeline json path is required', type=str, required=True)
+    my_parser.add_argument('--project_id', help='Project ID is required', type=str, required=True)
+    my_parser.add_argument('--uuid_option', help='UUID option (createNewUUID or createNewUUIDIfExist)', type=str, default='createNewUUID')
+    args = my_parser.parse_args()
+
+    fire_host_url = args.fire_host_url
+    access_token = args.access_token
+    pipeline_json_path = args.pipeline_json_path
+    project_id = args.project_id
+    uuid_option = args.uuid_option
+
+    print("fire_host_url: " + fire_host_url)
+    print("access_token: " + access_token)
+    print("pipeline_json_path: " + pipeline_json_path)
+    print("project_id: " + project_id)
+    print("uuid_option: " + uuid_option)
+
+    try:
+        import_pipeline(access_token, fire_host_url, pipeline_json_path, project_id, uuid_option)
+    except Exception as e:
+        if str(e).find("Connection refused") != -1 or str(e).lower().find("connection") != -1:
+            print("Host Url is not valid. Please recheck and add proper host url.")
+        else:
+            print(str(e))

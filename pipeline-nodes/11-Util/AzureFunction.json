@@ -1,0 +1,16 @@
+{
+  "id": "7",
+  "name": "InvokeAzureFunctions",
+  "description": "This node invoke azure functions",
+  "type": "InvokeAzureFunctions",
+  "nodeClass": "fire.nodes.util.InvokeAzureFunctions",
+  "fields": [
+    {"name": "Name", "value":"", "required":true, "widget": "textfield", "title": "Task Name", "description": "Unique name of the task in Airflow DAG"},
+    {"name": "functionUrl", "value":"", "required":true, "widget": "textfield", "title": "Function URL", "description": "Add azure function url to be get triggered" },
+    {"name": "methodType", "value":"", "required":true,"widget": "array", "optionsArray": ["GET","POST"], "title": "Method Type", "description": "Method Type" },
+    {"name": "queryParams", "value":"[]", "wdgtCommon":"methodType", "toggle":"GET", "widget": "variablesList", "optionsArray": ["Key","Value"], "title": "Query Params", "description": "key: Param Key,Value: Param Value" },
+    {"name": "payload", "value":"[]", "wdgtCommon":"methodType", "toggle":"POST", "widget": "variablesList", "optionsArray": ["Key","Value"], "title": "Payload", "description": "key: Payload Key,Value: Payload Value" },
+    {"name": "AzureConnectionId", "value":"", "required":true, "widget": "connections", "title": "Azure Connection", "description": "Azure Connection" },
+    {"name": "trigger_rule", "value":"all_success", "required":true, "widget": "array", "optionsArray": ["all_success","all_failed","all_done","all_skipped","one_failed","one_success","none_failed","none_failed_min_one_success","none_skipped","always"], "title": "Trigger Rule", "description": "Trigger Rule to be used" }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": "6",
+  "name": "Trigger Next Pipeline",
+  "description": "This node triggers the next pipeline to run.",
+  "type": "TriggerNextPipeline",
+  "nodeClass": "fire.pipelineNodes.TriggerNextPipeline",
+  "fields" : [
+    {"name": "Select Pipeline", "value":"", "required":true, "widget": "pipeline", "title": "Select Pipeline", "description": "Select pipeline to trigger next" },
+    {"name": "trigger_rule", "value":"all_success", "required":true, "widget": "array", "optionsArray": ["all_success","always"], "title": "Trigger Rule", "description": "Trigger Rule to be used" }
+  ]
+}

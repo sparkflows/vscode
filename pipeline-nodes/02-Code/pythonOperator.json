@@ -1,0 +1,14 @@
+{
+  "id": "7",
+  "name": "Python Operator",
+  "description": "This node executes Python code using the Python operator",
+  "type": "python",
+  "nodeClass": "fire.pipelineNodes.code",
+  "fields" : [
+	{"name": "python", "required":true, "widget": "shellcommand", "title": "Python", "description": "Write Python Code here"},
+        {"name": "Name", "value":"", "required":true, "widget": "textfield", "title": "Task Name", "description": "Unique name of the task in Airflow DAG"},
+        {"name": "python_callable", "value":"", "required":true, "widget": "textfield", "title": "Python Callable", "description": "Input name of user defined function name in the Python code." },
+	{"name": "trigger_rule", "value":"all_success", "required":true, "widget": "array", "optionsArray": ["all_success","all_failed","all_done","all_skipped","one_failed","one_success","none_failed","none_failed_min_one_success","none_skipped","always"], "title": "Trigger Rule", "description": "Trigger Rule to be used" },
+	{"name": "arguments", "value":"[]",  "widget": "variablesList", "optionsArray": ["Key","Value"], "title": "Arguments", "description": "List of Arguments to be passed to the user defined function" }
+  ]
+}
