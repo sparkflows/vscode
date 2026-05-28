@@ -25,7 +25,8 @@ def main():
         if response.status_code != 200:
             print(f"Error: HTTP {response.status_code} - {json.dumps(data, indent=2)}")
             sys.exit(1)
-        print(f"Execution Result: {data['description']}")
+        description = data['description'] or "success"
+        print(f"Execution Result: {description}")
     except Exception as e:
         print(f"Error: {str(e)}")
         sys.exit(1)
