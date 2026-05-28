@@ -1,9 +1,7 @@
-# Infer Schema Skill
-
-## Overview
-
-This skill infers the schema for nodes in a workflow JSON file by invoking `inferSchema.py`. It is **always called after** a Create Workflow or Update Workflow skill completes (i.e., once the workflow JSON has been generated or updated). It is never called in isolation — it is the final step of any create or update workflow operation.
-
+---
+name: workflow-infer-schema
+description: 
+  This skill infers the schema for nodes in a workflow JSON file by invoking `inferSchema.py`. It is **always called after** a Create Workflow or Update Workflow skill completes (i.e., once the workflow JSON has been generated or updated). It is never called in isolation — it is the final step of any create or update workflow operation.
 ---
 
 ## When to Trigger This Skill
